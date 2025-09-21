@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "image": "https://rantechnology.in/skydecor/1.png",
+    "content": "Great design doesn’t call attention to itself. It calls attention to what it enables—flow, focus, and forward motion.",
+    "customerName": "Gaurav Virmani",
+    "title": "Architect"
+  },
+  {
+    "id": "2",
+    "image": "https://rantechnology.in/skydecor/2.png",
+    "content": "Architecture is about crafting meaningful experiences through form and function—less about aesthetic ego, and more about human-centered design. The real beauty lies in creating spaces that quietly serve, inspire, and belong to those who use them.",
+    "customerName": "Anil Sharma",
+    "title": "Architect"
+  },
+  {
+    "id": "3",
+    "image": "https://rantechnology.in/skydecor/3.png",
+    "content": "Architecture is the art of giving form to function, beauty to necessity, and voice to material.",
+    "customerName": "Rahul Tyagi",
+    "title": "Architect"
+  },
+  {
+    "id": "4",
+    "image": "https://rantechnology.in/skydecor/4.png",
+    "content": "A great building speaks not of the year it was born, but of the centuries it will endure.",
+    "customerName": "Vivek Puri",
+    "title": "Architect"
+  },
+  {
+    "id": "5",
+    "image": "https://rantechnology.in/skydecor/5.png",
+    "content": "Lines define boundaries Yet they are boundless Magic is not created yet it happens.",
+    "customerName": "Matisha Kothari",
+    "title": "Architect"
+  },
+  {
+    "id": "6",
+    "image": "https://rantechnology.in/skydecor/6.png",
+    "content": "Your space. Your story. My lines.",
+    "customerName": "Ar. Sandeep Yeola",
+    "title": "Architect"
+  },
+  {
+    "id": "7",
+    "image": "https://rantechnology.in/skydecor/7.png",
+    "content": "Architecture becomes timeless when it is unannounced, and allows Mother Nature to take over, visually and experientially!",
+    "customerName": "Aditya Goswami",
+    "title": "Architect"
+  },
+  {
+    "id": "8",
+    "image": "https://rantechnology.in/skydecor/8.png",
+    "content": "Architecture design is an attempt to elevate humane by creating human friendly spaces, respecting nature at the same time.",
+    "customerName": "Anil Bansal",
+    "title": "Architect"
+  }
+]

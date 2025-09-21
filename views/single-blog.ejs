@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Skydecor - Premium Quality Laminates Design Collections</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+
+    <%- include("partials/header") %>
+
+
+
+        <div class="Blog-area pt-100 pb-100">
+            <div class="container">
+                <div class="row flex-row-reverse">
+
+                    <div class="col-lg-9">
+                        <div class="blog-details-wrapper ml-20">
+                            <div class="blog-details-top">
+
+                                <!-- Blog Image -->
+                                <div class="blog-img-slide owl-carousel nav-style-4">
+                                    <img src="<%= blog.image %>" alt="<%= blog.title %>">
+                                </div>
+
+                                <!-- Blog Content -->
+                                <div class="blog-details-content">
+                                    <div class="blog-meta-2">
+                                        <ul>
+                                            <li>
+                                                <%= blog.created_at ? new Date(blog.created_at).toDateString() : '' %>
+                                            </li>
+                                            <li><a href="#">By <%= blog.author || "Admin" %></a></li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>
+                                        <%= blog.title %>
+                                    </h3>
+
+                                    <!-- Render blog HTML content safely -->
+                                    <div class="blog-body">
+                                        <%- blog.text %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tags (if available) -->
+                            <% if (blog.meta_tags) { %>
+                                <div class="tag-share">
+                                    <div class="dec-tag">
+                                        <ul>
+                                            <% blog.meta_tags.split(",").forEach(function(tag) { %>
+                                                <li><a href="#">
+                                                        <%= tag.trim() %>
+                                                    </a></li>
+                                                <% }) %>
+                                        </ul>
+                                    </div>
+                                    <div class="blog-share">
+                                        <span>share :</span>
+                                        <div class="share-social">
+                                            <ul>
+                                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+
+                                    <!-- Next/Previous (optional placeholders for now) -->
+                                    <!-- <div class="next-previous-post">
+                                        <a href="#"><i class="fa fa-angle-left"></i> prev post</a>
+                                        <a href="#">next post <i class="fa fa-angle-right"></i></a>
+                                    </div> -->
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3">
+                        <div class="sidebar-style">
+                            <div class="sidebar-widget">
+                                <h4 class="pro-sidebar-title">Recent Blogs </h4>
+
+
+                                <div class="sidebar-project-wrap mt-30">
+                                    <% if (recentBlogs && recentBlogs.length> 0) { %>
+                                        <% recentBlogs.forEach(function(rBlog) { %>
+                                            <div class="single-sidebar-blog">
+                                                <div class="sidebar-blog-img">
+                                                    <a href="/blogs/<%= rBlog.url %>">
+                                                        <img src="<%= rBlog.image || '/assets/img/blog/default.jpg' %>"
+                                                            alt="<%= rBlog.title %>">
+                                                    </a>
+                                                </div>
+                                                <div class="sidebar-blog-content">
+                                                    <h4>
+                                                        <a href="/blogs/<%= rBlog.url %>">
+                                                            <%= rBlog.title %>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <% }) %>
+                                                <% } else { %>
+                                                    <p>No recent blogs found.</p>
+                                                    <% } %>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <%- include("partials/footer") %>
+
+
+            <!-- All JS is  ============================================ -->
+
+            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+            <script src="/js/vendor/popper.min.js"></script>
+            <script src="/js/vendor/bootstrap.min.js"></script>
+            <script src="/js/plugins.js"></script>
+            <!-- Ajax Mail -->
+            <script src="/js/ajax-mail.js"></script>
+            <!-- Main JS -->
+            <script src="/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Skydecor - Premium Quality Laminates Design Collections</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+    <!-- CSS ======= -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include("partials/header") %>
+
+         <div class="breadcrumb-area pt-35 pb-35 bg-gray-3"
+            style="background-image: url(/images/banner/contact-us.jpg);">
+            <div class="container">
+            </div>
+        </div>
+
+
+        <section class="rooms1 bg-dark-gery" data-scroll-index="1" style="padding: 70px 0px;">
+            <div class="container">
+
+                <!-- Section Heading -->
+                <div class="row text-center">
+                    <div class="welcome-content text-center">
+                        <h1 class="text-white fw-light" style="text-transform: uppercase;">
+                            CUSTOMERS REVIEWS
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- Reviews Grid -->
+                <div class="row mt-4" id="video-container">
+                    <% for (let num=1; num <=34; num++) { %>
+                        <div class="col-md-3 col-lg-3  video-item" style="<%= num > 8 ? 'display:none;' : '' %>">
+                            <div class="item">
+                                <div class="position-re o-hidden">
+                                    <video muted controls controlsList="nodownload" style="width: 100%;">
+                                        <source src="https://rantechnology.in/skydecor/video/<%= num %>.mp4"
+                                            type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <button id="loadMoreBtn" class="btn btn-outline-light fw-light" style="padding: 10px 30px;">
+                            Load More Reviews
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+        <%- include("partials/footer") %>
+
+            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+            <script src="/js/vendor/popper.min.js"></script>
+            <script src="/js/vendor/bootstrap.min.js"></script>
+            <script src="/js/plugins.js"></script>
+            <!-- Ajax Mail -->
+            <script src="/js/ajax-mail.js"></script>
+            <!-- Main JS -->
+            <script src="/js/main.js"></script>
+
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let currentVisible = 8; // initially visible videos
+                    const total = 35;
+                    const step = 4;
+
+                    const items = document.querySelectorAll(".video-item");
+                    const btn = document.getElementById("loadMoreBtn");
+
+                    btn.addEventListener("click", function () {
+                        let nextVisible = currentVisible + step;
+
+                        for (let i = currentVisible; i < nextVisible && i < total; i++) {
+                            items[i].style.display = "block";
+                        }
+
+                        currentVisible = nextVisible;
+
+                        // Hide button when all videos are shown
+                        if (currentVisible >= total) {
+                            btn.style.display = "none";
+                        }
+                    });
+                });
+            </script>
+
+</body>
+</html>

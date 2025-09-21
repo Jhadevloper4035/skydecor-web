@@ -1,0 +1,572 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Skydecor </title>
+        <meta name="description" content>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS ============================================ -->
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <!-- Icon Font CSS -->
+        <link rel="stylesheet" href="/css/icons.min.css">
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="/css/plugins.css">
+        <!-- Main Style CSS -->
+        <link rel="stylesheet" href="/css/style.css">
+
+        <style>
+        .dec-img-wrap img {
+            width: 100%;
+            height: 500px;
+            width: 300px;
+        }
+
+        .dec-img-wrap {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .blog-share span {
+            color: #333;
+            display: inline-block;
+            font-size: 15px;
+            margin-right: 12px;
+            margin-top: 3px;
+            text-transform: capitalize;
+        }
+
+        .blog-share .share-social {
+            display: inline-block;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .blog-share .share-social {
+                margin-top: 4px;
+            }
+        }
+
+        .blog-share .share-social ul li {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .blog-share .share-social ul li:last-child {
+            margin-right: 0;
+        }
+
+        .blog-share .share-social ul li a {
+            border-radius: 50px;
+            color: #fff;
+            display: inline-block;
+            font-size: 14px;
+            height: 30px;
+            line-height: 28px;
+            text-align: center;
+            width: 30px;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .blog-share .share-social ul li a {
+                font-size: 12px;
+                height: 25px;
+                line-height: 23px;
+                width: 25px;
+            }
+        }
+
+        .blog-share .share-social ul li a.facebook {
+            background-color: #3b5998;
+            border: 1px solid #3b5998;
+        }
+
+        .blog-share .share-social ul li a.facebook:hover {
+            background-color: transparent;
+            color: #3b5998;
+        }
+
+        .blog-share .share-social ul li a.twitter {
+            background-color: #55acee;
+            border: 1px solid #55acee;
+        }
+
+        .blog-share .share-social ul li a.twitter:hover {
+            background-color: transparent;
+            color: #55acee;
+        }
+
+        .blog-share .share-social ul li a.instagram {
+            background-color: #c32aa3;
+            border: 1px solid #c32aa3;
+        }
+
+        .blog-share .share-social ul li a.instagram:hover {
+            background-color: transparent;
+            color: #c32aa3;
+        }
+
+        .blog-wrap-2:hover .blog-img-2 img {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .product-details-content .pro-details-meta span {
+            text-transform: uppercase;
+        }
+
+
+        .pro-details-meta {
+            border-bottom: 1px solid #333;
+            padding: 5px 0px;
+
+        }
+
+
+        .pro-details-meta span {
+            width: 60%;
+
+        }
+
+        .pro-details-meta ul {
+            width: 40%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+
+        .product-details-content h2 {
+        line-height: 1.6;
+        text-transform: uppercase;
+}
+
+
+.dec-img-wrap img {
+    width: 100%;
+    height: 560px;
+    width: 300px;
+}
+
+
+.product-details-content .pro-details-quality .pro-details-cart a {
+
+    display: flex;
+}
+
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <%- include("partials/header") %>
+
+        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="active">Shop Details </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="shop-area pt-100 pb-100">
+            <div class="container">
+                <div class="row">
+                    <!-- Product Image -->
+                    <div class="col-lg-5 col-md-5">
+                        <div class="product-details dec-img-wrap">
+                            <img src="<%= product.image %>"
+                                alt="<%= product.productName %>">
+                        </div>
+                    </div>
+
+                    <!-- Product Content -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="product-details-content ml-70">
+                            <h2 class="mb-4">
+                                <%= product.productType %>-<%=
+                                product.productName %>-<%= product.category
+                                %>-<%=
+                                product.texture %>
+                            </h2>
+
+                            <!-- Product Info -->
+                            <div class="pro-details-meta">
+                                <span>Product Code :</span>
+                                <ul>
+                                    <li>
+                                        <%= product.productCode %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pro-details-meta">
+                                <span>Product Type :</span>
+                                <ul>
+                                    <li>
+                                        <%= product.productType %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pro-details-meta">
+                                <span>Category :</span>
+                                <ul>
+                                    <li>
+                                        <%= product.category %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pro-details-meta">
+                                <span>SubCategory :</span>
+                                <ul>
+                                    <li>
+                                        <%= product.subCategory %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pro-details-meta">
+                                <span>Texture :</span>
+                                <ul>
+                                    <li>
+                                        <%= product.texture %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pro-details-meta">
+                                <span>Deisgn :</span>
+                                <ul>
+                                    <li>
+                                        <%= product.designName %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pro-details-meta">
+                                <span>Size :</span>
+                                <ul>
+                                    <li>
+                                        <%= product.size %> mm
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pro-details-meta">
+                                <span>Thickness :</span>
+                                <ul>
+                                    <li>
+                                        <%= product.thickness %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pro-details-meta">
+                                <span>Width :</span>
+                                <ul>
+                                    <li>
+                                        <%= product.width %>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Cart / Action -->
+                            <div class="pro-details-quality mt-4 "
+                                style="margin-left: -10px;">
+                                <div class="pro-details-cart btn-hover">
+                                    <a
+                                        href="/api/product/download/<%= product.productCode %>"> 
+                                        Download
+                                        Product
+                                        Detail</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div class="description-review-area pb-90">
+            <div class="container">
+                <div class="description-review-wrapper">
+                    <div class="description-review-topbar nav">
+                        <a data-bs-toggle="tab" href="#des-details1">Additional information</a>
+                        <a class="active" data-bs-toggle="tab" href="#des-details2">Description</a>
+                        <a data-bs-toggle="tab" href="#des-details3">Reviews (2)</a>
+                    </div>
+                    <div class="tab-content description-review-bottom">
+                        <div id="des-details2" class="tab-pane active">
+                            <div class="product-description-wrapper">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt</p>
+                                <p>ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip ex ea commo consequat. Duis aute irure dolor in
+                                    reprehend in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt </p>
+                            </div>
+                        </div>
+                        <div id="des-details1" class="tab-pane ">
+                            <div class="product-anotherinfo-wrapper">
+                                <ul>
+                                    <li><span>Weight</span> 400 g</li>
+                                    <li><span>Dimensions</span>10 x 10 x 15 cm </li>
+                                    <li><span>Materials</span> 60% cotton, 40% polyester</li>
+                                    <li><span>Other Info</span> American heirloom jean shorts pug seitan letterpress
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="des-details3" class="tab-pane">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="review-wrapper">
+                                        <div class="single-review">
+                                            <div class="review-img">
+                                                <img src="assets/img/testimonial/1.jpg" alt="">
+                                            </div>
+                                            <div class="review-content">
+                                                <div class="review-top-wrap">
+                                                    <div class="review-left">
+                                                        <div class="review-name">
+                                                            <h4>White Lewis</h4>
+                                                        </div>
+                                                        <div class="review-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-left">
+                                                        <a href="#">Reply</a>
+                                                    </div>
+                                                </div>
+                                                <div class="review-bottom">
+                                                    <p>Vestibulum ante ipsum primis aucibus orci luctustrices posuere
+                                                        cubilia Curae Suspendisse viverra ed viverra. Mauris ullarper
+                                                        euismod vehicula. Phasellus quam nisi, congue id nulla.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-review child-review">
+                                            <div class="review-img">
+                                                <img src="assets/img/testimonial/2.jpg" alt="">
+                                            </div>
+                                            <div class="review-content">
+                                                <div class="review-top-wrap">
+                                                    <div class="review-left">
+                                                        <div class="review-name">
+                                                            <h4>White Lewis</h4>
+                                                        </div>
+                                                        <div class="review-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-left">
+                                                        <a href="#">Reply</a>
+                                                    </div>
+                                                </div>
+                                                <div class="review-bottom">
+                                                    <p>Vestibulum ante ipsum primis aucibus orci luctustrices posuere
+                                                        cubilia Curae Sus pen disse viverra ed viverra. Mauris ullarper
+                                                        euismod vehicula. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="ratting-form-wrapper pl-50">
+                                        <h3>Add a Review</h3>
+                                        <div class="ratting-form">
+                                            <form action="#">
+                                                <div class="star-box">
+                                                    <span>Your rating:</span>
+                                                    <div class="ratting-star">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="rating-form-style mb-10">
+                                                            <input placeholder="Name" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="rating-form-style mb-10">
+                                                            <input placeholder="Email" type="email">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="rating-form-style form-submit">
+                                                            <textarea name="Your Review"
+                                                                placeholder="Message"></textarea>
+                                                            <input type="submit" value="Submit">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="related-product-area pb-95">
+            <div class="container">
+                <div class="section-title text-center mb-50">
+                    <h2>Related products</h2>
+                </div>
+                <div class="related-product-active owl-carousel owl-dot-none">
+
+                    <% if (relatedProducts && relatedProducts.length> 0) { %>
+                    <% relatedProducts.forEach(rp=> { %>
+                    <div class="product-wrap">
+                        <div class="product-img">
+                            <a href="/product/<%= rp.productCode %>">
+                                <img class="default-img" src="<%= rp.image %>"
+                                    alt="<%= rp.productName %>">
+                                <img class="hover-img" src="<%= rp.image %>"
+                                    alt="<%= rp.productName %>">
+                            </a>
+                            <div class="product-action">
+                                <div class="pro-same-action pro-wishlist">
+                                    <a title="Wishlist"
+                                        href="/api/product/download/<%= rp.productCode %>"><i
+                                            class="pe-7s-download"></i> </a>
+                                </div>
+                                <div class="pro-same-action pro-cart">
+                                    <a
+                                        title="`<%= rp.productType %>-<%= rp.productName %>-<%= rp.category %>-<%=
+                                                rp.texture %>`"
+                                        href="/api/product/detail/<%= rp.productCode %>">
+                                        View
+                                        product</a>
+                                </div>
+                                <div class="pro-same-action pro-quickview">
+                                    <a title="Quick View" href="#"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"
+                                        data-productType="<%= rp.productType %>"
+                                        data-name="<%= rp.productName %>"
+                                        data-image="<%= rp.image %>"
+                                        data-category="<%= rp.category %>"
+                                        data-subcategory="<%= rp.subCategory %>"
+                                        data-texture="<%= rp.texture %>"
+                                        data-design="<%= rp.designName %>"
+                                        data-size="<%= rp.size %>"
+                                        data-thickness="<%= rp.thickness %>"
+                                        data-width="<%= rp.width %>">
+                                        <i class="pe-7s-look"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content text-center">
+                            <h3><a href="/product/<%= rp.productCode %>">
+                                    <%= rp.productType %>-<%= rp.productName
+                                    %>-<%= rp.category %>-<%=
+                                    rp.texture %>
+                                </a></h3>
+                        </div>
+                    </div>
+                    <% }) %>
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+
+        <%- include("partials/footer") %>
+
+
+
+
+        
+      <%- include("partials/product-modal") %>
+
+        
+        <!-- All JS is here
+============================================ -->
+
+        <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+        <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+        <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+        <script src="/js/vendor/popper.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/plugins.js"></script>
+        <!-- Ajax Mail -->
+        <script src="/js/ajax-mail.js"></script>
+        <!-- Main JS -->
+        <script src="/js/main.js"></script>
+
+        <script>
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    const exampleModal = document.getElementById("exampleModal");
+                    exampleModal.addEventListener("show.bs.modal", function (event) {
+                        const button = event.relatedTarget;
+
+                        // Extract product info from data-* attributes
+                        const producttype = button.getAttribute("data-productType");
+                        const name = button.getAttribute("data-name");  
+                        const image = button.getAttribute("data-image");
+                        const category = button.getAttribute("data-category");
+                        const subCategory = button.getAttribute("data-subcategory");
+                        const texture = button.getAttribute("data-texture");
+                        const design = button.getAttribute("data-design");
+                        const size = button.getAttribute("data-size");
+                        const thickness = button.getAttribute("data-thickness");
+                        const width = button.getAttribute("data-width");
+
+                        // Update modal content
+                        document.getElementById(
+                            "modalProductTitle"
+                        ).innerHTML = `<h2> ${producttype} ${name} ${category} ${texture} </h2>`;
+                        document.getElementById("modalProductImage").src = image;
+                        document.getElementById("modalCategory").textContent = category;
+                        document.getElementById("modalSubCategory").textContent = subCategory;
+                        document.getElementById("modalTexture").textContent = texture;
+                        document.getElementById("modalDesign").textContent = design;
+                        document.getElementById("modalSize").textContent = size;
+                        document.getElementById("modalThickness").textContent = design;
+                        document.getElementById("modalWidth").textContent = width;
+                    });
+                });
+
+
+            </script>
+
+    </body>
+</html>

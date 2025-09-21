@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Skydecor - Premium Quality Laminates Design Collections</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+    <%- include("partials/header") %>
+
+
+        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/blog.jpg);">
+            <div class="container">
+            </div>
+        </div>
+
+        <div class="Blog-area pt-100 pb-100 blog-no-sidebar">
+            <div class="container">
+
+                <!-- Section Heading -->
+                <div class="row text-center">
+                    <div class="welcome-content text-center">
+                        <h1 class="fw-light" style="text-transform: uppercase;">
+                            The SkyDecor Journal
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <%- include('partials/blog-card', { blogs: blogs }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <%- include("partials/footer") %>
+
+            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+            <script src="/js/vendor/popper.min.js"></script>
+            <script src="/js/vendor/bootstrap.min.js"></script>
+            <script src="/js/plugins.js"></script>
+            <!-- Ajax Mail -->
+            <script src="/js/ajax-mail.js"></script>
+            <!-- Main JS -->
+            <script src="/js/main.js"></script>
+
+</body>
+</html>

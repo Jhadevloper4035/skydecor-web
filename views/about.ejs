@@ -1,0 +1,574 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>RAN Technology - Digital Marketing Agency</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS ============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+
+    <style>
+        .facilties .single-facility {
+            background: rgba(144, 215, 237, .141);
+            border-radius: 30px;
+        }
+
+
+        .facilties .single-facility {
+            align-items: center;
+            background: #f6f3f3;
+            border: 1px solid #f1eeeb;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            position: relative;
+            transition: .5s;
+            z-index: 1;
+        }
+
+
+        .facilties .single-facility img {
+            background-color: #fff;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+
+        .facilties .single-facility .h5,
+        .facilties .single-facility h5 {
+            color: #222;
+            font-size: 17px;
+            margin-bottom: 10px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+
+        /* ======= Services style ======= */
+        .services .img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services .img:hover img {
+            -webkit-filter: none;
+            filter: none;
+            -webkit-transform: scale(1.09, 1.09);
+            transform: scale(1.09, 1.09);
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+
+        .services .img img {
+            -webkit-transition: all .5s;
+            transition: all .5s;
+        }
+
+        .services .content {
+            width: 100%;
+            padding: 30px;
+        }
+
+        .services .content .date {
+            display: table-cell;
+            position: relative;
+            width: 80px;
+            z-index: 2;
+        }
+
+        .services .content .date h3 {
+            font-size: 65px;
+            font-weight: 500;
+            color: #f47f26;
+            margin-bottom: 0px;
+        }
+
+        .services .content .date h6 {
+            color: #666;
+            letter-spacing: 2px;
+            font-size: 10px;
+            font-family: 'Barlow', sans-serif;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .services .content .cont {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .services .content .cont h4 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            color: #222;
+            font-weight: 400;
+            line-height: 1.5em;
+        }
+
+        .services .content .cont .more {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #f47f26;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .services .content .cont .more:after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: #f47f26;
+            position: absolute;
+            top: 50%;
+            left: 0px;
+        }
+
+        .services .content .cont .more:hover {
+            color: #222;
+        }
+
+        .services .content .info h6 {
+            font-size: 15px;
+            letter-spacing: 3px;
+            color: #666;
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .services .content .info .tags {
+            color: #f47f26;
+        }
+
+        @media screen and (max-width: 991px) {
+            .services .content .cont h4 {
+                line-height: 1.25em;
+            }
+
+            .order2 {
+                -webkit-box-ordinal-group: 3 !important;
+                -ms-flex-order: 2 !important;
+                order: 2 !important;
+            }
+
+            .order1 {
+                -webkit-box-ordinal-group: 2 !important;
+                -ms-flex-order: 1 !important;
+                order: 1 !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .speech-box1 {
+                position: relative;
+                width: 100%;
+                margin-left: 0%;
+            }
+
+            .speech {
+                position: relative;
+                padding-bottom: 0px;
+                background: #f8f5f0;
+            }
+
+            .services .content .date {
+                width: 60px;
+            }
+
+            .services .content .info .tags {
+                margin: 5px 0 0;
+            }
+
+            .services .content .date h3 {
+                font-size: 40px;
+            }
+        }
+
+        .services .img img {
+            -webkit-transition: all .5s;
+            transition: all .5s;
+            height: 100%;
+            width: 100%;
+        }
+
+        .object-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .services .content .cont {
+
+            padding: 0px 40px;
+            text-align: justify;
+        }
+    </style>
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <%- include("partials/header") %>
+
+
+
+       <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/about.jpg);">
+            <div class="container">
+            </div>
+        </div>
+
+
+        <div class="welcome-area pt-100 ">
+            <div class="container">
+                <div class="welcome-content text-center">
+                    <h5>About Us</h5>
+                    <h1>Welcome To Skydecor</h1>
+                    <p>Skydecor embarked on its journey in 2016 with a vision to push beyond limits and redefine
+                        excellence. With a vast infrastructure spanning over 5 million sheets annual production and
+                        state-of-the-art machinery, we are committed to continuous growth and innovation. Our
+                        manufacturing facilities in Greater Noida and Hapur specialize in producing PVC Laminates,
+                        Acrylic Laminates, Decorative Laminates and Soffitto Panels. Our operational headquarters is
+                        located in Noida, while our Experience Centres in Kirti Nagar & Noida offers a firsthand
+                        showcase of our premium products</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <section class="services pt-100 ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="img left">
+                            <img src="/images/about/core-value.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 p-0 valign animate-box object-center " data-animate-effect="fadeInRight">
+                        <div class="content">
+                            <div class="cont text-left">
+                                <h4>VISION</h4>
+                                <p> At Skydecor Laminates, we envision becoming a name synonymous with beauty,
+                                    innovation, and trust in every home and space we touch. Our goal is to be recognized
+                                    not just as a laminate brand, but as a style partner that transforms interiors with
+                                    elegance and excellence. We strive to bring globally inspired designs and
+                                    world-class quality that enrich lifestyles and elevate living experiences. </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6 p-0 order2 valign animate-box object-center " data-animate-effect="fadeInLeft">
+                        <div class="content">
+                            <div class="cont text-left">
+                                <h4>MISSION</h4>
+                                <p> Our mission is to achieve global competitiveness and industry leadership by blending
+                                    international standards with deeply rooted Indian ethics. We are committed to
+                                    crafting solutions that offer a perfect balance of style, durability, and
+                                    sustainability. By continuously innovating and embracing responsible manufacturing .
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="img left">
+                            <img src="/images/about/mission.jpg" alt="">
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="img left">
+                            <img src="/images/about/vision.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 p-0 valign animate-box object-center " data-animate-effect="fadeInRight">
+                        <div class="content">
+                            <div class="cont text-left">
+                                <h4>CORE VALUES</h4>
+                                <p> Skydecor is committed to sustainability, responsibility, and design excellence. We
+                                    use eco-friendly materials and adopt sustainable practices to minimize environmental
+                                    impact. Our products are crafted to be visually appealing, safe, and environmentally
+                                    conscious. Integrity, customer satisfaction, and continuous improvement guide our
+                                    work and define our identity. </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <div class="welcome-area pt-100 pb-0 ">
+            <div class="container">
+                <div class="welcome-content text-center">
+                    <h5>About Us</h5>
+                    <h1 style="text-transform:uppercase">Skydecor Journey</h1>
+                </div>
+            </div>
+        </div>
+        <div class="banner-header-timline  valign bg-img bg-fixed">
+            <div class="container">
+            </div>
+        </div>
+        </div>
+
+
+
+        <section class="facilties pt-100 pb-100 ">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="welcome-content text-center pb-60">
+                        <h1 style="text-transform:uppercase">Why Choose Us?</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 scroll-zoom ">
+                        <div class="single-facility animate-box" data-animate-effect="fadeInUp">
+                            <img src="/images/icon/1.png" alt="" />
+                            <h5>Flame Retardant Test</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 scroll-zoom">
+                        <div class="single-facility animate-box" data-animate-effect="fadeInUp">
+                            <img src="/images/icon/2.png" alt="" />
+                            <h5>Lead Free Test</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 scroll-zoom">
+                        <div class="single-facility animate-box" data-animate-effect="fadeInUp">
+                            <img src="/images/icon/3.png" alt="" />
+                            <h5>Quality Control Test</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 scroll-zoom">
+                        <div class="single-facility animate-box" data-animate-effect="fadeInUp">
+                            <img src="/images/icon/4.png" alt="" />
+                            <h5>Abrasion Resistant Test</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 scroll-zoom">
+                        <div class="single-facility animate-box" data-animate-effect="fadeInUp">
+                            <img src="/images/icon/5.png" alt="" />
+                            <h5>Anti Bacterial Test</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 scroll-zoom">
+                        <div class="single-facility animate-box" data-animate-effect="fadeInUp">
+                            <img src="/images/icon/6.png" alt="" />
+                            <h5>International Quality Standards</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="funfact-area bg-gray-3">
+            <div class="container">
+
+                <!-- Section Heading -->
+                <div class="row text-center mb-4">
+                    <div class="welcome-content text-center">
+                        <h1 class="fw-light text-white " style="text-transform: uppercase;">
+                            How We Earned Trust
+                        </h1>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-count text-center mb-30">
+                            <div class="count-icon">
+                                <i class="pe-7s-portfolio"></i>
+                            </div>
+                            <h2 class="count">22,564</h2>
+                            <span>Dealers</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-count text-center mb-30">
+                            <div class="count-icon">
+                                <i class="pe-7s-cup"></i>
+                            </div>
+                            <h2 class="count">120</h2>
+                            <span>Distributors</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-count text-center mb-30">
+                            <div class="count-icon">
+                                <i class="pe-7s-light"></i>
+                            </div>
+                            <h2 class="count">27,596</h2>
+                            <span>Carpenters</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-count text-center mb-30 mrgn-none">
+                            <div class="count-icon">
+                                <i class="pe-7s-smile"></i>
+                            </div>
+                            <h2 class="count">12,379</h2>
+                            <span>Architects </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="team-area pt-95 pb-70">
+            <div class="container">
+
+                <!-- Section Heading -->
+                <div class="row text-center">
+                    <div class="welcome-content text-center">
+                        <h1 class="fw-light" style="text-transform: uppercase;">
+                            Our Management
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 offset-lg-2  col-md-6 col-sm-6">
+                        <div class="team-wrapper mb-30">
+                            <div class="team-img">
+                                <a href="#">
+                                    <img src="/images/director/team-1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="team-content text-center">
+                                <h4>Mr Utsav Garg </h4>
+                                <span>Managing Director </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="team-wrapper mb-30">
+                            <div class="team-img">
+                                <a href="#">
+                                    <img src="/images/director/team-2.jpg" alt="">
+                                </a>
+
+                            </div>
+                            <div class="team-content text-center">
+                                <h4>Mr Manoj Bansal</h4>
+                                <span>Managing Director </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <%- include("partials/footer") %>
+
+
+
+
+            <!-- All JS is here  ============================================ -->
+
+            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+            <script src="/js/vendor/popper.min.js"></script>
+            <script src="/js/vendor/bootstrap.min.js"></script>
+            <script src="/js/plugins.js"></script>
+            <script src="/js/ajax-mail.js"></script>
+            <script src="/js/main.js"></script>
+
+
+
+
+</body>
+</html>

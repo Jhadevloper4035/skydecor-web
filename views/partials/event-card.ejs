@@ -1,0 +1,28 @@
+
+  <% events.forEach(event => { %>
+    <div class="col-lg-4 col-md-6 col-sm-12 scroll-zoom">
+      <div class="blog-wrap-2 mb-30">
+        <div class="blog-img-2">
+          <!-- Use first image of event as cover -->
+          <a href="/events/<%= event.slug %>">
+            <img src="<%= event.images[0] %>" alt="<%= event.title %>">
+          </a>
+        </div>
+        <div class="blog-content-2">
+          <div class="blog-meta-2">
+            <ul>
+              <!-- Format date: e.g., 16 Sep, 2025 -->
+              <li><%= new Date(event.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) %></li>
+            </ul>
+          </div>
+          <h4><a href="/events/<%= event.slug %>"><%= event.title %></a></h4>
+          <div class="blog-share-comment">
+            <div class="blog-btn-2">
+              <a href="/events/<%= event.slug %>">Know More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+

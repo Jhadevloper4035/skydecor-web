@@ -1,0 +1,147 @@
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            padding: 30px;
+            color: #333;
+            background: #fefefe;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 600;
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .line {
+            width: 100px;
+            height: 3px;
+            background: #c7a11a;
+            margin: 0 auto 40px auto;
+            border-radius: 2px;
+        }
+
+        .product-image {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .product-image img {
+            width: 200px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .specs-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #eee;
+        }
+
+        .specs-header {
+            background: #313131;
+            padding: 14px 20px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 20px;
+            font-size: 14px;
+        }
+
+        th {
+            background: #fafafa;
+            font-weight: 600;
+            color: #333;
+            width: 240px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            text-transform: uppercase;
+        }
+
+        td {
+            background: #fff;
+            color: #444;
+            border-bottom: 1px solid #eee;
+            text-align: right;
+        }
+
+        tr:last-child th,
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #fdf8eb;
+        }
+    </style>
+</head>
+<body>
+    <h1><%= product.designName || product.productName %></h1>
+    <div class="line"></div>
+
+    <div class="product-image">
+        <img src="<%= product.image %>" alt="Product Image" />
+    </div>
+
+    <div class="specs-container">
+        <div class="specs-header">Product Specifications</div>
+        <table>
+            <tr>
+                <th>Product Code</th>
+                <td><%= product.productCode %></td>
+            </tr>
+            <tr>
+                <th>Product Name</th>
+                <td><%= product.productName || "N/A" %></td>
+            </tr>
+            <tr>
+                <th>Design Name</th>
+                <td><%= product.designName || "N/A" %></td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td><%= product.category || "N/A" %></td>
+            </tr>
+            <tr>
+                <th>SubCategory</th>
+                <td><%= product.subCategory || "N/A" %></td>
+            </tr>
+            <tr>
+                <th>Texture</th>
+                <td><%= product.texture || "N/A" %> (<%= product.textureCode || "-" %>)</td>
+            </tr>
+            <tr>
+                <th>Size</th>
+                <td><%= product.size || "N/A" %></td>
+            </tr>
+            <tr>
+                <th>Thickness</th>
+                <td><%= product.thickness || "N/A" %></td>
+            </tr>
+            <tr>
+                <th>Width</th>
+                <td><%= product.width || "N/A" %></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
