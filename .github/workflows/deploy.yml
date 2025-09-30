@@ -1,0 +1,47 @@
+name: Node.js CI/CD
+
+on:
+  push:
+    branches:
+      - main  # or your deployment branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout repo
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18' # Change to your Node.js version
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Run tests (optional)
+    - name: Run tests
+      run: npm test
+
+    # Step 5: Build project (optional)
+    - name: Build
+      run: npm run build
+
+    # Step 6: Deploy to EC2
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@v0.1.9
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_KEY }}
+        port: 22
+        script: |
+          cd /home/ubuntu/your-app-folder
+          git pull origin main
+          npm install
+          pm2 restart all || pm2 start server.js --name your-app

@@ -21,22 +21,22 @@ ConnectDB();
 async function seedDB() {
   try {
     // Remove old data
-    //await Product.deleteMany({});
-    //console.log("🗑 Old products removed");
+    await Product.deleteMany({});
+    console.log("🗑 Old products removed");
 
-    await Event.deleteMany({})
-    console.log("🗑 Old events removed");
+    //await Event.deleteMany({})
+    //console.log("🗑 Old events removed");
 
     //await Blog.deleteMany({})
     //console.log("🗑 Old Blogs removed");
 
     // Insert new data product
-    //await Product.insertMany(products);
-    //console.log(`✅ ${products.length} products inserted successfully!`);
+    await Product.insertMany(products);
+    console.log(`✅ ${products.length} products inserted successfully!`);
 
     // Insert new Event data product
-    await Event.insertMany(events)
-    console.log(`✅ ${events.length} events inserted successfully!`);
+    //await Event.insertMany(events)
+    //console.log(`✅ ${events.length} events inserted successfully!`);
 
     //await Blog.insertMany(blogs)
     //console.log(`✅ ${blogs.length} blogs inserted successfully!`);

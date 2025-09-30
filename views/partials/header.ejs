@@ -3,7 +3,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <header class="header-area header-in-container clearfix">
-    <div class="header-top-area" style="background-color: #313131;">
+    <div class="header-top-area only-desktop" style="background-color: #313131;">
         <div class="container">
             <div class="header-top-wap">
 
@@ -22,16 +22,24 @@
                         <i class="fab fa-whatsapp"></i></a>
                 </div>
 
-                <div class="header-offer">
-                    <p class="text-white"><i class="fa-solid fa-phone"></i>&nbsp; Customer Care No. : <span
-                            class="text-white">+91 8800777731</span></p>
+                <div class="header-offer d-flex ">
+
+                    <div class="text-white  me-4">
+                        <i class="fa-solid fa-store me-2"></i>
+
+                        <a href="tel:+918800777731" class="text-white text-decoration-none">Experience Center</a>
+                    </div>
+                    <div class="text-white me-4">
+                        <i class="fa-solid fa-briefcase me-2"></i>
+                        <a href="tel:+918800777731" class="text-white text-decoration-none">Career</a>
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
     <div class="header-bottom sticky-bar header-res-padding">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-2 col-lg-2 col-md-6 col-4">
                     <div class="logo">
@@ -40,14 +48,14 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-10 col-lg-19 d-none d-lg-block">
+                <div class="col-xl-9 col-lg-9 d-none d-lg-block">
                     <div class="main-menu">
                         <nav>
                             <ul>
 
                                 <li><a href="/"> Home </a></li>
 
-                                <li><a href="/about"> About </a></li>
+                                <li><a href="/about-us"> About </a></li>
 
                                 <li class="dropdown"><a href="#" class="dropdown-toggle"> Product
                                         <i class="fa fa-angle-down"></i></a>
@@ -153,17 +161,37 @@
 
                                 </li>
 
-                                <li><a href="/events">Exhibition & Media</a></li>
+                                <li><a href="#"> Resources <i class="fa fa-angle-down"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="about.html">E-Catalogous </a></li>
+                                        <li><a href="cart-page.html">certification </a></li>
+                                        <li><a href="about.html">Technical Specification. </a></li>
+                                        <li><a href="/events">Exhibition & Media</a></li>
+                                        <li><a href="/blogs"> Blogs </a></li>
+                                    </ul>
+                                </li>
+
 
                                 <li><a href="/career"> Career </a></li>
 
-                                <li><a href="/blogs"> Blog </a></li>
-
                                 <li><a href="/experince-center"> Experience Center </a> </li>
 
-                                <li><a href="/contact-us"> Contact</a></li>
+                                <li><a href="/contact-us"> Contact Us</a></li>
                             </ul>
                         </nav>
+                    </div>
+                </div>
+                <div class="col-xl-1 col-lg-1 col-md-6 col-8 bg-grey object-center">
+                    <div class="header-right-wrap">
+                        <div class="same-style header-search">
+                            <a class="search-active" href="#"><i class="pe-7s-search"></i></a>
+                            <div class="search-content">
+                                <form action="#">
+                                    <input type="text" placeholder="Search" />
+                                    <button class="button-search"><i class="pe-7s-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -175,8 +203,7 @@
                         <ul class="menu-overflow">
 
                             <li><a href="/">Home</a></li>
-                            <li><a href="/about">About</a></li>
-
+                            <li><a href="/about-us">About</a></li>
                             <!-- Product Dropdown -->
                             <li><a href="#">Products</a>
                                 <ul>
@@ -241,17 +268,38 @@
                             <li><a href="/events">Exhibition & Media</a></li>
                             <li><a href="/career">Career</a></li>
                             <li><a href="/blogs">Blog</a></li>
-                            <li><a href="#">Experience Center</a></li>
+                            <li><a href="/experince-center">Experience Center</a></li>
                             <li><a href="/contact-us">Contact</a></li>
 
                         </ul>
                     </nav>
-
                 </div>
             </div>
         </div>
     </div>
 </header>
+
+
+<!--  loder screeen  
+
+<div id="site-loader" class="loader-overlay">
+    <svg class="ply-loader" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect class="ply" x="20" y="65" width="60" height="8" rx="2" fill="var(--primary)" />
+        <rect class="ply" x="20" y="50" width="60" height="8" rx="2" fill="var(--primary)" />
+        <rect class="ply" x="20" y="35" width="60" height="8" rx="2" fill="var(--primary)" />
+        <circle class="dot" cx="50" cy="20" r="4" fill="var(--primary)" />
+    </svg>
+</div>
+
+--->
+
+
+
+
+
+
+
+
 
 
 
@@ -396,17 +444,3 @@
         left: 10px;
     }
 </style>
-
-<!--  loder screeen  -->
-
-<div id="site-loader" class="loader-overlay">
-    <svg class="ply-loader" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Laminates -->
-        <rect class="ply" x="20" y="65" width="60" height="8" rx="2" fill="var(--primary)" />
-        <rect class="ply" x="20" y="50" width="60" height="8" rx="2" fill="var(--primary)" />
-        <rect class="ply" x="20" y="35" width="60" height="8" rx="2" fill="var(--primary)" />
-
-        <!-- Accent dot -->
-        <circle class="dot" cx="50" cy="20" r="4" fill="var(--primary)" />
-    </svg>
-</div>

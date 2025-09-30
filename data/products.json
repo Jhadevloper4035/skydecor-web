@@ -4588,7 +4588,7 @@
     "size": "4ft*8ft",
     "thickness": "1 MM",
     "width": "1220 mm",
-    "image": "https://skydecor.in/products/1mm/solid textured/SDL 10125 FSR_11zon.jpg"
+    "image": "https://skydecor.in/products/1mm/solid-textured/SDL-10125-FSR_11zon.jpg"
   },
   {
     "id": 320,
@@ -5518,7 +5518,7 @@
     "size": "4ft*8ft",
     "thickness": "1 MM",
     "width": "1220 mm",
-    "image": "https://skydecor.in/products/1mm/solid textured/SDL-10204-SSR.jpg"
+    "image": "https://skydecor.in/products/1mm/solid-textured/SDL-10204-SSR.jpg"
   },
   {
     "id": 382,
@@ -7003,7 +7003,7 @@
     "size": "4ft*8ft",
     "thickness": "1 MM",
     "width": "1220 mm",
-    "image": "https://skydecor.in/products/1mm/woodgrain-textured/SDL 30313 SKR_11zon.jpg"
+    "image": "https://skydecor.in/products/1mm/woodgrain-textured/SDL-30313-SKR_11zon.jpg"
   },
   {
     "id": 481,
@@ -7153,7 +7153,7 @@
     "size": "4ft*8ft",
     "thickness": "1 MM",
     "width": "1220 mm",
-    "image": "https://skydecor.in/products/1mm/woodgrain-textured/SSDL-30318-SKR_11zon.jpg"
+    "image": "https://skydecor.in/products/1mm/woodgrain-textured/SDL-30318-SKR_11zon.jpg"
   },
   {
     "id": 491,
@@ -7258,7 +7258,7 @@
     "size": "4ft*8ft",
     "thickness": "1 MM",
     "width": "1220 mm",
-    "image": "https://skydecor.in/products/1mm/woodgrain-textured/SD-30321-RWD_11zon.jpg"
+    "image": "https://skydecor.in/products/1mm/woodgrain-textured/SDL-30321-RWD_11zon.jpg"
   },
   {
     "id": 498,
@@ -11564,21 +11564,6 @@
     "thickness": "3mm",
     "width": "1220mm",
     "image": "https://skydecor.in/products/acrylic/sparkle/SDA-1502.jpg"
-  },
-  {
-    "id": 816,
-    "productType": "Acrylish",
-    "productCode": "SDA 1503 FGL",
-    "productName": "SDA 1503",
-    "designName": "",
-    "category": "Abstract",
-    "subCategory": "Sparkle",
-    "textureCode": "FGL",
-    "texture": "Flute Glass",
-    "size": "4ft x 8ft",
-    "thickness": "3mm",
-    "width": "1220mm",
-    "image": "https://skydecor.in/products/acrylic/sparkle/SDA-1503.jpg"
   },
   {
     "id": 817,
