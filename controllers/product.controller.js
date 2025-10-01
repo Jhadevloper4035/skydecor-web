@@ -90,8 +90,6 @@ exports.getProducts = async (req, res) => {
       );
     }
 
-    console.log(textures);
-
     // Full page load
     res.render("product", {
       title: "Shop - SkyDecor",

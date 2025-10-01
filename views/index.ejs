@@ -23,18 +23,8 @@
 
 
   <%- include("partials/header") %>
-
-
     <%- include("partials/homes/top-banner") %>
-
-
-
-
-
       <%- include("partials/homes/our-product-range.ejs") %>
-
-
-
 
 
         <div class="product-area pt-100 pb-100">
@@ -50,7 +40,7 @@
             <!-- Tabs -->
             <div class="product-tab-list nav pt-30 pb-55 text-center">
 
-              <a href="#product-1" data-bs-toggle="tab">
+              <a href="#product-1"  class="active" data-bs-toggle="tab">
                 <h4>1 MM + Laminates</h4>
               </a>
 
@@ -63,7 +53,7 @@
               </a>
 
 
-              <a class="active" href="#product-5" data-bs-toggle="tab">
+              <a  href="#product-5" data-bs-toggle="tab">
                 <h4>FR FLEXI Laminates</h4>
               </a>
 
@@ -81,12 +71,12 @@
             <!-- Tab Content -->
             <div class="tab-content jump">
               <!-- 1mm -->
-              <div class="tab-pane" id="product-1">
+              <div class="tab-pane active" id="product-1">
                 <div class="row item-wrapper1">
                   <% const oneMM=productsByCategory.find(c=> c.category === "1mm");
                     %> <%- include('partials/related-product-card', { products: oneMM ? oneMM.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore1" href="/shop?category=1mm">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore1" href="/api/product/1mm">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
@@ -98,7 +88,7 @@
                     "0.8mm"); %> <%- include('partials/related-product-card', { products: zeroEightMM ?
                       zeroEightMM.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore2" href="/shop?category=0.8mm">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore2" href="/api/product/0.8mm">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
@@ -110,7 +100,7 @@
                     "liner"); %> <%- include('partials/related-product-card', { products: liner ? liner.products : [] })
                       %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore3" href="/page?category=liner">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore3" href="/api/product/liner">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
@@ -122,18 +112,18 @@
                     "Acrylish"); %> <%- include('partials/related-product-card', { products: acrylic ? acrylic.products
                       : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore4" href="/shop?category=Acrylish">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore4" href="/api/product/Acrylish">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
 
               <!-- PVC -->
-              <div class="tab-pane active" id="product-5">
+              <div class="tab-pane " id="product-5">
                 <div class="row item-wrapper5">
                   <% const pvc=productsByCategory.find(c=> c.category === "PVC"); %>
                     <%- include('partials/related-product-card', { products: pvc ? pvc.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore5" href="/shop?category=PVC">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore5" href="/api/product/PVC">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
@@ -233,7 +223,7 @@
               <h1 style="text-transform: uppercase">It's time to #StayCurious</h1>
             </div>
             <div class="row d-flex justify-content-center align-items-center">
-              <div class="col-md-10">
+              <div class="col-md-6">
                 <div class="vid-area mb-30">
                   <video controls autoplay loop muted>
                     <source src="https://res.cloudinary.com/dtlazsqas/video/upload/v1748254339/videoplayback_zc120w.mp4"
@@ -243,12 +233,26 @@
                   </video>
                 </div>
               </div>
+
+              <div class="col-md-6">
+                <div class="vid-area mb-30">
+                  <video controls loop muted>
+                    <source
+                      src="https://skydecor.in/products/SKYBOND-ADHESIVE/How_to_install_Skydecor_PVC_Laminates.mp4"
+                      type="video/mp4" />
+                    <source src="" type="video/webm" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+
             </div>
           </div>
         </section>
 
 
-    
+
 
         <section class="rooms1 bg-dark-gery" data-scroll-index="1" style="padding: 70px 0px">
           <div class="container">
@@ -394,4 +398,5 @@
 
             </script>
 </body>
+
 </html>
