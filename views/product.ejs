@@ -76,10 +76,16 @@
             <div class="spinner"></div>
         </div>
 
-        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/product.png);">
+
+
+        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3 d-none d-lg-block"
+            style="background-image: url('<%= productDetail.banners.filter(function(b){ return b.device === 'desktop'; })[0].image %>') ; ">
             <div class="container">
+                <!-- Breadcrumb content here -->
             </div>
         </div>
+
+
 
         <div class="shop-area pt-95 pb-100">
             <div class="container">
@@ -147,7 +153,7 @@
                                                             ? 'checked' : '' %> />
                                                         <a href="javascript:void(0)">
                                                             <%= cat %>
-                                                                
+
                                                         </a>
                                                         <span class="checkmark"></span>
                                                     </div>
@@ -202,9 +208,9 @@
                                 </div>
 
                                 <!-- Product Designs -->
-                                <% if (designs && designs.length > 1) { %>  
+                                <% if (designs && designs.length> 1) { %>
                                     <div class="sidebar-widget mt-50">
-                                        <h4 class="pro-sidebar-title">Product Designs  </h4>
+                                        <h4 class="pro-sidebar-title">Product Designs </h4>
                                         <div class="sidebar-widget-list mt-20">
                                             <ul>
                                                 <% designs.forEach(function(design) { %>
@@ -229,8 +235,6 @@
                                     <% } %>
                             </form>
 
-
-
                         </div>
                     </div>
                 </div>
@@ -239,63 +243,63 @@
 
         <%- include("partials/footer") %>
 
-         
-        
-    <%- include("partials/product-modal") %>
 
-            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
-            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
-            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
-            <script src="/js/vendor/popper.min.js"></script>
-            <script src="/js/vendor/bootstrap.min.js"></script>
-            <script src="/js/plugins.js"></script>
-            <!-- Ajax Mail -->
-            <script src="/js/ajax-mail.js"></script>
-            <!-- Main JS -->
-            <script src="/js/main.js"></script>
 
-            <script>
+            <%- include("partials/product-modal") %>
 
-                document.addEventListener("DOMContentLoaded", function () {
-                    const exampleModal = document.getElementById("exampleModal");
-                    exampleModal.addEventListener("show.bs.modal", function (event) {
-                        const button = event.relatedTarget;
+                <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+                <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+                <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+                <script src="/js/vendor/popper.min.js"></script>
+                <script src="/js/vendor/bootstrap.min.js"></script>
+                <script src="/js/plugins.js"></script>
+                <!-- Ajax Mail -->
+                <script src="/js/ajax-mail.js"></script>
+                <!-- Main JS -->
+                <script src="/js/main.js"></script>
 
-                        // Extract product info from data-* attributes
-                        const name = button.getAttribute("data-name");
-                        const image = button.getAttribute("data-image");
-                        const category = button.getAttribute("data-category");
-                        const subCategory = button.getAttribute("data-subcategory");
-                        const texture = button.getAttribute("data-texture");
-                        const size = button.getAttribute("data-size");
-                        const thickness = button.getAttribute("data-thickness");
-                        const width = button.getAttribute("data-width");
+                <script>
 
-                        // Update modal content
-                        document.getElementById(
-                            "modalProductTitle"
-                        ).innerHTML = `<h2>${name} ${category} ${texture} </h2>`;
-                        document.getElementById("modalProductImage").src = image;
-                        document.getElementById("modalCategory").textContent = category;
-                        document.getElementById("modalSubCategory").textContent = subCategory;
-                        document.getElementById("modalTexture").textContent = texture;
-                        document.getElementById("modalSize").textContent = size;
-                        document.getElementById("modalThickness").textContent = thickness;
-                        document.getElementById("modalWidth").textContent = width;
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const exampleModal = document.getElementById("exampleModal");
+                        exampleModal.addEventListener("show.bs.modal", function (event) {
+                            const button = event.relatedTarget;
+
+                            // Extract product info from data-* attributes
+                            const name = button.getAttribute("data-name");
+                            const image = button.getAttribute("data-image");
+                            const category = button.getAttribute("data-category");
+                            const subCategory = button.getAttribute("data-subcategory");
+                            const texture = button.getAttribute("data-texture");
+                            const size = button.getAttribute("data-size");
+                            const thickness = button.getAttribute("data-thickness");
+                            const width = button.getAttribute("data-width");
+
+                            // Update modal content
+                            document.getElementById(
+                                "modalProductTitle"
+                            ).innerHTML = `<h2>${name} ${category} ${texture} </h2>`;
+                            document.getElementById("modalProductImage").src = image;
+                            document.getElementById("modalCategory").textContent = category;
+                            document.getElementById("modalSubCategory").textContent = subCategory;
+                            document.getElementById("modalTexture").textContent = texture;
+                            document.getElementById("modalSize").textContent = size;
+                            document.getElementById("modalThickness").textContent = thickness;
+                            document.getElementById("modalWidth").textContent = width;
+                        });
                     });
-                });
 
-                document.addEventListener("DOMContentLoaded", function () {
-                    const filterForm = document.querySelector("#filterForm");
-                    const shopArea = document.querySelector("#shop-area");
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const filterForm = document.querySelector("#filterForm");
+                        const shopArea = document.querySelector("#shop-area");
 
-                    if (!filterForm || !shopArea) return;
+                        if (!filterForm || !shopArea) return;
 
-                    // Render skeleton cards while loading
-                    function showSkeleton(count = 8) {
-                        shopArea.innerHTML = Array.from({ length: count })
-                            .map(
-                                () => `
+                        // Render skeleton cards while loading
+                        function showSkeleton(count = 8) {
+                            shopArea.innerHTML = Array.from({ length: count })
+                                .map(
+                                    () => `
                         <div class="product-card col-lg-3 col-md-4 col-sm-6 skeleton">
                             <div class="image"></div>
                             <div class="text-line short"></div>
@@ -303,57 +307,58 @@
                             <div class="text-line short"></div>
                         </div>
                     `
-                            )
-                            .join("");
-                    }
+                                )
+                                .join("");
+                        }
 
-                    // Fetch products via AJAX
-                    function fetchProducts(url = null) {
-                        const checkboxes = filterForm.querySelectorAll("input[type=checkbox]:checked");
-                        const params = [];
+                        // Fetch products via AJAX
+                        function fetchProducts(url = null) {
+                            const checkboxes = filterForm.querySelectorAll("input[type=checkbox]:checked");
+                            const params = [];
 
-                        checkboxes.forEach((cb) => {
-                            const key = cb.name.replace("[]", ""); // remove []
-                            const value = encodeURIComponent(cb.value);
-                            params.push(`${key}=${value}`);
+                            checkboxes.forEach((cb) => {
+                                const key = cb.name.replace("[]", ""); // remove []
+                                const value = encodeURIComponent(cb.value);
+                                params.push(`${key}=${value}`);
+                            });
+
+                            // ✅ Get productType from form action (/api/product/:productType)
+                            const baseUrl = filterForm.getAttribute("action");
+
+                            // Build final fetch URL
+                            const fetchUrl = url || `${baseUrl}?${params.join("&")}`;
+
+                            // Show skeleton while loading
+                            showSkeleton();
+
+                            fetch(fetchUrl, { headers: { "X-Requested-With": "XMLHttpRequest" } })
+                                .then((res) => res.text())
+                                .then((html) => {
+                                    shopArea.innerHTML = html; // replace skeleton with products
+                                    // Optional: scroll to top smoothly
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                })
+                                .catch((err) => {
+                                    console.error("❌ AJAX error:", err);
+                                    shopArea.innerHTML = `<p class="error">Failed to load products. Please try again.</p>`;
+                                });
+                        }
+
+                        // Auto-submit when any checkbox is changed
+                        filterForm.querySelectorAll("input[type=checkbox]").forEach((cb) => {
+                            cb.addEventListener("change", () => fetchProducts());
                         });
 
-                        // ✅ Get productType from form action (/api/product/:productType)
-                        const baseUrl = filterForm.getAttribute("action");
-
-                        // Build final fetch URL
-                        const fetchUrl = url || `${baseUrl}?${params.join("&")}`;
-
-                        // Show skeleton while loading
-                        showSkeleton();
-
-                        fetch(fetchUrl, { headers: { "X-Requested-With": "XMLHttpRequest" } })
-                            .then((res) => res.text())
-                            .then((html) => {
-                                shopArea.innerHTML = html; // replace skeleton with products
-                                // Optional: scroll to top smoothly
-                                window.scrollTo({ top: 0, behavior: "smooth" });
-                            })
-                            .catch((err) => {
-                                console.error("❌ AJAX error:", err);
-                                shopArea.innerHTML = `<p class="error">Failed to load products. Please try again.</p>`;
-                            });
-                    }
-
-                    // Auto-submit when any checkbox is changed
-                    filterForm.querySelectorAll("input[type=checkbox]").forEach((cb) => {
-                        cb.addEventListener("change", () => fetchProducts());
+                        // Pagination click handling
+                        document.body.addEventListener("click", function (e) {
+                            const link = e.target.closest(".pagination a");
+                            if (link) {
+                                e.preventDefault();
+                                fetchProducts(link.href); // ✅ link already has productType + query
+                            }
+                        });
                     });
-
-                    // Pagination click handling
-                    document.body.addEventListener("click", function (e) {
-                        const link = e.target.closest(".pagination a");
-                        if (link) {
-                            e.preventDefault();
-                            fetchProducts(link.href); // ✅ link already has productType + query
-                        }
-                    });
-                });
-            </script>
+                </script>
 </body>
+
 </html>

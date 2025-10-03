@@ -2,6 +2,7 @@ const Product = require("../models/product.model.js");
 const path = require("path");
 const puppeteer = require("puppeteer");
 const ejs = require("ejs");
+const Page = require("../models/page.model.js");
 
 exports.getProducts = async (req, res) => {
   try {
@@ -16,6 +17,10 @@ exports.getProducts = async (req, res) => {
         ? param
         : param.split(",").map((v) => v.trim());
     };
+
+    const productDetail = await Page.findOne({
+      productType,
+    });
 
     // Build filters
     const query = { productType }; // ✅ always filter by productType
@@ -103,6 +108,7 @@ exports.getProducts = async (req, res) => {
       designs,
       filters,
       count: products.length,
+      productDetail,
     });
   } catch (err) {
     console.error("❌ Error fetching products:", err);

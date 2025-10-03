@@ -14,6 +14,10 @@ const Job = require("./models/job.model.js");
 const testimonials = require("./data/testimonial.json");
 const Testimonial = require("./models/testimonial.model.js");
 
+
+const Page = require("./models/page.model.js")
+const pageData = require("./data/page.json")
+
 const { ConnectDB } = require("./config/db.js");
 
 ConnectDB();
@@ -21,8 +25,8 @@ ConnectDB();
 async function seedDB() {
   try {
     // Remove old data
-    await Product.deleteMany({});
-    console.log("🗑 Old products removed");
+    //await Product.deleteMany({});
+    //console.log("🗑 Old products removed");
 
     //await Event.deleteMany({})
     //console.log("🗑 Old events removed");
@@ -30,9 +34,15 @@ async function seedDB() {
     //await Blog.deleteMany({})
     //console.log("🗑 Old Blogs removed");
 
+     await Page.deleteMany({})
+    console.log("remove all page schema and title");
+
     // Insert new data product
-    await Product.insertMany(products);
-    console.log(`✅ ${products.length} products inserted successfully!`);
+    //await Product.insertMany(products);
+    //console.log(`✅ ${products.length} products inserted successfully!`);
+
+   
+
 
     // Insert new Event data product
     //await Event.insertMany(events)
@@ -46,6 +56,11 @@ async function seedDB() {
 
     //await Testimonial.insertMany(testimonials);
     //console.log(`✅ ${testimonials.length} jobs inserted successfully!`);
+   
+
+    await Page.insertMany(pageData)
+    console.log(`✅ ${pageData.length} All page seo detials updated `);
+
 
     mongoose.connection.close();
   } catch (err) {

@@ -1,0 +1,86 @@
+[
+  {
+    "productType": "0.8mm",
+    "slug": "0-8mm",
+    "banners": [
+      { "device": "desktop", "image": "/images/product-category/0.8mm/1919 X 677/0.8MM Banner .jpg" },
+      { "device": "tablet", "image": "/images/product-category/0.8mm/1919 X 677/0.8MM Banner .jpg" },
+      { "device": "mobile", "image": "/images/product-category/0.8mm/1919 X 677/0.8MM Banner .jpg" }
+    ]
+  },
+  {
+    "productType": "1mm",
+    "slug": "1mm",
+    "banners": [
+      { "device": "desktop", "image": "/images/product-category/1mm/1919 X 677/1MM Design.jpg" },
+      { "device": "tablet", "image": "/images/product-category/1mm/1919 X 677/1MM Design.jpg" },
+      { "device": "mobile", "image": "/images/product-category/1mm/1919 X 677/1MM Design.jpg" }
+    ]
+  },
+  {
+    "productType": "Acrylish",
+    "slug": "acrylish",
+    "banners": [
+      { "device": "desktop", "image": "/images/product-category/acrylish/1919 x 677 Big Banner/Acrylic Big  Banner .jpg" },
+      { "device": "tablet", "image": "/images/product-category/acrylish/1919 x 677 Big Banner/Acrylic Big  Banner .jpg" },
+      { "device": "mobile", "image": "/images/product-category/acrylish/1919 x 677 Big Banner/Acrylic Big  Banner .jpg" }
+    ]
+  },
+  {
+    "productType": "Baffele",
+    "slug": "baffele",
+    "banners": [
+      { "device": "desktop", "image": "/images/product-category/baffel/1919 x 677/Baffels Banner.jpg" },
+      { "device": "tablet", "image": "/images/product-category/baffel/1919 x 677/Baffels Banner.jpg" },
+      { "device": "mobile", "image": "/images/product-category/baffel/1919 x 677/Baffels Banner.jpg" }
+    ]
+  },
+  {
+    "productType": "Exterior cladding",
+    "slug": "exterior-cladding",
+    "banners": [
+      { "device": "desktop", "image": "/images/product-category/cladding/1919 x 677/Cladding Image.jpg" },
+      { "device": "tablet", "image": "/images/product-category/cladding/1919 x 677/Cladding Image.jpg" },
+      { "device": "mobile", "image": "/images/product-category/cladding/1919 x 677/Cladding Image.jpg" }
+    ]
+  },
+  {
+    "productType": "Skybond",
+    "slug": "fr-flexi",
+    "banners": [
+      { "device": "desktop", "image": "/images/product-category/fr-flexi/1919 X 677/FR FLEXI.jpg" },
+      { "device": "tablet", "image": "/images/product-category/fr-flexi/1919 X 677/FR FLEXI.jpg" },
+      { "device": "mobile", "image": "/images/product-category/fr-flexi/1919 X 677/FR FLEXI.jpg" }
+    ]
+  },
+  {
+    "productType": "liner",
+    "slug": "liner",
+    "banners": [
+      { "device": "desktop", "image": "/images/product-category/liner/1919 x 677/Liner Big Image.jpg" },
+      { "device": "tablet", "image": "/images/product-category/liner/1919 x 677/Liner Big Image.jpg" },
+      { "device": "mobile", "image": "/images/product-category/liner/1919 x 677/Liner Big Image.jpg" }
+    ]
+  },
+  {
+    "productType": "SOFFITTO",
+    "slug": "soffitto",
+    "banners": [
+      { "device": "desktop", "image": "/images/product-category/Soffitto/1919 x 677/Soffitto Banner.jpg" },
+      { "device": "tablet", "image": "/images/product-category/Soffitto/1919 x 677/Soffitto Banner.jpg" },
+      { "device": "mobile", "image": "/images/product-category/Soffitto/1919 x 677/Soffitto Banner.jpg" }
+    ]
+  },
+   {
+    "productType": "PVC",
+    "slug": "Fr Flexi",
+    "banners": [
+      { "device": "desktop", "image": "/images/product-category/fr-flexi/1919 X 677/FR FLEXI.jpg" },
+      { "device": "tablet", "image": "/images/product-category/fr-flexi/1919 X 677/FR FLEXI.jpg" },
+      { "device": "mobile", "image": "/images/product-category/fr-flexi/1919 X 677/FR FLEXI.jpg" }
+    ]
+  }
+
+
+
+]

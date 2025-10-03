@@ -9,8 +9,8 @@
                     </a>
                     <div class="product-action">
                         <div class="pro-same-action pro-wishlist">
-                            <a title="Wishlist" href="/api/product/download/<%= product.productCode %>"><i
-                                    class="pe-7s-download"></i> </a>
+                            <a title="Wishlist" href="/api/product/download/<%= product.productCode %>">
+                                <i class="pe-7s-download"></i> </a>
                         </div>
                         <div class="pro-same-action pro-cart">
                             <a title="Add To Cart" href="/api/product/detail/<%= product.productCode %>"> View Product
@@ -31,12 +31,11 @@
 
                     </div>
                 </div>
-                <div class="product-content text-center">
+                <div class="product-content text-left">
                     <h3><a href="/product-details/<%= product.id %>">
 
                             <%= product.productCode %> <br>
-                                <%= product.productType %>-<%= product.productName %>-<%= product.category %>-<%=
-                                                product.texture %>
+                                <%= product.category %> - <%=product.texture %>
                         </a></h3>
                 </div>
             </div>
