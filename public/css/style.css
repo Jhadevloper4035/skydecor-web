@@ -18734,6 +18734,7 @@ h3.cart-page-title {
 .image-box-event {
   height: 250px;
   width: 370px;
+  object-fit: cover;
 }
 
 .gallery-box .gallery-img:after {

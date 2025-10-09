@@ -1,130 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Skydecor - Premium Quality Laminates Design Collections</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
 
     <!-- CSS ============================================ -->
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="/css/icons.min.css" />
+    <link rel="stylesheet" href="/css/icons.min.css">
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="/css/plugins.css" />
-
-    <!-- Magnific Popup CSS -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
-
+    <link rel="stylesheet" href="/css/plugins.css">
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="/css/style.css" />
-
-    <style>
-        .blog-content-2 {
-            height: 220px;
-        }
-
-        .blog-wrap-2 .blog-img-2 a img {
-            height: 250px;
-        }
-
-        .image-box-event {
-            height: auto;
-            width: auto;
-        }
-
-        .breadcrumb-area {
-            min-height: 100vh;
-            /* Full height for desktop */
-        }
-
-
-        .certificate-text {
-            text-align: center;
-            font-size: 18px;
-            margin: 20px 0px;
-        }
-
-
-        /* For mobile devices (width <= 768px) */
-        @media (max-width: 768px) {
-            .breadcrumb-area {
-                min-height: auto;
-                /* Height adjusts automatically */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+
+
+
+
+
+
+
+
+
+
     <%- include("partials/header") %>
 
-        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3"
-            style="background-image: url(/images/banner/showroom.jfif)">
-            <div class="container"></div>
+
+        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/blog.jpg);">
+            <div class="container">
+            </div>
         </div>
 
-        <div class="welcome-area pt-60">
+        <div class="Blog-area pt-100 pb-100 blog-no-sidebar">
             <div class="container">
-                <div class="welcome-content text-center">
-                    <h1>EXPERIENCE CENTER KIRTI NAGAR</h1>
+
+                <!-- Section Heading -->
+                <div class="row text-center">
+                    <div class="welcome-content text-center">
+                        <h1 class="fw-light" style="text-transform: uppercase;">
+                            The SkyDecor Journal
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <%- include('partials/showroom-card', { showrooms: showrooms }) %>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <section class="section-padding pb-60">
-            <div class="container">
-                <div class="row gallery">
-
-                   <% for (let i = 1; i <= 16; i++) { %>
-  <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-    <a href="/images/showroom/<%= i %>-min.jpg" class="img-zoom" title="Showroom Image <%= i %>">
-      <div class="gallery-box">
-        <div class="gallery-img">
-          <img src="/images/showroom/<%= i %>-min.jpg"
-               class="img-fluid image-box-event mx-auto d-block"
-               alt="Showroom Image <%= i %>" />
-        </div>
-      </div>
-    </a>
-  </div>
-<% } %>
-
-<% for (let i = 17; i <= 27; i++) { %>
-  <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-    <a href="/images/showroom/<%= i %>.jfif" class="img-zoom" title="Showroom Image <%= i %>">
-      <div class="gallery-box">
-        <div class="gallery-img">
-          <img src="/images/showroom/<%= i %>.jfif"
-               class="img-fluid image-box-event mx-auto d-block"
-               alt="Showroom Image <%= i %>" />
-        </div>
-      </div>
-    </a>
-  </div>
-<% } %>
-
-
-                </div>
-            </div>
-        </section>
 
 
         <%- include("partials/footer") %>
-
-            <!-- jQuery (required for Magnific Popup) -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-            <!-- Magnific Popup JS -->
-            <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
             <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
             <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
@@ -137,22 +78,5 @@
             <!-- Main JS -->
             <script src="/js/main.js"></script>
 
-            <script>
-                $(document).ready(function () {
-                    $(".gallery").magnificPopup({
-                        delegate: "a.img-zoom",
-                        type: "image",
-                        gallery: {
-                            enabled: true, // enables gallery mode
-                            navigateByImgClick: true,
-                            preload: [0, 1], // preload previous & next images for smoother navigation
-                        },
-                        mainClass: "mfp-fade", // animation effect
-                        removalDelay: 300, // duration of fade effect
-                        fixedContentPos: false,
-                    });
-                });
-            </script>
 </body>
-
 </html>

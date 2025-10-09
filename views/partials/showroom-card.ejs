@@ -1,0 +1,43 @@
+<% showrooms.forEach(showroom => { %>
+<div class="col-lg-4 col-md-6 col-sm-12 wow animate__animated animate__fadeInUp scroll-zoom" data-wow-delay="0.2s">
+  <div class="blog-wrap-2 mb-30">
+    <div class="blog-img-2">
+      <a href="/experience-center/<%= showroom.slug %>">
+        <img 
+          src="<%= showroom.coverImage %>" 
+          alt="<%= showroom.location %>" 
+          loading="lazy"
+          decoding="async"
+          width="370"
+          height="250"
+        >
+      </a>
+    </div>
+
+    <div class="blog-content-2">
+      <h4>
+        <a href="/experience-center/<%= showroom.slug %>"><%= showroom.title %></a>
+      </h4>
+      <div class="blog-meta-2">
+        <ul>
+          <li><strong> Email </strong> <a href="mailto:<%= showroom.mail %>"><%= showroom.mail %></a></li>
+          <li> <strong> Contact </strong><a href="tel:<%= showroom.contact %>"><%= showroom.contact %></a></li>
+          <li> <strong> address </strong> <a href="tel:<%= showroom.contact %>"><%= showroom.location %></a></li>
+        </ul>
+      </div>
+
+      <div class="blog-share-comment">
+        <div class="blog-btn-2">
+          <a href="/experience-center/<%= showroom.slug %>">Get Direction </a>
+        </div>
+
+         <div class="blog-btn-2">
+          <a href="/experience-center/<%= showroom.slug %>">Get Direction </a>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<% }) %>

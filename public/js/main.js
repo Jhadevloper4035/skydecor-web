@@ -857,11 +857,43 @@
   /*------ Wow Active ----*/
   new WOW().init();
 
-  
-    const loader = document.getElementById("site-loader");
-    window.addEventListener("load", () => {
+  const loader = document.getElementById("site-loader");
+  window.addEventListener("load", () => {
     loader.classList.add("hidden");
-  
-    });
-
+  });
 })(jQuery);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const magnifier = new Magnifier();
+  document.querySelectorAll(".magnifiable").forEach((img) => {
+    magnifier.attach({
+      thumb: img,
+      large: img.getAttribute("data-magnify-src"),
+      zoom: 2.5, // gentle zoom level; tweak if needed
+    });
+  });
+});
+
+// lazy lodaing product
+document.addEventListener("DOMContentLoaded", function () {
+  const lazyImages = document.querySelectorAll("img.lazyload");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.remove("lazyload");
+          observer.unobserve(img);
+        }
+      });
+    },
+    { rootMargin: "100px" }
+  );
+
+  lazyImages.forEach((img) => observer.observe(img));
+});
+
+
+
+

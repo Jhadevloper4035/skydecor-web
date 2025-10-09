@@ -14,9 +14,11 @@ const Job = require("./models/job.model.js");
 const testimonials = require("./data/testimonial.json");
 const Testimonial = require("./models/testimonial.model.js");
 
+const Page = require("./models/page.model.js");
+const pageData = require("./data/page.json");
 
-const Page = require("./models/page.model.js")
-const pageData = require("./data/page.json")
+const Showroom = require("./models/showroom.model.js");
+const showroomData = require("./data/showroom.json");
 
 const { ConnectDB } = require("./config/db.js");
 
@@ -34,15 +36,18 @@ async function seedDB() {
     //await Blog.deleteMany({})
     //console.log("🗑 Old Blogs removed");
 
-     await Page.deleteMany({})
-    console.log("remove all page schema and title");
+    //await Page.deleteMany({})
+    //console.log("remove all page schema and title");
+
+    //await Showroom.deleteMany({})
+    //console.log("removed all showroom data");
+
+    await Job.deleteMany({});
+    console.log("removed all Job data");
 
     // Insert new data product
     //await Product.insertMany(products);
     //console.log(`✅ ${products.length} products inserted successfully!`);
-
-   
-
 
     // Insert new Event data product
     //await Event.insertMany(events)
@@ -51,16 +56,17 @@ async function seedDB() {
     //await Blog.insertMany(blogs)
     //console.log(`✅ ${blogs.length} blogs inserted successfully!`);
 
-    // await Job.insertMany(jobs)
-    // console.log(`✅ ${jobs.length} jobs inserted successfully!`);
+    await Job.insertMany(jobs);
+    console.log(`✅ ${jobs.length} jobs inserted successfully!`);
 
     //await Testimonial.insertMany(testimonials);
     //console.log(`✅ ${testimonials.length} jobs inserted successfully!`);
-   
 
-    await Page.insertMany(pageData)
-    console.log(`✅ ${pageData.length} All page seo detials updated `);
+    // await Page.insertMany(pageData)
+    // console.log(`✅ ${pageData.length} All page seo detials updated `);
 
+    await Showroom.insertMany(showroomData);
+    console.log(`✅ ${showroomData.length}  inserted successfully!`);
 
     mongoose.connection.close();
   } catch (err) {

@@ -4,11 +4,23 @@ const puppeteer = require("puppeteer");
 const ejs = require("ejs");
 const Page = require("../models/page.model.js");
 
-exports.getProducts = async (req, res) => {
+
+
+
+exports.getAllProducts = async (req, res) => {
   try {
-    const { productType } = req.params;
-    let { category, subCategory, texture, designName, page, limit, sort } =
-      req.query;
+    let {
+      productType,
+      category,
+      subCategory,
+      texture,
+      designName,
+      size,
+      thickness,
+      page,
+      limit,
+      sort,
+    } = req.query;
 
     // Helper: convert query param to array
     const parseArray = (param) => {
@@ -18,17 +30,18 @@ exports.getProducts = async (req, res) => {
         : param.split(",").map((v) => v.trim());
     };
 
-    const productDetail = await Page.findOne({
-      productType,
-    });
-
     // Build filters
-    const query = { productType }; // ✅ always filter by productType
+    const query = {};
+
+    if (productType?.length)
+      query.productType = { $in: parseArray(productType) };
     if (category?.length) query.category = { $in: parseArray(category) };
     if (subCategory?.length)
       query.subCategory = { $in: parseArray(subCategory) };
     if (texture?.length) query.texture = { $in: parseArray(texture) };
     if (designName?.length) query.designName = { $in: parseArray(designName) };
+    if (size?.length) query.size = { $in: parseArray(size) };
+    if (thickness?.length) query.thickness = { $in: parseArray(thickness) };
 
     // Pagination
     page = parseInt(page, 10) || 1;
@@ -48,26 +61,39 @@ exports.getProducts = async (req, res) => {
         });
     }
 
-    // Execute queries in parallel (scoped by productType)
-    const [products, total, categories, subCategories, textures, designs] =
-      await Promise.all([
-        Product.find(query).sort(sortOption).skip(skip).limit(limit),
-        Product.countDocuments(query),
-        Product.distinct("category", { productType }),
-        Product.distinct("subCategory", { productType }),
-        Product.distinct("texture", { productType }),
-        Product.distinct("designName", { productType }),
-      ]);
+    // Execute queries in parallel
+    const [
+      products,
+      total,
+      productTypes,
+      categories,
+      subCategories,
+      textures,
+      designs,
+      sizes,
+      thicknesss,
+    ] = await Promise.all([
+      Product.find(query).sort(sortOption).skip(skip).limit(limit),
+      Product.countDocuments(query),
+      Product.distinct("productType", {}),
+      Product.distinct("category", {}),
+      Product.distinct("subCategory", {}),
+      Product.distinct("texture", {}),
+      Product.distinct("designName", {}),
+      Product.distinct("size", {}),
+      Product.distinct("thickness", {}),
+    ]);
 
     // Current selected filters
     const filters = {
+      productType: parseArray(productType),
       category: parseArray(category),
       subCategory: parseArray(subCategory),
       texture: parseArray(texture),
       designName: parseArray(designName),
+      size: parseArray(size),
+      thickness: parseArray(thickness),
     };
-
-    filters.productType = productType;
 
     // Pagination pages
     const pages = Math.ceil(total / limit);
@@ -81,10 +107,13 @@ exports.getProducts = async (req, res) => {
           total,
           page,
           pages,
+          productTypes,
           categories,
           subCategories,
           textures,
           designs,
+          sizes,
+          thicknesss,
           filters,
           count: products.length,
         },
@@ -102,19 +131,24 @@ exports.getProducts = async (req, res) => {
       total,
       page,
       pages,
+      productTypes,
       categories,
       subCategories,
       textures,
       designs,
+      sizes,
+      thicknesss,
       filters,
       count: products.length,
-      productDetail,
     });
   } catch (err) {
     console.error("❌ Error fetching products:", err);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
+
+
+
 
 exports.getSingleProduct = async (req, res) => {
   try {

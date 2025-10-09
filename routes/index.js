@@ -62,12 +62,7 @@ router.get("/customer-review", (req, res) => {
   });
 });
 
-router.get("/experince-center", (req, res) => {
-  res.render("showroom", {
-    title: "conatct Page",
-    message: "Welcome to EJS with Static Files!",
-  });
-});
+
 
 router.get("/privacy-policy", (req, res) => {
   res.render("privacy-policy", {

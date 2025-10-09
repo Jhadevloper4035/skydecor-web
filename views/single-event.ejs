@@ -37,6 +37,8 @@
         .blog-wrap-2 .blog-img-2 a img {
             height: 250px;
         }
+
+
     </style>
 
 
@@ -63,7 +65,7 @@
 
 
 
-        <section class="section-padding ">
+        <section class="">
             <div class="container">
                 <div class="row gallery">
                     <div class="row gallery" id="event-gallery-<%= event.id %>">
@@ -79,29 +81,26 @@
                         </div>
                     </div>
 
-
-
-
-
                 </div>
             </div>
         </section>
 
 
 
-
-
-        <section class="section-padding pb-60">
+        <section class="pb-60 mt-60">
             <div class="container">
                 <div class="row gallery">
                     <div class="row gallery" id="event-gallery-<%= event.id %>">
                         <% event.images.forEach(function(img, index) { %>
                             <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-                                <a href="<%= img %>" class="img-zoom" title="<%= event.title %> - Image <%= index+1 %>">
+                                <a href="<%= img %>" class="img-zoom"
+                                    title="<%= event.title %> - Image <%= index + 1 %>">
                                     <div class="gallery-box">
                                         <div class="gallery-img">
-                                            <img src="<%= img %>" class="img-fluid image-box-event mx-auto d-block"
-                                                alt="<%= event.title %> <%= index+1 %>">
+                                            <img src="<%= img || '/images/placeholder.jpg' %>"
+                                                class="img-fluid image-box-event mx-auto d-block"
+                                                alt="<%= event.title %> <%= index + 1 %>" loading="lazy"
+                                                decoding="async" width="400" height="300">
                                         </div>
                                     </div>
                                 </a>
@@ -111,6 +110,11 @@
                 </div>
             </div>
         </section>
+
+
+
+
+
 
 
 
@@ -155,4 +159,5 @@
 
 
 </body>
+
 </html>
