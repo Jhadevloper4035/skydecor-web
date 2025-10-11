@@ -1,0 +1,118 @@
+<div class="product-enquiry-modal" id="productEnquiryModal" onclick="closeProductEnquiryOnOutside(event)">
+    <div class="product-enquiry-dialog">
+        <div class="product-enquiry-content">
+            <div class="product-enquiry-header">
+                <h5 class="product-enquiry-title">
+                    <i class="fas fa-clipboard-list"></i> Product Enquiry Form
+                </h5>
+                <button class="product-enquiry-close" onclick="closeProductEnquiry()" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form class="product-enquiry-form" id="productEnquiryForm" novalidate>
+                <div class="product-enquiry-body" id="productEnquiryFormContent">
+                    <div class="product-enquiry-row">
+                        <div class="product-enquiry-col-6">
+                            <label for="productEnquiryFullName" class="product-enquiry-label">
+                                Full Name<span class="product-enquiry-required">*</span>
+                            </label>
+                            <input type="text" class="product-enquiry-input" id="productEnquiryFullName"
+                                placeholder="John Doe" required minlength="2" maxlength="50">
+                            <div class="product-enquiry-error" id="productEnquiryFullNameError"></div>
+                        </div>
+
+                        <div class="product-enquiry-col-6">
+                            <label for="productEnquiryEmail" class="product-enquiry-label">
+                                Email Address<span class="product-enquiry-required">*</span>
+                            </label>
+                            <div class="product-enquiry-input-group">
+                                <span class="product-enquiry-input-icon"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="product-enquiry-input" id="productEnquiryEmail"
+                                    placeholder="john@example.com" required>
+                            </div>
+                            <div class="product-enquiry-error" id="productEnquiryEmailError"></div>
+                        </div>
+
+                        <div class="product-enquiry-col-6">
+                            <label for="productEnquiryPhone" class="product-enquiry-label">
+                                Phone Number<span class="product-enquiry-required">*</span>
+                            </label>
+                            <div class="product-enquiry-input-group">
+                                <span class="product-enquiry-input-icon"><i class="fas fa-phone"></i></span>
+                                <input type="tel" class="product-enquiry-input" id="productEnquiryPhone"
+                                    placeholder="+91 98765 43210" required pattern="[0-9+\s\-()]{10,15}">
+                            </div>
+                            <div class="product-enquiry-error" id="productEnquiryPhoneError"></div>
+                        </div>
+
+                        <div class="product-enquiry-col-6">
+                            <label for="productEnquiryCompany" class="product-enquiry-label">
+                                Company Name
+                            </label>
+                            <input type="text" class="product-enquiry-input" id="productEnquiryCompany"
+                                placeholder="Your Company" maxlength="100">
+                            <div class="product-enquiry-error" id="productEnquiryCompanyError"></div>
+                        </div>
+
+                        <div class="product-enquiry-col-6">
+                            <label for="productEnquiryCategory" class="product-enquiry-label">
+                                Product Category<span class="product-enquiry-required">*</span>
+                            </label>
+                            <select class="product-enquiry-select" id="productEnquiryCategory" required>
+                                <option value="">Select a category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="home">Home & Garden</option>
+                                <option value="sports">Sports & Outdoors</option>
+                                <option value="books">Books & Media</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="product-enquiry-error" id="productEnquiryCategoryError"></div>
+                        </div>
+
+                        <div class="product-enquiry-col-6">
+                            <label for="productEnquiryBudget" class="product-enquiry-label">
+                                Budget Range
+                            </label>
+                            <select class="product-enquiry-select" id="productEnquiryBudget">
+                                <option value="">Select budget</option>
+                                <option value="under-1000">Under ₹1,000</option>
+                                <option value="1000-5000">₹1,000 - ₹5,000</option>
+                                <option value="5000-10000">₹5,000 - ₹10,000</option>
+                                <option value="10000-50000">₹10,000 - ₹50,000</option>
+                                <option value="above-50000">Above ₹50,000</option>
+                            </select>
+                            <div class="product-enquiry-error" id="productEnquiryBudgetError"></div>
+                        </div>
+
+                        <div class="product-enquiry-col-12">
+                            <label for="productEnquiryMessage" class="product-enquiry-label">
+                                Your Message<span class="product-enquiry-required">*</span>
+                            </label>
+                            <textarea class="product-enquiry-textarea" id="productEnquiryMessage" rows="4"
+                                placeholder="Please describe your requirements in detail..." required minlength="10"
+                                maxlength="1000"></textarea>
+                            <div class="product-enquiry-error" id="productEnquiryMessageError"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-enquiry-success" id="productEnquirySuccess">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Thank You!</h4>
+                    <p>Your enquiry has been submitted successfully. We'll get back to you soon!</p>
+                </div>
+
+                <div class="product-enquiry-footer" id="productEnquiryFooter">
+                    <button type="button" class="product-enquiry-cancel" onclick="closeProductEnquiry()">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                    <button type="submit" class="product-enquiry-submit">
+                        <i class="fas fa-paper-plane"></i> Submit Enquiry
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,133 +1,482 @@
+<style>
+  .modal {
+    position: fixed;
+    top: 0%;
+    left: 0;
+    z-index: 1060;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    outline: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-dialog {
+    margin: auto !important;
+    max-width: 960px;
+    width: 960px;
+    padding: 35px;
+  }
+
+  /* Scoped styles with prefix to avoid conflicts */
+  .skydecor-demo-body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .skydecor-demo-trigger {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: #4361ee;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .skydecor-demo-trigger:hover {
+    background: #3651d4;
+    transform: translateY(-2px);
+  }
+
+  /* Modal Styling with prefix */
+  .skydecor-product-modal .modal-content {
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .skydecor-product-modal .modal-header {
+    background: #fff;
+    border-bottom: 1px solid #e9ecef;
+    padding: 20px 30px;
+  }
+
+  .skydecor-product-modal .modal-title {
+    color: #212529;
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .skydecor-product-modal .btn-close {
+    opacity: 0.5;
+  }
+
+  .skydecor-product-modal .btn-close:hover {
+    opacity: 1;
+  }
+
+  .skydecor-product-modal .modal-body {
+    padding: 0;
+    background: #fff;
+  }
+
+  /* Image Section */
+  .skydecor-product-modal .skydecor-product-image-section {
+    background: #f5f5f5;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 800px;
+  }
+
+  .skydecor-product-modal .skydecor-product-image-wrapper {
+    width: 100%;
+    max-width: 350px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .skydecor-product-modal .skydecor-product-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Details Section */
+  .skydecor-product-modal .skydecor-product-details-section {
+    padding: 40px;
+  }
+
+  .skydecor-product-modal .skydecor-product-header {
+    margin-bottom: 25px;
+  }
+
+  .skydecor-product-modal .skydecor-product-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212529;
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #4361ee;
+  }
+
+  /* Specifications */
+  .skydecor-product-modal .skydecor-spec-list {
+    margin: 30px 0;
+  }
+
+  .skydecor-product-modal .skydecor-spec-item {
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+  }
+
+  .skydecor-product-modal .skydecor-spec-item:last-child {
+    border-bottom: none;
+  }
+
+  .skydecor-product-modal .skydecor-spec-icon {
+    width: 24px;
+    margin-right: 15px;
+    color: #4361ee;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .skydecor-product-modal .skydecor-spec-label {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: 500;
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+
+  .skydecor-product-modal .skydecor-spec-value {
+    font-size: 14px;
+    color: #212529;
+    font-weight: 500;
+    margin-left: auto;
+  }
+
+  /* Share Section */
+  .skydecor-product-modal .skydecor-share-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .skydecor-product-modal .skydecor-share-label {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: 500;
+    margin-right: 5px;
+  }
+
+  .skydecor-product-modal .skydecor-share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    background: #f8f9fa;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+  }
+
+  .skydecor-product-modal .skydecor-share-btn:hover {
+    color: #4361ee;
+    border-color: #4361ee;
+    background: #fff;
+  }
+
+  /* Action Buttons */
+  .skydecor-product-modal .skydecor-action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .skydecor-product-modal .skydecor-btn-product-details {
+    flex: 1;
+    padding: 14px 24px;
+    background: #4361ee;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .skydecor-product-modal .skydecor-btn-product-details:hover {
+    background: #3651d4;
+  }
+
+  .skydecor-product-modal .skydecor-btn-enquiry {
+    flex: 1;
+    padding: 14px 24px;
+    background: #e91e63;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .skydecor-product-modal .skydecor-btn-enquiry:hover {
+    background: #d81b60;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 991px) {
+    .skydecor-product-modal .skydecor-product-image-section {
+      min-height: 400px;
+      padding: 30px;
+    }
+
+    .skydecor-product-modal .skydecor-product-details-section {
+      padding: 30px 25px;
+    }
+
+    .skydecor-product-modal .skydecor-product-title {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .skydecor-product-modal .modal-header {
+      padding: 15px 20px;
+    }
+
+    .skydecor-product-modal .modal-title {
+      font-size: 1.1rem;
+    }
+
+    .skydecor-product-modal .skydecor-product-image-section {
+      min-height: 300px;
+      padding: 20px;
+    }
+
+    .skydecor-product-modal .skydecor-product-details-section {
+      padding: 25px 20px;
+    }
+
+    .skydecor-product-modal .skydecor-product-title {
+      font-size: 1.2rem;
+    }
+
+    .skydecor-product-modal .skydecor-spec-label {
+      min-width: 100px;
+      font-size: 13px;
+    }
+
+    .skydecor-product-modal .skydecor-spec-value {
+      font-size: 13px;
+    }
+
+    .skydecor-product-modal .skydecor-action-buttons {
+      flex-direction: column;
+    }
+
+    .skydecor-product-modal .skydecor-share-section {
+      flex-wrap: wrap;
+    }
+  }
+</style>
 
 
-  <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <!-- Header -->
-          <div class="modal-header">
-            <h2 class="modal-title d-none mb-0" id="modalProduct">
-              Product Name Here
-            </h2>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
 
-          <!-- Body -->
-          <div class="modal-body">
-            <div class="row">
-              <!-- Left: Image -->
-              <div class="col-md-5 col-sm-12">
-                <div class="tab-content quickview-big-img">
-                  <div class="tab-pane fade show active">
-                    <img
-                      id="modalProductImage"
-                      src="/img/product/quickview-l1.jpg"
-                      alt="Product Image"
-                      class="img-fluid"
-                    />
-                  </div>
-                </div>
-              </div>
+<!-- Product Modal - Works with your existing product card buttons -->
+<div class="modal fade skydecor-product-modal" id="exampleModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
 
-              <!-- Right: Product Details -->
-              <div class="col-md-7 col-sm-12">
-                <div class="product-details-content quickview-content">
-                  <h2 class="mb-4" id="modalProductTitle"></h2>
+      <!-- Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalProduct">
+          <span id="skydecorModalProductCode">SDL 30306 SUD</span>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
 
-                  <!-- Rating Example -->
-                  <div class="pro-details-rating-wrap mt-2 mb-3">
-                    <div class="pro-details-rating">
-                      <i class="fa fa-star-o yellow"></i>
-                      <i class="fa fa-star-o yellow"></i>
-                      <i class="fa fa-star-o yellow"></i>
-                      <i class="fa fa-star-o"></i>
-                      <i class="fa fa-star-o"></i>
-                    </div>
-                    <span>3 Reviews</span>
-                  </div>
+      <!-- Body -->
+      <div class="modal-body">
+        <div class="row g-0">
 
-                  <!-- Category -->
-                  <div class="pro-details-meta">
-                    <span>Category :</span>
-                    <ul>
-                      <li><span id="modalCategory">-</span></li>
-                    </ul>
-                  </div>
-
-                  <!-- Sub Category -->
-                  <div class="pro-details-meta">
-                    <span>Sub Category :</span>
-                    <ul>
-                      <li><span id="modalSubCategory">-</span></li>
-                    </ul>
-                  </div>
-
-                  <!-- Texture -->
-                  <div class="pro-details-meta">
-                    <span>Texture :</span>
-                    <ul>
-                      <li><span id="modalTexture">-</span></li>
-                    </ul>
-                  </div>
-
-                  <!-- Size -->
-                  <div class="pro-details-meta">
-                    <span>Size :</span>
-                    <ul>
-                      <li><span id="modalSize">-</span></li>
-                    </ul>
-                  </div>
-
-                  <!-- Thickness -->
-                  <div class="pro-details-meta">
-                    <span>Thickness :</span>
-                    <ul>
-                      <li><span id="modalThickness">-</span></li>
-                    </ul>
-                  </div>
-
-                  <!-- Width -->
-                  <div class="pro-details-meta">
-                    <span>Width :</span>
-                    <ul>
-                      <li><span id="modalWidth">-</span></li>
-                    </ul>
-                  </div>
-
-                  <!-- Social Icons -->
-                  <div class="pro-details-social mt-3">
-                    <ul>
-                      <li>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fa fa-whatsapp"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <!-- Add to Cart -->
-                  <div class="pro-details-quality mt-4">
-                    <div class="pro-details-cart btn-hover">
-                      <a href="#"> Download </a>
-                    </div>
-                  </div>
-                </div>
+          <!-- Left: Product Image -->
+          <div class="col-lg-5">
+            <div class="skydecor-product-image-section">
+              <div class="skydecor-product-image-wrapper">
+                <img id="skydecorModalProductImage"
+                  src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600" alt="Product Image">
               </div>
             </div>
           </div>
+
+          <!-- Right: Product Details -->
+          <div class="col-lg-7">
+            <div class="skydecor-product-details-section">
+
+              <!-- Product Title -->
+              <div class="skydecor-product-header">
+                <h2 class="skydecor-product-title" id="skydecorModalProductTitle">SDL 30306 SUD</h2>
+              </div>
+
+              <!-- Specifications List -->
+              <div class="skydecor-spec-list">
+
+                <div class="skydecor-spec-item">
+                  <i class="fas fa-tag skydecor-spec-icon"></i>
+                  <span class="skydecor-spec-label">Product Type</span>
+                  <span class="skydecor-spec-value" id="skydecorModalProductType">1mm</span>
+                </div>
+
+                <div class="skydecor-spec-item">
+                  <i class="fas fa-layer-group skydecor-spec-icon"></i>
+                  <span class="skydecor-spec-label">Category</span>
+                  <span class="skydecor-spec-value" id="skydecorModalCategory">Woodgrain</span>
+                </div>
+
+                <div class="skydecor-spec-item">
+                  <i class="fas fa-tags skydecor-spec-icon"></i>
+                  <span class="skydecor-spec-label">SubCategory</span>
+                  <span class="skydecor-spec-value" id="skydecorModalSubCategory">Woodgrain</span>
+                </div>
+
+                <div class="skydecor-spec-item">
+                  <i class="fas fa-hand-paper skydecor-spec-icon"></i>
+                  <span class="skydecor-spec-label">Texture</span>
+                  <span class="skydecor-spec-value" id="skydecorModalTexture">Suede</span>
+                </div>
+
+                <div class="skydecor-spec-item">
+                  <i class="fas fa-palette skydecor-spec-icon"></i>
+                  <span class="skydecor-spec-label">Design</span>
+                  <span class="skydecor-spec-value" id="skydecorModalDesign">RAYA OAK DARK</span>
+                </div>
+
+                <div class="skydecor-spec-item">
+                  <i class="fas fa-expand skydecor-spec-icon"></i>
+                  <span class="skydecor-spec-label">Size</span>
+                  <span class="skydecor-spec-value" id="skydecorModalSize">4ft*8ft mm</span>
+                </div>
+
+                <div class="skydecor-spec-item">
+                  <i class="fas fa-ruler-vertical skydecor-spec-icon"></i>
+                  <span class="skydecor-spec-label">Thickness</span>
+                  <span class="skydecor-spec-value" id="skydecorModalThickness">1 MM</span>
+                </div>
+
+                <div class="skydecor-spec-item">
+                  <i class="fas fa-ruler-horizontal skydecor-spec-icon"></i>
+                  <span class="skydecor-spec-label">Width</span>
+                  <span class="skydecor-spec-value" id="skydecorModalWidth">1220 mm</span>
+                </div>
+
+              </div>
+
+              <!-- Share Section -->
+              <div class="skydecor-share-section">
+                <span class="skydecor-share-label">Share:</span>
+                <a href="#" class="skydecor-share-btn" title="WhatsApp">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="skydecor-share-btn" title="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="skydecor-share-btn" title="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="skydecor-share-btn" title="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="skydecor-share-btn" title="Copy Link">
+                  <i class="fas fa-link"></i>
+                </a>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="skydecor-action-buttons">
+                <a href="" id="productDownloadLink" class="skydecor-btn-product-details">
+                  <i class="fas fa-download"></i>
+                  Product Details
+                </a>
+                <button class="skydecor-btn-enquiry">
+                  <i class="fas fa-envelope"></i>
+                  Make an Enquiry
+                </button>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
+
     </div>
-    <!-- Modal end -->
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const exampleModal = document.getElementById("exampleModal");
+
+    if (exampleModal) {
+      exampleModal.addEventListener("show.bs.modal", function (event) {
+        const button = event.relatedTarget;
+
+        // Get data attributes - using your existing naming convention\
+        const producttype = button.getAttribute("data-productType") || button.getAttribute("data-producttype") || "";
+        const productCode = button.getAttribute("data-productCode") || "";
+        const name = button.getAttribute("data-name") || "";
+        const image = button.getAttribute("data-image") || "";
+        const category = button.getAttribute("data-category") || "-";
+        const subCategory = button.getAttribute("data-subcategory") || "-";
+        const texture = button.getAttribute("data-texture") || "-";
+        const design = button.getAttribute("data-design") || "-";
+        const size = button.getAttribute("data-size") || "-";
+        const thickness = button.getAttribute("data-thickness") || "-";
+        const width = button.getAttribute("data-width") || "-";
+
+        // Create title from available data
+        const titleText = `${productCode} `.trim() || "Product Details";
+
+        // Update modal content
+        document.getElementById("skydecorModalProductCode").textContent = titleText;
+        document.getElementById("skydecorModalProductTitle").textContent = titleText;
+        document.getElementById("skydecorModalProductImage").src = image;
+        document.getElementById("skydecorModalProductType").textContent = producttype;
+        document.getElementById("skydecorModalCategory").textContent = category;
+        document.getElementById("skydecorModalSubCategory").textContent = subCategory;
+        document.getElementById("skydecorModalTexture").textContent = texture;
+        document.getElementById("skydecorModalDesign").textContent = design;
+        document.getElementById("skydecorModalSize").textContent = size;
+        document.getElementById("skydecorModalThickness").textContent = thickness;
+        document.getElementById("skydecorModalWidth").textContent = width;
+      });
+    }
+  });
+</script>
