@@ -5,8 +5,6 @@ const ejs = require("ejs");
 const Page = require("../models/page.model.js");
 
 
-
-
 exports.getAllProducts = async (req, res) => {
   try {
     let {
@@ -146,8 +144,6 @@ exports.getAllProducts = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
-
-
 
 
 exports.getSingleProduct = async (req, res) => {

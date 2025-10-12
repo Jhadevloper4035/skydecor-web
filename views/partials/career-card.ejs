@@ -1,15 +1,21 @@
-
-      <% if (jobs && jobs.length > 0) { %>
-        <% jobs.forEach((job) => { %>
-          <div class="col-md-4 col-sm-6 col-lg-4 scroll-zoom ">
-            <div class="job-card">
-              <p class="text-muted"><%= job.location %></p>
-              <p class="job-title"><%= job.title %></p>
-              <p><strong>Business Area :</strong> <%= job.area %></p>
-              <p><strong>Description :</strong> <%= job.description %></p>
+<% if (jobs && jobs.length> 0) { %>
+  <% jobs.forEach((job)=> { %>
+    <div class="col-md-4 col-sm-6 col-lg-4 scroll-zoom ">
+      <div class="job-card">
+        <p class="text-muted">
+          <%= job.location %>
+        </p>
+        <p class="job-title">
+          <%= job.title %>
+        </p>
+        <p><strong>Business Area :</strong>
+          <%= job.area %>
+        </p>
+        <p><strong>Description :</strong>
+          <%= job.description ? job.description.split(' ').slice(0, 15).join(' ') : '' %>...
               <small class="text-muted"><%= job.posted.toUpperCase() %></small>
               <br />
-              <a href="/" class="view-btn">Apply now</a>
+              <a href="/career/<%= job.slug %>" class="view-btn">Apply now</a>
             </div>
           </div>
         <% }) %>

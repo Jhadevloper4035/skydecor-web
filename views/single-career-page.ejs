@@ -1,0 +1,536 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Skydecor - Premium Quality Laminates Design Collections</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css">
+
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            color: #1a1a1a;
+        }
+
+
+
+        .hero {
+            background: #f6f3f3;
+            padding: 60px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #e60023 0%, #ff6b6b 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+
+
+        .job-title {
+            color: #433f3f;
+            font-size: 35px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            line-height: 2;
+            margin: 8px 0 30px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .meta-item span {
+            color: #e60023;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 10px;
+            padding: 0px !important;
+        }
+
+        .section-title {
+            color: #433f3f;
+            font-size: 35px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            line-height: 2;
+            margin: 8px 0 10px;
+        }
+
+        .section-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            font-weight: 400;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff5f7 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid #e60023;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            position: relative;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+
+        .salary {
+            font-size: 36px;
+            font-weight: 800;
+            color: #e60023;
+            margin-top: 20px;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: #f6f3f3;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.12;
+        }
+
+        .form-title {
+            color: #433f3f;
+            font-size: 35px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            line-height: 2;
+            margin: 8px 0 30px;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input,
+        textarea,
+        select {
+            padding: 16px 20px;
+            border: 2px solid #e8e8e8;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #e60023;
+            background: white;
+            box-shadow: 0 5px 20px rgba(230, 0, 35, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-input-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .file-input-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn {
+            width: 250px;
+            padding: 20px;
+            background: #00649e;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(230, 0, 35, 0.3);
+        }
+
+        @media (max-width: 768px) {
+
+            .hero,
+            .form-container {
+                padding: 30px;
+            }
+
+            .job-title {
+                font-size: 36px;
+            }
+
+            .form-title {
+                font-size: 32px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .job-meta {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        .link {
+            color: #e60023;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .link:hover {
+            border-bottom-color: #e60023;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <%- include("partials/header") %>
+
+
+        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/career.jpg);">
+            <div class="container">
+            </div>
+        </div>
+
+
+        <div class="container" >
+            <!-- Job Description -->
+            <div class="hero mt-60">
+                <h1 class="job-title">
+                    <%= job.title %>
+                </h1>
+
+                <p>
+                    <%= job.description %>
+                </p>
+
+
+
+                <div class="job-meta">
+                    <div class="meta-item"><span>Location:</span>
+                        <%= job.location %>
+                    </div>
+                    <div class="meta-item"><span>Type:</span>
+                        <%= job.employmentType %>
+                    </div>
+                    <div class="meta-item"><span>Department:</span>
+                        <%= job.department %>
+                    </div>
+                    <div class="meta-item"><span>Experience:</span>
+                        <%= job.experience %>
+                    </div>
+                    <div class="meta-item"><span>Salary:</span>
+                        <%= job.salaryRange %>
+                    </div>
+                </div>
+
+
+                <!-- Responsibilities / Skills -->
+                <div class="section">
+                    <h2 class="section-title">Skills Required</h2>
+                    <ul>
+                        <% job.skills.forEach(function(skill) { %>
+                            <li> <i class="fa-solid fa-arrow-right" style="color: #333;"></i>
+                                <%= skill %>
+                            </li>
+                            <% }) %>
+                    </ul>
+                </div>
+
+                <!-- Benefits -->
+                <div class="section">
+                    <h2 class="section-title">Benefits</h2>
+                    <ul>
+                        <% job.benefits.forEach(function(benefit) { %>
+                            <li> <i class="fa-solid fa-arrow-right" style="color: #333;"></i>
+                                <%= benefit %>
+                            </li>
+                            <% }) %>
+                    </ul>
+                </div>
+
+                <!-- Application Deadline -->
+                <div class="section">
+                    <h2 class="section-title">Important Dates</h2>
+                    <p>Posted: <%= job.posted %>
+                    </p>
+                    <p>Application Deadline: <%= job.applicationDeadline.toDateString() %>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Optional Application Form -->
+            <div class="form-container">
+                <h2 class="form-title">Apply for <%= job.title %>
+                </h2>
+                <p class="form-subtitle">Join the team at <%= job.company %>
+                </p>
+
+                <form id="applicationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Current Location *</label>
+                            <input type="text" id="location" name="location" placeholder="City, State" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Years of Experience *</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select...</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="5-7">5-7 years</option>
+                                <option value="8-10">8-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="resume">Upload Resume *</label>
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <%- include("partials/footer") %>
+
+
+
+            <!-- jQuery (required for Magnific Popup) -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+            <!-- Magnific Popup JS -->
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+            <script src="/js/vendor/popper.min.js"></script>
+            <script src="/js/vendor/bootstrap.min.js"></script>
+            <script src="/js/plugins.js"></script>
+            <!-- Ajax Mail -->
+            <script src="/js/ajax-mail.js"></script>
+            <!-- Main JS -->
+            <script src="/js/main.js"></script>
+
+
+            <script>
+                const fileInput = document.getElementById('resume');
+                const fileLabel = document.querySelector('.file-input-label');
+                const originalText = fileLabel.innerHTML;
+
+                fileInput.addEventListener('change', function (e) {
+                    const fileName = e.target.files[0]?.name;
+                    if (fileName) {
+                        fileLabel.innerHTML = `<span>✓</span><span>${fileName}</span>`;
+                    } else {
+                        fileLabel.innerHTML = originalText;
+                    }
+                });
+
+                document.getElementById('applicationForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const formData = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        location: document.getElementById('location').value,
+                        experience: document.getElementById('experience').value,
+                        linkedin: document.getElementById('linkedin').value,
+                        portfolio: document.getElementById('portfolio').value,
+                        coverLetter: document.getElementById('coverLetter').value,
+                        resume: document.getElementById('resume').files[0]?.name
+                    };
+
+                    alert('Application submitted successfully!\n\nThank you for applying to Pinterest. We will review your application and get back to you soon.');
+                    console.log('Form Data:', formData);
+                    this.reset();
+                    fileLabel.innerHTML = originalText;
+                });
+            </script>
+
+
+</body>
+
+</html>

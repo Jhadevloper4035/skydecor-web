@@ -20973,3 +20973,10 @@ video {
     background-color: #0d6efd;
     border-color: #0d6efd;
 }
+
+@media (max-width: 726px) {
+    .row {
+        --bs-gutter-x: 0 !important;
+        --bs-gutter-y: 0 !important;
+    }
+}

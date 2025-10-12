@@ -8,6 +8,7 @@ exports.getShowrooms = async (req, res) => {
       .sort({ created_at: -1 })
       .lean();
 
+
     res.render("showroom", {
       title: "Showroom Page",
       message: "Welcome to our Showrooms!",

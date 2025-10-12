@@ -1,31 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Modal</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Ads Quality Team - Pinterest Careers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px;
+            margin-bottom: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #e60023 0%, #ff6b6b 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+
+        .logo {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e60023 0%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .job-title {
+            font-size: 52px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -2px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .meta-item span {
+            color: #e60023;
+            font-weight: 700;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .section-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            font-weight: 400;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff5f7 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid #e60023;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #e60023;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .salary {
+            font-size: 36px;
+            font-weight: 800;
+            color: #e60023;
+            margin-top: 20px;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.12;
+        }
+
+        .form-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input, textarea, select {
+            padding: 16px 20px;
+            border: 2px solid #e8e8e8;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #e60023;
+            background: white;
+            box-shadow: 0 5px 20px rgba(230, 0, 35, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-input-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .file-input-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #e60023 0%, #ff6b6b 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(230, 0, 35, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero, .form-container {
+                padding: 30px;
+            }
+
+            .job-title {
+                font-size: 36px;
+            }
+
+            .form-title {
+                font-size: 32px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .job-meta {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        .link {
+            color: #e60023;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .link:hover {
+            border-bottom-color: #e60023;
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <!-- Job Description -->
+        <div class="hero">
+            <div class="logo">Pinterest</div>
+            <h1 class="job-title">Ads Quality Team</h1>
+            
+            <div class="job-meta">
+                <div class="meta-item"><span>Location:</span> US Based Applicants Only</div>
+                <div class="meta-item"><span>Type:</span> Full-Time</div>
+                <div class="meta-item"><span>Level:</span> L4 / L5</div>
+            </div>
 
-    <!-- Demo Trigger Button -->
-    <button class="demo-trigger" data-bs-toggle="modal" data-bs-target="#productModal" data-code="SDL 30306 SUD"
-        data-producttype="1mm" data-name="Woodgrain"
-        data-image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600" data-category="Woodgrain"
-        data-subcategory="Woodgrain" data-texture="Suede" data-design="RAYA OAK DARK" data-size="4ft*8ft mm"
-        data-thickness="1 MM" data-width="1220 mm">
-        View Product Details
-    </button>
+            <div class="section">
+                <h2 class="section-title">About Pinterest</h2>
+                <div class="section-content">
+                    <p>Millions of people across the world come to Pinterest to find new ideas, dream about new possibilities and plan for themselves that will fuel a lifetime. At Pinterest, we're on a mission to bring everyone the inspiration to create a life they love, and that starts with building a team we love! It's Possible.</p>
+                </div>
+            </div>
 
-    
-    <!-- Modal style  Trigger Button -->
+            <div class="section">
+                <h2 class="section-title">Your Career Journey</h2>
+                <div class="section-content">
+                    <p>Discover a career where you ignite innovation for millions, transform passion into growth opportunities, celebrate each other's unique contributions to weave the life you work. Creating a career you love? It's Possible.</p>
+                </div>
+            </div>
 
- 
+            <div class="highlight-box">
+                <h2 class="section-title">Your Mission</h2>
+                <div class="section-content">
+                    <p>Within the Ads Quality team, we try to connect the dots between the aspirations of Pinners and the products offered by our partners. In this role, you will be responsible for developing and executing a vision for the evolution of the machine learning technology and infrastructure. You will work on building new challenges in machine learning and deep learning, and you will work closely with partners like ads engagement and delivery that bring together Pinners and partners in this unique marketplace.</p>
+                </div>
+            </div>
 
+            <div class="section">
+                <h2 class="section-title">What You'll Do</h2>
+                <ul>
+                    <li>Lead user-facing projects that involve end to end engineering development in both frontend and backend and ML</li>
+                    <li>Improve relevance and increase long-term value for Pinners, Partners, Creators, and Pinterest through efficient Ads Delivery</li>
+                    <li>Design and ship modeling systems to optimize signals like quality, capacity, stability, and reduce infra cost</li>
+                    <li>Collaborate with product managers and designers to develop engineering solutions for user-facing product improvements</li>
+                    <li>Collaborate with other engineering teams, infra, user modeling, content understanding to leverage their platforms and signals</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">What We're Looking For</h2>
+                <ul>
+                    <li>Experience with tech leads scale data processing (e.g. Pres, Scalding, Spark, Hadoop, Map reduce)</li>
+                    <li>8+ years working experience in the engineering teams that build large-scale ML-driven, user-facing products</li>
+                    <li>5+ years experience leading cross-team engineering efforts that improved user experience in products</li>
+                    <li>Strong execution skills in project management</li>
+                    <li>Masters or PhD in computer science or related field</li>
+                    <li>Understanding of at least one object-oriented programming language (e.g. Java, C++, Python)</li>
+                    <li><strong>Desired skills:</strong></li>
+                    <li>Experience in working on frontend, backend and ML systems for large-scale user-facing products, and have a good sense of how they fit all work</li>
+                    <li>Experience in closely collaborating with product managers / designers to ship ML-driven user-facing product</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Location & Benefits</h2>
+                <div class="section-content">
+                    <p><strong>Relocation Statement:</strong> This position is not eligible for relocation assistance. Visit our <a href="#" class="link">PinFlex</a> page to learn more about our working model.</p>
+                    <p><strong>In-Office Statement:</strong> We like the type of work you do spark the collaboration style. That means we're not always working in an office, but we continue to gather for in-person collaboration in a 2 times/month and therefore can be situated anywhere in the country.</p>
+                    <p><strong>#LI-HYBRID</strong><br><strong>#LI_AK7</strong></p>
+                    <p>At Pinterest, we believe the workplace should be equitable, inclusive, and inspiring for every employee. In an effort to provide greater transparency, we are sharing the salary range for this position. The position is also eligible for equity, final salary is based on a number of factors including location, travel, relevant prior experience, or particular skills and expertise.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <p class="section-content">Information regarding the culture of Pinterest and benefits available for this position can be found <a href="#" class="link">here</a>.</p>
+            </div>
+
+            <div class="salary">$296,000 - $514,500 USD</div>
+        </div>
+
+        <!-- Application Form -->
+        <div class="form-container">
+            <h2 class="form-title">Apply for This Position</h2>
+            <p class="form-subtitle">Join our team and help shape the future of inspiration</p>
+            
+            <form id="applicationForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Current Location *</label>
+                        <input type="text" id="location" name="location" placeholder="City, State" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Years of Experience *</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">Select...</option>
+                            <option value="5-7">5-7 years</option>
+                            <option value="8-10">8-10 years</option>
+                            <option value="11-15">11-15 years</option>
+                            <option value="15+">15+ years</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="linkedin">LinkedIn Profile URL</label>
+                        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="portfolio">Portfolio / GitHub URL</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="https://github.com/yourusername">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="coverLetter">Why Pinterest? *</label>
+                        <textarea id="coverLetter" name="coverLetter" placeholder="Tell us why you're excited about this opportunity and what makes you a great fit for this role..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="resume">Upload Resume *</label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                            <label for="resume" class="file-input-label">
+                                <span>📎</span>
+                                <span>Choose File (PDF, DOC, DOCX)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('resume');
+        const fileLabel = document.querySelector('.file-input-label');
+        const originalText = fileLabel.innerHTML;
+
+        fileInput.addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name;
+            if (fileName) {
+                fileLabel.innerHTML = `<span>✓</span><span>${fileName}</span>`;
+            } else {
+                fileLabel.innerHTML = originalText;
+            }
+        });
+
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                location: document.getElementById('location').value,
+                experience: document.getElementById('experience').value,
+                linkedin: document.getElementById('linkedin').value,
+                portfolio: document.getElementById('portfolio').value,
+                coverLetter: document.getElementById('coverLetter').value,
+                resume: document.getElementById('resume').files[0]?.name
+            };
+            
+            alert('Application submitted successfully!\n\nThank you for applying to Pinterest. We will review your application and get back to you soon.');
+            console.log('Form Data:', formData);
+            this.reset();
+            fileLabel.innerHTML = originalText;
+        });
+    </script>
 </body>
-
 </html>
