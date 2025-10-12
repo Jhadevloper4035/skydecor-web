@@ -38,10 +38,11 @@
             </div>
         </div>
     </div>
-    <div class="header-bottom sticky-bar header-res-padding">
+
+    <div class="header-bottom sticky-bar header-res-padding ">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-2 col-lg-2 col-md-6 col-4">
+                <div class="col-xl-2 col-lg-2  col-md-6 col-4">
                     <div class="logo">
                         <a href="/">
                             <img alt="" src="/images/logo/logo.png" style="max-width: 220px;">
@@ -165,17 +166,13 @@
 
                                 <li><a href="#"> Resources <i class="fa fa-angle-down"></i></a>
                                     <ul class="submenu">
-                                        <li><a href="about.html">E-Catalogous </a></li>
-                                        <li><a href="cart-page.html">certification </a></li>
+                                        <li><a href="/about.html">E-Catalogous </a></li>
+                                        <li><a href="/certificates">certification </a></li>
                                         <li><a href="about.html">Technical Specification. </a></li>
                                         <li><a href="/events">Exhibition & Media</a></li>
                                         <li><a href="/blogs"> Blogs </a></li>
                                     </ul>
                                 </li>
-
-
-
-
 
                                 <li><a href="/career"> Career </a></li>
 
@@ -186,15 +183,22 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-xl-1 col-lg-1 col-md-6 col-8 bg-grey object-center">
+                <div class="col-xl-1 col-lg-1   col-md-6 col-8 bg-grey object-center">
                     <div class="header-right-wrap">
                         <div class="same-style header-search">
                             <a class="search-active" href="#"><i class="pe-7s-search"></i></a>
+                            <!-- Your existing search component -->
                             <div class="search-content">
-                                <form action="#">
-                                    <input type="text" placeholder="Search" />
-                                    <button class="button-search"><i class="pe-7s-search"></i></button>
+                                <form action="#" id="productSearchForm">
+                                    <input type="text" id="productSearchInput" placeholder="Search"
+                                        autocomplete="off" />
+                                    <button type="submit" class="button-search">
+                                        <i class="pe-7s-search"></i>
+                                    </button>
                                 </form>
+
+                                <!-- Suggestions Dropdown -->
+                                <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
                             </div>
                         </div>
                     </div>
@@ -269,11 +273,10 @@
                                     </li>
                                 </ul>
                             </li>
-
-
                             <li><a href="/events">Exhibition & Media</a></li>
                             <li><a href="/career">Career</a></li>
                             <li><a href="/blogs">Blog</a></li>
+                            <li><a href="/certificates">certification </a></li>
                             <li><a href="/experience-center">Experience Center</a></li>
                             <li><a href="/contact-us">Contact</a></li>
 
@@ -352,7 +355,6 @@
         color: #fff;
     }
 </style>
-
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -453,4 +455,3704 @@
     .mobile-menu .mean-nav ul.menu-overflow {
         height: 100vh;
     }
+
+    .search-content {
+        position: relative;
+    }
+
+    .search-content form {
+        position: relative;
+    }
+
+    /* Auto-suggestion dropdown */
+    .suggestions-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        max-height: 300px;
+        overflow-y: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        display: none;
+        margin-top: 2px;
+    }
+
+    .suggestions-dropdown.show {
+        display: block;
+    }
+
+    .suggestion-item {
+        padding: 12px 15px;
+        cursor: pointer;
+        transition: background 0.2s;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .suggestion-item:last-child {
+        border-bottom: none;
+    }
+
+    .suggestion-item:hover,
+    .suggestion-item.selected {
+        background: #f5f5f5;
+    }
+
+    .suggestion-item .product-code {
+        font-weight: bold;
+        color: #333;
+        font-size: 14px;
+    }
+
+    .suggestion-item .product-name {
+        font-size: 13px;
+        color: #666;
+        margin-top: 2px;
+    }
+
+    .highlight {
+        background: #ffeb3b;
+        font-weight: bold;
+    }
+
+    .no-results,
+    .loading {
+        padding: 15px;
+        text-align: center;
+        color: #999;
+        font-size: 14px;
+    }
 </style>
+
+<script>
+    (function () {
+        const input = document.getElementById('productSearchInput');
+        const form = document.getElementById('productSearchForm');
+        const dropdown = document.getElementById('suggestionsDropdown');
+
+        let debounceTimer;
+        let selectedIndex = -1;
+        let suggestions = [];
+
+        // Mock products - Replace with your API endpoint
+        const mockProducts = [
+            {
+                "productCode": "SD 1001 HG",
+                "name": "SD 1001"
+            },
+            {
+                "productCode": "SD 1002 HG",
+                "name": "SD 1002"
+            },
+            {
+                "productCode": "SD 1005 HG",
+                "name": "SD 1005"
+            },
+            {
+                "productCode": "SD 1006 HG",
+                "name": "SD 1006"
+            },
+            {
+                "productCode": "SD 1009 HG",
+                "name": "SD 1009"
+            },
+            {
+                "productCode": "SD 1010 HG",
+                "name": "SD 1010"
+            },
+            {
+                "productCode": "SD 1011 HG",
+                "name": "SD 1011"
+            },
+            {
+                "productCode": "SD 1012 HG",
+                "name": "SD 1012"
+            },
+            {
+                "productCode": "SD 1014 HG",
+                "name": "SD 1014"
+            },
+            {
+                "productCode": "SD 1015 HG",
+                "name": "SD 1015"
+            },
+            {
+                "productCode": "SD 1016 HG",
+                "name": "SD 1016"
+            },
+            {
+                "productCode": "SD 1019 HG",
+                "name": "SD 1019"
+            },
+            {
+                "productCode": "SD 1020 HG",
+                "name": "SD 1020"
+            },
+            {
+                "productCode": "SD 1021 HG",
+                "name": "SD 1021"
+            },
+            {
+                "productCode": "SD 1022 HG",
+                "name": "SD 1022"
+            },
+            {
+                "productCode": "SD 1023 HG",
+                "name": "SD 1023"
+            },
+            {
+                "productCode": "SD 1024 HG",
+                "name": "SD 1024"
+            },
+            {
+                "productCode": "SD 1027 HG",
+                "name": "SD 1027"
+            },
+            {
+                "productCode": "SD 1028 HG",
+                "name": "SD 1028"
+            },
+            {
+                "productCode": "SD 1029 HG",
+                "name": "SD 1029"
+            },
+            {
+                "productCode": "SD 1030 HG",
+                "name": "SD 1030"
+            },
+            {
+                "productCode": "SD 1031 HG",
+                "name": "SD 1031"
+            },
+            {
+                "productCode": "SD 1032 HG",
+                "name": "SD 1032"
+            },
+            {
+                "productCode": "SD 1033 HG",
+                "name": "SD 1033"
+            },
+            {
+                "productCode": "SD 1034 HG",
+                "name": "SD 1034"
+            },
+            {
+                "productCode": "SD 1035 HG",
+                "name": "SD 1035"
+            },
+            {
+                "productCode": "SD 1036 HG",
+                "name": "SD 1036"
+            },
+            {
+                "productCode": "SD 1037 HG",
+                "name": "SD 1037"
+            },
+            {
+                "productCode": "SD 1038 HG",
+                "name": "SD 1038"
+            },
+            {
+                "productCode": "SD 1039 HG",
+                "name": "SD 1039"
+            },
+            {
+                "productCode": "SD 1040 HG",
+                "name": "SD 1040"
+            },
+            {
+                "productCode": "SD 1041 HG",
+                "name": "SD 1041"
+            },
+            {
+                "productCode": "SD 1042 HG",
+                "name": "SD 1042"
+            },
+            {
+                "productCode": "SD 1043 HG",
+                "name": "SD 1043"
+            },
+            {
+                "productCode": "SD 1044 HG",
+                "name": "SD 1044"
+            },
+            {
+                "productCode": "SD 1046 HG",
+                "name": "SD 1046"
+            },
+            {
+                "productCode": "SD 1047 HG",
+                "name": "SD 1047"
+            },
+            {
+                "productCode": "SD 1048 HG",
+                "name": "SD 1048"
+            },
+            {
+                "productCode": "SD 1049 HG",
+                "name": "SD 1049"
+            },
+            {
+                "productCode": "SD 1050 HG",
+                "name": "SD 1050"
+            },
+            {
+                "productCode": "SD 1051 HG",
+                "name": "SD 1051"
+            },
+            {
+                "productCode": "SD 1052 HG",
+                "name": "SD 1052"
+            },
+            {
+                "productCode": "SD 1053 HG",
+                "name": "SD 1053"
+            },
+            {
+                "productCode": "SD 1054 HG",
+                "name": "SD 1054"
+            },
+            {
+                "productCode": "SD 1055 HG",
+                "name": "SD 1055"
+            },
+            {
+                "productCode": "SD 1056 HG",
+                "name": "SD 1056"
+            },
+            {
+                "productCode": "SD 1057 HG",
+                "name": "SD 1057"
+            },
+            {
+                "productCode": "SD 1058 HG",
+                "name": "SD 1058"
+            },
+            {
+                "productCode": "SD 1059 HG",
+                "name": "SD 1059"
+            },
+            {
+                "productCode": "SD 1060 HG",
+                "name": "SD 1060"
+            },
+            {
+                "productCode": "SD 1061 HG",
+                "name": "SD 1061"
+            },
+            {
+                "productCode": "SD 1062 HG",
+                "name": "SD 1062"
+            },
+            {
+                "productCode": "SD 1063 HG",
+                "name": "SD 1063"
+            },
+            {
+                "productCode": "SD 1064 HG",
+                "name": "SD 1064"
+            },
+            {
+                "productCode": "SD 1065 HG",
+                "name": "SD 1065"
+            },
+            {
+                "productCode": "SD 1066 HG",
+                "name": "SD 1066"
+            },
+            {
+                "productCode": "SD 1067 HG",
+                "name": "SD 1067"
+            },
+            {
+                "productCode": "SD 1068 HG",
+                "name": "SD 1068"
+            },
+            {
+                "productCode": "SD 1069 HG",
+                "name": "SD 1069"
+            },
+            {
+                "productCode": "SD 1070 HG",
+                "name": "SD 1070"
+            },
+            {
+                "productCode": "SD 1071 HG",
+                "name": "SD 1071"
+            },
+            {
+                "productCode": "SD 1072 HG",
+                "name": "SD 1072"
+            },
+            {
+                "productCode": "SD 1073 HG",
+                "name": "SD 1073"
+            },
+            {
+                "productCode": "SD 1074 HG",
+                "name": "SD 1074"
+            },
+            {
+                "productCode": "SD 1075 HG",
+                "name": "SD 1075"
+            },
+            {
+                "productCode": "SD 1076 HG",
+                "name": "SD 1076"
+            },
+            {
+                "productCode": "SD 1501 SMT",
+                "name": "SD 1501"
+            },
+            {
+                "productCode": "SD 1505 SMT",
+                "name": "SD 1505"
+            },
+            {
+                "productCode": "SD 1506 SMT",
+                "name": "SD 1506"
+            },
+            {
+                "productCode": "SD 1507 SMT",
+                "name": "SD 1507"
+            },
+            {
+                "productCode": "SD 1510 SMT",
+                "name": "SD 1510"
+            },
+            {
+                "productCode": "SD 1511 SMT",
+                "name": "SD 1511"
+            },
+            {
+                "productCode": "SD 1515 SMT",
+                "name": "SD 1515"
+            },
+            {
+                "productCode": "SD 1516 SMT",
+                "name": "SD 1516"
+            },
+            {
+                "productCode": "SD 1517 SMT",
+                "name": "SD 1517"
+            },
+            {
+                "productCode": "SD 1518 SMT",
+                "name": "SD 1518"
+            },
+            {
+                "productCode": "SD 1519 SMT",
+                "name": "SD 1519"
+            },
+            {
+                "productCode": "SD 1520 SMT",
+                "name": "SD 1520"
+            },
+            {
+                "productCode": "SD 1521 SMT",
+                "name": "SD 1521"
+            },
+            {
+                "productCode": "SD 1522 SMT",
+                "name": "SD 1522"
+            },
+            {
+                "productCode": "SD 2010 HG",
+                "name": "SD 2010"
+            },
+            {
+                "productCode": "SD 2015 HG",
+                "name": "SD 2015"
+            },
+            {
+                "productCode": "SD 2019 HG",
+                "name": "SD 2019"
+            },
+            {
+                "productCode": "SD 2021 HG",
+                "name": "SD 2021"
+            },
+            {
+                "productCode": "SD 2022 HG",
+                "name": "SD 2022"
+            },
+            {
+                "productCode": "SD 4008 HG",
+                "name": "SD 4008"
+            },
+            {
+                "productCode": "SD 4012 HG",
+                "name": "SD 4012"
+            },
+            {
+                "productCode": "SD 4013 HG",
+                "name": "SD 4013"
+            },
+            {
+                "productCode": "SD 4016 HG",
+                "name": "SD 4016"
+            },
+            {
+                "productCode": "SD 4017 HG",
+                "name": "SD 4017"
+            },
+            {
+                "productCode": "SD 4018 HG",
+                "name": "SD 4018"
+            },
+            {
+                "productCode": "SD 4019 HG",
+                "name": "SD 4019"
+            },
+            {
+                "productCode": "SD 4020 HG",
+                "name": "SD 4020"
+            },
+            {
+                "productCode": "SD 4021 HG",
+                "name": "SD 4021"
+            },
+            {
+                "productCode": "SD 4022 SMT",
+                "name": "SD 4022"
+            },
+            {
+                "productCode": "SD 4023 HG",
+                "name": "SD 4023"
+            },
+            {
+                "productCode": "SD 4031 SMT",
+                "name": "SD 4031"
+            },
+            {
+                "productCode": "SD 4032 HG",
+                "name": "SD 4032"
+            },
+            {
+                "productCode": "SD 4033 HG",
+                "name": "SD 4033"
+            },
+            {
+                "productCode": "SD 4034 HG",
+                "name": "SD 4034"
+            },
+            {
+                "productCode": "SD 4036 HG",
+                "name": "SD 4036"
+            },
+            {
+                "productCode": "SD 4038 SMT",
+                "name": "SD 4038"
+            },
+            {
+                "productCode": "SD 4039 HG",
+                "name": "SD 4039"
+            },
+            {
+                "productCode": "SD 4041 HG",
+                "name": "SD 4041"
+            },
+            {
+                "productCode": "SD 4050 HG",
+                "name": "SD 4050"
+            },
+            {
+                "productCode": "SD 4051 HG",
+                "name": "SD 4051"
+            },
+            {
+                "productCode": "SD 4052 HG",
+                "name": "SD 4052"
+            },
+            {
+                "productCode": "SD 4053 HG",
+                "name": "SD 4053"
+            },
+            {
+                "productCode": "SD 4054 HG",
+                "name": "SD 4054"
+            },
+            {
+                "productCode": "SD 4055 HG",
+                "name": "SD 4055"
+            },
+            {
+                "productCode": "SD 4056 HG",
+                "name": "SD 4056"
+            },
+            {
+                "productCode": "SD 4057 HG",
+                "name": "SD 4057"
+            },
+            {
+                "productCode": "SD 4058 HG",
+                "name": "SD 4058"
+            },
+            {
+                "productCode": "SD 4059 HG",
+                "name": "SD 4059"
+            },
+            {
+                "productCode": "SD 4062 HG",
+                "name": "SD 4062"
+            },
+            {
+                "productCode": "SD 4063 HG",
+                "name": "SD 4063"
+            },
+            {
+                "productCode": "SD 4065 HG",
+                "name": "SD 4065"
+            },
+            {
+                "productCode": "SD 4067 HG",
+                "name": "SD 4067"
+            },
+            {
+                "productCode": "SD 4068 HG",
+                "name": "SD 4068"
+            },
+            {
+                "productCode": "SD 4069 HG",
+                "name": "SD 4069"
+            },
+            {
+                "productCode": "SD 4070 HG",
+                "name": "SD 4070"
+            },
+            {
+                "productCode": "SD 4071 HG",
+                "name": "SD 4071"
+            },
+            {
+                "productCode": "SD 6003 SMT",
+                "name": "SD 6003"
+            },
+            {
+                "productCode": "SD 6004 SMT",
+                "name": "SD 6004"
+            },
+            {
+                "productCode": "SD 6007 SMT",
+                "name": "SD 6007"
+            },
+            {
+                "productCode": "SD 6009 SMT",
+                "name": "SD 6009"
+            },
+            {
+                "productCode": "SD 6010 SMT",
+                "name": "SD 6010"
+            },
+            {
+                "productCode": "SD 6011 SMT",
+                "name": "SD 6011"
+            },
+            {
+                "productCode": "SD 6012 SMT",
+                "name": "SD 6012"
+            },
+            {
+                "productCode": "SD 6013 SMT",
+                "name": "SD 6013"
+            },
+            {
+                "productCode": "SD 6014 SMT",
+                "name": "SD 6014"
+            },
+            {
+                "productCode": "SD 6015 SMT",
+                "name": "SD 6015"
+            },
+            {
+                "productCode": "SD 6022 HG",
+                "name": "SD 6022"
+            },
+            {
+                "productCode": "SD 6024 HG",
+                "name": "SD 6024"
+            },
+            {
+                "productCode": "SD 6026 HG",
+                "name": "SD 6026"
+            },
+            {
+                "productCode": "SD 6037 SMT",
+                "name": "SD 6037"
+            },
+            {
+                "productCode": "SD 6038 SMT",
+                "name": "SD 6038"
+            },
+            {
+                "productCode": "SD 6039 SMT",
+                "name": "SD 6039"
+            },
+            {
+                "productCode": "SD 6040 SMT",
+                "name": "SD 6040"
+            },
+            {
+                "productCode": "SD 6045 SMT",
+                "name": "SD 6045"
+            },
+            {
+                "productCode": "SD 6046 SMT",
+                "name": "SD 6046"
+            },
+            {
+                "productCode": "SD 6047 SMT",
+                "name": "SD 6047"
+            },
+            {
+                "productCode": "SD 6048 SMT",
+                "name": "SD 6048"
+            },
+            {
+                "productCode": "SD 6051 SMT",
+                "name": "SD 6051"
+            },
+            {
+                "productCode": "SD 6054 SMT",
+                "name": "SD 6054"
+            },
+            {
+                "productCode": "SD 6055 SMT",
+                "name": "SD 6055"
+            },
+            {
+                "productCode": "SD 6056 SMT",
+                "name": "SD 6056"
+            },
+            {
+                "productCode": "SD 6057 SMT",
+                "name": "SD 6057"
+            },
+            {
+                "productCode": "SD 6058 SMT",
+                "name": "SD 6058"
+            },
+            {
+                "productCode": "SD 6059 SMT",
+                "name": "SD 6059"
+            },
+            {
+                "productCode": "SD 6060 SMT",
+                "name": "SD 6060"
+            },
+            {
+                "productCode": "SD 6061 SMT",
+                "name": "SD 6061"
+            },
+            {
+                "productCode": "SD 6062 SMT",
+                "name": "SD 6062"
+            },
+            {
+                "productCode": "SD 6063 SMT",
+                "name": "SD 6063"
+            },
+            {
+                "productCode": "SD 6064 SMT",
+                "name": "SD 6064"
+            },
+            {
+                "productCode": "SD 6066 SMT",
+                "name": "SD 6066"
+            },
+            {
+                "productCode": "SD 6067 SMT",
+                "name": "SD 6067"
+            },
+            {
+                "productCode": "SD 6068 SMT",
+                "name": "SD 6068"
+            },
+            {
+                "productCode": "SD 6069 SMT",
+                "name": "SD 6069"
+            },
+            {
+                "productCode": "SD 6070 SMT",
+                "name": "SD 6070"
+            },
+            {
+                "productCode": "SD 6071 SMT",
+                "name": "SD 6071"
+            },
+            {
+                "productCode": "SD 6072 SMT",
+                "name": "SD 6072"
+            },
+            {
+                "productCode": "SD 6073 SMT",
+                "name": "SD 6073"
+            },
+            {
+                "productCode": "SD 6074 SMT",
+                "name": "SD 6074"
+            },
+            {
+                "productCode": "SD 6075 HG",
+                "name": "SD 6075"
+            },
+            {
+                "productCode": "SD 6076 SMT",
+                "name": "SD 6076"
+            },
+            {
+                "productCode": "SD 6077 HG",
+                "name": "SD 6077"
+            },
+            {
+                "productCode": "SD 6081 SMT",
+                "name": "SD 6081"
+            },
+            {
+                "productCode": "SD 6083 SMT",
+                "name": "SD 6083"
+            },
+            {
+                "productCode": "SD 6084 HG",
+                "name": "SD 6084"
+            },
+            {
+                "productCode": "SD 6085 HG",
+                "name": "SD 6085"
+            },
+            {
+                "productCode": "SD 6086 SMT",
+                "name": "SD 6086"
+            },
+            {
+                "productCode": "SD 6087 SMT",
+                "name": "SD 6087"
+            },
+            {
+                "productCode": "SD 6088 SMT",
+                "name": "SD 6088"
+            },
+            {
+                "productCode": "SD 6089 SMT",
+                "name": "SD 6089"
+            },
+            {
+                "productCode": "SD 6090 SMT",
+                "name": "SD 6090"
+            },
+            {
+                "productCode": "SD 6091 SMT",
+                "name": "SD 6091"
+            },
+            {
+                "productCode": "SD 6093 SMT",
+                "name": "SD 6093"
+            },
+            {
+                "productCode": "SD 6094 SMT",
+                "name": "SD 6094"
+            },
+            {
+                "productCode": "SD 6095 SMT",
+                "name": "SD 6095"
+            },
+            {
+                "productCode": "SD 7001 CFL",
+                "name": "SD 7001"
+            },
+            {
+                "productCode": "SD 7004 STL",
+                "name": "SD 7004"
+            },
+            {
+                "productCode": "SD 7005 FRL",
+                "name": "SD 7005"
+            },
+            {
+                "productCode": "SD 7006 FRL",
+                "name": "SD 7006"
+            },
+            {
+                "productCode": "SD 7008 TWL",
+                "name": "SD 7008"
+            },
+            {
+                "productCode": "SD 7009 FRL",
+                "name": "SD 7009"
+            },
+            {
+                "productCode": "SD 7010 FRL",
+                "name": "SD 7010"
+            },
+            {
+                "productCode": "SD 7011 MTS",
+                "name": "SD 7011"
+            },
+            {
+                "productCode": "SD 7013 MTV",
+                "name": "SD 7013"
+            },
+            {
+                "productCode": "SD 7017 WRC",
+                "name": "SD 7017"
+            },
+            {
+                "productCode": "SD 7018 WRC",
+                "name": "SD 7018"
+            },
+            {
+                "productCode": "SD 7021 WDE",
+                "name": "SD 7021"
+            },
+            {
+                "productCode": "SD 7023 CLT",
+                "name": "SD 7023"
+            },
+            {
+                "productCode": "SD 7024 CLT",
+                "name": "SD 7024"
+            },
+            {
+                "productCode": "SD 7025 CLT",
+                "name": "SD 7025"
+            },
+            {
+                "productCode": "SD 7028 CLT",
+                "name": "SD 7028"
+            },
+            {
+                "productCode": "SD 7029 WVM",
+                "name": "SD 7029"
+            },
+            {
+                "productCode": "SD 7030 WVM",
+                "name": "SD 7030"
+            },
+            {
+                "productCode": "SD 7031 WVM",
+                "name": "SD 7031"
+            },
+            {
+                "productCode": "SD 7032 TRN",
+                "name": "SD 7032"
+            },
+            {
+                "productCode": "SD 7033 EMB",
+                "name": "SD 7033"
+            },
+            {
+                "productCode": "SD 7502 GLC",
+                "name": "SD 7502"
+            },
+            {
+                "productCode": "SD 7503 GLC",
+                "name": "SD 7503"
+            },
+            {
+                "productCode": "SD 7505 GLM",
+                "name": "SD 7505"
+            },
+            {
+                "productCode": "SD 7506 GFT",
+                "name": "SD 7506"
+            },
+            {
+                "productCode": "SD 7507 SMO",
+                "name": "SD 7507"
+            },
+            {
+                "productCode": "SD 7510 SHM",
+                "name": "SD 7510"
+            },
+            {
+                "productCode": "SD 7511 SHM",
+                "name": "SD 7511"
+            },
+            {
+                "productCode": "SD 7512 SHM",
+                "name": "SD 7512"
+            },
+            {
+                "productCode": "SD 7513 SHM",
+                "name": "SD 7513"
+            },
+            {
+                "productCode": "SD 7514 SHM",
+                "name": "SD 7514"
+            },
+            {
+                "productCode": "SD 7516 SHM",
+                "name": "SD 7516"
+            },
+            {
+                "productCode": "SD 7517 SHM",
+                "name": "SD 7517"
+            },
+            {
+                "productCode": "SD 8006 CFL",
+                "name": "SD 8006"
+            },
+            {
+                "productCode": "SD 8008 CFL",
+                "name": "SD 8008"
+            },
+            {
+                "productCode": "SD 8017 HG",
+                "name": "SD 8017"
+            },
+            {
+                "productCode": "SD 4025A HG",
+                "name": "SD 4025 A"
+            },
+            {
+                "productCode": "SDL 20203 IMP",
+                "name": "SDL 20203"
+            },
+            {
+                "productCode": "SDL 20205 IMP",
+                "name": "SDL 20205"
+            },
+            {
+                "productCode": "SDL 20208 IMP",
+                "name": "SDL 20208"
+            },
+            {
+                "productCode": "SDL 20201 FHG",
+                "name": "SDL 20201"
+            },
+            {
+                "productCode": "SDL 20202 FHG",
+                "name": "SDL 20202"
+            },
+            {
+                "productCode": "SDL 20203 FHG",
+                "name": "SDL 20203"
+            },
+            {
+                "productCode": "SDL 20204 FHG",
+                "name": "SDL 20204"
+            },
+            {
+                "productCode": "SDL 20205 FHG",
+                "name": "SDL 20205"
+            },
+            {
+                "productCode": "SDL 20206 FHG",
+                "name": "SDL 20206"
+            },
+            {
+                "productCode": "SDL 20207 FHG",
+                "name": "SDL 20207"
+            },
+            {
+                "productCode": "SDL 20208 FHG",
+                "name": "SDL 20208"
+            },
+            {
+                "productCode": "SDL 20209 FHG",
+                "name": "SDL 20209"
+            },
+            {
+                "productCode": "SDL 10102 SUD",
+                "name": "SDL 10102"
+            },
+            {
+                "productCode": "SDL 10106 SUD",
+                "name": "SDL 10106"
+            },
+            {
+                "productCode": "SDL 10110 SUD",
+                "name": "SDL 10110"
+            },
+            {
+                "productCode": "SDL 10111 SUD",
+                "name": "SDL 10111"
+            },
+            {
+                "productCode": "SDL 10112 SUD",
+                "name": "SDL 10112"
+            },
+            {
+                "productCode": "SDL 10114 SUD",
+                "name": "SDL 10114"
+            },
+            {
+                "productCode": "SDL 10115 SUD",
+                "name": "SDL 10115"
+            },
+            {
+                "productCode": "SDL 10116 SUD",
+                "name": "SDL 10116"
+            },
+            {
+                "productCode": "SDL 10119 SUD",
+                "name": "SDL 10119"
+            },
+            {
+                "productCode": "SDL 10120 SUD",
+                "name": "SDL 10120"
+            },
+            {
+                "productCode": "SDL 10121 SUD",
+                "name": "SDL 10121"
+            },
+            {
+                "productCode": "SDL 10122 SUD",
+                "name": "SDL 10122"
+            },
+            {
+                "productCode": "SDL 10123 SUD",
+                "name": "SDL 10123"
+            },
+            {
+                "productCode": "SDL 10124 SUD",
+                "name": "SDL 10124"
+            },
+            {
+                "productCode": "SDL 10125 SUD",
+                "name": "SDL 10125"
+            },
+            {
+                "productCode": "SDL 10126 SUD",
+                "name": "SDL 10126"
+            },
+            {
+                "productCode": "SDL 10127 SUD",
+                "name": "SDL 10127"
+            },
+            {
+                "productCode": "SDL 10128 SUD",
+                "name": "SDL 10128"
+            },
+            {
+                "productCode": "SDL 10129 SUD",
+                "name": "SDL 10129"
+            },
+            {
+                "productCode": "SDL 10130 SUD",
+                "name": "SDL 10130"
+            },
+            {
+                "productCode": "SDL 10131 SUD",
+                "name": "SDL 10131"
+            },
+            {
+                "productCode": "SDL 10133 SUD",
+                "name": "SDL 10133"
+            },
+            {
+                "productCode": "SDL 10134 SUD",
+                "name": "SDL 10134"
+            },
+            {
+                "productCode": "SDL 10135 SUD",
+                "name": "SDL 10135"
+            },
+            {
+                "productCode": "SDL 10136 SUD",
+                "name": "SDL 10136"
+            },
+            {
+                "productCode": "SDL 10137 SUD",
+                "name": "SDL 10137"
+            },
+            {
+                "productCode": "SDL 10138 SUD",
+                "name": "SDL 10138"
+            },
+            {
+                "productCode": "SDL 10139 SUD",
+                "name": "SDL 10139"
+            },
+            {
+                "productCode": "SDL 10140 SUD",
+                "name": "SDL 10140"
+            },
+            {
+                "productCode": "SDL 10141 SUD",
+                "name": "SDL 10141"
+            },
+            {
+                "productCode": "SDL 10142 SUD",
+                "name": "SDL 10142"
+            },
+            {
+                "productCode": "SDL 10201 SUD",
+                "name": "SDL 10201"
+            },
+            {
+                "productCode": "SDL 10202 SUD",
+                "name": "SDL 10202"
+            },
+            {
+                "productCode": "SDL 10203 SUD",
+                "name": "SDL 10203"
+            },
+            {
+                "productCode": "SDL 10204 SUD",
+                "name": "SDL 10204"
+            },
+            {
+                "productCode": "SDL 10205 SUD",
+                "name": "SDL 10205"
+            },
+            {
+                "productCode": "SDL 10206 SUD",
+                "name": "SDL 10206"
+            },
+            {
+                "productCode": "SDL 10102 FSR",
+                "name": "SDL 10102"
+            },
+            {
+                "productCode": "SDL 10102 SHG",
+                "name": "SDL 10102"
+            },
+            {
+                "productCode": "SDL 10102 SSR",
+                "name": "SDL 10102"
+            },
+            {
+                "productCode": "SDL 10106 FSR",
+                "name": "SDL 10106"
+            },
+            {
+                "productCode": "SDL 10106 SHG",
+                "name": "SDL 10106"
+            },
+            {
+                "productCode": "SDL 10106 SSR",
+                "name": "SDL 10106"
+            },
+            {
+                "productCode": "SDL 10110 SHG",
+                "name": "SDL 10110"
+            },
+            {
+                "productCode": "SDL 10110 SSR",
+                "name": "SDL 10110"
+            },
+            {
+                "productCode": "SDL 10111 SHG",
+                "name": "SDL 10111"
+            },
+            {
+                "productCode": "SDL 10111 SSR",
+                "name": "SDL 10111"
+            },
+            {
+                "productCode": "SDL 10112 SHG",
+                "name": "SDL 10112"
+            },
+            {
+                "productCode": "SDL 10112 SSR",
+                "name": "SDL 10112"
+            },
+            {
+                "productCode": "SDL 10114 SHG",
+                "name": "SDL 10114"
+            },
+            {
+                "productCode": "SDL 10114 SSR",
+                "name": "SDL 10114"
+            },
+            {
+                "productCode": "SDL 10115 FKG",
+                "name": "SDL 10115"
+            },
+            {
+                "productCode": "SDL 10115 FKR",
+                "name": "SDL 10115"
+            },
+            {
+                "productCode": "SDL 10115 SHG",
+                "name": "SDL 10115"
+            },
+            {
+                "productCode": "SDL 10115 SSR",
+                "name": "SDL 10115"
+            },
+            {
+                "productCode": "SDL 10116 FSR",
+                "name": "SDL 10116"
+            },
+            {
+                "productCode": "SDL 10116 SHG",
+                "name": "SDL 10116"
+            },
+            {
+                "productCode": "SDL 10116 SSR",
+                "name": "SDL 10116"
+            },
+            {
+                "productCode": "SDL 10119 SHG",
+                "name": "SDL 10119"
+            },
+            {
+                "productCode": "SDL 10119 SSR",
+                "name": "SDL 10119"
+            },
+            {
+                "productCode": "SDL 10120 SHG",
+                "name": "SDL 10120"
+            },
+            {
+                "productCode": "SDL 10120 SSR",
+                "name": "SDL 10120"
+            },
+            {
+                "productCode": "SDL 10121 FKG",
+                "name": "SDL 10121"
+            },
+            {
+                "productCode": "SDL 10121 FKR",
+                "name": "SDL 10121"
+            },
+            {
+                "productCode": "SDL 10121 FSR",
+                "name": "SDL 10121"
+            },
+            {
+                "productCode": "SDL 10121 SHG",
+                "name": "SDL 10121"
+            },
+            {
+                "productCode": "SDL 10121 SSR",
+                "name": "SDL 10121"
+            },
+            {
+                "productCode": "SDL 10122 FSR",
+                "name": "SDL 10122"
+            },
+            {
+                "productCode": "SDL 10122 SHG",
+                "name": "SDL 10122"
+            },
+            {
+                "productCode": "SDL 10122 SSR",
+                "name": "SDL 10122"
+            },
+            {
+                "productCode": "SDL 10123 SHG",
+                "name": "SDL 10123"
+            },
+            {
+                "productCode": "SDL 10123 SSR",
+                "name": "SDL 10123"
+            },
+            {
+                "productCode": "SDL 10124 FBT",
+                "name": "SDL 10124"
+            },
+            {
+                "productCode": "SDL 10124 FSR",
+                "name": "SDL 10124"
+            },
+            {
+                "productCode": "SDL 10124 SHG",
+                "name": "SDL 10124"
+            },
+            {
+                "productCode": "SDL 10124 SSR",
+                "name": "SDL 10124"
+            },
+            {
+                "productCode": "SDL 10125 FSR",
+                "name": "SDL 10125"
+            },
+            {
+                "productCode": "SDL 10125 SHG",
+                "name": "SDL 10125"
+            },
+            {
+                "productCode": "SDL 10125 SSR",
+                "name": "SDL 10125"
+            },
+            {
+                "productCode": "SDL 10126 SHG",
+                "name": "SDL 10126"
+            },
+            {
+                "productCode": "SDL 10126 SSR",
+                "name": "SDL 10126"
+            },
+            {
+                "productCode": "SDL 10127 SHG",
+                "name": "SDL 10127"
+            },
+            {
+                "productCode": "SDL 10127 SSR",
+                "name": "SDL 10127"
+            },
+            {
+                "productCode": "SDL 10128 SHG",
+                "name": "SDL 10128"
+            },
+            {
+                "productCode": "SDL 10128 SSR",
+                "name": "SDL 10128"
+            },
+            {
+                "productCode": "SDL 10129 SHG",
+                "name": "SDL 10129"
+            },
+            {
+                "productCode": "SDL 10129 SSR",
+                "name": "SDL 10129"
+            },
+            {
+                "productCode": "SDL 10130 FBT",
+                "name": "SDL 10130"
+            },
+            {
+                "productCode": "SDL 10130 SHG",
+                "name": "SDL 10130"
+            },
+            {
+                "productCode": "SDL 10130 SSR",
+                "name": "SDL 10130"
+            },
+            {
+                "productCode": "SDL 10131 EQR",
+                "name": "SDL 10131"
+            },
+            {
+                "productCode": "SDL 10131 SHG",
+                "name": "SDL 10131"
+            },
+            {
+                "productCode": "SDL 10131 SSR",
+                "name": "SDL 10131"
+            },
+            {
+                "productCode": "SDL 10132 EQR",
+                "name": "SDL 10132"
+            },
+            {
+                "productCode": "SDL 10132 FKG",
+                "name": "SDL 10132"
+            },
+            {
+                "productCode": "SDL 10132 FKR",
+                "name": "SDL 10132"
+            },
+            {
+                "productCode": "SDL 10132 IMP",
+                "name": "SDL 10132"
+            },
+            {
+                "productCode": "SDL 10132 SHG",
+                "name": "SDL 10132"
+            },
+            {
+                "productCode": "SDL 10132 SSR",
+                "name": "SDL 10132"
+            },
+            {
+                "productCode": "SDL 10133 SHG",
+                "name": "SDL 10133"
+            },
+            {
+                "productCode": "SDL 10133 SSR",
+                "name": "SDL 10133"
+            },
+            {
+                "productCode": "SDL 10134 EQR",
+                "name": "SDL 10134"
+            },
+            {
+                "productCode": "SDL 10134 FBT",
+                "name": "SDL 10134"
+            },
+            {
+                "productCode": "SDL 10134 SHG",
+                "name": "SDL 10134"
+            },
+            {
+                "productCode": "SDL 10134 SSR",
+                "name": "SDL 10134"
+            },
+            {
+                "productCode": "SDL 10135 EQR",
+                "name": "SDL 10135"
+            },
+            {
+                "productCode": "SDL 10135 FKG",
+                "name": "SDL 10135"
+            },
+            {
+                "productCode": "SDL 10135 FKR",
+                "name": "SDL 10135"
+            },
+            {
+                "productCode": "SDL 10135 SHG",
+                "name": "SDL 10135"
+            },
+            {
+                "productCode": "SDL 10135 SSR",
+                "name": "SDL 10135"
+            },
+            {
+                "productCode": "SDL 10136 SHG",
+                "name": "SDL 10136"
+            },
+            {
+                "productCode": "SDL 10136 SSR",
+                "name": "SDL 10136"
+            },
+            {
+                "productCode": "SDL 10137 FSR",
+                "name": "SDL 10137"
+            },
+            {
+                "productCode": "SDL 10137 SHG",
+                "name": "SDL 10137"
+            },
+            {
+                "productCode": "SDL 10137 SSR",
+                "name": "SDL 10137"
+            },
+            {
+                "productCode": "SDL 10138 FSR",
+                "name": "SDL 10138"
+            },
+            {
+                "productCode": "SDL 10138 SHG",
+                "name": "SDL 10138"
+            },
+            {
+                "productCode": "SDL 10138 SSR",
+                "name": "SDL 10138"
+            },
+            {
+                "productCode": "SDL 10139 SHG",
+                "name": "SDL 10139"
+            },
+            {
+                "productCode": "SDL 10139 SSR",
+                "name": "SDL 10139"
+            },
+            {
+                "productCode": "SDL 10140 FBT",
+                "name": "SDL 10140"
+            },
+            {
+                "productCode": "SDL 10140 FSR",
+                "name": "SDL 10140"
+            },
+            {
+                "productCode": "SDL 10140 SHG",
+                "name": "SDL 10140"
+            },
+            {
+                "productCode": "SDL 10140 SSR",
+                "name": "SDL 10140"
+            },
+            {
+                "productCode": "SDL 10141 SHG",
+                "name": "SDL 10141"
+            },
+            {
+                "productCode": "SDL 10141 SSR",
+                "name": "SDL 10141"
+            },
+            {
+                "productCode": "SDL 10142 SHG",
+                "name": "SDL 10142"
+            },
+            {
+                "productCode": "SDL 10142 SSR",
+                "name": "SDL 10142"
+            },
+            {
+                "productCode": "SDL 10201 SHG",
+                "name": "SDL 10201"
+            },
+            {
+                "productCode": "SDL 10201 SSR",
+                "name": "SDL 10201"
+            },
+            {
+                "productCode": "SDL 10202 SHG",
+                "name": "SDL 10202"
+            },
+            {
+                "productCode": "SDL 10202 SSR",
+                "name": "SDL 10202"
+            },
+            {
+                "productCode": "SDL 10203 SHG",
+                "name": "SDL 10203"
+            },
+            {
+                "productCode": "SDL 10203 SSR",
+                "name": "SDL 10203"
+            },
+            {
+                "productCode": "SDL 10204 ELR",
+                "name": "SDL 10204"
+            },
+            {
+                "productCode": "SDL 10204 EQR",
+                "name": "SDL 10204"
+            },
+            {
+                "productCode": "SDL 10204 FBT",
+                "name": "SDL 10204"
+            },
+            {
+                "productCode": "SDL 10204 SHG",
+                "name": "SDL 10204"
+            },
+            {
+                "productCode": "SDL 10204 SSR",
+                "name": "SDL 10204"
+            },
+            {
+                "productCode": "SDL 10205 FKG",
+                "name": "SDL 10205"
+            },
+            {
+                "productCode": "SDL 10205 FKR",
+                "name": "SDL 10205"
+            },
+            {
+                "productCode": "SDL 10205 SHG",
+                "name": "SDL 10205"
+            },
+            {
+                "productCode": "SDL 10205 SSR",
+                "name": "SDL 10205"
+            },
+            {
+                "productCode": "SDL 10206 SHG",
+                "name": "SDL 10206"
+            },
+            {
+                "productCode": "SDL 10206 SSR",
+                "name": "SDL 10206"
+            },
+            {
+                "productCode": "SDL 40412 FHG",
+                "name": "SDL 40412"
+            },
+            {
+                "productCode": "SDL 40401 SKR",
+                "name": "SDL 40401"
+            },
+            {
+                "productCode": "SDL 40402 FTC",
+                "name": "SDL 40402"
+            },
+            {
+                "productCode": "SDL 40402 SHG",
+                "name": "SDL 40402"
+            },
+            {
+                "productCode": "SDL 40402 SKR",
+                "name": "SDL 40402"
+            },
+            {
+                "productCode": "SDL 40403 FTC",
+                "name": "SDL 40403"
+            },
+            {
+                "productCode": "SDL 40403 MBL",
+                "name": "SDL 40403"
+            },
+            {
+                "productCode": "SDL 40403 SHG",
+                "name": "SDL 40403"
+            },
+            {
+                "productCode": "SDL 40403 SKR",
+                "name": "SDL 40403"
+            },
+            {
+                "productCode": "SDL 40403 VN",
+                "name": "SDL 40403"
+            },
+            {
+                "productCode": "SDL 40404 FTC",
+                "name": "SDL 40404"
+            },
+            {
+                "productCode": "SDL 40404 SHG",
+                "name": "SDL 40404"
+            },
+            {
+                "productCode": "SDL 40404 SKR",
+                "name": "SDL 40404"
+            },
+            {
+                "productCode": "SDL 40404 VN",
+                "name": "SDL 40404"
+            },
+            {
+                "productCode": "SDL 40405 FTC",
+                "name": "SDL 40405"
+            },
+            {
+                "productCode": "SDL 40405 MBL",
+                "name": "SDL 40405"
+            },
+            {
+                "productCode": "SDL 40405 RK",
+                "name": "SDL 40405"
+            },
+            {
+                "productCode": "SDL 40405 SHG",
+                "name": "SDL 40405"
+            },
+            {
+                "productCode": "SDL 40405 VN",
+                "name": "SDL 40405"
+            },
+            {
+                "productCode": "SDL 40406 MBL",
+                "name": "SDL 40406"
+            },
+            {
+                "productCode": "SDL 40406 SHG",
+                "name": "SDL 40406"
+            },
+            {
+                "productCode": "SDL 40406 VN",
+                "name": "SDL 40406"
+            },
+            {
+                "productCode": "SDL 40407 RK",
+                "name": "SDL 40407"
+            },
+            {
+                "productCode": "SDL 40407 SHG",
+                "name": "SDL 40407"
+            },
+            {
+                "productCode": "SDL 40407 SKR",
+                "name": "SDL 40407"
+            },
+            {
+                "productCode": "SDL 40408 MBL",
+                "name": "SDL 40408"
+            },
+            {
+                "productCode": "SDL 40408 RK",
+                "name": "SDL 40408"
+            },
+            {
+                "productCode": "SDL 40408 SHG",
+                "name": "SDL 40408"
+            },
+            {
+                "productCode": "SDL 40409 MBL",
+                "name": "SDL 40409"
+            },
+            {
+                "productCode": "SDL 40409 RK",
+                "name": "SDL 40409"
+            },
+            {
+                "productCode": "SDL 40410 RK",
+                "name": "SDL 40410"
+            },
+            {
+                "productCode": "SDL 40410 SHG",
+                "name": "SDL 40410"
+            },
+            {
+                "productCode": "SDL 40410 SKR",
+                "name": "SDL 40410"
+            },
+            {
+                "productCode": "SDL 40411 MBL",
+                "name": "SDL 40411"
+            },
+            {
+                "productCode": "SDL 40411 RK",
+                "name": "SDL 40411"
+            },
+            {
+                "productCode": "SDL 40411 SHG",
+                "name": "SDL 40411"
+            },
+            {
+                "productCode": "SDL 40411 SKR",
+                "name": "SDL 40411"
+            },
+            {
+                "productCode": "SDL 40412 SHG",
+                "name": "SDL 40412"
+            },
+            {
+                "productCode": "SDL 40413 FTC",
+                "name": "SDL 40413"
+            },
+            {
+                "productCode": "SDL 40413 MBL",
+                "name": "SDL 40413"
+            },
+            {
+                "productCode": "SDL 40413 RK",
+                "name": "SDL 40413"
+            },
+            {
+                "productCode": "SDL 40414 SHG",
+                "name": "SDL 40414"
+            },
+            {
+                "productCode": "SDL 40414 SKR",
+                "name": "SDL 40414"
+            },
+            {
+                "productCode": "SDL 30301 SUD",
+                "name": "SDL 30301"
+            },
+            {
+                "productCode": "SDL 30303 SUD",
+                "name": "SDL 30303"
+            },
+            {
+                "productCode": "SDL 30304 SUD",
+                "name": "SDL 30304"
+            },
+            {
+                "productCode": "SDL 30305 SUD",
+                "name": "SDL 30305"
+            },
+            {
+                "productCode": "SDL 30306 SUD",
+                "name": "SDL 30306"
+            },
+            {
+                "productCode": "SDL 30308 SUD",
+                "name": "SDL 30308"
+            },
+            {
+                "productCode": "SDL 30309 SUD",
+                "name": "SDL 30309"
+            },
+            {
+                "productCode": "SDL 30310 SUD",
+                "name": "SDL 30310"
+            },
+            {
+                "productCode": "SDL 30311 SUD",
+                "name": "SDL 30311"
+            },
+            {
+                "productCode": "SDL 30312 SUD",
+                "name": "SDL 30312"
+            },
+            {
+                "productCode": "SDL 30313 SUD",
+                "name": "SDL 30313"
+            },
+            {
+                "productCode": "SDL 30314 SUD",
+                "name": "SDL 30314"
+            },
+            {
+                "productCode": "SDL 30317 SUD",
+                "name": "SDL 30317"
+            },
+            {
+                "productCode": "SDL 30318 SUD",
+                "name": "SDL 30318"
+            },
+            {
+                "productCode": "SDL 30320 SUD",
+                "name": "SDL 30320"
+            },
+            {
+                "productCode": "SDL 30321 SUD",
+                "name": "SDL 30321"
+            },
+            {
+                "productCode": "SDL 30322 SUD",
+                "name": "SDL 30322"
+            },
+            {
+                "productCode": "SDL 30323 SUD",
+                "name": "SDL 30323"
+            },
+            {
+                "productCode": "SDL 30324 SUD",
+                "name": "SDL 30324"
+            },
+            {
+                "productCode": "SDL 30301 SKR",
+                "name": "SDL 30301"
+            },
+            {
+                "productCode": "SDL 30302 SKR",
+                "name": "SDL 30302"
+            },
+            {
+                "productCode": "SDL 30303 SKR",
+                "name": "SDL 30303"
+            },
+            {
+                "productCode": "SDL 30304 SKR",
+                "name": "SDL 30304"
+            },
+            {
+                "productCode": "SDL 30305 GRN",
+                "name": "SDL 30305"
+            },
+            {
+                "productCode": "SDL 30305 SKR",
+                "name": "SDL 30305"
+            },
+            {
+                "productCode": "SDL 30306 GRN",
+                "name": "SDL 30306"
+            },
+            {
+                "productCode": "SDL 30306 RWD",
+                "name": "SDL 30306"
+            },
+            {
+                "productCode": "SDL 30306 SHG",
+                "name": "SDL 30306"
+            },
+            {
+                "productCode": "SDL 30306 SKR",
+                "name": "SDL 30306"
+            },
+            {
+                "productCode": "SDL 30307 GRN",
+                "name": "SDL 30307"
+            },
+            {
+                "productCode": "SDL 30307 RWD",
+                "name": "SDL 30307"
+            },
+            {
+                "productCode": "SDL 30307 SHG",
+                "name": "SDL 30307"
+            },
+            {
+                "productCode": "SDL 30307 SKR",
+                "name": "SDL 30307"
+            },
+            {
+                "productCode": "SDL 30308 SHG",
+                "name": "SDL 30308"
+            },
+            {
+                "productCode": "SDL 30308 SKR",
+                "name": "SDL 30308"
+            },
+            {
+                "productCode": "SDL 30309 BRK",
+                "name": "SDL 30309"
+            },
+            {
+                "productCode": "SDL 30309 GRN",
+                "name": "SDL 30309"
+            },
+            {
+                "productCode": "SDL 30309 SKR",
+                "name": "SDL 30309"
+            },
+            {
+                "productCode": "SDL 30310 SHG",
+                "name": "SDL 30310"
+            },
+            {
+                "productCode": "SDL 30310 SKR",
+                "name": "SDL 30310"
+            },
+            {
+                "productCode": "SDL 30310 VNZ",
+                "name": "SDL 30310"
+            },
+            {
+                "productCode": "SDL 30310 ZN",
+                "name": "SDL 30310"
+            },
+            {
+                "productCode": "SDL 30311 BRK",
+                "name": "SDL 30311"
+            },
+            {
+                "productCode": "SDL 30311 GRN",
+                "name": "SDL 30311"
+            },
+            {
+                "productCode": "SDL 30312 SHG",
+                "name": "SDL 30312"
+            },
+            {
+                "productCode": "SDL 30312 SKR",
+                "name": "SDL 30312"
+            },
+            {
+                "productCode": "SDL 30312 VNZ",
+                "name": "SDL 30312"
+            },
+            {
+                "productCode": "SDL 30313 IMP",
+                "name": "SDL 30313"
+            },
+            {
+                "productCode": "SDL 30313 SHG",
+                "name": "SDL 30313"
+            },
+            {
+                "productCode": "SDL 30313 SKR",
+                "name": "SDL 30313"
+            },
+            {
+                "productCode": "SDL 30314 GRN",
+                "name": "SDL 30314"
+            },
+            {
+                "productCode": "SDL 30314 SHG",
+                "name": "SDL 30314"
+            },
+            {
+                "productCode": "SDL 30315 SHG",
+                "name": "SDL 30315"
+            },
+            {
+                "productCode": "SDL 30315 SKR",
+                "name": "SDL 30315"
+            },
+            {
+                "productCode": "SDL 30316 SKR",
+                "name": "SDL 30316"
+            },
+            {
+                "productCode": "SDL 30317 RWD",
+                "name": "SDL 30317"
+            },
+            {
+                "productCode": "SDL 30317 SKR",
+                "name": "SDL 30317"
+            },
+            {
+                "productCode": "SDL 30318 BRK",
+                "name": "SDL 30318"
+            },
+            {
+                "productCode": "SDL 30318 SHG",
+                "name": "SDL 30318"
+            },
+            {
+                "productCode": "SDL 30318 SKR",
+                "name": "SDL 30318"
+            },
+            {
+                "productCode": "SDL 30319 SHG",
+                "name": "SDL 30319"
+            },
+            {
+                "productCode": "SDL 30319 SKR",
+                "name": "SDL 30319"
+            },
+            {
+                "productCode": "SDL 30320 BRK",
+                "name": "SDL 30320"
+            },
+            {
+                "productCode": "SDL 30320 RWD",
+                "name": "SDL 30320"
+            },
+            {
+                "productCode": "SDL 30320 SHG",
+                "name": "SDL 30320"
+            },
+            {
+                "productCode": "SDL 30320 SKR",
+                "name": "SDL 30320"
+            },
+            {
+                "productCode": "SDL 30321 RWD",
+                "name": "SDL 30321"
+            },
+            {
+                "productCode": "SDL 30321 SHG",
+                "name": "SDL 30321"
+            },
+            {
+                "productCode": "SDL 30321 SKR",
+                "name": "SDL 30321"
+            },
+            {
+                "productCode": "SDL 30321 ZN",
+                "name": "SDL 30321"
+            },
+            {
+                "productCode": "SDL 30322 ZN",
+                "name": "SDL 30322"
+            },
+            {
+                "productCode": "SDL 30323 SKR",
+                "name": "SDL 30323"
+            },
+            {
+                "productCode": "SDL 30323 VNZ",
+                "name": "SDL 30323"
+            },
+            {
+                "productCode": "SDL 30323 ZN",
+                "name": "SDL 30323"
+            },
+            {
+                "productCode": "SDL 30324 SHG",
+                "name": "SDL 30324"
+            },
+            {
+                "productCode": "SDL 1001 SF",
+                "name": "SDL 1001"
+            },
+            {
+                "productCode": "SDL 1001 SFT",
+                "name": "SDL 1001"
+            },
+            {
+                "productCode": "SDL 1001 SHG",
+                "name": "SDL 1001"
+            },
+            {
+                "productCode": "SDL 1002 LL",
+                "name": "SDL 1002"
+            },
+            {
+                "productCode": "SDL 1002 MB",
+                "name": "SDL 1002"
+            },
+            {
+                "productCode": "SDL 1005 SF",
+                "name": "SDL 1005"
+            },
+            {
+                "productCode": "SDL 1005 SHG",
+                "name": "SDL 1005"
+            },
+            {
+                "productCode": "SDL 1006 SF",
+                "name": "SDL 1006"
+            },
+            {
+                "productCode": "SDL 1006 SFT",
+                "name": "SDL 1006"
+            },
+            {
+                "productCode": "SDL 1006 SHG",
+                "name": "SDL 1006"
+            },
+            {
+                "productCode": "SDL 1014 SF",
+                "name": "SDL 1014"
+            },
+            {
+                "productCode": "SDL 1014 SFT",
+                "name": "SDL 1014"
+            },
+            {
+                "productCode": "SDL 1014 SHG",
+                "name": "SDL 1014"
+            },
+            {
+                "productCode": "SDL 1015 LL",
+                "name": "SDL 1015"
+            },
+            {
+                "productCode": "SDL 1016 SF",
+                "name": "SDL 1016"
+            },
+            {
+                "productCode": "SDL 1016 SFT",
+                "name": "SDL 1016"
+            },
+            {
+                "productCode": "SDL 1016 SHG",
+                "name": "SDL 1016"
+            },
+            {
+                "productCode": "SDL 1019 SF",
+                "name": "SDL 1019"
+            },
+            {
+                "productCode": "SDL 1019 SHG",
+                "name": "SDL 1019"
+            },
+            {
+                "productCode": "SDL 1024 SFT",
+                "name": "SDL 1024"
+            },
+            {
+                "productCode": "SDL 1024 SHG",
+                "name": "SDL 1024"
+            },
+            {
+                "productCode": "SDL 1025 SFT",
+                "name": "SDL 1025"
+            },
+            {
+                "productCode": "SDL 1025 SHG",
+                "name": "SDL 1025"
+            },
+            {
+                "productCode": "SDL 2001 MTL-HG",
+                "name": "SDL 2001"
+            },
+            {
+                "productCode": "SDL 2002 MTL-HG",
+                "name": "SDL 2002"
+            },
+            {
+                "productCode": "SDL 2002 SMM",
+                "name": "SDL 2002"
+            },
+            {
+                "productCode": "SDL 2004 MTL-HG",
+                "name": "SDL 2004"
+            },
+            {
+                "productCode": "SDL 2004 SMM",
+                "name": "SDL 2004"
+            },
+            {
+                "productCode": "SDL 2005 MTL-HG",
+                "name": "SDL 2005"
+            },
+            {
+                "productCode": "SDL 2006 MB",
+                "name": "SDL 2006"
+            },
+            {
+                "productCode": "SDL 2006 MTL-HG",
+                "name": "SDL 2006"
+            },
+            {
+                "productCode": "SDL 2007 MTL-HG",
+                "name": "SDL 2007"
+            },
+            {
+                "productCode": "SDL 2008 MTL-HG",
+                "name": "SDL 2008"
+            },
+            {
+                "productCode": "SDL 3001 SF",
+                "name": "SDL 3001"
+            },
+            {
+                "productCode": "SDL 3001 SHG",
+                "name": "SDL 3001"
+            },
+            {
+                "productCode": "SDL 3002 SF",
+                "name": "SDL 3002"
+            },
+            {
+                "productCode": "SDL 3002 SHG",
+                "name": "SDL 3002"
+            },
+            {
+                "productCode": "SDL 3002 TP",
+                "name": "SDL 3002"
+            },
+            {
+                "productCode": "SDL 3003 LW",
+                "name": "SDL 3003"
+            },
+            {
+                "productCode": "SDL 3003 SHG",
+                "name": "SDL 3003"
+            },
+            {
+                "productCode": "SDL 3004 SF",
+                "name": "SDL 3004"
+            },
+            {
+                "productCode": "SDL 3004 SHG",
+                "name": "SDL 3004"
+            },
+            {
+                "productCode": "SDL 3005 SHG",
+                "name": "SDL 3005"
+            },
+            {
+                "productCode": "SDL 3005 TP",
+                "name": "SDL 3005"
+            },
+            {
+                "productCode": "SDL 3006 ASH-VZ",
+                "name": "SDL 3006"
+            },
+            {
+                "productCode": "SDL 3006 SF",
+                "name": "SDL 3006"
+            },
+            {
+                "productCode": "SDL 3006 SHG",
+                "name": "SDL 3006"
+            },
+            {
+                "productCode": "SDL 3006 TP",
+                "name": "SDL 3006"
+            },
+            {
+                "productCode": "SDL 3007 SF",
+                "name": "SDL 3007"
+            },
+            {
+                "productCode": "SDL 3007 SFT",
+                "name": "SDL 3007"
+            },
+            {
+                "productCode": "SDL 3007 SHG",
+                "name": "SDL 3007"
+            },
+            {
+                "productCode": "SDL 3007 VNR",
+                "name": "SDL 3007"
+            },
+            {
+                "productCode": "SDL 3008 SF",
+                "name": "SDL 3008"
+            },
+            {
+                "productCode": "SDL 3008 SHG",
+                "name": "SDL 3008"
+            },
+            {
+                "productCode": "SDL 3009 SF",
+                "name": "SDL 3009"
+            },
+            {
+                "productCode": "SDL 3009 SHG",
+                "name": "SDL 3009"
+            },
+            {
+                "productCode": "SDL 3009 VNR",
+                "name": "SDL 3009"
+            },
+            {
+                "productCode": "SDL 3009 WB",
+                "name": "SDL 3009"
+            },
+            {
+                "productCode": "SDL 3010 SHG",
+                "name": "SDL 3010"
+            },
+            {
+                "productCode": "SDL 3011 SHG",
+                "name": "SDL 3011"
+            },
+            {
+                "productCode": "SDL 3011 STN",
+                "name": "SDL 3011"
+            },
+            {
+                "productCode": "SDL 3012 MB",
+                "name": "SDL 3012"
+            },
+            {
+                "productCode": "SDL 3012 SF",
+                "name": "SDL 3012"
+            },
+            {
+                "productCode": "SDL 3012 SFT",
+                "name": "SDL 3012"
+            },
+            {
+                "productCode": "SDL 3012 SHG",
+                "name": "SDL 3012"
+            },
+            {
+                "productCode": "SDL 3013 SF",
+                "name": "SDL 3013"
+            },
+            {
+                "productCode": "SDL 3013 SFT",
+                "name": "SDL 3013"
+            },
+            {
+                "productCode": "SDL 3013 SHG",
+                "name": "SDL 3013"
+            },
+            {
+                "productCode": "SDL 3014 MB",
+                "name": "SDL 3014"
+            },
+            {
+                "productCode": "SDL 3014 SF",
+                "name": "SDL 3014"
+            },
+            {
+                "productCode": "SDL 3014 SFT",
+                "name": "SDL 3014"
+            },
+            {
+                "productCode": "SDL 3014 SHG",
+                "name": "SDL 3014"
+            },
+            {
+                "productCode": "SDL 3015 SF",
+                "name": "SDL 3015"
+            },
+            {
+                "productCode": "SDL 3015 SFT",
+                "name": "SDL 3015"
+            },
+            {
+                "productCode": "SDL 3015 SHG",
+                "name": "SDL 3015"
+            },
+            {
+                "productCode": "SDL 3016 SF",
+                "name": "SDL 3016"
+            },
+            {
+                "productCode": "SDL 3016 SFT",
+                "name": "SDL 3016"
+            },
+            {
+                "productCode": "SDL 3016 SHG",
+                "name": "SDL 3016"
+            },
+            {
+                "productCode": "SDL 3018 ASH-VZ",
+                "name": "SDL 3018"
+            },
+            {
+                "productCode": "SDL 3018 LW",
+                "name": "SDL 3018"
+            },
+            {
+                "productCode": "SDL 3018 SF",
+                "name": "SDL 3018"
+            },
+            {
+                "productCode": "SDL 3018 SFT",
+                "name": "SDL 3018"
+            },
+            {
+                "productCode": "SDL 3018 SHG",
+                "name": "SDL 3018"
+            },
+            {
+                "productCode": "SDL 3018 TP",
+                "name": "SDL 3018"
+            },
+            {
+                "productCode": "SDL 3019 SF",
+                "name": "SDL 3019"
+            },
+            {
+                "productCode": "SDL 3019 SFT",
+                "name": "SDL 3019"
+            },
+            {
+                "productCode": "SDL 3019 SHG",
+                "name": "SDL 3019"
+            },
+            {
+                "productCode": "SDL 3019 VNR",
+                "name": "SDL 3019"
+            },
+            {
+                "productCode": "SDL 3020 SHG",
+                "name": "SDL 3020"
+            },
+            {
+                "productCode": "SDL 3020 VNR",
+                "name": "SDL 3020"
+            },
+            {
+                "productCode": "SDL 3021 SF",
+                "name": "SDL 3021"
+            },
+            {
+                "productCode": "SDL 3021 SFT",
+                "name": "SDL 3021"
+            },
+            {
+                "productCode": "SDL 3021 SHG",
+                "name": "SDL 3021"
+            },
+            {
+                "productCode": "SDL 3021 WB",
+                "name": "SDL 3021"
+            },
+            {
+                "productCode": "SDL 3022 LL",
+                "name": "SDL 3022"
+            },
+            {
+                "productCode": "SDL 3022 SHG",
+                "name": "SDL 3022"
+            },
+            {
+                "productCode": "SDL 3023 LL",
+                "name": "SDL 3023"
+            },
+            {
+                "productCode": "SDL 3023 MB",
+                "name": "SDL 3023"
+            },
+            {
+                "productCode": "SDL 3025 LW",
+                "name": "SDL 3025"
+            },
+            {
+                "productCode": "SDL 3025 SHG",
+                "name": "SDL 3025"
+            },
+            {
+                "productCode": "SDL 3026 ASH-VZ",
+                "name": "SDL 3026"
+            },
+            {
+                "productCode": "SDL 3026 LL",
+                "name": "SDL 3026"
+            },
+            {
+                "productCode": "SDL 3026 QB",
+                "name": "SDL 3026"
+            },
+            {
+                "productCode": "SDL 3026 SF",
+                "name": "SDL 3026"
+            },
+            {
+                "productCode": "SDL 3026 SHG",
+                "name": "SDL 3026"
+            },
+            {
+                "productCode": "SDL 3027 SF",
+                "name": "SDL 3027"
+            },
+            {
+                "productCode": "SDL 3027 SHG",
+                "name": "SDL 3027"
+            },
+            {
+                "productCode": "SDL 3029 SF",
+                "name": "SDL 3029"
+            },
+            {
+                "productCode": "SDL 3029 SHG",
+                "name": "SDL 3029"
+            },
+            {
+                "productCode": "SDL 3029 WB",
+                "name": "SDL 3029"
+            },
+            {
+                "productCode": "SDL 3030 SF",
+                "name": "SDL 3030"
+            },
+            {
+                "productCode": "SDL 3030 SHG",
+                "name": "SDL 3030"
+            },
+            {
+                "productCode": "SDL 3031 SF",
+                "name": "SDL 3031"
+            },
+            {
+                "productCode": "SDL 3031 SHG",
+                "name": "SDL 3031"
+            },
+            {
+                "productCode": "SDL 3032 WB",
+                "name": "SDL 3032"
+            },
+            {
+                "productCode": "SDL 3033 SF",
+                "name": "SDL 3033"
+            },
+            {
+                "productCode": "SDL 3033 SHG",
+                "name": "SDL 3033"
+            },
+            {
+                "productCode": "SDL 3034 MB",
+                "name": "SDL 3034"
+            },
+            {
+                "productCode": "SDL 3034 SF",
+                "name": "SDL 3034"
+            },
+            {
+                "productCode": "SDL 3034 SHG",
+                "name": "SDL 3034"
+            },
+            {
+                "productCode": "SDL 3035 SF",
+                "name": "SDL 3035"
+            },
+            {
+                "productCode": "SDL 3035 SHG",
+                "name": "SDL 3035"
+            },
+            {
+                "productCode": "SDL 3035 TP",
+                "name": "SDL 3035"
+            },
+            {
+                "productCode": "SDL 3036 SF",
+                "name": "SDL 3036"
+            },
+            {
+                "productCode": "SDL 3036 SHG",
+                "name": "SDL 3036"
+            },
+            {
+                "productCode": "SDL 3037 SF",
+                "name": "SDL 3037"
+            },
+            {
+                "productCode": "SDL 3037 TP",
+                "name": "SDL 3037"
+            },
+            {
+                "productCode": "SDL 3037 WB",
+                "name": "SDL 3037"
+            },
+            {
+                "productCode": "SDL 3038 SHG",
+                "name": "SDL 3038"
+            },
+            {
+                "productCode": "SDL 3039 SFT",
+                "name": "SDL 3039"
+            },
+            {
+                "productCode": "SDL 3039 SHG",
+                "name": "SDL 3039"
+            },
+            {
+                "productCode": "SDL 3041 LL",
+                "name": "SDL 3041"
+            },
+            {
+                "productCode": "SDL 3041 SF",
+                "name": "SDL 3041"
+            },
+            {
+                "productCode": "SDL 3042 QB",
+                "name": "SDL 3042"
+            },
+            {
+                "productCode": "SDL 3042 SF",
+                "name": "SDL 3042"
+            },
+            {
+                "productCode": "SDL 3042 VNR",
+                "name": "SDL 3042"
+            },
+            {
+                "productCode": "SDL 3043 LL",
+                "name": "SDL 3043"
+            },
+            {
+                "productCode": "SDL 3043 SF",
+                "name": "SDL 3043"
+            },
+            {
+                "productCode": "SDL 3043 WB",
+                "name": "SDL 3043"
+            },
+            {
+                "productCode": "SDL 3044 MB",
+                "name": "SDL 3044"
+            },
+            {
+                "productCode": "SDL 3044 TP",
+                "name": "SDL 3044"
+            },
+            {
+                "productCode": "SDL 3044 WB",
+                "name": "SDL 3044"
+            },
+            {
+                "productCode": "SDL 3045 MB",
+                "name": "SDL 3045"
+            },
+            {
+                "productCode": "SDL 3045 SHG",
+                "name": "SDL 3045"
+            },
+            {
+                "productCode": "SDL 3046 SHG",
+                "name": "SDL 3046"
+            },
+            {
+                "productCode": "SDL 3047 LW",
+                "name": "SDL 3047"
+            },
+            {
+                "productCode": "SDL 3047 SFT",
+                "name": "SDL 3047"
+            },
+            {
+                "productCode": "SDL 3048 SFT",
+                "name": "SDL 3048"
+            },
+            {
+                "productCode": "SDL 3048 VB",
+                "name": "SDL 3048"
+            },
+            {
+                "productCode": "SDL 3049 SF",
+                "name": "SDL 3049"
+            },
+            {
+                "productCode": "SDL 4001 STN",
+                "name": "SDL 4001"
+            },
+            {
+                "productCode": "SDL 4002 SHG",
+                "name": "SDL 4002"
+            },
+            {
+                "productCode": "SDL 4003 SFT",
+                "name": "SDL 4003"
+            },
+            {
+                "productCode": "SDL 4003 SHG",
+                "name": "SDL 4003"
+            },
+            {
+                "productCode": "SDL 4003 STN",
+                "name": "SDL 4003"
+            },
+            {
+                "productCode": "SDL 4004 STN",
+                "name": "SDL 4004"
+            },
+            {
+                "productCode": "SDL 4005 SFT",
+                "name": "SDL 4005"
+            },
+            {
+                "productCode": "SDL 4005 SHG",
+                "name": "SDL 4005"
+            },
+            {
+                "productCode": "SDL 4005 STN",
+                "name": "SDL 4005"
+            },
+            {
+                "productCode": "SDL 4006 SHG",
+                "name": "SDL 4006"
+            },
+            {
+                "productCode": "SDL 4007 SFT",
+                "name": "SDL 4007"
+            },
+            {
+                "productCode": "SDL 4007 STN",
+                "name": "SDL 4007"
+            },
+            {
+                "productCode": "SDL 4008 SFT",
+                "name": "SDL 4008"
+            },
+            {
+                "productCode": "SDL 4008 SHG",
+                "name": "SDL 4008"
+            },
+            {
+                "productCode": "SDL 4008 STN",
+                "name": "SDL 4008"
+            },
+            {
+                "productCode": "SDL 4009 SHG",
+                "name": "SDL 4009"
+            },
+            {
+                "productCode": "SDL 4010 SFT",
+                "name": "SDL 4010"
+            },
+            {
+                "productCode": "SDL 4010 SHG",
+                "name": "SDL 4010"
+            },
+            {
+                "productCode": "SDL 4011 SFT",
+                "name": "SDL 4011"
+            },
+            {
+                "productCode": "SDL 4011 SHG",
+                "name": "SDL 4011"
+            },
+            {
+                "productCode": "SDL 4012 SFT",
+                "name": "SDL 4012"
+            },
+            {
+                "productCode": "SDL 4012 SHG",
+                "name": "SDL 4012"
+            },
+            {
+                "productCode": "SDL 4013 SHG",
+                "name": "SDL 4013"
+            },
+            {
+                "productCode": "SDL 4014 SHG",
+                "name": "SDL 4014"
+            },
+            {
+                "productCode": "SDL 4015 SFT",
+                "name": "SDL 4015"
+            },
+            {
+                "productCode": "SDL 4015 SHG",
+                "name": "SDL 4015"
+            },
+            {
+                "productCode": "SDL 4016 SFT",
+                "name": "SDL 4016"
+            },
+            {
+                "productCode": "SDA 101 GLS",
+                "name": "SDA 101"
+            },
+            {
+                "productCode": "SDA 102 GLS",
+                "name": "SDA 102"
+            },
+            {
+                "productCode": "SDA 103 GLS",
+                "name": "SDA 103"
+            },
+            {
+                "productCode": "SDA 105 GLS",
+                "name": "SDA 105"
+            },
+            {
+                "productCode": "SDA 106 GLS",
+                "name": "SDA 106"
+            },
+            {
+                "productCode": "SDA 107 GLS",
+                "name": "SDA 107"
+            },
+            {
+                "productCode": "SDA 109 GLS",
+                "name": "SDA 109"
+            },
+            {
+                "productCode": "SDA 111 GLS",
+                "name": "SDA 111"
+            },
+            {
+                "productCode": "SDA 112 GLS",
+                "name": "SDA 112"
+            },
+            {
+                "productCode": "SDA 113 GLS",
+                "name": "SDA 113"
+            },
+            {
+                "productCode": "SDA 114 GLS",
+                "name": "SDA 114"
+            },
+            {
+                "productCode": "SDA 115 GLS",
+                "name": "SDA 115"
+            },
+            {
+                "productCode": "SDA 116 GLS",
+                "name": "SDA 116"
+            },
+            {
+                "productCode": "SDA 117 GLS",
+                "name": "SDA 117"
+            },
+            {
+                "productCode": "SDA 118 GLS",
+                "name": "SDA 118"
+            },
+            {
+                "productCode": "SDA 119 GLS",
+                "name": "SDA 119"
+            },
+            {
+                "productCode": "SDA 120 GLS",
+                "name": "SDA 120"
+            },
+            {
+                "productCode": "SDA 121 GLS",
+                "name": "SDA 121"
+            },
+            {
+                "productCode": "SDA 122 GLS",
+                "name": "SDA 122"
+            },
+            {
+                "productCode": "SDA 123 GLS",
+                "name": "SDA 123"
+            },
+            {
+                "productCode": "SDA 125 GLS",
+                "name": "SDA 125"
+            },
+            {
+                "productCode": "SDA 126 GLS",
+                "name": "SDA 126"
+            },
+            {
+                "productCode": "SDA 127 GLS",
+                "name": "SDA 127"
+            },
+            {
+                "productCode": "SDA 128 GLS",
+                "name": "SDA 128"
+            },
+            {
+                "productCode": "SDA 129 GLS",
+                "name": "SDA 129"
+            },
+            {
+                "productCode": "SDA 130 GLS",
+                "name": "SDA 130"
+            },
+            {
+                "productCode": "SDA 131 GLS",
+                "name": "SDA 131"
+            },
+            {
+                "productCode": "SDA 132 GLS",
+                "name": "SDA 132"
+            },
+            {
+                "productCode": "SDA 133 GLS",
+                "name": "SDA 133"
+            },
+            {
+                "productCode": "SDA 134 GLS",
+                "name": "SDA 134"
+            },
+            {
+                "productCode": "SDA 135 GLS",
+                "name": "SDA 135"
+            },
+            {
+                "productCode": "SDA 136 GLS",
+                "name": "SDA 136"
+            },
+            {
+                "productCode": "SDA 137 GLS",
+                "name": "SDA 137"
+            },
+            {
+                "productCode": "SDA 138 GLS",
+                "name": "SDA 138"
+            },
+            {
+                "productCode": "SDA 151 GLS",
+                "name": "SDA 151"
+            },
+            {
+                "productCode": "SDA 152 GLS",
+                "name": "SDA 152"
+            },
+            {
+                "productCode": "SDA 153 GLS",
+                "name": "SDA 153"
+            },
+            {
+                "productCode": "SDA 154 GLS",
+                "name": "SDA 154"
+            },
+            {
+                "productCode": "SDA 155 GLS",
+                "name": "SDA 155"
+            },
+            {
+                "productCode": "SDA 156 GLS",
+                "name": "SDA 156"
+            },
+            {
+                "productCode": "SDA 157 GLS",
+                "name": "SDA 157"
+            },
+            {
+                "productCode": "SDA 158 GLS",
+                "name": "SDA 158"
+            },
+            {
+                "productCode": "SDA 161 GLS",
+                "name": "SDA 161"
+            },
+            {
+                "productCode": "SDA 162 GLS",
+                "name": "SDA 162"
+            },
+            {
+                "productCode": "SDA 201 SRO",
+                "name": "SDA 201"
+            },
+            {
+                "productCode": "SDA 202 SRO",
+                "name": "SDA 202"
+            },
+            {
+                "productCode": "SDA 203 SRO",
+                "name": "SDA 203"
+            },
+            {
+                "productCode": "SDA 204 SRO",
+                "name": "SDA 204"
+            },
+            {
+                "productCode": "SDA 205 SRO",
+                "name": "SDA 205"
+            },
+            {
+                "productCode": "SDA 206 SRO",
+                "name": "SDA 206"
+            },
+            {
+                "productCode": "SDA 207 SRO",
+                "name": "SDA 207"
+            },
+            {
+                "productCode": "SDA 208 SRO",
+                "name": "SDA 208"
+            },
+            {
+                "productCode": "SDA 209 SRO",
+                "name": "SDA 209"
+            },
+            {
+                "productCode": "SDA 301 GLS",
+                "name": "SDA 301"
+            },
+            {
+                "productCode": "SDA 302 GLS",
+                "name": "SDA 302"
+            },
+            {
+                "productCode": "SDA 303 GLS",
+                "name": "SDA 303"
+            },
+            {
+                "productCode": "SDA 304 GLS",
+                "name": "SDA 304"
+            },
+            {
+                "productCode": "SDA 305 GLS",
+                "name": "SDA 305"
+            },
+            {
+                "productCode": "SDA 306 GLS",
+                "name": "SDA 306"
+            },
+            {
+                "productCode": "SDA 307 GLS",
+                "name": "SDA 307"
+            },
+            {
+                "productCode": "SDA 420 GLS",
+                "name": "SDA 420"
+            },
+            {
+                "productCode": "SDA 421 GLS",
+                "name": "SDA 421"
+            },
+            {
+                "productCode": "SDA 422 GLS",
+                "name": "SDA 422"
+            },
+            {
+                "productCode": "SDA 423 GLS",
+                "name": "SDA 423"
+            },
+            {
+                "productCode": "SDA 424 GLS",
+                "name": "SDA 424"
+            },
+            {
+                "productCode": "SDA 425 GLS",
+                "name": "SDA 425"
+            },
+            {
+                "productCode": "SDA 426 GLS",
+                "name": "SDA 426"
+            },
+            {
+                "productCode": "SDA 427 GLS",
+                "name": "SDA 427"
+            },
+            {
+                "productCode": "SDA 428 GLS",
+                "name": "SDA 428"
+            },
+            {
+                "productCode": "SDA 429 GLS",
+                "name": "SDA 429"
+            },
+            {
+                "productCode": "SDA 430 GLS",
+                "name": "SDA 430"
+            },
+            {
+                "productCode": "SDA 431 GLS",
+                "name": "SDA 431"
+            },
+            {
+                "productCode": "SDA 432 GLS",
+                "name": "SDA 432"
+            },
+            {
+                "productCode": "SDA 451 GLS",
+                "name": "SDA 451"
+            },
+            {
+                "productCode": "SDA 452 GLS",
+                "name": "SDA 452"
+            },
+            {
+                "productCode": "SDA 453 GLS",
+                "name": "SDA 453"
+            },
+            {
+                "productCode": "SDA 454 GLS",
+                "name": "SDA 454"
+            },
+            {
+                "productCode": "SDA 455 GLS",
+                "name": "SDA 455"
+            },
+            {
+                "productCode": "SDA 456 GLS",
+                "name": "SDA 456"
+            },
+            {
+                "productCode": "SDA 459 GLS",
+                "name": "SDA 459"
+            },
+            {
+                "productCode": "SDA 460 GLS",
+                "name": "SDA 460"
+            },
+            {
+                "productCode": "SDA 461 GLS",
+                "name": "SDA 461"
+            },
+            {
+                "productCode": "SDA 462 GLS",
+                "name": "SDA 462"
+            },
+            {
+                "productCode": "SDA 463 GLS",
+                "name": "SDA 463"
+            },
+            {
+                "productCode": "SDA 464 GLS",
+                "name": "SDA 464"
+            },
+            {
+                "productCode": "SDA 465 GLS",
+                "name": "SDA 465"
+            },
+            {
+                "productCode": "SDA 601 GLS",
+                "name": "SDA 601"
+            },
+            {
+                "productCode": "SDA 607 GLS",
+                "name": "SDA 607"
+            },
+            {
+                "productCode": "SDA 608 GLS",
+                "name": "SDA 608"
+            },
+            {
+                "productCode": "SDA 611 GLS",
+                "name": "SDA 611"
+            },
+            {
+                "productCode": "SDA 612 GLS",
+                "name": "SDA 612"
+            },
+            {
+                "productCode": "SDA 701 RFT",
+                "name": "SDA 701"
+            },
+            {
+                "productCode": "SDA 702 RFT",
+                "name": "SDA 702"
+            },
+            {
+                "productCode": "SDA 703 RFT",
+                "name": "SDA 703"
+            },
+            {
+                "productCode": "SDA 704 RFT",
+                "name": "SDA 704"
+            },
+            {
+                "productCode": "SDA 1001 FGL",
+                "name": "SDA 1001"
+            },
+            {
+                "productCode": "SDA 1002 FGL",
+                "name": "SDA 1002"
+            },
+            {
+                "productCode": "SDA 1003 FGL",
+                "name": "SDA 1003"
+            },
+            {
+                "productCode": "SDA 1004 FGL",
+                "name": "SDA 1004"
+            },
+            {
+                "productCode": "SDA 1005 FGL",
+                "name": "SDA 1005"
+            },
+            {
+                "productCode": "SDA 1501 FGL",
+                "name": "SDA 1501"
+            },
+            {
+                "productCode": "SDA 1502 FGL",
+                "name": "SDA 1502"
+            },
+            {
+                "productCode": "SDA 1504 FGL",
+                "name": "SDA 1504"
+            },
+            {
+                "productCode": "SDA 1505 FGL",
+                "name": "SDA 1505"
+            },
+            {
+                "productCode": "SDA 1506 FGL",
+                "name": "SDA 1506"
+            },
+            {
+                "productCode": "SDA 1507 FGL",
+                "name": "SDA 1507"
+            },
+            {
+                "productCode": "SDA 1508 FGL",
+                "name": "SDA 1508"
+            },
+            {
+                "productCode": "SDA 1509 FGL",
+                "name": "SDA 1509"
+            },
+            {
+                "productCode": "SSP 601",
+                "name": "SSP 601"
+            },
+            {
+                "productCode": "SSP 602",
+                "name": "SSP 602"
+            },
+            {
+                "productCode": "SSP 603",
+                "name": "SSP 603"
+            },
+            {
+                "productCode": "SSP 604",
+                "name": "SSP 604"
+            },
+            {
+                "productCode": "SSP 605",
+                "name": "SSP 605"
+            },
+            {
+                "productCode": "SSP 606",
+                "name": "SSP 606"
+            },
+            {
+                "productCode": "SGP 601",
+                "name": "SGP 601"
+            },
+            {
+                "productCode": "SGP 602",
+                "name": "SGP 602"
+            },
+            {
+                "productCode": "SGP 603",
+                "name": "SGP 603"
+            },
+            {
+                "productCode": "SGP 604",
+                "name": "SGP 604"
+            },
+            {
+                "productCode": "SGP 605",
+                "name": "SGP 605"
+            },
+            {
+                "productCode": "SGP 606",
+                "name": "SGP 606"
+            },
+            {
+                "productCode": "SGP 402",
+                "name": "SGP 402"
+            },
+            {
+                "productCode": "SVP 601",
+                "name": "SVP 601"
+            },
+            {
+                "productCode": "SVP 603",
+                "name": "SVP 603"
+            },
+            {
+                "productCode": "SVP 604",
+                "name": "SVP 604"
+            },
+            {
+                "productCode": "SVP 605",
+                "name": "SVP 605"
+            },
+            {
+                "productCode": "SVP 606",
+                "name": "SVP 606"
+            },
+            {
+                "productCode": "SVP 607",
+                "name": "SVP 607"
+            },
+            {
+                "productCode": "SVP 602",
+                "name": "SVP 602"
+            },
+            {
+                "productCode": "SD 001 SF",
+                "name": "SD 001"
+            },
+            {
+                "productCode": "SD 003 SF",
+                "name": "SD 003"
+            },
+            {
+                "productCode": "SD 004 SF",
+                "name": "SD 004"
+            },
+            {
+                "productCode": "SD 007 SF",
+                "name": "SD 007"
+            },
+            {
+                "productCode": "SD 008 SF",
+                "name": "SD 008"
+            },
+            {
+                "productCode": "SD 009 SF",
+                "name": "SD 009"
+            },
+            {
+                "productCode": "SD 012 SF",
+                "name": "SD 012"
+            },
+            {
+                "productCode": "SD 013 SF",
+                "name": "SD 013"
+            },
+            {
+                "productCode": "SD 014 SF",
+                "name": "SD 014"
+            },
+            {
+                "productCode": "SD 017 SF",
+                "name": "SD 017"
+            },
+            {
+                "productCode": "SD 020 SF",
+                "name": "SD 020"
+            },
+            {
+                "productCode": "SD 024 SF",
+                "name": "SD 024"
+            },
+            {
+                "productCode": "SD 026 SF",
+                "name": "SD 026"
+            },
+            {
+                "productCode": "SD 028 SF",
+                "name": "SD 028"
+            },
+            {
+                "productCode": "SD 035 SF",
+                "name": "SD 035"
+            },
+            {
+                "productCode": "SD 036 SF",
+                "name": "SD 036"
+            },
+            {
+                "productCode": "SD 037 SF",
+                "name": "SD 037"
+            },
+            {
+                "productCode": "SD 038 SF",
+                "name": "SD 038"
+            },
+            {
+                "productCode": "SD 039 SF",
+                "name": "SD 039"
+            },
+            {
+                "productCode": "SD 040 SF",
+                "name": "SD 040"
+            },
+            {
+                "productCode": "SD 101 SF",
+                "name": "SD 101"
+            },
+            {
+                "productCode": "SD 102 SF",
+                "name": "SD 102"
+            },
+            {
+                "productCode": "SD 103 SF",
+                "name": "SD 103"
+            },
+            {
+                "productCode": "SD 105 SF",
+                "name": "SD 105"
+            },
+            {
+                "productCode": "SD 109 SF",
+                "name": "SD 109"
+            },
+            {
+                "productCode": "SD 110 SF",
+                "name": "SD 110"
+            },
+            {
+                "productCode": "SD 111 SF",
+                "name": "SD 111"
+            },
+            {
+                "productCode": "SD 112 SF",
+                "name": "SD 112"
+            },
+            {
+                "productCode": "SD 114 SF",
+                "name": "SD 114"
+            },
+            {
+                "productCode": "SD 115 SF",
+                "name": "SD 115"
+            },
+            {
+                "productCode": "SD 116 SF",
+                "name": "SD 116"
+            },
+            {
+                "productCode": "SD 501 SF",
+                "name": "SD 501"
+            },
+            {
+                "productCode": "SD 502 SF",
+                "name": "SD 502"
+            },
+            {
+                "productCode": "SD 503 SF",
+                "name": "SD 503"
+            },
+            {
+                "productCode": "SD 504 SF",
+                "name": "SD 504"
+            },
+            {
+                "productCode": "SD 001 MT",
+                "name": "SD 001"
+            },
+            {
+                "productCode": "SD 003 MT",
+                "name": "SD 003"
+            },
+            {
+                "productCode": "SD 004 MT",
+                "name": "SD 004"
+            },
+            {
+                "productCode": "SD 007 MT",
+                "name": "SD 007"
+            },
+            {
+                "productCode": "SD 008 MT",
+                "name": "SD 008"
+            },
+            {
+                "productCode": "SD 009 MT",
+                "name": "SD 009"
+            },
+            {
+                "productCode": "SD 012 MT",
+                "name": "SD 012"
+            },
+            {
+                "productCode": "SD 013 MT",
+                "name": "SD 013"
+            },
+            {
+                "productCode": "SD 014 MT",
+                "name": "SD 014"
+            },
+            {
+                "productCode": "SD 017 MT",
+                "name": "SD 017"
+            },
+            {
+                "productCode": "SD 020 MT",
+                "name": "SD 020"
+            },
+            {
+                "productCode": "SD 024 MT",
+                "name": "SD 024"
+            },
+            {
+                "productCode": "SD 026 MT",
+                "name": "SD 026"
+            },
+            {
+                "productCode": "SD 028 MT",
+                "name": "SD 028"
+            },
+            {
+                "productCode": "SD 035 MT",
+                "name": "SD 035"
+            },
+            {
+                "productCode": "SD 036 MT",
+                "name": "SD 036"
+            },
+            {
+                "productCode": "SD 037 MT",
+                "name": "SD 037"
+            },
+            {
+                "productCode": "SD 038 MT",
+                "name": "SD 038"
+            },
+            {
+                "productCode": "SD 039 MT",
+                "name": "SD 039"
+            },
+            {
+                "productCode": "SD 040 MT",
+                "name": "SD 040"
+            },
+            {
+                "productCode": "SD 101 MT",
+                "name": "SD 101"
+            },
+            {
+                "productCode": "SD 102 MT",
+                "name": "SD 102"
+            },
+            {
+                "productCode": "SD 103 MT",
+                "name": "SD 103"
+            },
+            {
+                "productCode": "SD 105 MT",
+                "name": "SD 105"
+            },
+            {
+                "productCode": "SD 109 MT",
+                "name": "SD 109"
+            },
+            {
+                "productCode": "SD 110 MT",
+                "name": "SD 110"
+            },
+            {
+                "productCode": "SD 111 MT",
+                "name": "SD 111"
+            },
+            {
+                "productCode": "SD 112 MT",
+                "name": "SD 112"
+            },
+            {
+                "productCode": "SD 114 MT",
+                "name": "SD 114"
+            },
+            {
+                "productCode": "SD 115 MT",
+                "name": "SD 115"
+            },
+            {
+                "productCode": "SD 116 MT",
+                "name": "SD 116"
+            },
+            {
+                "productCode": "SD 501 MT",
+                "name": "SD 501"
+            },
+            {
+                "productCode": "SD 502 MT",
+                "name": "SD 502"
+            },
+            {
+                "productCode": "SD 503 MT",
+                "name": "SD 503"
+            },
+            {
+                "productCode": "SD 504 MT",
+                "name": "SD 504"
+            }
+        ]
+
+        // Fetch suggestions
+        function fetchSuggestions(query) {
+            clearTimeout(debounceTimer);
+
+            if (!query.trim()) {
+                hideSuggestions();
+                return;
+            }
+
+            showLoading();
+
+            debounceTimer = setTimeout(() => {
+                // TODO: Replace with your API endpoint
+                // fetch(`/api/products/search?q=${encodeURIComponent(query)}`)
+                //     .then(res => res.json())
+                //     .then(data => showSuggestions(data, query))
+                //     .catch(err => console.error(err));
+
+                // Mock filtering
+                const filtered = mockProducts.filter(p =>
+                    p.productCode.toLowerCase().includes(query.toLowerCase()) ||
+                    p.name.toLowerCase().includes(query.toLowerCase())
+                );
+                showSuggestions(filtered, query);
+            }, 300);
+        }
+
+        // Display suggestions
+        function showSuggestions(products, query) {
+            suggestions = products;
+            selectedIndex = -1;
+
+            if (products.length === 0) {
+                dropdown.innerHTML = '<div class="no-results">No products found</div>';
+                dropdown.classList.add('show');
+                return;
+            }
+
+            const html = products.map((p, i) => `
+            <div class="suggestion-item" data-index="${i}" data-code="${p.productCode}">
+                <div class="product-code">${highlight(p.productCode, query)}</div>
+                <div class="product-name">${highlight(p.name, query)}</div>
+            </div>
+        `).join('');
+
+            dropdown.innerHTML = html;
+            dropdown.classList.add('show');
+
+            // Click handler
+            dropdown.querySelectorAll('.suggestion-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    goToProduct(this.dataset.code);
+                });
+            });
+        }
+
+        // Highlight matching text
+        function highlight(text, query) {
+            if (!query.trim()) return text;
+            const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        // Show loading
+        function showLoading() {
+            dropdown.innerHTML = '<div class="loading">Searching...</div>';
+            dropdown.classList.add('show');
+        }
+
+        // Hide suggestions
+        function hideSuggestions() {
+            dropdown.classList.remove('show');
+            selectedIndex = -1;
+        }
+
+        // Navigate to product
+        function goToProduct(code) {
+            if (code.trim()) {
+                window.location.href = `/products/detail/${encodeURIComponent(code)}`;
+            }
+        }
+
+        // Update selection styling
+        function updateSelection() {
+            dropdown.querySelectorAll('.suggestion-item').forEach((item, i) => {
+                if (i === selectedIndex) {
+                    item.classList.add('selected');
+                    item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+        }
+
+        // Input event
+        input.addEventListener('input', function (e) {
+            fetchSuggestions(e.target.value);
+        });
+
+        // Keyboard navigation
+        input.addEventListener('keydown', function (e) {
+            const items = dropdown.querySelectorAll('.suggestion-item');
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (selectedIndex < items.length - 1) {
+                    selectedIndex++;
+                    updateSelection();
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (selectedIndex > 0) {
+                    selectedIndex--;
+                } else {
+                    selectedIndex = -1;
+                }
+                updateSelection();
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (selectedIndex >= 0 && suggestions[selectedIndex]) {
+                    goToProduct(suggestions[selectedIndex].productCode);
+                } else {
+                    form.dispatchEvent(new Event('submit'));
+                }
+            } else if (e.key === 'Escape') {
+                hideSuggestions();
+            }
+        });
+
+        // Form submit
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const query = input.value.trim();
+            if (query) {
+                goToProduct(query);
+            }
+        });
+
+        // Click outside to close
+        document.addEventListener('click', function (e) {
+            if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                hideSuggestions();
+            }
+        });
+    })();
+</script>
