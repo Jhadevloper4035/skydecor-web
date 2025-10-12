@@ -4,7 +4,6 @@ const puppeteer = require("puppeteer");
 const ejs = require("ejs");
 const Page = require("../models/page.model.js");
 
-
 exports.getAllProducts = async (req, res) => {
   try {
     let {
@@ -43,7 +42,7 @@ exports.getAllProducts = async (req, res) => {
 
     // Pagination
     page = parseInt(page, 10) || 1;
-    limit = parseInt(limit, 10) || 50;
+    limit = parseInt(limit, 10) || 200;
     const skip = (page - 1) * limit;
 
     // Sorting
@@ -145,7 +144,6 @@ exports.getAllProducts = async (req, res) => {
   }
 };
 
-
 exports.getSingleProduct = async (req, res) => {
   try {
     const { productCode } = req.params;
@@ -193,6 +191,9 @@ exports.getAllCategoryProduct = async (req, res) => {
     if (category) query.category = category;
 
     const products = await Product.find(query);
+    const page = await Page.findOne({
+      productType
+    }) 
 
     if (!products || products.length === 0) {
       return res.status(404).render("error", {
@@ -204,6 +205,7 @@ exports.getAllCategoryProduct = async (req, res) => {
     res.render("category-product.ejs", {
       title: `${category || productType} - SkyDecor`,
       products,
+      page
     });
   } catch (error) {
     console.error("❌ Error fetching products:", error);

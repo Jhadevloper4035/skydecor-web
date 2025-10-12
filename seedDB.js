@@ -27,8 +27,8 @@ ConnectDB();
 async function seedDB() {
   try {
     // Remove old data
-    //await Product.deleteMany({});
-    //console.log("🗑 Old products removed");
+    await Product.deleteMany({});
+    console.log("🗑 Old products removed");
 
     //await Event.deleteMany({})
     //console.log("🗑 Old events removed");
@@ -39,15 +39,15 @@ async function seedDB() {
     //await Page.deleteMany({})
     //console.log("remove all page schema and title");
 
-    await Showroom.deleteMany({})
-    console.log("removed all showroom data");
+    //await Showroom.deleteMany({})
+    //console.log("removed all showroom data");
 
     //await Job.deleteMany({});
    //console.log("removed all Job data");
 
     // Insert new data product
-    //await Product.insertMany(products);
-    //console.log(`✅ ${products.length} products inserted successfully!`);
+    await Product.insertMany(products);
+    console.log(`✅ ${products.length} products inserted successfully!`);
 
     // Insert new Event data product
     //await Event.insertMany(events)
@@ -65,8 +65,8 @@ async function seedDB() {
     // await Page.insertMany(pageData)
     // console.log(`✅ ${pageData.length} All page seo detials updated `);
 
-    await Showroom.insertMany(showroomData);
-    console.log(`✅ ${showroomData.length}  inserted successfully!`);
+    //await Showroom.insertMany(showroomData);
+    //console.log(`✅ ${showroomData.length}  inserted successfully!`);
 
     mongoose.connection.close();
   } catch (err) {

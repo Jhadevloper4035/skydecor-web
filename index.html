@@ -3,511 +3,496 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ads Quality Team - Pinterest Careers</title>
+    <title>Luxury Furniture Collection</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-            color: #1a1a1a;
         }
-
-        .container {
-            max-width: 1200px;
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding-top: 100px;
+            padding-bottom: 40px;
+        }
+        
+        /* Navbar Styles */
+        .luxury-navbar {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .luxury-navbar.scrolled {
+            background: rgba(26, 26, 46, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .navbar-brand-custom {
+            color: #d4af37;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand-custom:hover {
+            color: #f0c040;
+            transform: scale(1.05);
+        }
+        
+        .navbar-tagline {
+            color: #a0a0a0;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            display: block;
+            font-weight: 300;
+        }
+        
+        .nav-link-custom {
+            color: #e0e0e0 !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            padding: 8px 20px !important;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            text-transform: uppercase;
+        }
+        
+        .nav-link-custom:hover {
+            color: #d4af37 !important;
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .nav-link-custom.active {
+            color: #d4af37 !important;
+            background: rgba(212, 175, 55, 0.15);
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .navbar-toggler-custom {
+            border: 2px solid #d4af37;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-toggler-custom:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .navbar-toggler-custom .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28212, 175, 55, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .search-box {
+            position: relative;
+            max-width: 300px;
+        }
+        
+        .search-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #e0e0e0;
+            padding: 8px 40px 8px 15px;
+            border-radius: 25px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        .search-input::placeholder {
+            color: #a0a0a0;
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #d4af37;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            color: #f0c040;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        @media (max-width: 991px) {
+            .search-box {
+                max-width: 100%;
+                margin-top: 15px;
+            }
+        }
+        
+        .main-container {
+            max-width: 1400px;
             margin: 0 auto;
         }
-
-        .hero {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 60px;
-            margin-bottom: 40px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #e60023 0%, #ff6b6b 100%);
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
-        }
-
-        .logo {
-            font-size: 42px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #e60023 0%, #ff6b6b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        .job-title {
-            font-size: 52px;
-            font-weight: 800;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            letter-spacing: -2px;
-        }
-
-        .job-meta {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #666;
-        }
-
-        .meta-item span {
-            color: #e60023;
+        
+        .section-header {
+            color: #d4af37;
             font-weight: 700;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .section-content {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #444;
-            font-weight: 400;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #f8f9ff 0%, #fff5f7 100%);
-            padding: 30px;
-            border-radius: 20px;
+            font-size: 2rem;
             margin-bottom: 30px;
-            border-left: 5px solid #e60023;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            padding: 12px 0 12px 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             position: relative;
-            font-size: 15px;
-            line-height: 1.7;
-            color: #444;
+            padding-bottom: 15px;
         }
-
-        li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #e60023;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .salary {
-            font-size: 36px;
-            font-weight: 800;
-            color: #e60023;
-            margin-top: 20px;
-        }
-
-        /* Form Styles */
-        .form-container {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 60px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-container::before {
+        
+        .section-header::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.12;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37 0%, transparent 100%);
         }
-
-        .form-title {
-            font-size: 42px;
-            font-weight: 800;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            letter-spacing: -2px;
-        }
-
-        .form-subtitle {
-            font-size: 16px;
-            color: #666;
+        
+        .category-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 30px;
             margin-bottom: 40px;
-            font-weight: 400;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-bottom: 25px;
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.2);
         }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            font-size: 14px;
+        
+        .category-title {
+            color: #fff;
             font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 10px;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        input, textarea, select {
-            padding: 16px 20px;
-            border: 2px solid #e8e8e8;
-            border-radius: 15px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            background: #fafafa;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #e60023;
-            background: white;
-            box-shadow: 0 5px 20px rgba(230, 0, 35, 0.1);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .file-input-wrapper {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .file-input-wrapper input[type=file] {
-            position: absolute;
-            left: -9999px;
-        }
-
-        .file-input-label {
+            letter-spacing: 2px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 15px;
-            cursor: pointer;
-            font-weight: 600;
+            gap: 12px;
+        }
+        
+        .category-title i {
+            color: #d4af37;
+            font-size: 1.5rem;
+        }
+        
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 18px 20px;
+            border-radius: 12px;
+            color: #e0e0e0;
+            font-weight: 400;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
-            border: none;
-        }
-
-        .file-input-label:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #e60023 0%, #ff6b6b 100%);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            border: 1px solid transparent;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
+            letter-spacing: 0.5px;
         }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(230, 0, 35, 0.3);
+        
+        .item:hover {
+            background: rgba(212, 175, 55, 0.15);
+            color: #d4af37;
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateX(5px);
         }
-
+        
+        .indoor-section, .outdoor-section {
+            margin-bottom: 60px;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #d4af37 50%, transparent 100%);
+            margin: 50px 0;
+        }
+        
         @media (max-width: 768px) {
-            .hero, .form-container {
-                padding: 30px;
+            .item-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
-
-            .job-title {
-                font-size: 36px;
+            
+            .section-header {
+                font-size: 1.5rem;
             }
-
-            .form-title {
-                font-size: 32px;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .job-meta {
-                flex-direction: column;
-                gap: 15px;
+            
+            .category-title {
+                font-size: 1.1rem;
             }
         }
-
-        .link {
-            color: #e60023;
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s ease;
+        
+        .logo-header {
+            text-align: center;
+            margin-bottom: 50px;
         }
-
-        .link:hover {
-            border-bottom-color: #e60023;
+        
+        .logo-header h1 {
+            color: #d4af37;
+            font-weight: 800;
+            font-size: 3rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .logo-header p {
+            color: #a0a0a0;
+            font-weight: 300;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Job Description -->
-        <div class="hero">
-            <div class="logo">Pinterest</div>
-            <h1 class="job-title">Ads Quality Team</h1>
-            
-            <div class="job-meta">
-                <div class="meta-item"><span>Location:</span> US Based Applicants Only</div>
-                <div class="meta-item"><span>Type:</span> Full-Time</div>
-                <div class="meta-item"><span>Level:</span> L4 / L5</div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">About Pinterest</h2>
-                <div class="section-content">
-                    <p>Millions of people across the world come to Pinterest to find new ideas, dream about new possibilities and plan for themselves that will fuel a lifetime. At Pinterest, we're on a mission to bring everyone the inspiration to create a life they love, and that starts with building a team we love! It's Possible.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Your Career Journey</h2>
-                <div class="section-content">
-                    <p>Discover a career where you ignite innovation for millions, transform passion into growth opportunities, celebrate each other's unique contributions to weave the life you work. Creating a career you love? It's Possible.</p>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h2 class="section-title">Your Mission</h2>
-                <div class="section-content">
-                    <p>Within the Ads Quality team, we try to connect the dots between the aspirations of Pinners and the products offered by our partners. In this role, you will be responsible for developing and executing a vision for the evolution of the machine learning technology and infrastructure. You will work on building new challenges in machine learning and deep learning, and you will work closely with partners like ads engagement and delivery that bring together Pinners and partners in this unique marketplace.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">What You'll Do</h2>
-                <ul>
-                    <li>Lead user-facing projects that involve end to end engineering development in both frontend and backend and ML</li>
-                    <li>Improve relevance and increase long-term value for Pinners, Partners, Creators, and Pinterest through efficient Ads Delivery</li>
-                    <li>Design and ship modeling systems to optimize signals like quality, capacity, stability, and reduce infra cost</li>
-                    <li>Collaborate with product managers and designers to develop engineering solutions for user-facing product improvements</li>
-                    <li>Collaborate with other engineering teams, infra, user modeling, content understanding to leverage their platforms and signals</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">What We're Looking For</h2>
-                <ul>
-                    <li>Experience with tech leads scale data processing (e.g. Pres, Scalding, Spark, Hadoop, Map reduce)</li>
-                    <li>8+ years working experience in the engineering teams that build large-scale ML-driven, user-facing products</li>
-                    <li>5+ years experience leading cross-team engineering efforts that improved user experience in products</li>
-                    <li>Strong execution skills in project management</li>
-                    <li>Masters or PhD in computer science or related field</li>
-                    <li>Understanding of at least one object-oriented programming language (e.g. Java, C++, Python)</li>
-                    <li><strong>Desired skills:</strong></li>
-                    <li>Experience in working on frontend, backend and ML systems for large-scale user-facing products, and have a good sense of how they fit all work</li>
-                    <li>Experience in closely collaborating with product managers / designers to ship ML-driven user-facing product</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Location & Benefits</h2>
-                <div class="section-content">
-                    <p><strong>Relocation Statement:</strong> This position is not eligible for relocation assistance. Visit our <a href="#" class="link">PinFlex</a> page to learn more about our working model.</p>
-                    <p><strong>In-Office Statement:</strong> We like the type of work you do spark the collaboration style. That means we're not always working in an office, but we continue to gather for in-person collaboration in a 2 times/month and therefore can be situated anywhere in the country.</p>
-                    <p><strong>#LI-HYBRID</strong><br><strong>#LI_AK7</strong></p>
-                    <p>At Pinterest, we believe the workplace should be equitable, inclusive, and inspiring for every employee. In an effort to provide greater transparency, we are sharing the salary range for this position. The position is also eligible for equity, final salary is based on a number of factors including location, travel, relevant prior experience, or particular skills and expertise.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <p class="section-content">Information regarding the culture of Pinterest and benefits available for this position can be found <a href="#" class="link">here</a>.</p>
-            </div>
-
-            <div class="salary">$296,000 - $514,500 USD</div>
+    <div class="main-container px-4">
+        <div class="logo-header">
+            <h1>LUXE</h1>
+            <p>FURNITURE COLLECTION</p>
         </div>
-
-        <!-- Application Form -->
-        <div class="form-container">
-            <h2 class="form-title">Apply for This Position</h2>
-            <p class="form-subtitle">Join our team and help shape the future of inspiration</p>
+        
+        <!-- INDOOR SECTION -->
+        <div class="indoor-section">
+            <h2 class="section-header">Indoor</h2>
             
-            <form id="applicationForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="firstName">First Name *</label>
-                        <input type="text" id="firstName" name="firstName" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="lastName">Last Name *</label>
-                        <input type="text" id="lastName" name="lastName" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="location">Current Location *</label>
-                        <input type="text" id="location" name="location" placeholder="City, State" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="experience">Years of Experience *</label>
-                        <select id="experience" name="experience" required>
-                            <option value="">Select...</option>
-                            <option value="5-7">5-7 years</option>
-                            <option value="8-10">8-10 years</option>
-                            <option value="11-15">11-15 years</option>
-                            <option value="15+">15+ years</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="linkedin">LinkedIn Profile URL</label>
-                        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
-                    </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="portfolio">Portfolio / GitHub URL</label>
-                        <input type="url" id="portfolio" name="portfolio" placeholder="https://github.com/yourusername">
-                    </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="coverLetter">Why Pinterest? *</label>
-                        <textarea id="coverLetter" name="coverLetter" placeholder="Tell us why you're excited about this opportunity and what makes you a great fit for this role..." required></textarea>
-                    </div>
-                    
-                    <div class="form-group full-width">
-                        <label for="resume">Upload Resume *</label>
-                        <div class="file-input-wrapper">
-                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                            <label for="resume" class="file-input-label">
-                                <span>📎</span>
-                                <span>Choose File (PDF, DOC, DOCX)</span>
-                            </label>
+            <div class="row">
+                <!-- SEATINGS -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-couch"></i>
+                            Seatings
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Ottomans | Stools</div>
+                            <div class="item">Chairs</div>
+                            <div class="item">Lounge Chairs</div>
+                            <div class="item">Sofas</div>
+                            <div class="item">Daybeds | Chaises | Benches</div>
                         </div>
                     </div>
                 </div>
                 
-                <button type="submit" class="submit-btn">Submit Application</button>
-            </form>
+                <!-- TABLES -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-table"></i>
+                            Tables
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Side Tables</div>
+                            <div class="item">Coffee Tables</div>
+                            <div class="item">Dining Tables</div>
+                            <div class="item">Consoles</div>
+                            <div class="item">Bedside Tables</div>
+                            <div class="item">Desks</div>
+                            <div class="item">Dressers</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LIGHTING -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-lightbulb"></i>
+                            Lighting
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Floor Lamps</div>
+                            <div class="item">Table Lamps</div>
+                            <div class="item">Wall Sconces</div>
+                            <div class="item">Suspended Lamps</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- STORAGE -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-box-open"></i>
+                            Storage
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Shelving Units</div>
+                            <div class="item">Chest Of Drawers</div>
+                            <div class="item">Sideboards</div>
+                            <div class="item">Bedside Tables</div>
+                            <div class="item">Bar Cabinets</div>
+                            <div class="item">Bar Counters</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- COMPLEMENTS -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-gem"></i>
+                            Complements
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Mirrors</div>
+                            <div class="item">Trolleys</div>
+                            <div class="item">Valet Stands</div>
+                            <div class="item">Magazine Stands</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SURFACES -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-border-all"></i>
+                            Surfaces
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Panellings</div>
+                            <div class="item">Partition Screens</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BEDS -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-bed"></i>
+                            Beds
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Available Soon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- OUTDOOR SECTION -->
+        <div class="outdoor-section">
+            <h2 class="section-header">Outdoor</h2>
+            
+            <div class="row">
+                <!-- SEATINGS -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-chair"></i>
+                            Seatings
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Chairs</div>
+                            <div class="item">Daybeds | Chaises | Benches</div>
+                            <div class="item">Lounge Chairs</div>
+                            <div class="item">Ottomans | Stools</div>
+                            <div class="item">Sofas</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TABLES -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-table"></i>
+                            Tables
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Side Tables</div>
+                            <div class="item">Coffee Tables</div>
+                            <div class="item">Dining Tables</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- COMPLEMENTS -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="category-card">
+                        <h3 class="category-title">
+                            <i class="fas fa-umbrella-beach"></i>
+                            Complements
+                        </h3>
+                        <div class="item-grid">
+                            <div class="item">Trolleys</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        const fileInput = document.getElementById('resume');
-        const fileLabel = document.querySelector('.file-input-label');
-        const originalText = fileLabel.innerHTML;
-
-        fileInput.addEventListener('change', function(e) {
-            const fileName = e.target.files[0]?.name;
-            if (fileName) {
-                fileLabel.innerHTML = `<span>✓</span><span>${fileName}</span>`;
-            } else {
-                fileLabel.innerHTML = originalText;
-            }
+        // Add subtle animation on scroll
+        const cards = document.querySelectorAll('.category-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
         });
-
-        document.getElementById('applicationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                location: document.getElementById('location').value,
-                experience: document.getElementById('experience').value,
-                linkedin: document.getElementById('linkedin').value,
-                portfolio: document.getElementById('portfolio').value,
-                coverLetter: document.getElementById('coverLetter').value,
-                resume: document.getElementById('resume').files[0]?.name
-            };
-            
-            alert('Application submitted successfully!\n\nThank you for applying to Pinterest. We will review your application and get back to you soon.');
-            console.log('Form Data:', formData);
-            this.reset();
-            fileLabel.innerHTML = originalText;
+        
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // Add click effect
+        document.querySelectorAll('.item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
         });
     </script>
 </body>

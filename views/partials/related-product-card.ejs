@@ -3,7 +3,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
             <div class="product-wrap mb-25 scroll-zoom">
                 <div class="product-img">
-                    <a href="/product-details/<%= product.id %>">
+                    <a href="/products/detail/<%= product.productCode %>">
                         <img class="default-img" src="<%= product.image %>" alt="<%= product.productName %>">
                         <img class="hover-img" src="<%= product.image %>" alt="<%= product.productName %>">
                     </a>
@@ -20,13 +20,17 @@
 
                         <div class="pro-same-action pro-quickview">
                             <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                data-name="<%= product.productName %>" data-image="<%= product.image %>"
-                                data-category="<%= product.category %>" data-subcategory="<%= product.subCategory %>"
-                                data-texture="<%= product.texture %>" data-size="<%= product.size %>"
-                                data-thickness="<%= product.thickness %>" data-width="<%= product.width %>">
+                                data-productcode="<%= product.productCode %>"
+                                data-producttype="<%= product.productType %>" data-name="<%= product.productName %>"
+                                data-image="<%= product.image %>" data-category="<%= product.category %>"
+                                data-subcategory="<%= product.subCategory %>" data-texture="<%= product.texture %>"
+                                data-design="<%= product.design %>" data-size="<%= product.size %>"
+                                data-thickness="<%= product.thickness %>" data-width="<%= product.width %>"
+                                data-downloadlink="<%= product.downloadLink %>">
                                 <i class="pe-7s-look"></i>
                             </a>
                         </div>
+
 
 
                     </div>
