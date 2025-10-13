@@ -2,7 +2,7 @@
     <div class="product-enquiry-dialog">
         <div class="product-enquiry-content">
             <div class="product-enquiry-header">
-                <h5 class="product-enquiry-title">
+                <h5 class="product-enquiry-title text-white" style="font-weight: 400;">
                     <i class="fas fa-clipboard-list"></i> Product Enquiry Form
                 </h5>
                 <button class="product-enquiry-close" onclick="closeProductEnquiry()" aria-label="Close">
@@ -55,36 +55,18 @@
                             <div class="product-enquiry-error" id="productEnquiryCompanyError"></div>
                         </div>
 
-                        <div class="product-enquiry-col-6">
-                            <label for="productEnquiryCategory" class="product-enquiry-label">
-                                Product Category<span class="product-enquiry-required">*</span>
-                            </label>
-                            <select class="product-enquiry-select" id="productEnquiryCategory" required>
-                                <option value="">Select a category</option>
-                                <option value="electronics">Electronics</option>
-                                <option value="clothing">Clothing</option>
-                                <option value="home">Home & Garden</option>
-                                <option value="sports">Sports & Outdoors</option>
-                                <option value="books">Books & Media</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <div class="product-enquiry-error" id="productEnquiryCategoryError"></div>
-                        </div>
 
                         <div class="product-enquiry-col-6">
-                            <label for="productEnquiryBudget" class="product-enquiry-label">
-                                Budget Range
+                            <label for="productEnquiryProduct" class="product-enquiry-label">
+                                Product
                             </label>
-                            <select class="product-enquiry-select" id="productEnquiryBudget">
-                                <option value="">Select budget</option>
-                                <option value="under-1000">Under ₹1,000</option>
-                                <option value="1000-5000">₹1,000 - ₹5,000</option>
-                                <option value="5000-10000">₹5,000 - ₹10,000</option>
-                                <option value="10000-50000">₹10,000 - ₹50,000</option>
-                                <option value="above-50000">Above ₹50,000</option>
-                            </select>
-                            <div class="product-enquiry-error" id="productEnquiryBudgetError"></div>
+                            <input type="text" class="product-enquiry-input" id="productEnquiryProduct" value="<%= product.productCode %>" readonly>
+                            <div class="product-enquiry-error" id="productEnquiryProductError"></div>
                         </div>
+
+
+
+
 
                         <div class="product-enquiry-col-12">
                             <label for="productEnquiryMessage" class="product-enquiry-label">

@@ -222,6 +222,31 @@
             padding: 0px 40px;
             text-align: justify;
         }
+
+        .global-banner {
+            background-image: url('/images/about/global.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+
+        }
+
+        /* Tablet and Mobile */
+        @media (max-width: 991px) {
+            .global-banner {
+                height: auto;
+                /* height adjusts to content */
+                padding: 60px 20px;
+                /* some spacing for smaller screens */
+            }
+        }
     </style>
 
 
@@ -245,19 +270,19 @@
         </div>
 
 
-         <div class="container-fluid">
-        <div class="breadcrumb-section">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
-                </ol>
-            </nav>
+        <div class="container-fluid">
+            <div class="breadcrumb-section">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-    </div>
 
 
-        
+
 
 
 
@@ -275,13 +300,30 @@
                         </div>
 
                         <p class="about-skydecor-p mb-4 text-white text-start">
-                           In 2016, Skydecor embarked on its journey with a vision to surpass conventional limits. With a sprawling infrastructure spanning over 50,000 square meters and equipped with cutting-edge machinery, we are committed to continual expansion and advancement. Our manufacturing facilities, located in Greater Noida and Hapur, specialize in producing PVC Laminates, Acrylic Laminates, and Decorative Laminates. Additionally, our operational headquarters is situated in Noida, with an Experience Centre conveniently located in Kirti Nagar.
+                            In 2016, Skydecor embarked on its journey with a vision to surpass conventional limits. With
+                            a sprawling infrastructure spanning over 50,000 square meters and equipped with cutting-edge
+                            machinery, we are committed to continual expansion and advancement. Our manufacturing
+                            facilities, located in Greater Noida and Hapur, specialize in producing PVC Laminates,
+                            Acrylic Laminates, and Decorative Laminates. Additionally, our operational headquarters is
+                            situated in Noida, with an Experience Centre conveniently located in Kirti Nagar.
 
                             <br> <br>
 
 
-                           With a proud legacy spanning a decade, Skydecor Laminates excels in revitalizing interior spaces, our collections offer boundless possibilities. Ensuring that every interior space exudes style and sophistication. From sleek solids to captivating textures, from natural inspirations to timeless designs, our diverse range of laminates caters to every aesthetic preference.
+                            With a proud legacy spanning a decade, Skydecor Laminates excels in revitalizing interior
+                            spaces, our collections offer boundless possibilities. Ensuring that every interior space
+                            exudes style and sophistication. From sleek solids to captivating textures, from natural
+                            inspirations to timeless designs, our diverse range of laminates caters to every aesthetic
+                            preference.
                         </p>
+
+
+                        <a href="/images/about/Final Company Profile.pdf" target="_blank"
+                            class="btn btn-outline-light fw-light" style="padding: 10px 30px; margin-left: 25px">
+                            Download Profile
+                        </a>
+
+
                     </div>
 
 
@@ -299,18 +341,24 @@
 
 
 
+        <section class="global-banner mt-60">
+            <div class="container text-center text-white">
+            </div>
+        </section>
+
+
 
 
 
 
         <section class="services pt-100 ">
             <div class="container">
-                  <div class="row text-center">
+                <div class="row text-center">
                     <div class="welcome-content text-center pb-60">
                         <h1 style="text-transform:uppercase">OUR CORE COMMITMENTS</h1>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
                         <div class="img left">
@@ -401,6 +449,46 @@
         </div>
 
 
+        <section class="about bg-dark-gery pt-100 pb-100">
+            <div class="container">
+                <div class="row">
+
+
+                    <!-- Left Image -->
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInUp">
+                        <img src="/images/about/organic.jpg" alt="Skydecor Logo" class="img-fluid" />
+                    </div>
+
+
+
+                    <!-- Right Content -->
+                    <div class="col-md-6 mt-4 animate-box d-flex justify-content-center align-items-start"
+                        style="flex-direction: column" data-animate-effect="fadeInUp">
+                        <div class="skydecor-section-title text-white"
+                            style="margin-bottom: 24px ; text-transform: uppercase;">
+                            Sustainability
+                        </div>
+
+                        <p class="about-skydecor-p mb-4 text-white text-start">
+
+                            With a proud legacy spanning a decade, Skydecor Laminates excels in revitalizing interior
+                            spaces, our collections offer boundless possibilities. Ensuring that every interior space
+                            exudes style and sophistication. From sleek solids to captivating textures, from natural
+                            inspirations to timeless designs, our diverse range of laminates caters to every aesthetic
+                            preference.
+
+
+
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
 
         <section class="facilties pt-100 pb-100 ">
             <div class="container">
@@ -449,6 +537,10 @@
                 </div>
             </div>
         </section>
+
+
+
+
 
 
 

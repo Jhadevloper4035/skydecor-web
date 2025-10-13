@@ -351,7 +351,10 @@
         <%- include("partials/footer") %> 
         
         <%- include("partials/product-modal") %>
-                <%- include("partials/product-enquiry") %>
+
+        <%- include("partials/product-enquiry", { product: product }) %>
+
+                
 
                     <!-- All JS is here ============================================ -->
                     <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
