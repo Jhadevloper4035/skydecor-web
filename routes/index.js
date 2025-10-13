@@ -72,49 +72,49 @@ router.get("/privacy-policy", (req, res) => {
 });
 
 router.get("/application/bedroom-design-laminates", (req, res) => {
-  res.render("bedroom-design-laminates", {
+  res.render("design-idea/bedroom-design-laminates", {
     title: "conatct Page",
     message: "Welcome to EJS with Static Files!",
   });
 });
 
 router.get("/application/kids-room-design", (req, res) => {
-  res.render("kids-room-design", {
+  res.render("design-idea/kids-room-design", {
     title: "conatct Page",
     message: "Welcome to EJS with Static Files!",
   });
 });
 
 router.get("/application/office-design-laminates", (req, res) => {
-  res.render("office-design-laminates", {
+  res.render("design-idea/office-design-laminates", {
     title: "conatct Page",
     message: "Welcome to EJS with Static Files!",
   });
 });
 
 router.get("/application/living-room-design", (req, res) => {
-  res.render("living-room-design", {
+  res.render("design-idea/living-room-design", {
     title: "conatct Page",
     message: "Welcome to EJS with Static Files!",
   });
 });
 
 router.get("/application/kitchen-design-laminates", (req, res) => {
-  res.render("kitchen-design-laminates", {
+  res.render("design-idea/kitchen-design-laminates", {
     title: "conatct Page",
     message: "Welcome to EJS with Static Files!",
   });
 });
 
 router.get("/application/wardrobs-design", (req, res) => {
-  res.render("wardrobs-design", {
+  res.render("design-idea/wardrobs-design", {
     title: "conatct Page",
     message: "Welcome to EJS with Static Files!",
   });
 });
 
 router.get("/application/tv-unit-design", (req, res) => {
-  res.render("tv-unit-design", {
+  res.render("design-idea/tv-unit-design", {
     title: "conatct Page",
     message: "Welcome to EJS with Static Files!",
   });
