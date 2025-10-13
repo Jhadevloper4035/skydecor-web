@@ -3,497 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Furniture Collection</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Luxury Breadcrumb</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh;
-            padding-top: 100px;
-            padding-bottom: 40px;
-        }
-        
-        /* Navbar Styles */
-        .luxury-navbar {
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .luxury-navbar.scrolled {
-            background: rgba(26, 26, 46, 0.98);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        .navbar-brand-custom {
-            color: #d4af37;
-            font-weight: 800;
-            font-size: 1.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-brand-custom:hover {
-            color: #f0c040;
-            transform: scale(1.05);
-        }
-        
-        .navbar-tagline {
-            color: #a0a0a0;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            display: block;
-            font-weight: 300;
-        }
-        
-        .nav-link-custom {
-            color: #e0e0e0 !important;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            padding: 8px 20px !important;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            text-transform: uppercase;
-        }
-        
-        .nav-link-custom:hover {
-            color: #d4af37 !important;
-            background: rgba(212, 175, 55, 0.1);
-        }
-        
-        .nav-link-custom.active {
-            color: #d4af37 !important;
-            background: rgba(212, 175, 55, 0.15);
-            border-bottom: 2px solid #d4af37;
-        }
-        
-        .navbar-toggler-custom {
-            border: 2px solid #d4af37;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-toggler-custom:hover {
-            background: rgba(212, 175, 55, 0.1);
-        }
-        
-        .navbar-toggler-custom .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28212, 175, 55, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-        
-        .search-box {
-            position: relative;
-            max-width: 300px;
-        }
-        
-        .search-input {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: #e0e0e0;
-            padding: 8px 40px 8px 15px;
-            border-radius: 25px;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: #d4af37;
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-        }
-        
-        .search-input::placeholder {
-            color: #a0a0a0;
-        }
-        
-        .search-btn {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #d4af37;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .search-btn:hover {
-            color: #f0c040;
-            transform: translateY(-50%) scale(1.1);
-        }
-        
-        @media (max-width: 991px) {
-            .search-box {
-                max-width: 100%;
-                margin-top: 15px;
-            }
-        }
-        
-        .main-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            color: #d4af37;
-            font-weight: 700;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #d4af37 0%, transparent 100%);
-        }
-        
-        .category-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+
+
+        .breadcrumb-section {
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 40px;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 40px 50px;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .category-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(212, 175, 55, 0.5);
-            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.2);
-        }
-        
-        .category-title {
-            color: #fff;
-            font-weight: 600;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+
+
+        .breadcrumb-title {
+            font-weight: 300;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
             letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
-        
-        .category-title i {
-            color: #d4af37;
-            font-size: 1.5rem;
-        }
-        
-        .item-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        
-        .item {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 18px 20px;
-            border-radius: 12px;
-            color: #e0e0e0;
+
+        .breadcrumb-subtitle {
             font-weight: 400;
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin: 0;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            cursor: pointer;
+        }
+
+        .breadcrumb-item {
+            font-weight: 500;
             letter-spacing: 0.5px;
         }
-        
-        .item:hover {
-            background: rgba(212, 175, 55, 0.15);
-            color: #d4af37;
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateX(5px);
+
+        .breadcrumb-item a {
+            color: #95a5a6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 16px;
         }
-        
-        .indoor-section, .outdoor-section {
-            margin-bottom: 60px;
+
+        .breadcrumb-item a:hover {
+            color: #00649e;
         }
-        
-        .divider {
+
+        .breadcrumb-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent 0%, #d4af37 50%, transparent 100%);
-            margin: 50px 0;
+            background: linear-gradient(90deg, #00649e, #f4e4c1) ;
+            transition: width 0.3s ease;
         }
-        
-        @media (max-width: 768px) {
-            .item-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            
-            .section-header {
-                font-size: 1.5rem;
-            }
-            
-            .category-title {
-                font-size: 1.1rem;
-            }
+
+        .breadcrumb-item a:hover::after {
+            width: 100%;
         }
-        
-        .logo-header {
-            text-align: center;
-            margin-bottom: 50px;
+
+        .breadcrumb-item.active {
+            color: #00649e;
+            font-weight: 600;
         }
-        
-        .logo-header h1 {
-            color: #d4af37;
-            font-weight: 800;
-            font-size: 3rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-        
-        .logo-header p {
-            color: #a0a0a0;
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #00649e;
+            font-size: 1.2rem;
             font-weight: 300;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
+            padding: 0 12px;
+        }
+
+        .luxury-accent {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #00649e, transparent);
+            margin: 20px 0;
         }
     </style>
+
+    
 </head>
 <body>
-    <div class="main-container px-4">
-        <div class="logo-header">
-            <h1>LUXE</h1>
-            <p>FURNITURE COLLECTION</p>
-        </div>
-        
-        <!-- INDOOR SECTION -->
-        <div class="indoor-section">
-            <h2 class="section-header">Indoor</h2>
-            
-            <div class="row">
-                <!-- SEATINGS -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-couch"></i>
-                            Seatings
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Ottomans | Stools</div>
-                            <div class="item">Chairs</div>
-                            <div class="item">Lounge Chairs</div>
-                            <div class="item">Sofas</div>
-                            <div class="item">Daybeds | Chaises | Benches</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- TABLES -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-table"></i>
-                            Tables
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Side Tables</div>
-                            <div class="item">Coffee Tables</div>
-                            <div class="item">Dining Tables</div>
-                            <div class="item">Consoles</div>
-                            <div class="item">Bedside Tables</div>
-                            <div class="item">Desks</div>
-                            <div class="item">Dressers</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- LIGHTING -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-lightbulb"></i>
-                            Lighting
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Floor Lamps</div>
-                            <div class="item">Table Lamps</div>
-                            <div class="item">Wall Sconces</div>
-                            <div class="item">Suspended Lamps</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- STORAGE -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-box-open"></i>
-                            Storage
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Shelving Units</div>
-                            <div class="item">Chest Of Drawers</div>
-                            <div class="item">Sideboards</div>
-                            <div class="item">Bedside Tables</div>
-                            <div class="item">Bar Cabinets</div>
-                            <div class="item">Bar Counters</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- COMPLEMENTS -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-gem"></i>
-                            Complements
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Mirrors</div>
-                            <div class="item">Trolleys</div>
-                            <div class="item">Valet Stands</div>
-                            <div class="item">Magazine Stands</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- SURFACES -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-border-all"></i>
-                            Surfaces
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Panellings</div>
-                            <div class="item">Partition Screens</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- BEDS -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-bed"></i>
-                            Beds
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Available Soon</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <!-- OUTDOOR SECTION -->
-        <div class="outdoor-section">
-            <h2 class="section-header">Outdoor</h2>
-            
-            <div class="row">
-                <!-- SEATINGS -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-chair"></i>
-                            Seatings
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Chairs</div>
-                            <div class="item">Daybeds | Chaises | Benches</div>
-                            <div class="item">Lounge Chairs</div>
-                            <div class="item">Ottomans | Stools</div>
-                            <div class="item">Sofas</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- TABLES -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-table"></i>
-                            Tables
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Side Tables</div>
-                            <div class="item">Coffee Tables</div>
-                            <div class="item">Dining Tables</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- COMPLEMENTS -->
-                <div class="col-lg-6 col-xl-4">
-                    <div class="category-card">
-                        <h3 class="category-title">
-                            <i class="fas fa-umbrella-beach"></i>
-                            Complements
-                        </h3>
-                        <div class="item-grid">
-                            <div class="item">Trolleys</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="container-fluid">
+        <div class="breadcrumb-section">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item"><a href="#">Luxury Items</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Premium Collection</li>
+                </ol>
+            </nav>
         </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Add subtle animation on scroll
-        const cards = document.querySelectorAll('.category-card');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        cards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
-        
-        // Add click effect
-        document.querySelectorAll('.item').forEach(item => {
-            item.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
-            });
-        });
-    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -32,6 +32,10 @@
     <%- include("partials/header") %>
 
 
+
+
+
+
         <% const tabletBanner=page.banners.find(b=> b.device == "tablet").image;
             const mobileBanner = page.banners.find(b => b.device == "mobile").image;
             const desktopBanner = page.banners.find(b => b.device == "desktop").image;
@@ -58,6 +62,34 @@
                     }
                 }
             </style>
+
+
+
+         
+
+         <% if (productType || category) { %>
+  <div class="container-fluid">
+    <div class="breadcrumb-section">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+
+          <% if (productType) { %>
+            <li class="breadcrumb-item">
+              <a href="/products/page/<%= productType %>"><%= productType %></a>
+            </li>
+          <% } %>
+
+          <% if (category) { %>
+            <li class="breadcrumb-item">
+              <a href="/products/<%= category %>"><%= category %></a>
+            </li>
+          <% } %>
+        </ol>
+      </nav>
+    </div>
+  </div>
+<% } %>
 
 
 

@@ -205,7 +205,10 @@ exports.getAllCategoryProduct = async (req, res) => {
     res.render("category-product.ejs", {
       title: `${category || productType} - SkyDecor`,
       products,
-      page
+      page,
+      productType,
+      category
+
     });
   } catch (error) {
     console.error("❌ Error fetching products:", error);
