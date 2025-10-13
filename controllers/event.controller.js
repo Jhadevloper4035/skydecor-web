@@ -4,7 +4,7 @@ const Event = require('../models/event.model'); // Your Mongoose Event schema
 exports.getEvents = async (req, res) => {
   try {
     // Fetch all events from MongoDB, sorted by date descending
-    const events = await Event.find().sort({ date: -1 });
+    const events = await Event.find().sort({ date: -1 }).lean();
 
     // Render your EJS page and pass events
     res.render('event', {
@@ -33,7 +33,7 @@ exports.getSingleEvent = async (req, res) => {
       });
     }
 
-    const event = await Event.findOne({slug})
+    const event = await Event.findOne({slug}).lean();
 
     // Render your EJS page and pass events
     res.render('single-event', {

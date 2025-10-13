@@ -1,44 +1,188 @@
 [
   {
+    "id": 1,
+    "title": "Assistant Manager – Deal Desk [Skydecor]",
+    "slug": "assistant-manager-deal-desk-skydecor-bangalore-mumbai",
+    "company": "Skydecor",
     "location": "India | Bangalore & Mumbai",
-    "title": "Assistant Manager – Deal Desk [Skydecor ]",
     "area": "Sales",
+    "department": "Sales Operations",
+    "employmentType": "Full-time",
+    "experience": "3–5 years",
+    "salaryRange": "₹8–12 LPA",
+    "qualifications": "MBA or equivalent in Sales, Finance, or Business Administration",
+    "skills": [
+      "Pricing strategy",
+      "Deal structuring",
+      "Financial analysis",
+      "CRM tools",
+      "MS Excel / Power BI"
+    ],
+    "benefits": [
+      "Health insurance",
+      "Performance bonus",
+      "Career growth opportunities",
+      "Work-life balance"
+    ],
+    "description": "Support sales operations by managing deal structures, pricing strategies, and client proposals to maximize revenue efficiency.",
     "posted": "Posted 1 week ago",
-    "description": "Support sales operations by managing deal structures, pricing strategies, and client proposals to maximize revenue efficiency."
+    "applicationDeadline": "2025-10-30",
+    "contactEmail": "careers@skydecor.in",
+    "applyLink": "https://www.skydecor.in/careers/assistant-manager-deal-desk"
   },
   {
+    "id": 2,
+    "title": "Assistant Manager – Project Sales [Skydecor]",
+    "slug": "assistant-manager-project-sales-skydecor-pune",
+    "company": "Skydecor",
     "location": "India | Pune",
-    "title": "Assistant Manager – Project Sales [Skydecor ]",
     "area": "Marketing",
+    "department": "Project Sales",
+    "employmentType": "Full-time",
+    "experience": "4–6 years",
+    "salaryRange": "₹7–10 LPA",
+    "qualifications": "Bachelor’s in Marketing, Architecture, or Interior Design",
+    "skills": [
+      "B2B sales",
+      "Client relationship management",
+      "Project coordination",
+      "Negotiation",
+      "Communication"
+    ],
+    "benefits": [
+      "Fuel reimbursement",
+      "Incentive-based pay",
+      "Training and mentorship",
+      "Flexible working hours"
+    ],
+    "description": "Drive sales for large-scale interior projects by engaging architects, designers, and contractors in the region. The role involves identifying business opportunities and managing client relationships to achieve sales goals.",
     "posted": "Posted 2 weeks ago",
-    "description": "Drive sales for large-scale interior projects by engaging architects, designers, and contractors in the region. The role involves identifying business"
+    "applicationDeadline": "2025-10-25",
+    "contactEmail": "careers@skydecor.in",
+    "applyLink": "https://www.skydecor.in/careers/assistant-manager-project-sales"
   },
   {
+    "id": 3,
+    "title": "Manager – Project Sales [Skydecor]",
+    "slug": "manager-project-sales-skydecor-delhi-gurgaon-bangalore",
+    "company": "Skydecor",
     "location": "India | Delhi, Gurgaon & Bangalore",
-    "title": "Manager – Project Sales [Skydecor ]",
     "area": "Operations",
+    "department": "Project Sales Management",
+    "employmentType": "Full-time",
+    "experience": "6–10 years",
+    "salaryRange": "₹12–18 LPA",
+    "qualifications": "MBA or Bachelor’s in Business, Architecture, or related field",
+    "skills": [
+      "Team leadership",
+      "Client acquisition",
+      "Strategic planning",
+      "CRM tools",
+      "Project lifecycle management"
+    ],
+    "benefits": [
+      "Company car",
+      "Sales incentives",
+      "Leadership training",
+      "Medical insurance"
+    ],
+    "description": "Lead project-based sales activities, overseeing client accounts, operational delivery, and revenue growth across multiple cities.",
     "posted": "Posted 3 weeks ago",
-    "description": "Lead project-based sales activities, overseeing client accounts, operational delivery, and revenue growth in multiple cities."
+    "applicationDeadline": "2025-10-20",
+    "contactEmail": "careers@skydecor.in",
+    "applyLink": "https://www.skydecor.in/careers/manager-project-sales"
   },
   {
+    "id": 4,
+    "title": "Senior Executive – Channel Sales [Skydecor]",
+    "slug": "senior-executive-channel-sales-skydecor-hyderabad",
+    "company": "Skydecor",
     "location": "India | Hyderabad",
-    "title": "Senior Executive – Channel Sales [Skydecor ]",
     "area": "Sales",
+    "department": "Channel Sales",
+    "employmentType": "Full-time",
+    "experience": "2–4 years",
+    "salaryRange": "₹5–8 LPA",
+    "qualifications": "Graduate in Business, Marketing, or related discipline",
+    "skills": [
+      "Distributor management",
+      "Retail sales",
+      "Forecasting",
+      "Market analysis",
+      "CRM software"
+    ],
+    "benefits": [
+      "Travel allowance",
+      "Monthly incentives",
+      "Professional development",
+      "Insurance coverage"
+    ],
+    "description": "Manage and expand relationships with distributors and retailers to drive channel-based sales performance.",
     "posted": "Posted 5 days ago",
-    "description": "Manage and expand relationships with distributors and retailers to drive channel-based sales performance."
+    "applicationDeadline": "2025-10-22",
+    "contactEmail": "careers@skydecor.in",
+    "applyLink": "https://www.skydecor.in/careers/senior-executive-channel-sales"
   },
   {
+    "id": 5,
+    "title": "Regional Manager – Retail Sales [Skydecor]",
+    "slug": "regional-manager-retail-sales-skydecor-ahmedabad",
+    "company": "Skydecor",
     "location": "India | Ahmedabad",
-    "title": "Regional Manager – Retail Sales [Skydecor ]",
     "area": "Retail",
+    "department": "Retail Sales",
+    "employmentType": "Full-time",
+    "experience": "7–12 years",
+    "salaryRange": "₹15–20 LPA",
+    "qualifications": "MBA or equivalent in Retail Management or Sales",
+    "skills": [
+      "Retail operations",
+      "Team leadership",
+      "Sales forecasting",
+      "Brand development",
+      "Budget management"
+    ],
+    "benefits": [
+      "Annual bonuses",
+      "Medical insurance",
+      "Paid leaves",
+      "Relocation support"
+    ],
+    "description": "Oversee retail operations and sales strategies across the region to boost brand presence and customer engagement.",
     "posted": "Posted 1 month ago",
-    "description": "Oversee retail operations and sales strategies across the region to boost brand presence and customer engagement."
+    "applicationDeadline": "2025-10-15",
+    "contactEmail": "careers@skydecor.in",
+    "applyLink": "https://www.skydecor.in/careers/regional-manager-retail-sales"
   },
   {
+    "id": 6,
+    "title": "Executive – Business Development [Skydecor]",
+    "slug": "executive-business-development-skydecor-kolkata",
+    "company": "Skydecor",
     "location": "India | Kolkata",
-    "title": "Executive – Business Development [Skydecor ]",
     "area": "Business Development",
+    "department": "Corporate Sales",
+    "employmentType": "Full-time",
+    "experience": "1–3 years",
+    "salaryRange": "₹4–6 LPA",
+    "qualifications": "Bachelor’s degree in Business, Marketing, or relevant field",
+    "skills": [
+      "Lead generation",
+      "Client communication",
+      "Market research",
+      "Cold calling",
+      "CRM management"
+    ],
+    "benefits": [
+      "Sales incentives",
+      "Learning opportunities",
+      "Team outings",
+      "Paid leaves"
+    ],
+    "description": "Identify new business opportunities, build client relationships, and contribute to the expansion of market reach.",
     "posted": "Posted 3 days ago",
-    "description": "Identify new business opportunities, build client relationships, and contribute to the expansion of market reach."
+    "applicationDeadline": "2025-10-25",
+    "contactEmail": "careers@skydecor.in",
+    "applyLink": "https://www.skydecor.in/careers/executive-business-development"
   }
 ]

@@ -222,6 +222,31 @@
             padding: 0px 40px;
             text-align: justify;
         }
+
+        .global-banner {
+            background-image: url('/images/about/global.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+
+        }
+
+        /* Tablet and Mobile */
+        @media (max-width: 991px) {
+            .global-banner {
+                height: auto;
+                /* height adjusts to content */
+                padding: 60px 20px;
+                /* some spacing for smaller screens */
+            }
+        }
     </style>
 
 
@@ -239,33 +264,101 @@
 
 
 
-       <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/about.jpg);">
+        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/about.jpg);">
             <div class="container">
             </div>
         </div>
 
 
-        <div class="welcome-area pt-100 ">
+        <div class="container-fluid">
+            <div class="breadcrumb-section">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+
+
+
+
+
+        <section class="about bg-dark-gery pt-100 pb-100">
             <div class="container">
-                <div class="welcome-content text-center">
-                    <h5>About Us</h5>
-                    <h1>Welcome To Skydecor</h1>
-                    <p>Skydecor embarked on its journey in 2016 with a vision to push beyond limits and redefine
-                        excellence. With a vast infrastructure spanning over 5 million sheets annual production and
-                        state-of-the-art machinery, we are committed to continuous growth and innovation. Our
-                        manufacturing facilities in Greater Noida and Hapur specialize in producing PVC Laminates,
-                        Acrylic Laminates, Decorative Laminates and Soffitto Panels. Our operational headquarters is
-                        located in Noida, while our Experience Centres in Kirti Nagar & Noida offers a firsthand
-                        showcase of our premium products</p>
+                <div class="row">
+
+
+                    <!-- Right Content -->
+                    <div class="col-md-6 mt-4 animate-box d-flex justify-content-center align-items-start"
+                        style="flex-direction: column" data-animate-effect="fadeInUp">
+                        <div class="skydecor-section-title text-white"
+                            style="margin-bottom: 24px ; text-transform: uppercase;">
+                            About Skydecor
+                        </div>
+
+                        <p class="about-skydecor-p mb-4 text-white text-start">
+                            In 2016, Skydecor embarked on its journey with a vision to surpass conventional limits. With
+                            a sprawling infrastructure spanning over 50,000 square meters and equipped with cutting-edge
+                            machinery, we are committed to continual expansion and advancement. Our manufacturing
+                            facilities, located in Greater Noida and Hapur, specialize in producing PVC Laminates,
+                            Acrylic Laminates, and Decorative Laminates. Additionally, our operational headquarters is
+                            situated in Noida, with an Experience Centre conveniently located in Kirti Nagar.
+
+                            <br> <br>
+
+
+                            With a proud legacy spanning a decade, Skydecor Laminates excels in revitalizing interior
+                            spaces, our collections offer boundless possibilities. Ensuring that every interior space
+                            exudes style and sophistication. From sleek solids to captivating textures, from natural
+                            inspirations to timeless designs, our diverse range of laminates caters to every aesthetic
+                            preference.
+                        </p>
+
+
+                        <a href="/images/about/Final Company Profile.pdf" target="_blank"
+                            class="btn btn-outline-light fw-light" style="padding: 10px 30px; margin-left: 25px">
+                            Download Profile
+                        </a>
+
+
+                    </div>
+
+
+                    <!-- Left Image -->
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInUp">
+                        <img src="/images/about/about.jpg" alt="Skydecor Logo" class="img-fluid" />
+                    </div>
+
+
+
                 </div>
             </div>
-        </div>
+        </section>
+
+
+
+
+        <section class="global-banner mt-60">
+            <div class="container text-center text-white">
+            </div>
+        </section>
+
+
 
 
 
 
         <section class="services pt-100 ">
             <div class="container">
+                <div class="row text-center">
+                    <div class="welcome-content text-center pb-60">
+                        <h1 style="text-transform:uppercase">OUR CORE COMMITMENTS</h1>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
                         <div class="img left">
@@ -356,6 +449,46 @@
         </div>
 
 
+        <section class="about bg-dark-gery pt-100 pb-100">
+            <div class="container">
+                <div class="row">
+
+
+                    <!-- Left Image -->
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInUp">
+                        <img src="/images/about/organic.jpg" alt="Skydecor Logo" class="img-fluid" />
+                    </div>
+
+
+
+                    <!-- Right Content -->
+                    <div class="col-md-6 mt-4 animate-box d-flex justify-content-center align-items-start"
+                        style="flex-direction: column" data-animate-effect="fadeInUp">
+                        <div class="skydecor-section-title text-white"
+                            style="margin-bottom: 24px ; text-transform: uppercase;">
+                            Sustainability
+                        </div>
+
+                        <p class="about-skydecor-p mb-4 text-white text-start">
+
+                            With a proud legacy spanning a decade, Skydecor Laminates excels in revitalizing interior
+                            spaces, our collections offer boundless possibilities. Ensuring that every interior space
+                            exudes style and sophistication. From sleek solids to captivating textures, from natural
+                            inspirations to timeless designs, our diverse range of laminates caters to every aesthetic
+                            preference.
+
+
+
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
 
         <section class="facilties pt-100 pb-100 ">
             <div class="container">
@@ -404,6 +537,10 @@
                 </div>
             </div>
         </section>
+
+
+
+
 
 
 
@@ -473,6 +610,103 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+        <section class="pb-60 mt-60">
+            <div class="container">
+
+                <!-- Section Heading -->
+                <div class="row text-center mb-4">
+                    <div class="welcome-content text-center">
+                        <h1 class="fw-light  " style="text-transform: uppercase;">
+                            Skydecor Manufacturing Unit
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row gallery">
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/manufacturing-unit/1.JPG" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/manufacturing-unit/1.JPG"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="" loading="lazy"
+                                        decoding="async" width="400" height="300">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/manufacturing-unit/2.JPG" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/manufacturing-unit/2.JPG"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="" loading="lazy"
+                                        decoding="async" width="400" height="300">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/manufacturing-unit/3.JPG" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/manufacturing-unit/3.JPG"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="" loading="lazy"
+                                        decoding="async" width="400" height="300">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/manufacturing-unit/4.JPG" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/manufacturing-unit/4.JPG"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="" loading="lazy"
+                                        decoding="async" width="400" height="300">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/manufacturing-unit/5.JPG" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/manufacturing-unit/5.JPG"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="" loading="lazy"
+                                        decoding="async" width="400" height="300">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/manufacturing-unit/6.JPG" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/manufacturing-unit/6.JPG"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="" loading="lazy"
+                                        decoding="async" width="400" height="300">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
 
 
 
@@ -566,6 +800,25 @@
             <script src="/js/plugins.js"></script>
             <script src="/js/ajax-mail.js"></script>
             <script src="/js/main.js"></script>
+
+
+            <script>
+                $(document).ready(function () {
+                    $('.gallery').magnificPopup({
+                        delegate: 'a.img-zoom',
+                        type: 'image',
+                        gallery: {
+                            enabled: true,   // enables gallery mode
+                            navigateByImgClick: true,
+                            preload: [0, 1]   // preload previous & next images for smoother navigation
+                        },
+                        mainClass: 'mfp-fade', // animation effect
+                        removalDelay: 300,     // duration of fade effect
+                        fixedContentPos: false
+                    });
+                });
+            </script>
+
 
 
 

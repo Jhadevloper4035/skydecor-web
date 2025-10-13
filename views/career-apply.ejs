@@ -1,0 +1,207 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Skydecor - Premium Quality Laminates Design Collections</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css">
+
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <%- include("partials/header") %>
+
+
+        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/career.jpg);">
+            <div class="container">
+            </div>
+        </div>
+
+
+         <div class="container-fluid">
+        <div class="breadcrumb-section">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                      <li class="breadcrumb-item"><a href="/career">Career</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+
+
+        <section class="job-listings-section">
+            <div class="container py-5">
+                <div class="welcome-area">
+                    <div class="container">
+                        <div class="welcome-content text-center">
+                            <h1 style="text-transform: uppercase;">Join Our Team</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <%- include('partials/career-card', { jobs: jobs }) %>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section-padding pb-60">
+            <div class="container">
+                <div class="row ">
+
+                    <div class="welcome-area">
+                        <div class="container">
+                            <div class="welcome-content text-center">
+                                <h1 style="text-transform: uppercase;">LIFE AT Skydecor</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row gallery">
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/life-at-skydecor/1.jpg" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/life-at-skydecor/1.jpg"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="Life at skydecor ">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/life-at-skydecor/2.jpg" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/life-at-skydecor/2.jpg"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="Life at skydecor ">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/life-at-skydecor/3.jpg" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/life-at-skydecor/3.jpg"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="Life at skydecor ">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/life-at-skydecor/4.jpg" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/life-at-skydecor/4.jpg"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="Life at skydecor ">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/life-at-skydecor/5.jpg" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/life-at-skydecor/5.jpg"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="Life at skydecor ">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
+                        <a href="/images/life-at-skydecor/6.jpg" class="img-zoom" title="">
+                            <div class="gallery-box">
+                                <div class="gallery-img">
+                                    <img src="/images/life-at-skydecor/6.jpg"
+                                        class="img-fluid image-box-event mx-auto d-block" alt="Life at skydecor ">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <%- include("partials/footer") %>
+
+
+
+            <!-- jQuery (required for Magnific Popup) -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+            <!-- Magnific Popup JS -->
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+            <script src="/js/vendor/popper.min.js"></script>
+            <script src="/js/vendor/bootstrap.min.js"></script>
+            <script src="/js/plugins.js"></script>
+            <!-- Ajax Mail -->
+            <script src="/js/ajax-mail.js"></script>
+            <!-- Main JS -->
+            <script src="/js/main.js"></script>
+
+
+
+            <script>
+                $(document).ready(function () {
+                    $('.gallery').magnificPopup({
+                        delegate: 'a.img-zoom',
+                        type: 'image',
+                        gallery: {
+                            enabled: true,   // enables gallery mode
+                            navigateByImgClick: true,
+                            preload: [0, 1]   // preload previous & next images for smoother navigation
+                        },
+                        mainClass: 'mfp-fade', // animation effect
+                        removalDelay: 300,     // duration of fade effect
+                        fixedContentPos: false
+                    });
+                });
+            </script>
+
+
+</body>
+</html>

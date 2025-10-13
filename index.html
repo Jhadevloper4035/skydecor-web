@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Breadcrumb</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+
+        .breadcrumb-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .breadcrumb-title {
+            font-weight: 300;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .breadcrumb-subtitle {
+            font-weight: 400;
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb-item {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .breadcrumb-item a {
+            color: #95a5a6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #00649e;
+        }
+
+        .breadcrumb-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00649e, #f4e4c1) ;
+            transition: width 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover::after {
+            width: 100%;
+        }
+
+        .breadcrumb-item.active {
+            color: #00649e;
+            font-weight: 600;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "›";
+            color: #00649e;
+            font-size: 1.2rem;
+            font-weight: 300;
+            padding: 0 12px;
+        }
+
+        .luxury-accent {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #00649e, transparent);
+            margin: 20px 0;
+        }
+    </style>
+
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="breadcrumb-section">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item"><a href="#">Luxury Items</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Premium Collection</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

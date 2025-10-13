@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const { getProducts , getSingleProduct , getAllCategoryProduct , downloadProductPdf } = require("../controllers/product.controller.js");
+const { getAllProducts , getSingleProduct , getAllCategoryProduct , downloadProductPdf } = require("../controllers/product.controller.js");
 
-router.get("/:productType", getProducts);
+router.get("/", getAllProducts);
 
 router.get("/detail/:productCode" , getSingleProduct)
 

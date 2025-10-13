@@ -27,3 +27,37 @@ exports.getCareerPost = async (req, res) => {
     });
   }
 };
+
+
+
+exports.getSinglePost = async (req, res) => {
+  try {
+
+    const { slug } = req.params;
+
+    const job = await Job.findOne({ slug }).lean()
+
+
+    if (!job) {
+      // No jobs found
+      return res.status(404).render("single-career-page.ejs", {
+        title: "Career Page",
+        message: "No job openings available at the moment.",
+        job: {}
+      });
+    }
+
+    // Render your EJS page and pass blogs
+    res.render("single-career-page", {
+      title: "Career Page",
+      message: "Wel!",
+      job, // send all blogs to EJS
+    });
+  } catch (error) {
+    res.status(500).render("single-career-page", {
+      title: "Career Page",
+      message: "Something went wrong. Please try again later.",
+      job: {},
+    });
+  }
+};

@@ -2,304 +2,227 @@
 <html class="no-js" lang="zxx">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Skydecor | Product page </title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Skydecor | Product page</title>
+  <meta name="description" content />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
 
-    <!-- CSS ============================================ -->
+  <!-- CSS ============================================ -->
 
+  <!-- Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
 
-    <!-- Font Awesome CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <!-- Icon Font CSS -->
+  <link rel="stylesheet" href="/css/icons.min.css" />
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/css/plugins.css" />
+  <!-- Main Style CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="/css/icons.min.css" />
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" href="/css/plugins.css" />
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="/css/style.css" />
-
-    <style>
-        /* Loader overlay */
-        #loader-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        #loader-overlay.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+ 
 </head>
 
 <body>
-    <%- include("partials/header") %>
+  <%- include("partials/header") %>
 
-        <div id="loader-overlay" style="display: none">
-            <div class="spinner"></div>
+    <div id="loader-overlay" style="display: none">
+      <div class="spinner"></div>
+    </div>
+
+
+       <div class="container-fluid">
+        <div class="breadcrumb-section">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">products</li>
+                </ol>
+            </nav>
         </div>
+    </div>
 
 
 
-        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3 d-none d-lg-block"
-            style="background-image: url('<%= productDetail.banners.filter(function(b){ return b.device === 'desktop'; })[0].image %>') ; ">
-            <div class="container">
-                <!-- Breadcrumb content here -->
-            </div>
-        </div>
 
 
 
-        <div class="shop-area pt-95 pb-100">
-            <div class="container">
-                <div class="row flex-row-reverse">
-                    <div class="col-lg-9">
-                        <div class="shop-top-bar">
-                            <div class="select-shoing-wrap">
-                                <p>Showing <%= count %> of <%= total %> result</p>
-                            </div>
-                            <div class="shop-tab nav">
-                                <a class="active" href="#shop-1" data-bs-toggle="tab">
-                                    <i class="fa fa-table"></i>
-                                </a>
-                                <a href="#shop-2" data-bs-toggle="tab">
-                                    <i class="fa fa-list-ul"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="shop-bottom-area mt-35">
-                            <div class="tab-content jump">
-                                <div id="shop-1" class="tab-pane active">
-                                    <div class="row" id="shop-area">
-                                        <%- include('partials/product-card', { products: products }) %>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pro-pagination-style text-center mt-30">
-                                <ul>
-                                    <% for (let i=1; i <=pages; i++) { %>
-                                        <li class="<%= i === page ? 'active' : '' %>">
-                                            <a href="/api/product/PVC?&page=<%= i %>">
-                                                <%= i %>
-                                            </a>
-                                        </li>
-                                        <% } %>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="sidebar-style mr-30">
-                            <div class="sidebar-widget">
-                                <h4 class="pro-sidebar-title">Search</h4>
-                                <div class="pro-sidebar-search mb-50 mt-25">
-                                    <form class="pro-sidebar-search-form" action="#">
-                                        <input type="text" placeholder="Search here..." />
-                                        <button>
-                                            <i class="pe-7s-search"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+    <div class="shop-area pt-95 pb-100">
+      <div class="container">
+        <div class="row flex-row-reverse" >
 
-                            <form id="filterForm" action="/api/product/<%= filters.productType %>" method="get">
-                                <!-- Product Categories -->
-                                <div class="sidebar-widget mt-50">
-                                    <h4 class="pro-sidebar-title">Product Categories</h4>
-                                    <div class="sidebar-widget-list mt-20">
-                                        <ul>
-                                            <% categories.forEach(function(cat) { %>
-                                                <li>
-                                                    <div class="sidebar-widget-list-left">
-                                                        <input type="checkbox" value="<%= cat %>" name="category[]"
-                                                            <%=filters.category && filters.category.includes(cat)
-                                                            ? 'checked' : '' %> />
-                                                        <a href="javascript:void(0)">
-                                                            <%= cat %>
 
-                                                        </a>
-                                                        <span class="checkmark"></span>
-                                                    </div>
-                                                </li>
-                                                <% }) %>
-                                        </ul>
-                                    </div>
-                                </div>
+          <div class="col-lg-9" id="shop-area"> 
 
-                                <!-- Product SubCategories -->
-                                <div class="sidebar-widget mt-50">
-                                    <h4 class="pro-sidebar-title">Product SubCategory</h4>
-                                    <div class="sidebar-widget-list mt-20">
-                                        <ul>
-                                            <% subCategories.forEach(function(sc) { %>
-                                                <li>
-                                                    <div class="sidebar-widget-list-left">
-                                                        <input type="checkbox" value="<%= sc %>" name="subCategory[]"
-                                                            <%=filters.subCategory && filters.subCategory.includes(sc)
-                                                            ? 'checked' : '' %> />
-                                                        <a href="javascript:void(0)">
-                                                            <%= sc %>
-                                                        </a>
-                                                        <span class="checkmark"></span>
-                                                    </div>
-                                                </li>
-                                                <% }) %>
-                                        </ul>
-                                    </div>
-                                </div>
+            <%- include('partials/product-card', { products: products }) %>
 
-                                <!-- Product Textures -->
-                                <div class="sidebar-widget mt-50">
-                                    <h4 class="pro-sidebar-title">Product Textures</h4>
-                                    <div class="sidebar-widget-list mt-20">
-                                        <ul>
-                                            <% textures.forEach(function(texture) { %>
-                                                <li>
-                                                    <div class="sidebar-widget-list-left">
-                                                        <input type="checkbox" value="<%= texture %>" name="texture[]"
-                                                            <%=filters.texture && filters.texture.includes(texture)
-                                                            ? 'checked' : '' %> />
-                                                        <a href="javascript:void(0)">
-                                                            <%= texture %>
-                                                        </a>
-                                                        <span class="checkmark"></span>
-                                                    </div>
-                                                </li>
-                                                <% }) %>
-                                        </ul>
-                                    </div>
-                                </div>
+          </div>
 
-                                <!-- Product Designs -->
-                                <% if (designs && designs.length> 1) { %>
-                                    <div class="sidebar-widget mt-50">
-                                        <h4 class="pro-sidebar-title">Product Designs </h4>
-                                        <div class="sidebar-widget-list mt-20">
-                                            <ul>
-                                                <% designs.forEach(function(design) { %>
-                                                    <% if (design && design.trim() !=="" ) { %> <!-- ✅ skip empty -->
-                                                        <li>
-                                                            <div class="sidebar-widget-list-left">
-                                                                <input type="checkbox" value="<%= design %>"
-                                                                    name="designName[]" <%=filters.designName &&
-                                                                    filters.designName.includes(design) ? 'checked' : ''
-                                                                    %> />
-                                                                <a href="javascript:void(0)">
-                                                                    <%= design %>
-                                                                </a>
-                                                                <span class="checkmark"></span>
-                                                            </div>
-                                                        </li>
-                                                        <% } %>
-                                                            <% }) %>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <% } %>
-                            </form>
 
-                        </div>
-                    </div>
+
+
+
+
+          <div class="col-lg-3">
+            <div class="sidebar-style mr-30">
+              <div class="sidebar-widget">
+                <h4 class="pro-sidebar-title">Search</h4>
+                <div class="pro-sidebar-search mb-50 mt-25">
+                  <form class="pro-sidebar-search-form" action="#">
+                    <input type="text" placeholder="Search here..." />
+                    <button type="submit">
+                      <i class="pe-7s-search"></i>
+                    </button>
+                  </form>
                 </div>
+              </div>
+
+              <form id="filterForm" action="/products/" method="get">
+                <!-- Product Types -->
+                <div class="sidebar-widget mt-50">
+                  <h4 class="pro-sidebar-title">Product Types</h4>
+                  <div class="sidebar-widget-list mt-20">
+                    <ul>
+                      <% productTypes.forEach(function(pt) { %>
+                        <li>
+                          <div class="sidebar-widget-list-left">
+                            <input type="checkbox" value="<%= pt %>" name="productType[]" <%=filters.productType &&
+                              filters.productType.includes(pt) ? 'checked' : '' %>
+                            />
+                            <a href="javascript:void(0)">
+                              <%= pt %>
+                            </a>
+                            <span class="checkmark"></span>
+                          </div>
+                        </li>
+                        <% }) %>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Product Categories -->
+                <div class="sidebar-widget mt-50">
+                  <h4 class="pro-sidebar-title">Product Categories</h4>
+                  <div class="sidebar-widget-list mt-20">
+                    <ul>
+                      <% categories.forEach(function(cat) { %>
+                        <li>
+                          <div class="sidebar-widget-list-left">
+                            <input type="checkbox" value="<%= cat %>" name="category[]" <%=filters.category &&
+                              filters.category.includes(cat) ? 'checked' : '' %> />
+                            <a href="javascript:void(0)">
+                              <%= cat %>
+                            </a>
+                            <span class="checkmark"></span>
+                          </div>
+                        </li>
+                        <% }) %>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Product SubCategories -->
+                <div class="sidebar-widget mt-50">
+                  <h4 class="pro-sidebar-title">Product SubCategory</h4>
+                  <div class="sidebar-widget-list mt-20">
+                    <ul>
+                      <% subCategories.forEach(function(sc) { %>
+                        <li>
+                          <div class="sidebar-widget-list-left">
+                            <input type="checkbox" value="<%= sc %>" name="subCategory[]" <%=filters.subCategory &&
+                              filters.subCategory.includes(sc) ? 'checked' : '' %>
+                            />
+                            <a href="javascript:void(0)">
+                              <%= sc %>
+                            </a>
+                            <span class="checkmark"></span>
+                          </div>
+                        </li>
+                        <% }) %>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <!-- Product Sizes -->
+                <div class="sidebar-widget mt-50">
+                  <h4 class="pro-sidebar-title">Sizes</h4>
+                  <div class="sidebar-widget-list mt-20">
+                    <ul>
+                      <% sizes.forEach(function(s) { %>
+                        <li>
+                          <div class="sidebar-widget-list-left">
+                            <input type="checkbox" value="<%= s %>" name="size[]" <%=filters.size &&
+                              filters.size.includes(s) ? 'checked' : '' %> />
+                            <a href="javascript:void(0)">
+                              <%= s %>
+                            </a>
+                            <span class="checkmark"></span>
+                          </div>
+                        </li>
+                        <% }) %>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Product Thickness -->
+                <div class="sidebar-widget mt-50">
+                  <h4 class="pro-sidebar-title">Thickness</h4>
+                  <div class="sidebar-widget-list mt-20">
+                    <ul>
+                      <% thicknesss.forEach(function(t) { %>
+                        <li>
+                          <div class="sidebar-widget-list-left">
+                            <input type="checkbox" value="<%= t %>" name="thickness[]" <%=filters.thickness &&
+                              filters.thickness.includes(t) ? 'checked' : '' %> />
+                            <a href="javascript:void(0)">
+                              <%= t %>
+                            </a>
+                            <span class="checkmark"></span>
+                          </div>
+                        </li>
+                        <% }) %>
+                    </ul>
+                  </div>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <%- include("partials/footer") %>
+    <%- include("partials/footer") %> <%- include("partials/product-modal") %>
+
+        <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+        <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+        <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+        <script src="/js/vendor/popper.min.js"></script>
+        <script src="/js/vendor/bootstrap.min.js"></script>
+        <script src="/js/plugins.js"></script>
+        <!-- Ajax Mail -->
+        <script src="/js/ajax-mail.js"></script>
+        <!-- Main JS -->
+        <script src="/js/main.js"></script>
+
+        <script>
 
 
+          document.addEventListener("DOMContentLoaded", function () {
+            const filterForm = document.querySelector("#filterForm");
+            const shopArea = document.querySelector("#shop-area");
 
-            <%- include("partials/product-modal") %>
+            if (!filterForm || !shopArea) return;
 
-                <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
-                <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
-                <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
-                <script src="/js/vendor/popper.min.js"></script>
-                <script src="/js/vendor/bootstrap.min.js"></script>
-                <script src="/js/plugins.js"></script>
-                <!-- Ajax Mail -->
-                <script src="/js/ajax-mail.js"></script>
-                <!-- Main JS -->
-                <script src="/js/main.js"></script>
-
-                <script>
-
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const exampleModal = document.getElementById("exampleModal");
-                        exampleModal.addEventListener("show.bs.modal", function (event) {
-                            const button = event.relatedTarget;
-
-                            // Extract product info from data-* attributes
-                            const name = button.getAttribute("data-name");
-                            const image = button.getAttribute("data-image");
-                            const category = button.getAttribute("data-category");
-                            const subCategory = button.getAttribute("data-subcategory");
-                            const texture = button.getAttribute("data-texture");
-                            const size = button.getAttribute("data-size");
-                            const thickness = button.getAttribute("data-thickness");
-                            const width = button.getAttribute("data-width");
-
-                            // Update modal content
-                            document.getElementById(
-                                "modalProductTitle"
-                            ).innerHTML = `<h2>${name} ${category} ${texture} </h2>`;
-                            document.getElementById("modalProductImage").src = image;
-                            document.getElementById("modalCategory").textContent = category;
-                            document.getElementById("modalSubCategory").textContent = subCategory;
-                            document.getElementById("modalTexture").textContent = texture;
-                            document.getElementById("modalSize").textContent = size;
-                            document.getElementById("modalThickness").textContent = thickness;
-                            document.getElementById("modalWidth").textContent = width;
-                        });
-                    });
-
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const filterForm = document.querySelector("#filterForm");
-                        const shopArea = document.querySelector("#shop-area");
-
-                        if (!filterForm || !shopArea) return;
-
-                        // Render skeleton cards while loading
-                        function showSkeleton(count = 8) {
-                            shopArea.innerHTML = Array.from({ length: count })
-                                .map(
-                                    () => `
+            // Render skeleton cards while loading
+            function showSkeleton(count = 8) {
+              shopArea.innerHTML = Array.from({ length: count })
+                .map(
+                  () => `
                         <div class="product-card col-lg-3 col-md-4 col-sm-6 skeleton">
                             <div class="image"></div>
                             <div class="text-line short"></div>
@@ -307,58 +230,64 @@
                             <div class="text-line short"></div>
                         </div>
                     `
-                                )
-                                .join("");
-                        }
+                )
+                .join("");
+            }
 
-                        // Fetch products via AJAX
-                        function fetchProducts(url = null) {
-                            const checkboxes = filterForm.querySelectorAll("input[type=checkbox]:checked");
-                            const params = [];
+            // Fetch products via AJAX
+            function fetchProducts(url = null) {
+              const checkboxes = filterForm.querySelectorAll("input[type=checkbox]:checked");
+              const params = [];
 
-                            checkboxes.forEach((cb) => {
-                                const key = cb.name.replace("[]", ""); // remove []
-                                const value = encodeURIComponent(cb.value);
-                                params.push(`${key}=${value}`);
-                            });
+              checkboxes.forEach((cb) => {
+                const key = cb.name.replace("[]", ""); // remove []
+                const value = encodeURIComponent(cb.value);
+                params.push(`${key}=${value}`);
+              });
 
-                            // ✅ Get productType from form action (/api/product/:productType)
-                            const baseUrl = filterForm.getAttribute("action");
+              // ✅ Get productType from form action (/products/:productType)
+              const baseUrl = filterForm.getAttribute("action");
 
-                            // Build final fetch URL
-                            const fetchUrl = url || `${baseUrl}?${params.join("&")}`;
+            
+              // Build final fetch URL
+              const fetchUrl = url || `${baseUrl}?${params.join("&")}`;
 
-                            // Show skeleton while loading
-                            showSkeleton();
+              // Show skeleton while loading
+              showSkeleton();
 
-                            fetch(fetchUrl, { headers: { "X-Requested-With": "XMLHttpRequest" } })
-                                .then((res) => res.text())
-                                .then((html) => {
-                                    shopArea.innerHTML = html; // replace skeleton with products
-                                    // Optional: scroll to top smoothly
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
-                                })
-                                .catch((err) => {
-                                    console.error("❌ AJAX error:", err);
-                                    shopArea.innerHTML = `<p class="error">Failed to load products. Please try again.</p>`;
-                                });
-                        }
+              fetch(fetchUrl, { headers: { "X-Requested-With": "XMLHttpRequest" } })
+                .then((res) => res.text())
+                .then((html) => {
+                  shopArea.innerHTML = html; // replace skeleton with products
+                  // Optional: scroll to top smoothly
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                })
+                .catch((err) => {
+                  console.error("❌ AJAX error:", err);
+                  shopArea.innerHTML = `<p class="error">Failed to load products. Please try again.</p>`;
+                });
+            }
 
-                        // Auto-submit when any checkbox is changed
-                        filterForm.querySelectorAll("input[type=checkbox]").forEach((cb) => {
-                            cb.addEventListener("change", () => fetchProducts());
-                        });
+            // Auto-submit when any checkbox is changed
+            filterForm.querySelectorAll("input[type=checkbox]").forEach((cb) => {
+              cb.addEventListener("change", () => fetchProducts());
+            });
 
-                        // Pagination click handling
-                        document.body.addEventListener("click", function (e) {
-                            const link = e.target.closest(".pagination a");
-                            if (link) {
-                                e.preventDefault();
-                                fetchProducts(link.href); // ✅ link already has productType + query
-                            }
-                        });
-                    });
-                </script>
+            // Pagination click handling
+            document.body.addEventListener("click", function (e) {
+              const link = e.target.closest(".pagination a");
+              if (link) {
+                e.preventDefault();
+                fetchProducts(link.href); // ✅ link already has productType + query
+              }
+            });
+          });
+
+
+        </script>
+
+
+
 </body>
 
 </html>

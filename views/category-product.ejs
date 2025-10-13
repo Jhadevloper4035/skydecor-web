@@ -21,125 +21,156 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="/css/style.css" />
 
-    <style>
-        /* Loader overlay */
-        #loader-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
 
-        #loader-overlay.active {
-            visibility: visible;
-            opacity: 1;
-        }
 
-        .spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
 
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 </head>
 
 <body>
 
     <%- include("partials/header") %>
 
-       
 
-         <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/product-cat.png);">
-            <div class="container">
+
+
+
+
+        <% const tabletBanner=page.banners.find(b=> b.device == "tablet").image;
+            const mobileBanner = page.banners.find(b => b.device == "mobile").image;
+            const desktopBanner = page.banners.find(b => b.device == "desktop").image;
+            %>
+
+
+
+            <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url('<%= desktopBanner %>');">
+                <div class="container">
+                </div>
             </div>
-        </div>
-
-    
-
-        <div class="shop-area pt-95 pb-100">
-            <div class="container">
-                <div class="row flex-row-reverse">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="shop-bottom-area mt-35">
-                            <div class="tab-content jump">
-                                <div id="shop-1" class="tab-pane active">
-                                    <div class="row" id="shop-area">
-
-                                        <% if (products && products.length> 0) { %>
-                                            <% products.forEach(product=> { %>
-                                                <div class="col-xl-3 col-md-3 col-lg-3 col-sm-6">
-                                                    <div class="product-wrap mb-25 scroll-zoom">
-                                                        <div class="product-img">
-                                                            <a href="/product-details/<%= product.id %>">
-                                                                <img class="default-img" src="<%= product.image %>"
-                                                                    alt="<%= product.productName %>">
-                                                                <img class="hover-img" src="<%= product.image %>"
-                                                                    alt="<%= product.productName %>">
-                                                            </a>
-                                                           
-                                                                    <div class="product-action">
-                                                                        <div class="pro-same-action pro-wishlist">
-                                                                             <a title="Wishlist" href="/api/product/download/<%= product.productCode %>"><i class="pe-7s-download"></i> </a>
-                                                                        </div>
-                                                                        <div class="pro-same-action pro-cart">
-                                                                        <a title="Add To Cart" href="/api/product/detail/<%= product.productCode %>"> View Product </a>
-                                                                        </div>
-
-                                                                        <div class="pro-same-action pro-quickview">
-                                                                            <a title="Quick View" href="#"
-                                                                                data-bs-toggle="modal"
-                                                                                data-bs-target="#exampleModal"
-                                                                                data-name="<%= product.productName %>"
-                                                                                data-image="<%= product.image %>"
-                                                                                data-category="<%= product.category %>"
-                                                                                data-subcategory="<%= product.subCategory %>"
-                                                                                data-texture="<%= product.texture %>"
-                                                                                data-size="<%= product.size %>"
-                                                                                data-thickness="<%= product.thickness %>"
-                                                                                data-width="<%= product.width %>">
-                                                                                <i class="pe-7s-look"></i>
-                                                                            </a>
-                                                                        </div>
 
 
+            <style>
+                @media (max-width: 1024px) {
+                    .breadcrumb-area {
+                        background-image: url('<%= tabletBanner %>') !important;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    .breadcrumb-area {
+                        background-image: url('<%= mobileBanner %>') !important;
+                    }
+                }
+            </style>
+
+
+
+         
+
+         <% if (productType || category) { %>
+  <div class="container-fluid">
+    <div class="breadcrumb-section">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+
+          <% if (productType) { %>
+            <li class="breadcrumb-item">
+              <a href="/products/page/<%= productType %>"><%= productType %></a>
+            </li>
+          <% } %>
+
+          <% if (category) { %>
+            <li class="breadcrumb-item">
+              <a href="/products/<%= category %>"><%= category %></a>
+            </li>
+          <% } %>
+        </ol>
+      </nav>
+    </div>
+  </div>
+<% } %>
+
+
+
+
+
+
+
+
+            <div class="shop-area pt-95 pb-100">
+                <div class="container">
+                    <div class="row flex-row-reverse">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="shop-bottom-area mt-35">
+                                <div class="tab-content jump">
+                                    <div id="shop-1" class="tab-pane active">
+                                        <div class="row" id="shop-area">
+
+                                            <% if (products && products.length> 0) { %>
+                                                <% products.forEach(product=> { %>
+                                                    <div class="col-xl-3 col-md-3 col-lg-3 col-sm-6">
+                                                        <div class="product-wrap mb-25 scroll-zoom">
+                                                            <div class="product-img">
+                                                                <a href="/product-details/<%= product.id %>">
+                                                                    <img class="default-img" src="<%= product.image %>"
+                                                                        alt="<%= product.productName %>">
+                                                                    <img class="hover-img" src="<%= product.image %>"
+                                                                        alt="<%= product.productName %>">
+                                                                </a>
+
+                                                                <div class="product-action">
+                                                                    <div class="pro-same-action pro-wishlist">
+                                                                        <a title="Wishlist"
+                                                                            href="/products/download/<%= product.productCode %>"><i
+                                                                                class="pe-7s-download"></i> </a>
                                                                     </div>
-                                                        </div>
-                                                        <div class="product-content text-center">
-                                                            <h3><a href="/product-details/<%= product.id %>">
-                                                                    <%= product.productType %>-<%= product.productName
-                                                                            %>-<%= product.category %>-<%=
-                                                                                    product.texture %>
-                                                                </a></h3>
+                                                                    <div class="pro-same-action pro-cart">
+                                                                        <a title="Add To Cart"
+                                                                            href="/products/detail/<%= product.productCode %>">
+                                                                            View Product </a>
+                                                                    </div>
+
+                                                                    <div class="pro-same-action pro-quickview">
+                                                                        <a title="Quick View" href="#"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#exampleModal"
+                                                                            data-productcode="<%= product.productCode %>"
+                                                                            data-producttype="<%= product.productType %>"
+                                                                            data-name="<%= product.productName %>"
+                                                                            data-image="<%= product.image %>"
+                                                                            data-category="<%= product.category %>"
+                                                                            data-subcategory="<%= product.subCategory %>"
+                                                                            data-texture="<%= product.texture %>"
+                                                                            data-design="<%= product.design %>"
+                                                                            data-size="<%= product.size %>"
+                                                                            data-thickness="<%= product.thickness %>"
+                                                                            data-width="<%= product.width %>"
+                                                                            data-downloadlink="<%= product.downloadLink %>">
+                                                                            <i class="pe-7s-look"></i>
+                                                                        </a>
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-content text-left">
+                                                                <h3>
+                                                                    <a href="/product-details/<%= product.id %>">
+                                                                        <%= product.productCode %> <br />
+                                                                            <%= product.category %> - <%=product.texture
+                                                                                    %>
+                                                                    </a>
+                                                                </h3>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <% }) %>
-                                                    <% } else { %>
-                                                        <p class="text-center">No products found.</p>
-                                                        <% } %>
+                                                    <% }) %>
+                                                        <% } else { %>
+                                                            <p class="text-center">No products found.</p>
+                                                            <% } %>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -147,122 +178,24 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <%- include("partials/footer") %>
+            <%- include("partials/footer") %>
 
 
-             <%- include("partials/product-modal") %>
+                <%- include("partials/product-modal") %>
 
-            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
-            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
-            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
-            <script src="/js/vendor/popper.min.js"></script>
-            <script src="/js/vendor/bootstrap.min.js"></script>
-            <script src="/js/plugins.js"></script>
-            <!-- Ajax Mail -->
-            <script src="/js/ajax-mail.js"></script>
-            <!-- Main JS -->
-            <script src="/js/main.js"></script>
+                    <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+                    <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+                    <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+                    <script src="/js/vendor/popper.min.js"></script>
+                    <script src="/js/vendor/bootstrap.min.js"></script>
+                    <script src="/js/plugins.js"></script>
+                    <!-- Ajax Mail -->
+                    <script src="/js/ajax-mail.js"></script>
+                    <!-- Main JS -->
+                    <script src="/js/main.js"></script>
 
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    const exampleModal = document.getElementById("exampleModal");
-                    exampleModal.addEventListener("show.bs.modal", function (event) {
-                        const button = event.relatedTarget;
 
-                        // Extract product info from data-* attributes
-                        const name = button.getAttribute("data-name");
-                        const image = button.getAttribute("data-image");
-                        const category = button.getAttribute("data-category");
-                        const subCategory = button.getAttribute("data-subcategory");
-                        const texture = button.getAttribute("data-texture");
-                        const size = button.getAttribute("data-size");
-                        const thickness = button.getAttribute("data-thickness");
-                        const width = button.getAttribute("data-width");
-
-                        // Update modal content
-                        document.getElementById(
-                            "modalProductTitle"
-                        ).innerHTML = `<h2>${name} ${category} ${texture} </h2>`;
-                        document.getElementById("modalProductImage").src = image;
-                        document.getElementById("modalCategory").textContent = category;
-                        document.getElementById("modalSubCategory").textContent = subCategory;
-                        document.getElementById("modalTexture").textContent = texture;
-                        document.getElementById("modalSize").textContent = size;
-                        document.getElementById("modalThickness").textContent = thickness;
-                        document.getElementById("modalWidth").textContent = width;
-                    });
-                });
-
-                document.addEventListener("DOMContentLoaded", function () {
-                    const filterForm = document.querySelector("#filterForm");
-                    const shopArea = document.querySelector("#shop-area");
-
-                    if (!filterForm || !shopArea) return;
-
-                    // Render skeleton cards while loading
-                    function showSkeleton(count = 8) {
-                        shopArea.innerHTML = Array.from({ length: count })
-                            .map(
-                                () => `
-            <div class="product-card col-lg- col-md-4  col-sm-6     skeleton">
-                <div class="image"></div>
-                <div class="text-line short"></div>
-                <div class="text-line"></div>
-                <div class="text-line short"></div>
-            </div>
-        `
-                            )
-                            .join("");
-                    }
-
-                    // Fetch products via AJAX
-                    function fetchProducts(url = null) {
-                        const checkboxes = filterForm.querySelectorAll(
-                            "input[type=checkbox]:checked"
-                        );
-                        const params = [];
-
-                        checkboxes.forEach((cb) => {
-                            const key = cb.name.replace("[]", ""); // remove []
-                            const value = encodeURIComponent(cb.value); // encode value
-                            params.push(`${key}=${value}`);
-                        });
-
-                        const fetchUrl = url || `/api/product?${params.join("&")}`;
-
-                        // Show skeleton while loading
-                        showSkeleton();
-
-                        fetch(fetchUrl, { headers: { "X-Requested-With": "XMLHttpRequest" } })
-                            .then((res) => res.text())
-                            .then((html) => {
-                                shopArea.innerHTML = html; // replace skeleton with products
-                                // Optional: scroll to top smoothly
-                                window.scrollTo({ top: 0, behavior: "smooth" });
-                            })
-                            .catch((err) => {
-                                console.error("❌ AJAX error:", err);
-                                shopArea.innerHTML = `<p class="error">Failed to load products. Please try again.</p>`;
-                            });
-                    }
-
-                    // Auto-submit when any checkbox is changed
-                    filterForm.querySelectorAll("input[type=checkbox]").forEach((cb) => {
-                        cb.addEventListener("change", () => fetchProducts());
-                    });
-
-                    // Pagination click handling
-                    document.body.addEventListener("click", function (e) {
-                        const link = e.target.closest(".pagination a");
-                        if (link) {
-                            e.preventDefault();
-                            fetchProducts(link.href);
-                        }
-                    });
-                });
-            </script>
 </body>
 
 </html>

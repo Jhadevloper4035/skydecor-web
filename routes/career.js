@@ -1,10 +1,13 @@
 const router = require("express").Router();
 
-const {getCareerPost}  = require("../controllers/career.controller.js")
+const {getCareerPost , getSinglePost}  = require("../controllers/career.controller.js")
  
 
 
 router.get("/", getCareerPost);
+
+router.get("/:slug", getSinglePost);
+
 
 
 

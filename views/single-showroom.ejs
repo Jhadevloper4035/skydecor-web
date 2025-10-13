@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Skydecor - Premium Quality Laminates Design Collections</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
+
+    <!-- CSS ============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css" />
+
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+        :root {
+            --primary-dark: #2c2c2c;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-gold: #00649e;
+            --bg-light: #f8f6f3;
+            --bg-white: #ffffff;
+            --border-light: #e5e5e5;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-light);
+            line-height: 1.8;
+        }
+
+        .luxury-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f6f3 0%, #ffffff 100%);
+        }
+
+        .section-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            padding: 8px 20px;
+            border: 1px solid var(--accent-gold);
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .section-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gold);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .section-badge:hover::before {
+            left: 0;
+        }
+
+        .section-badge:hover {
+            color: white;
+        }
+
+        .main-title {
+            font-size: clamp(1.5rem, 2vw, 3.5rem);
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .description-text {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 25px;
+            font-weight: 300;
+            padding: 0px 10px;
+        }
+
+        .content-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--accent-gold);
+            margin: 40px 0;
+            opacity: 0.6;
+        }
+
+        /* Contact Cards */
+        .contact-cards {
+            margin-top: 50px;
+        }
+
+        .contact-card {
+            background: #f6f3f3;
+            border: 1px solid var(--border-light);
+            border-radius: 0;
+            padding: 35px 30px;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--accent-gold);
+            transition: height 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-gold);
+        }
+
+        .contact-card:hover::before {
+            height: 100%;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card:hover .contact-value {
+            color: var(--accent-gold);
+        }
+
+        .contact-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        /* Location Section */
+        .location-showcase {
+            margin-top: 60px;
+            padding: 50px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .location-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .location-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .location-item:last-child {
+            border-bottom: none;
+        }
+
+        .location-item:hover {
+            padding-left: 15px;
+            background: rgba(201, 169, 97, 0.03);
+        }
+
+        .location-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .location-address {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .location-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .location-detail-item {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .location-detail-item i {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--text-primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            border: 2px solid var(--text-primary);
+            margin-top: 30px;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--text-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .luxury-section {
+                padding: 60px 0;
+            }
+
+            .location-showcase {
+                padding: 35px 25px;
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .luxury-section {
+                padding: 40px 0;
+            }
+
+            .contact-card {
+                margin-bottom: 20px;
+            }
+
+            .location-showcase {
+                padding: 25px 20px;
+            }
+
+            .content-divider {
+                margin: 30px 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+
+    <style>
+        .blog-content-2 {
+            height: 220px;
+        }
+
+        .blog-wrap-2 .blog-img-2 a img {
+            height: 250px;
+        }
+
+        .image-box-event {
+            height: auto;
+            width: auto;
+        }
+
+        .breadcrumb-area {
+            min-height: 100vh;
+            /* Full height for desktop */
+        }
+
+
+        .certificate-text {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0px;
+        }
+
+
+        /* For mobile devices (width <= 768px) */
+        @media (max-width: 768px) {
+            .breadcrumb-area {
+                min-height: auto;
+                /* Height adjusts automatically */
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            padding-top: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include("partials/header") %>
+
+        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/showroom.jfif)">
+            <div class="container"></div>
+        </div>
+
+         <div class="container-fluid">
+        <div class="breadcrumb-section">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                   <li class="breadcrumb-item"><a href="/experience-center">Experience Center </a></li>
+                    <li class="breadcrumb-item"> <%= showroom.location %></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+        <section class="luxury-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+
+                        <!-- Header Section -->
+                        <div class="animate-in">
+                            <h1 class="main-title text-center ">EXPERIENCE CENTER
+                                <%= showroom.location %>
+                            </h1>
+
+                            <p class="description-text  text-center">
+                                <%= showroom.description %>
+                            </p>
+                        </div>
+
+
+                        <!-- Contact Cards -->
+                        <div class="contact-cards">
+                            <div class="row g-4">
+                                <!-- Headquarters -->
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="contact-card animate-in">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="contact-label">Location</div>
+                                        <div class="contact-value">
+                                            <%= showroom.location %>
+                                        </div>
+                                        <a href="<%= showroom.maplink %>" target="_blank" class="contact-link">View all
+                                            locations →</a>
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="contact-card animate-in">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-label">Email Us</div>
+                                        <div class="contact-value">
+                                            <%= showroom.mail %>
+                                        </div>
+                                        <a href="mailto:<%= showroom.mail %>" target="_blank" class="contact-link">Send
+                                            an email →</a>
+                                    </div>
+                                </div>
+
+                                <!-- Phone -->
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="contact-card animate-in">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+                                        <div class="contact-label">Call Us</div>
+                                        <div class="contact-value">
+                                            <%= showroom.contact %>
+                                        </div>
+                                        <a href="tel:<%= showroom.contact %>" target="_blank" class="contact-link">Start
+                                            a call →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Font Awesome CDN -->
+                        <link rel="stylesheet"
+                            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section class="section-padding pt-100 pb-100">
+            <div class="container">
+                <div class="row gallery">
+
+                    <div class="row gallery">
+                        <% if (showroom && showroom.images && showroom.images.length> 0) { %>
+                            <% showroom.images.forEach((img, i)=> { %>
+                                <div class="col-md-4 col-lg-4 col-sm-6 gallery-item wow animate__animated animate__fadeInUp scroll-zoom"
+                                    data-wow-delay="<%= 0.1 * (i % 6) %>s">
+                                    <a href="<%= img %>" class="img-zoom" title="Showroom Image <%= i + 1 %>">
+                                        <div class="gallery-box">
+                                            <div
+                                                class="gallery-img position-relative overflow-hidden rounded-3 shadow-sm">
+                                                <img src="<%= img %>" alt="Showroom Image <%= i + 1 %>"
+                                                    class="img-fluid image-box-event mx-auto d-block" loading="lazy"
+                                                    decoding="async" width="400" height="300"
+                                                    style="object-fit: cover; border-radius: 8px;">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <% }) %>
+                                    <% } else { %>
+                                        <div class="col-12 text-center">
+                                            <p>No images available for this showroom.</p>
+                                        </div>
+                                        <% } %>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <%- include("partials/footer") %>
+
+            <!-- jQuery (required for Magnific Popup) -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+            <!-- Magnific Popup JS -->
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+            <script src="/js/vendor/popper.min.js"></script>
+            <script src="/js/vendor/bootstrap.min.js"></script>
+            <script src="/js/plugins.js"></script>
+            <!-- Ajax Mail -->
+            <script src="/js/ajax-mail.js"></script>
+            <!-- Main JS -->
+            <script src="/js/main.js"></script>
+
+            <script>
+                $(document).ready(function () {
+                    $(".gallery").magnificPopup({
+                        delegate: "a.img-zoom",
+                        type: "image",
+                        gallery: {
+                            enabled: true, // enables gallery mode
+                            navigateByImgClick: true,
+                            preload: [0, 1], // preload previous & next images for smoother navigation
+                        },
+                        mainClass: "mfp-fade", // animation effect
+                        removalDelay: 300, // duration of fade effect
+                        fixedContentPos: false,
+                    });
+                });
+            </script>
+</body>
+
+</html>

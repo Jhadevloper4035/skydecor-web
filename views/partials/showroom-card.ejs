@@ -1,0 +1,60 @@
+<% showrooms.forEach((showroom, index)=> { %>
+    <div class="row skydecor-showroom-row">
+        <div class="col-12">
+            <div class="skydecor-showroom-card" data-index="<%= index %>">
+                <div class="skydecor-showroom-image-container">
+                    <img data-src="<%= showroom.coverImage %>" alt="<%= showroom.location %>"
+                        class="skydecor-showroom-image lazyload" loading="lazy" decoding="async">
+                    <div class="skydecor-showroom-badge">
+                        <%= showroom.location %>
+                    </div>
+                </div>
+                <div class="skydecor-showroom-card-content">
+                    <a href="/experience-center/<%= showroom.slug %>" class="skydecor-showroom-title">
+                        <%= showroom.title %>
+                    </a>
+                    <ul class="skydecor-showroom-info-list">
+                        <li class="skydecor-showroom-info-item">
+                            <div class="skydecor-showroom-info-content">
+                                <div class="skydecor-showroom-info-label">Address</div>
+                                <div class="skydecor-showroom-info-value">
+                                    <%= showroom.address %>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="skydecor-showroom-info-item">
+                            <div class="skydecor-showroom-info-content">
+                                <div class="skydecor-showroom-info-label">Email</div>
+                                <div class="skydecor-showroom-info-value">
+                                    <a href="mailto:<%= showroom.mail %>">
+                                        <%= showroom.mail %>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="skydecor-showroom-info-item">
+                            <div class="skydecor-showroom-info-content">
+                                <div class="skydecor-showroom-info-label">Phone</div>
+                                <div class="skydecor-showroom-info-value">
+                                    <a href="tel:<%= showroom.contact %>">
+                                        <%= showroom.contact %>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="skydecor-showroom-action-buttons">
+                        <a href="/experience-center/<%= showroom.slug %>"
+                            class="skydecor-showroom-btn skydecor-showroom-btn-primary">
+                            View on Google Map
+                        </a>
+                        <a href="/experience-center/<%= showroom.slug %>"
+                            class="skydecor-showroom-btn skydecor-showroom-btn-secondary">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }) %>

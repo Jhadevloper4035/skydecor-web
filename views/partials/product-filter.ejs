@@ -1,0 +1,121 @@
+<!-- Product Types -->
+<div class="sidebar-widget mt-50">
+  <h4 class="pro-sidebar-title">Product Types</h4>
+  <div class="sidebar-widget-list mt-20">
+    <ul>
+      <% productTypes.forEach(function(pt) { %>
+      <li>
+        <div class="sidebar-widget-list-left">
+          <input type="checkbox" value="<%= pt %>" name="productType[]"
+          <%=filters.productType && filters.productType.includes(pt) ? 'checked'
+          : '' %> />
+          <a href="javascript:void(0)"> <%= pt %> </a>
+          <span class="checkmark"></span>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+
+<!-- Product Categories -->
+<div class="sidebar-widget mt-50">
+  <h4 class="pro-sidebar-title">Product Categories</h4>
+  <div class="sidebar-widget-list mt-20">
+    <ul>
+      <% categories.forEach(function(cat) { %>
+      <li>
+        <div class="sidebar-widget-list-left">
+          <input type="checkbox" value="<%= cat %>" name="category[]"
+          <%=filters.category && filters.category.includes(cat) ? 'checked' : ''
+          %> />
+          <a href="javascript:void(0)"> <%= cat %> </a>
+          <span class="checkmark"></span>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+
+<!-- Product SubCategories -->
+<div class="sidebar-widget mt-50">
+  <h4 class="pro-sidebar-title">Product SubCategory</h4>
+  <div class="sidebar-widget-list mt-20">
+    <ul>
+      <% subCategories.forEach(function(sc) { %>
+      <li>
+        <div class="sidebar-widget-list-left">
+          <input type="checkbox" value="<%= sc %>" name="subCategory[]"
+          <%=filters.subCategory && filters.subCategory.includes(sc) ? 'checked'
+          : '' %> />
+          <a href="javascript:void(0)"> <%= sc %> </a>
+          <span class="checkmark"></span>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+
+<!-- Product Designs -->
+<% if (designs && designs.length> 1) { %>
+<div class="sidebar-widget mt-50">
+  <h4 class="pro-sidebar-title">Product Designs</h4>
+  <div class="sidebar-widget-list mt-20">
+    <ul>
+      <% designs.forEach(function(design) { %> <% if (design && design.trim()
+      !=="" ) { %>
+      <li>
+        <div class="sidebar-widget-list-left">
+          <input type="checkbox" value="<%= design %>" name="designName[]"
+          <%=filters.designName && filters.designName.includes(design) ?
+          'checked' : '' %> />
+          <a href="javascript:void(0)"> <%= design %> </a>
+          <span class="checkmark"></span>
+        </div>
+      </li>
+      <% } %> <% }) %>
+    </ul>
+  </div>
+</div>
+<% } %>
+
+<!-- Product Sizes -->
+<div class="sidebar-widget mt-50">
+  <h4 class="pro-sidebar-title">Sizes</h4>
+  <div class="sidebar-widget-list mt-20">
+    <ul>
+      <% sizes.forEach(function(s) { %>
+      <li>
+        <div class="sidebar-widget-list-left">
+          <input type="checkbox" value="<%= s %>" name="size[]" <%=filters.size
+          && filters.size.includes(s) ? 'checked' : '' %> />
+          <a href="javascript:void(0)"> <%= s %> </a>
+          <span class="checkmark"></span>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+
+<!-- Product Thickness -->
+<div class="sidebar-widget mt-50">
+  <h4 class="pro-sidebar-title">Thickness</h4>
+  <div class="sidebar-widget-list mt-20">
+    <ul>
+      <% thicknesss.forEach(function(t) { %>
+      <li>
+        <div class="sidebar-widget-list-left">
+          <input type="checkbox" value="<%= t %>" name="thickness[]"
+          <%=filters.thickness && filters.thickness.includes(t) ? 'checked' : ''
+          %> />
+          <a href="javascript:void(0)"> <%= t %> </a>
+          <span class="checkmark"></span>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
