@@ -29,7 +29,7 @@
 
 <body>
 
-    <%- include("partials/header") %>
+    <%- include("../partials/header") %>
 
 
 
@@ -111,7 +111,7 @@
                                             <div id="shop-1" class="tab-pane active">
                                                 <div class="row" id="shop-area">
 
-                                                    <%- include('partials/product-3col-card', { products: products }) %>
+                                                    <%- include('../partials/product-3col-card', { products: products }) %>
 
                                                 </div>
                                             </div>
@@ -122,10 +122,15 @@
                         </div>
                     </div>
 
-                    <%- include("partials/footer") %>
+                    <%- include("../partials/footer") %>
 
 
-                        <%- include("partials/product-modal") %>
+                        <%- include("../partials/product-modal") %>
+
+
+                            <!-- Include LazyLoad JS at bottom of page -->
+                            <script
+                                src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.6.1/lazyload.min.js"></script>
 
                             <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
                             <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
@@ -137,6 +142,32 @@
                             <script src="/js/ajax-mail.js"></script>
                             <!-- Main JS -->
                             <script src="/js/main.js"></script>
+
+
+
+                            <script>
+                                // Wait for DOM to be fully loaded
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    var lazyLoadInstance = new LazyLoad({
+                                        elements_selector: ".lazyload",
+                                        threshold: 300,
+                                        // Callback when image starts loading
+                                        callback_loading: function (el) {
+                                            console.log('Loading:', el.dataset.src);
+                                        },
+                                        // Callback when image loads successfully
+                                        callback_loaded: function (el) {
+                                            console.log('Loaded:', el.dataset.src);
+                                        },
+                                        // Callback when image fails to load
+                                        callback_error: function (el) {
+                                            console.error('Error loading:', el.dataset.src);
+                                            // Fallback to a placeholder image
+                                            el.src = '/path/to/placeholder-image.jpg';
+                                        }
+                                    });
+                                });
+                            </script>
 
 
 </body>

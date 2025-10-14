@@ -28,7 +28,7 @@
 </head>
 
 <body>
-  <%- include("partials/header") %>
+  <%- include("../partials/header") %>
 
     <div id="loader-overlay" style="display: none">
       <div class="spinner"></div>
@@ -58,7 +58,7 @@
 
           <div class="col-lg-9" id="shop-area"> 
 
-            <%- include('partials/product-card', { products: products }) %>
+            <%- include('../partials/product-card', { products: products }) %>
 
           </div>
 
@@ -196,7 +196,8 @@
       </div>
     </div>
 
-    <%- include("partials/footer") %> <%- include("partials/product-modal") %>
+    <%- include("../partials/footer") %> 
+    <%- include("../partials/product-modal") %>
 
         <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
         <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
