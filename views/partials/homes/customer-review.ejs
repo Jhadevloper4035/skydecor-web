@@ -1,0 +1,87 @@
+<section class="rooms1 bg-dark-gery" data-scroll-index="1" style="padding: 70px 0px">
+    <div class="container">
+        <!-- Section Heading -->
+        <div class="row text-center">
+            <div class="welcome-content text-center">
+                <h1 class="text-white fw-light" style="text-transform: uppercase">
+                    CUSTOMER REVIEWS
+                </h1>
+            </div>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="row mt-4">
+            <% const videos=[1,2,3,4]; %>
+                <% videos.forEach((v)=> { %>
+                    <div class="col-md-3 col-lg-3 mb-4 scroll-zoom">
+                        <div class="item">
+                            <div class="position-re o-hidden">
+                                <!-- Lazy-loaded video -->
+                                <video id="myVideo" class="lazy-video" muted controls controlsList="nodownload"
+                                    width="100%" poster="https://rantechnology.in/skydecor/video/<%= v %>.png"
+                                    height="482">
+                                    <source data-src="https://rantechnology.in/skydecor/video/<%= v %>.mp4"
+                                        type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+        </div>
+
+        <!-- Show All Reviews Button -->
+        <div class="row mt-4">
+            <div class="col text-center">
+                <a href="/customer-review" class="btn btn-outline-light fw-light" style="padding: 10px 30px">
+                    Show All Reviews
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    #myVideo {
+        height: 482px;
+        /* Set poster/video height */
+        width: auto;
+        /* Keep aspect ratio */
+        object-fit: contain;
+        /* Make sure poster fills area nicely */
+    }
+</style>
+
+<script>
+    // Lazy load videos
+    document.addEventListener("DOMContentLoaded", function () {
+        const lazyVideos = [].slice.call(document.querySelectorAll("video.lazy-video"));
+
+        if ("IntersectionObserver" in window) {
+            const videoObserver = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        const video = entry.target;
+                        const source = video.querySelector("source");
+                        if (source && !source.src) {
+                            source.src = source.dataset.src;
+                            video.load();
+                        }
+                        videoObserver.unobserve(video);
+                    }
+                });
+            });
+
+            lazyVideos.forEach(function (video) {
+                videoObserver.observe(video);
+            });
+        } else {
+            // Fallback: load all videos immediately
+            lazyVideos.forEach(function (video) {
+                const source = video.querySelector("source");
+                source.src = source.dataset.src;
+                video.load();
+            });
+        }
+    });
+</script>

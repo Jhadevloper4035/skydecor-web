@@ -108,20 +108,22 @@
 </head>
 
 <body>
-    <%- include("partials/header") %>
+    <%- include("../partials/header") %>
 
 
-      <div class="container-fluid">
-        <div class="breadcrumb-section">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                   <li class="breadcrumb-item"><a href="/products">Products</a></li>
-                    <li class="breadcrumb-item"><%= product.productCode %></li>
-                </ol>
-            </nav>
+        <div class="container-fluid">
+            <div class="breadcrumb-section">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/products">Products</a></li>
+                        <li class="breadcrumb-item">
+                            <%= product.productCode %>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-    </div>
 
 
 
@@ -314,17 +316,13 @@
                                         </div>
                                         <div class="pro-same-action pro-quickview">
                                             <a title="Quick View" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal" 
-                                                data-productCode="<%= rp.productCode %>"
+                                                data-bs-target="#exampleModal" data-productCode="<%= rp.productCode %>"
                                                 data-productType="<%= rp.productType %>"
-                                                data-name="<%= rp.productName %>" 
-                                                data-image="<%= rp.image %>"
+                                                data-name="<%= rp.productName %>" data-image="<%= rp.image %>"
                                                 data-category="<%= rp.category %>"
                                                 data-subcategory="<%= rp.subCategory %>"
-                                                data-texture="<%= rp.texture %>" 
-                                                data-design="<%= rp.designName %>"
-                                                data-size="<%= rp.size %>" 
-                                                data-thickness="<%= rp.thickness %>"
+                                                data-texture="<%= rp.texture %>" data-design="<%= rp.designName %>"
+                                                data-size="<%= rp.size %>" data-thickness="<%= rp.thickness %>"
                                                 data-width="<%= rp.width %>">
                                                 <i class="pe-7s-look"></i>
                                             </a>
@@ -348,13 +346,13 @@
 
 
 
-        <%- include("partials/footer") %> 
-        
-        <%- include("partials/product-modal") %>
+        <%- include("../partials/footer") %>
 
-        <%- include("partials/product-enquiry", { product: product }) %>
+            <%- include("../partials/product-modal") %>
 
-                
+                <%- include("../partials/product-enquiry", { product: product }) %>
+
+
 
                     <!-- All JS is here ============================================ -->
                     <script src="/js/vendor/modernizr-3.11.7.min.js"></script>

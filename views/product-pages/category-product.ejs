@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Skydecor - Premium Quality Laminates Design Collections</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
+
+    <!-- CSS ============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+
+
+
+
+</head>
+
+<body>
+
+    <%- include("../partials/header") %>
+
+
+
+
+
+
+        <% const tabletBanner=page.banners.find(b=> b.device == "tablet").image;
+            const mobileBanner = page.banners.find(b => b.device == "mobile").image;
+            const desktopBanner = page.banners.find(b => b.device == "desktop").image;
+            %>
+
+
+
+            <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url('<%= desktopBanner %>');">
+                <div class="container">
+                </div>
+            </div>
+
+
+            <style>
+                @media (max-width: 1024px) {
+                    .breadcrumb-area {
+                        background-image: url('<%= tabletBanner %>') !important;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    .breadcrumb-area {
+                        background-image: url('<%= mobileBanner %>') !important;
+                    }
+                }
+            </style>
+
+
+
+
+
+            <% if (productType || category) { %>
+                <div class="container-fluid">
+                    <div class="breadcrumb-section">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+
+                                <% if (productType) { %>
+                                    <li class="breadcrumb-item">
+                                        <a href="/products/page/<%= productType %>">
+                                            <%= productType %>
+                                        </a>
+                                    </li>
+                                    <% } %>
+
+                                        <% if (category) { %>
+                                            <li class="breadcrumb-item">
+                                                <a href="/products/<%= category %>">
+                                                    <%= category %>
+                                                </a>
+                                            </li>
+                                            <% } %>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <% } %>
+
+
+
+
+
+
+
+
+                    <div class="shop-area">
+                        <div class="container">
+                            <div class="row flex-row-reverse">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="shop-bottom-area mt-35">
+                                        <div class="tab-content jump">
+                                            <div id="shop-1" class="tab-pane active">
+                                                <div class="row" id="shop-area">
+
+                                                    <%- include('../partials/product-3col-card', { products: products }) %>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <%- include("../partials/footer") %>
+
+
+                        <%- include("../partials/product-modal") %>
+
+
+                            <!-- Include LazyLoad JS at bottom of page -->
+                            <script
+                                src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.6.1/lazyload.min.js"></script>
+
+                            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+                            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+                            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+                            <script src="/js/vendor/popper.min.js"></script>
+                            <script src="/js/vendor/bootstrap.min.js"></script>
+                            <script src="/js/plugins.js"></script>
+                            <!-- Ajax Mail -->
+                            <script src="/js/ajax-mail.js"></script>
+                            <!-- Main JS -->
+                            <script src="/js/main.js"></script>
+
+
+
+                            <script>
+                                // Wait for DOM to be fully loaded
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    var lazyLoadInstance = new LazyLoad({
+                                        elements_selector: ".lazyload",
+                                        threshold: 300,
+                                        // Callback when image starts loading
+                                        callback_loading: function (el) {
+                                            console.log('Loading:', el.dataset.src);
+                                        },
+                                        // Callback when image loads successfully
+                                        callback_loaded: function (el) {
+                                            console.log('Loaded:', el.dataset.src);
+                                        },
+                                        // Callback when image fails to load
+                                        callback_error: function (el) {
+                                            console.error('Error loading:', el.dataset.src);
+                                            // Fallback to a placeholder image
+                                            el.src = '/path/to/placeholder-image.jpg';
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+</body>
+</html>

@@ -122,7 +122,7 @@ exports.getAllProducts = async (req, res) => {
     }
 
     // Full page load
-    res.render("product", {
+    res.render("product-pages/product", {
       title: "Shop - SkyDecor",
       products,
       total,
@@ -167,7 +167,7 @@ exports.getSingleProduct = async (req, res) => {
     }).limit(20); // you can adjust the limit
 
     // 3. Render the product page with product + related products
-    res.render("single-product", {
+    res.render("product-pages/single-product", {
       title: `${product.productCode} - SkyDecor`,
       product,
       relatedProducts,
@@ -192,8 +192,8 @@ exports.getAllCategoryProduct = async (req, res) => {
 
     const products = await Product.find(query);
     const page = await Page.findOne({
-      productType
-    }) 
+      productType,
+    });
 
     if (!products || products.length === 0) {
       return res.status(404).render("error", {
@@ -202,13 +202,12 @@ exports.getAllCategoryProduct = async (req, res) => {
       });
     }
 
-    res.render("category-product.ejs", {
+    res.render("product-pages/category-product.ejs", {
       title: `${category || productType} - SkyDecor`,
       products,
       page,
       productType,
-      category
-
+      category,
     });
   } catch (error) {
     console.error("❌ Error fetching products:", error);
