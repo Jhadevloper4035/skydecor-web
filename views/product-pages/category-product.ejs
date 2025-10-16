@@ -111,7 +111,8 @@
                                             <div id="shop-1" class="tab-pane active">
                                                 <div class="row" id="shop-area">
 
-                                                    <%- include('../partials/product-3col-card', { products: products }) %>
+                                                    <%- include('../partials/product-3col-card', { products: products })
+                                                        %>
 
                                                 </div>
                                             </div>
@@ -146,29 +147,52 @@
 
 
                             <script>
-                                // Wait for DOM to be fully loaded
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    var lazyLoadInstance = new LazyLoad({
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    // Initialize LazyLoad with smooth transitions
+                                    const lazyLoadInstance = new LazyLoad({
                                         elements_selector: ".lazyload",
                                         threshold: 300,
-                                        // Callback when image starts loading
+                                        data_src: "src", // Ensure data-src is used correctly
+                                        class_loaded: "lazyloaded",
+                                        class_loading: "lazyloading",
+                                        class_error: "lazyerror",
+
+                                        // Start loading callback
                                         callback_loading: function (el) {
-                                            console.log('Loading:', el.dataset.src);
+                                            el.style.opacity = "0.4";
+                                            el.style.transition = "opacity 0.4s ease";
+                                            console.log("Loading:", el.dataset.src);
                                         },
-                                        // Callback when image loads successfully
+
+                                        // When image successfully loads
                                         callback_loaded: function (el) {
-                                            console.log('Loaded:', el.dataset.src);
+                                            el.style.opacity = "1";
+                                            el.style.transition = "opacity 0.8s ease-out";
+                                            console.log("Loaded:", el.dataset.src);
                                         },
-                                        // Callback when image fails to load
+
+                                        // When image fails to load
                                         callback_error: function (el) {
-                                            console.error('Error loading:', el.dataset.src);
-                                            // Fallback to a placeholder image
-                                            el.src = '/path/to/placeholder-image.jpg';
+                                            console.error("Error loading:", el.dataset.src);
+                                            el.src = "/path/to/placeholder-image.jpg";
+                                            el.style.opacity = "1";
+                                            el.style.transition = "opacity 0.3s ease-in";
                                         }
+                                    });
+
+                                    // Optional: pre-load small blurred preview for smoother feel
+                                    const blurImages = document.querySelectorAll(".lazyload");
+                                    blurImages.forEach(img => {
+                                        img.style.filter = "blur(10px)";
+                                        img.addEventListener("load", () => {
+                                            img.style.transition = "filter 0.6s ease-out";
+                                            img.style.filter = "blur(0)";
+                                        });
                                     });
                                 });
                             </script>
 
 
 </body>
+
 </html>

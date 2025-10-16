@@ -1,115 +1,745 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Breadcrumb</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ultra-Luxury Catalogue Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --dark-blue: #0A2647;
+            --gold: #D4AF37;
+            --light-gold: #F4E5C3;
+            --shadow-luxury: 0 10px 40px rgba(10, 38, 71, 0.08);
+            --shadow-hover: 0 20px 60px rgba(10, 38, 71, 0.15);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .breadcrumb-section {
-            background: rgba(255, 255, 255, 0.95);
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAFAFA;
+            overflow-x: hidden;
+        }
+
+        .catalogue-section {
+            padding: 120px 0 140px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 50%, #FFFFFF 100%);
+            position: relative;
+        }
+
+        .catalogue-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+            padding: 0 20px;
+        }
+
+        .section-pretitle {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 30px auto;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: #6C757D;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .catalogue-grid {
+            padding: 0 40px;
+        }
+
+        .catalogue-card {
+            background: #FFFFFF;
             border-radius: 20px;
-            padding: 40px 50px;
+            overflow: hidden;
+            box-shadow: var(--shadow-luxury);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .catalogue-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .catalogue-card:hover::before {
+            opacity: 1;
+        }
+
+        .catalogue-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .catalogue-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 340px;
+            background: var(--dark-blue);
+        }
+
+        .catalogue-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.95;
+        }
+
+        .catalogue-card:hover .catalogue-image {
+            transform: scale(1.08);
+            opacity: 1;
+        }
+
+        .catalogue-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 38, 71, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .catalogue-card:hover .catalogue-overlay {
+            opacity: 1;
+        }
+
+        .catalogue-body {
+            padding: 45px 40px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .catalogue-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 0;
+            line-height: 1.4;
+            letter-spacing: -0.3px;
+        }
+
+        .catalogue-description {
+            font-size: 0.95rem;
+            color: #6C757D;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .download-btn {
+            font-family: 'Montserrat', sans-serif;
+            background: #FFFFFF;
+            color: var(--dark-blue);
+            border: 2px solid var(--dark-blue);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-blue);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .download-btn:hover::before {
+            left: 0;
+        }
+
+        .download-btn:hover {
+            color: #FFFFFF;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(10, 38, 71, 0.25);
+        }
+
+        .modal-content {
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 30px 80px rgba(10, 38, 71, 0.2);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #144272 100%);
+            color: #FFFFFF;
+            border-radius: 0;
+            padding: 40px 45px;
+            border: none;
+            position: relative;
+        }
+
+        .modal-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 45px;
+            right: 45px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.4;
+        }
+
+        .modal-title {
+            font-weight: 800;
+            font-size: 1.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .modal-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: 8px;
+        }
+
+        .btn-close {
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 50px 45px 45px;
+            background: #FAFAFA;
+        }
+
+        .form-label {
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .form-control,
+        .form-select {
+            border: 2px solid #E9ECEF;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #FFFFFF;
+            font-weight: 500;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--dark-blue);
+            box-shadow: 0 0 0 4px rgba(10, 38, 71, 0.08);
+            background: #FFFFFF;
+        }
+
+        .form-control::placeholder {
+            color: #ADB5BD;
+            font-weight: 400;
+        }
+
+        .submit-btn {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #144272 100%);
+            color: #FFFFFF;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 15px;
             position: relative;
             overflow: hidden;
         }
 
-
-        .breadcrumb-title {
-            font-weight: 300;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .breadcrumb-subtitle {
-            font-weight: 400;
-            font-size: 1rem;
-            color: #7f8c8d;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-
-        .breadcrumb {
-            background: transparent;
-            padding: 0;
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        .breadcrumb-item {
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .breadcrumb-item a {
-            color: #95a5a6;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            font-size: 16px;
-        }
-
-        .breadcrumb-item a:hover {
-            color: #00649e;
-        }
-
-        .breadcrumb-item a::after {
+        .submit-btn::before {
             content: '';
             position: absolute;
-            bottom: -2px;
-            left: 0;
+            top: 50%;
+            left: 50%;
             width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #00649e, #f4e4c1) ;
-            transition: width 0.3s ease;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
 
-        .breadcrumb-item a:hover::after {
-            width: 100%;
+        .submit-btn:hover::before {
+            width: 400px;
+            height: 400px;
         }
 
-        .breadcrumb-item.active {
-            color: #00649e;
-            font-weight: 600;
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(10, 38, 71, 0.3);
         }
 
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: "›";
-            color: #00649e;
-            font-size: 1.2rem;
-            font-weight: 300;
-            padding: 0 12px;
+        @media (max-width: 1200px) {
+            .catalogue-grid {
+                padding: 0 20px;
+            }
         }
 
-        .luxury-accent {
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, #00649e, transparent);
-            margin: 20px 0;
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .catalogue-section {
+                padding: 80px 0 100px;
+            }
+
+            .section-header {
+                margin-bottom: 70px;
+            }
+
+            .catalogue-image-wrapper {
+                height: 260px;
+            }
+
+            .catalogue-body {
+                padding: 35px 30px;
+            }
+
+            .catalogue-grid {
+                padding: 0 15px;
+            }
+
+            .modal-body {
+                padding: 40px 30px 35px;
+            }
+
+            .modal-header {
+                padding: 30px 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .catalogue-card {
+                margin-bottom: 30px;
+            }
         }
     </style>
-
-    
 </head>
+
 <body>
-    <div class="container-fluid">
-        <div class="breadcrumb-section">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Products</a></li>
-                    <li class="breadcrumb-item"><a href="#">Luxury Items</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Premium Collection</li>
-                </ol>
-            </nav>
+
+    <!-- Ultra-Luxury Catalogue Section -->
+    <section class="catalogue-section">
+        <div class="container-fluid">
+            <div class="section-header">
+                <div class="section-pretitle">Exclusive Collections</div>
+                <h2 class="section-title">Our Premium Catalogues</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Discover our meticulously curated collection of luxury products and bespoke
+                    solutions, designed to elevate your lifestyle and transform your spaces</p>
+            </div>
+
+            <div class="container-fluid catalogue-grid">
+                <div class="row g-5">
+                    <!-- Catalogue 1 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=500&fit=crop"
+                                    alt="Premium Collection 2025" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Premium Collection 2025</h3>
+                                <p class="catalogue-description">Explore our latest curated selection of premium
+                                    products and exclusive designs</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Premium Collection 2025">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 2 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=500&fit=crop"
+                                    alt="Luxury Living Spaces" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Luxury Living Spaces</h3>
+                                <p class="catalogue-description">Sophisticated interiors and architectural excellence
+                                    for discerning clientele</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Luxury Living Spaces">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 3 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&h=500&fit=crop"
+                                    alt="Designer Furniture Guide" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Designer Furniture Guide</h3>
+                                <p class="catalogue-description">Timeless pieces and contemporary designs crafted by
+                                    master artisans</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Designer Furniture Guide">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 4 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&h=500&fit=crop"
+                                    alt="Modern Architecture" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Modern Architecture</h3>
+                                <p class="catalogue-description">Innovative designs that blend functionality with
+                                    aesthetic brilliance</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Modern Architecture">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 5 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=500&fit=crop"
+                                    alt="Contemporary Interiors" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Contemporary Interiors</h3>
+                                <p class="catalogue-description">Refined spaces that reflect elegance and modern
+                                    sophistication</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Contemporary Interiors">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 6 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&h=500&fit=crop"
+                                    alt="Kitchen Innovations" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Kitchen Innovations</h3>
+                                <p class="catalogue-description">Culinary excellence meets cutting-edge design and
+                                    technology</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Kitchen Innovations">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 7 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=600&h=500&fit=crop"
+                                    alt="Bathroom Luxury" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Bathroom Luxury</h3>
+                                <p class="catalogue-description">Spa-inspired sanctuaries with premium fixtures and
+                                    finishes</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Bathroom Luxury">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 8 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=500&fit=crop"
+                                    alt="Outdoor Elegance" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Outdoor Elegance</h3>
+                                <p class="catalogue-description">Transform outdoor spaces into luxurious retreats and
+                                    entertainment havens</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Outdoor Elegance">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 9 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=500&fit=crop"
+                                    alt="Lighting Solutions" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Lighting Solutions</h3>
+                                <p class="catalogue-description">Illuminate your world with designer fixtures and
+                                    ambient lighting systems</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Lighting Solutions">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 10 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=600&h=500&fit=crop"
+                                    alt="Smart Home Systems" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Smart Home Systems</h3>
+                                <p class="catalogue-description">Intelligent automation and connected living for the
+                                    modern lifestyle</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Smart Home Systems">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 11 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=500&fit=crop"
+                                    alt="Textile & Fabrics" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Textile & Fabrics</h3>
+                                <p class="catalogue-description">Exquisite materials and textures that define luxury and
+                                    comfort</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Textile & Fabrics">Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catalogue 12 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="catalogue-card">
+                            <div class="catalogue-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=600&h=500&fit=crop"
+                                    alt="Décor Accessories" class="catalogue-image">
+                                <div class="catalogue-overlay"></div>
+                            </div>
+                            <div class="catalogue-body">
+                                <h3 class="catalogue-title">Décor Accessories</h3>
+                                <p class="catalogue-description">Curated accents and statement pieces to complete your
+                                    vision</p>
+                                <button class="download-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal"
+                                    data-catalogue="Décor Accessories">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Enquiry Modal -->
+    <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="enquiryModalLabel">Request Your Catalogue</h5>
+                        <p class="modal-subtitle">Complete the form below to access your exclusive download</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="enquiryForm">
+                        <input type="hidden" id="catalogueName" name="catalogue">
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName"
+                                    placeholder="Enter your full name" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="your.email@example.com" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" name="phone"
+                                    placeholder="+91 00000 00000" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="company" class="form-label">Company Name</label>
+                                <input type="text" class="form-control" id="company" name="company"
+                                    placeholder="Your company (optional)">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="interest" class="form-label">Area of Interest</label>
+                                <select class="form-select" id="interest" name="interest">
+                                    <option value="">Select your primary interest</option>
+                                    <option value="residential">Residential Projects</option>
+                                    <option value="commercial">Commercial Projects</option>
+                                    <option value="renovation">Renovation & Remodeling</option>
+                                    <option value="consultation">Design Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="submit-btn">Submit & Download</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Store the catalogue name when modal is opened
+        const enquiryModal = document.getElementById('enquiryModal');
+        enquiryModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const catalogueName = button.getAttribute('data-catalogue');
+            document.getElementById('catalogueName').value = catalogueName;
+            document.getElementById('enquiryModalLabel').textContent = `Request ${catalogueName}`;
+        });
+
+        // Handle form submission
+        document.getElementById('enquiryForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const catalogueName = formData.get('catalogue');
+
+            // Here you would typically send the form data to your server
+            console.log('Form submitted:', Object.fromEntries(formData));
+
+            // Simulate download after successful submission
+            alert(`Thank you for your interest!\n\nYour download for "${catalogueName}" will begin shortly.\n\nOur team will also reach out to you within 24 hours.`);
+
+            // Close modal and reset form
+            const modal = bootstrap.Modal.getInstance(enquiryModal);
+            modal.hide();
+            this.reset();
+
+            // Simulate file download
+            setTimeout(() => {
+                console.log(`Downloading: ${catalogueName}.pdf`);
+            }, 500);
+        });
+    </script>
+
 </body>
+
 </html>
