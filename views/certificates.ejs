@@ -1,258 +1,172 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Skydecor - Premium Quality Laminates Design Collections</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
 
-    <!-- CSS ============================================ -->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Skydecor - Premium Quality Laminates Design Collections</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="/css/icons.min.css" />
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" href="/css/plugins.css" />
+  <!-- CSS ============================================ -->
 
-    <!-- Magnific Popup CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
-    />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <!-- Icon Font CSS -->
+  <link rel="stylesheet" href="/css/icons.min.css" />
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/css/plugins.css" />
 
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="/css/style.css" />
+  <!-- Magnific Popup CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
 
-    <style>
-      .blog-content-2 {
-        height: 220px;
-      }
+  <!-- Main Style CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
 
-      .blog-wrap-2 .blog-img-2 a img {
-        height: 250px;
-      }
-
-      .image-box-event {
-        height: auto;
-        width: auto;
-      }
-
-      .breadcrumb-area {
-    min-height: 100vh; /* Full height for desktop */
-}
-
-
- .certificate-text{
-    text-align: center;
-    font-size: 18px;
-    margin: 20px 0px;
-}
- 
-
-/* For mobile devices (width <= 768px) */
-@media (max-width: 768px) {
-    .breadcrumb-area {
-        min-height: auto; /* Height adjusts automatically */
+  <style>
+    .blog-content-2 {
+      height: 220px;
     }
-}
+
+    .blog-wrap-2 .blog-img-2 a img {
+      height: 250px;
+    }
+
+    .image-box-event {
+      height: auto;
+      width: auto;
+    }
+
+    .breadcrumb-area {
+      min-height: 100vh;
+      /* Full height for desktop */
+    }
 
 
-    </style>
-  </head>
+    .certificate-text {
+      text-align: center;
+      font-size: 18px;
+      margin: 20px 0px;
+    }
 
-  <body>
-    <%- include("partials/header") %>
 
-    <div
-      class="breadcrumb-area pt-35 pb-35 bg-gray-3"
-      style="background-image: url(/images/certificate/certificate.jpg)"
-    >
+    /* For mobile devices (width <= 768px) */
+    @media (max-width: 768px) {
+      .breadcrumb-area {
+        min-height: auto;
+        /* Height adjusts automatically */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("partials/header") %>
+
+    <div class="breadcrumb-area pt-35 pb-35 bg-gray-3"
+      style="background-image: url(/images/certificate/certificate.jpg)">
       <div class="container"></div>
     </div>
 
 
-       <div class="container-fluid">
-        <div class="breadcrumb-section">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">certificates</li>
-                </ol>
-            </nav>
-        </div>
+    <div class="container-fluid">
+      <div class="breadcrumb-section">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">certificates</li>
+          </ol>
+        </nav>
+      </div>
     </div>
 
 
 
 
 
-    <div class="welcome-area pt-60">
+
+
+    <section class="section-padding pb-60">
       <div class="container">
-        <div class="welcome-content text-center">
-          <h1>Our Certificates</h1>
+
+        <!-- Section Heading: Event Highlights -->
+        <div class="row text-center">
+          <div class="welcome-content text-center">
+            <h1 class="fw-light" style="text-transform: uppercase;">
+              Our Certificates
+            </h1>
+          </div>
+        </div>
+
+        <div class="row gallery">
+          <% const certificates=[ { src: "/images/certificate/1.png" , alt: "Flame Retardant Test Certificate" ,
+            text: "Flame Retardant Test Updated" }, { src: "/images/certificate/2.png" ,
+            alt: "Flame Retardant Test 2 Certificate" , text: "Flame Retardant Test 2 Updated" }, {
+            src: "/images/certificate/3.png" , alt: "Quality Control Test Certificate" ,
+            text: "Quality Control Test Updated" }, { src: "/images/certificate/4.png" ,
+            alt: "Lead Free Test Certificate" , text: "Lead Free Test Updated" }, { src: "/images/certificate/5.png" ,
+            alt: "Anti Bacterial Test Certificate" , text: "Anti Bacterial Test Updated" }, {
+            src: "/images/certificate/6.png" , alt: "Text Certificate" , text: "Text Certificate Updated" }, {
+            src: "/images/certificate/7.png" , alt: "CII Green Products and Services Council" ,
+            text: "CII Green Products and Services Council" } ]; %>
+
+            <% certificates.forEach(cert=> { %>
+              <div class="col-md-4 col-lg-4 col-sm-6 gallery-item mb-4">
+                <a href="<%= cert.src %>" class="img-zoom" title="<%= cert.alt %>">
+                  <div class="gallery-box">
+                    <div class="gallery-img">
+                      <img src="<%= cert.src %>" class="img-fluid image-box-event mx-auto d-block" alt="<%= cert.alt %>"
+                        loading="lazy" height="500" width="370" />
+                    </div>
+                  </div>
+                </a>
+                <p class="certificate-text">
+                  <%= cert.text %>
+                </p>
+              </div>
+              <% }) %>
         </div>
       </div>
-    </div>
-
-   <section class="section-padding pb-60">
-  <div class="container">
-    <div class="row gallery">
-
-      <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-        <a href="/images/certificate/1.png" class="img-zoom" title="Updated Flame Retardant Test Certificate">
-          <div class="gallery-box">
-            <div class="gallery-img">
-              <img
-                src="/images/certificate/1.png"
-                class="img-fluid image-box-event mx-auto d-block"
-                alt="Flame Retardant Test Certificate"
-              />
-            </div>
-          </div>
-        </a>
-        <p class="certificate-text">Flame Retardant Test Updated</p>
-      </div>
-
-      <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-        <a href="/images/certificate/2.png" class="img-zoom" title="Updated Flame Retardant Test 2 Certificate">
-          <div class="gallery-box">
-            <div class="gallery-img">
-              <img
-                src="/images/certificate/2.png"
-                class="img-fluid image-box-event mx-auto d-block"
-                alt="Flame Retardant Test 2 Certificate"
-              />
-            </div>
-          </div>
-        </a>
-        <p class="certificate-text">Flame Retardant Test 2 Updated</p>
-      </div>
-
-      <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-        <a href="/images/certificate/3.png" class="img-zoom" title="Updated Quality Control Test Certificate">
-          <div class="gallery-box">
-            <div class="gallery-img">
-              <img
-                src="/images/certificate/3.png"
-                class="img-fluid image-box-event mx-auto d-block"
-                alt="Quality Control Test Certificate"
-              />
-            </div>
-          </div>
-        </a>
-        <p class="certificate-text">Quality Control Test Updated</p>
-      </div>
-
-      <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-        <a href="/images/certificate/4.png" class="img-zoom" title="Updated Lead Free Test Certificate">
-          <div class="gallery-box">
-            <div class="gallery-img">
-              <img
-                src="/images/certificate/4.png"
-                class="img-fluid image-box-event mx-auto d-block"
-                alt="Lead Free Test Certificate"
-              />
-            </div>
-          </div>
-        </a>
-        <p class="certificate-text">Lead Free Test Updated</p>
-      </div>
-
-      <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-        <a href="/images/certificate/5.png" class="img-zoom" title="Updated Anti Bacterial Test Certificate">
-          <div class="gallery-box">
-            <div class="gallery-img">
-              <img
-                src="/images/certificate/5.png"
-                class="img-fluid image-box-event mx-auto d-block"
-                alt="Anti Bacterial Test Certificate"
-              />
-            </div>
-          </div>
-        </a>
-        <p class="certificate-text">Anti Bacterial Test Updated</p>
-      </div>
-
-      <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-        <a href="/images/certificate/6.png" class="img-zoom" title="Updated Text Certificate">
-          <div class="gallery-box">
-            <div class="gallery-img">
-              <img
-                src="/images/certificate/6.png"
-                class="img-fluid image-box-event mx-auto d-block"
-                alt="Text Certificate"
-              />
-            </div>
-          </div>
-        </a>
-        <p class="certificate-text">Text Certificate Updated</p>
-      </div>
-
-
-
-       <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-        <a href="/images/certificate/7.png" class="img-zoom" title="CII Green Products and Services Council">
-          <div class="gallery-box">
-            <div class="gallery-img">
-              <img
-                src="/images/certificate/7.png"
-                class="img-fluid image-box-event mx-auto d-block"
-                alt="CII Green Products and Services Council"
-              />
-            </div>
-          </div>
-        </a>
-        <p class="certificate-text">CII Green Products and Services Council</p>
-      </div>
-
-
-
-
-
-
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <%- include("partials/footer") %>
 
-    <!-- jQuery (required for Magnific Popup) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <!-- jQuery (required for Magnific Popup) -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!-- Magnific Popup JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+      <!-- Magnific Popup JS -->
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
-    <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
-    <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
-    <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
-    <script src="/js/vendor/popper.min.js"></script>
-    <script src="/js/vendor/bootstrap.min.js"></script>
-    <script src="/js/plugins.js"></script>
-    <!-- Ajax Mail -->
-    <script src="/js/ajax-mail.js"></script>
-    <!-- Main JS -->
-    <script src="/js/main.js"></script>
+      <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+      <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+      <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+      <script src="/js/vendor/popper.min.js"></script>
+      <script src="/js/vendor/bootstrap.min.js"></script>
+      <script src="/js/plugins.js"></script>
+      <!-- Ajax Mail -->
+      <script src="/js/ajax-mail.js"></script>
+      <!-- Main JS -->
+      <script src="/js/main.js"></script>
 
-    <script>
-      $(document).ready(function () {
-        $(".gallery").magnificPopup({
-          delegate: "a.img-zoom",
-          type: "image",
-          gallery: {
-            enabled: true, // enables gallery mode
-            navigateByImgClick: true,
-            preload: [0, 1], // preload previous & next images for smoother navigation
-          },
-          mainClass: "mfp-fade", // animation effect
-          removalDelay: 300, // duration of fade effect
-          fixedContentPos: false,
+      <script>
+        $(document).ready(function () {
+          $(".gallery").magnificPopup({
+            delegate: "a.img-zoom",
+            type: "image",
+            gallery: {
+              enabled: true, // enables gallery mode
+              navigateByImgClick: true,
+              preload: [0, 1], // preload previous & next images for smoother navigation
+            },
+            mainClass: "mfp-fade", // animation effect
+            removalDelay: 300, // duration of fade effect
+            fixedContentPos: false,
+          });
         });
-      });
-    </script>
-  </body>
+      </script>
+</body>
+
 </html>

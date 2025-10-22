@@ -21,6 +21,16 @@
     <link rel="stylesheet" href="/css/plugins.css">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="/css/style.css">
+
+
+
+    <style>
+        .single-sidebar-blog {
+            flex-wrap: nowrap;
+        }
+    </style>
+
+
 </head>
 
 <body>
@@ -29,114 +39,123 @@
     <%- include("partials/header") %>
 
 
-       <div class="container-fluid">
-        <div class="breadcrumb-section">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                   <li class="breadcrumb-item"><a href="/blogs">blog</a></li>
-                    <li class="breadcrumb-item"><%= blog.title %></li>
-                </ol>
-            </nav>
+        <div class="container-fluid">
+            <div class="breadcrumb-section">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/blogs">blog</a></li>
+                        <li class="breadcrumb-item">
+                            <%= blog.title %>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-    </div>
 
 
 
 
-        <div class="Blog-area pt-100 pb-100">
+        <div class="Blog-area  pb-100">
             <div class="container">
                 <div class="row flex-row-reverse">
 
                     <div class="col-lg-9">
-                        <div class="blog-details-wrapper ml-20">
+                        <article class="blog-details-wrapper ml-20" itemscope itemtype="https://schema.org/BlogPosting">
                             <div class="blog-details-top">
 
                                 <!-- Blog Image -->
-                                <div class="blog-img-slide owl-carousel nav-style-4">
-                                    <img src="<%= blog.image %>" alt="<%= blog.title %>">
-                                </div>
+                                <% if (blog.image) { %>
+                                    <figure class="blog-img-slide owl-carousel nav-style-4" itemprop="image">
+                                        <img src="<%= blog.image %>" alt="<%= blog.meta_title || blog.title %>"
+                                            width="1200" height="600" loading="eager" decoding="async"
+                                            class="img-fluid">
+                                    </figure>
+                                    <% } %>
 
-                                <!-- Blog Content -->
-                                <div class="blog-details-content">
-                                    <div class="blog-meta-2">
-                                        <ul>
-                                            <li>
-                                                <%= blog.created_at ? new Date(blog.created_at).toDateString() : '' %>
-                                            </li>
-                                            <li><a href="#">By <%= blog.author || "Admin" %></a></li>
-                                        </ul>
-                                    </div>
+                                        <!-- Blog Content -->
+                                        <div class="blog-details-content">
 
-                                    <h3>
-                                        <%= blog.title %>
-                                    </h3>
+                                            <!-- Blog Meta -->
+                                            <div class="blog-meta-2" aria-label="Blog metadata">
+                                                <ul class="list-unstyled d-flex flex-wrap gap-3 mb-3">
+                                                    <% if (blog.created_at) { %>
+                                                        <li>
+                                                            <time
+                                                                datetime="<%= new Date(blog.created_at).toISOString() %>"
+                                                                itemprop="datePublished">
+                                                                <%= new
+                                                                    Date(blog.created_at).toLocaleDateString('en-US', {
+                                                                    day: 'numeric' , month: 'short' , year: 'numeric' })
+                                                                    %>
+                                                            </time>
+                                                        </li>
+                                                        <% } %>
+                                                            <li>
+                                                                <span itemprop="author" itemscope
+                                                                    itemtype="https://schema.org/Person">
+                                                                    By <span itemprop="name">
+                                                                        <%= blog.author || "Admin" %>
+                                                                    </span>
+                                                                </span>
+                                                            </li>
+                                                </ul>
+                                            </div>
 
-                                    <!-- Render blog HTML content safely -->
-                                    <div class="blog-body">
-                                        <%- blog.text %>
-                                    </div>
-                                </div>
+                                            <!-- Blog Title -->
+                                            <h1 class="h3 mb-4" itemprop="headline">
+                                                <%= blog.title %>
+                                            </h1>
+
+                                            <!-- Blog Body -->
+                                            <div class="blog-body" itemprop="articleBody">
+                                                <%- blog.text %>
+                                            </div>
+
+                                            <!-- Meta Description (hidden, for SEO) -->
+                                            <% if (blog.meta_description) { %>
+                                                <meta itemprop="description" content="<%= blog.meta_description %>">
+                                                <% } %>
+
+                                        </div>
                             </div>
 
-                            <!-- Tags (if available) -->
-                            <% if (blog.meta_tags) { %>
-                                <div class="tag-share">
-                                    <div class="dec-tag">
-                                        <ul>
-                                            <% blog.meta_tags.split(",").forEach(function(tag) { %>
-                                                <li><a href="#">
-                                                        <%= tag.trim() %>
-                                                    </a></li>
-                                                <% }) %>
-                                        </ul>
-                                    </div>
-                                    <div class="blog-share">
-                                        <span>share :</span>
-                                        <div class="share-social">
-                                            <ul>
-                                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <% } %>
 
-                                    <!-- Next/Previous (optional placeholders for now) -->
-                                    <!-- <div class="next-previous-post">
-                                        <a href="#"><i class="fa fa-angle-left"></i> prev post</a>
-                                        <a href="#">next post <i class="fa fa-angle-right"></i></a>
-                                    </div> -->
-                        </div>
+
+
+
+                        </article>
                     </div>
 
 
                     <div class="col-lg-3">
                         <div class="sidebar-style">
                             <div class="sidebar-widget">
-                                <h4 class="pro-sidebar-title">Recent Blogs </h4>
-
+                                <h4 class="pro-sidebar-title">Recent Blogs</h4>
 
                                 <div class="sidebar-project-wrap mt-30">
                                     <% if (recentBlogs && recentBlogs.length> 0) { %>
                                         <% recentBlogs.forEach(function(rBlog) { %>
-                                            <div class="single-sidebar-blog">
-                                                <div class="sidebar-blog-img">
+                                            <div class="single-sidebar-blog d-flex mb-3">
+
+                                                <!-- Sidebar Blog Image -->
+                                                <div class="sidebar-blog-img flex-shrink-0 me-2">
                                                     <a href="/blogs/<%= rBlog.url %>">
                                                         <img src="<%= rBlog.image || '/assets/img/blog/default.jpg' %>"
-                                                            alt="<%= rBlog.title %>">
+                                                            alt="<%= rBlog.meta_title || rBlog.title %>" width="80"
+                                                            height="60" loading="lazy" decoding="async">
                                                     </a>
                                                 </div>
-                                                <div class="sidebar-blog-content">
-                                                    <h4>
+
+                                                <!-- Sidebar Blog Content -->
+                                                <div class="sidebar-blog-content flex-grow-1">
+                                                    <h5 class="mb-1">
                                                         <a href="/blogs/<%= rBlog.url %>">
                                                             <%= rBlog.title %>
                                                         </a>
-                                                    </h4>
+                                                    </h5>
                                                 </div>
+
                                             </div>
                                             <% }) %>
                                                 <% } else { %>
@@ -144,11 +163,10 @@
                                                     <% } %>
                                 </div>
 
-
-
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -172,4 +190,5 @@
             <script src="/js/main.js"></script>
 
 </body>
+
 </html>

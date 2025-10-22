@@ -185,7 +185,23 @@
                 </div>
                 <div class="col-xl-1 col-lg-1   col-md-6 col-8 bg-grey object-center">
                     <div class="header-right-wrap">
-                        <%- include('search-bar') %>
+                        
+                         <div class="same-style header-search">
+                            <a class="search-active" href="#"><i class="pe-7s-search"></i></a>
+                            <!-- Your existing search component -->
+                            <div class="search-content">
+                                <form action="#" id="productSearchForm">
+                                    <input type="text" id="productSearchInput" placeholder="Search"
+                                        autocomplete="off" />
+                                    <button type="submit" class="button-search">
+                                        <i class="pe-7s-search"></i>
+                                    </button>
+                                </form>
+
+                            </div>
+
+                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -276,14 +292,9 @@
 
 
 
-<div id="site-loader" class="loader-overlay">
-    <svg class="ply-loader" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <rect class="ply" x="20" y="65" width="60" height="8" rx="2" fill="var(--primary)" />
-        <rect class="ply" x="20" y="50" width="60" height="8" rx="2" fill="var(--primary)" />
-        <rect class="ply" x="20" y="35" width="60" height="8" rx="2" fill="var(--primary)" />
-        <circle class="dot" cx="50" cy="20" r="4" fill="var(--primary)" />
-    </svg>
-</div>
+
+
+
 
 <style>
     .header-top-wap {
@@ -325,5 +336,177 @@
     .header-offer i {
         font-size: 14px;
         color: #fff;
+    }
+</style>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    .dropdown-menu {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 130px;
+        border-radius: 0;
+        border: 0;
+        background-color: #fff;
+    }
+
+    .stick .dropdown-menu {
+        top: 80px;
+    }
+
+    /* Hide dropdown by default */
+    .dropdown-menu {
+        display: block;
+        /* allow transition */
+        max-height: 0;
+        /* start closed */
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.8s ease-in-out;
+        visibility: hidden;
+    }
+
+    /* On hover of parent .dropdown */
+    .dropdown:hover .dropdown-menu {
+        max-height: 1000px;
+        /* big enough to fit menu */
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .dropdown-menu h5 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        text-align: left;
+        padding-left: 1rem;
+    }
+
+    .dropdown-menu h5 a {
+        line-height: 28px !important;
+    }
+
+    .dropdown-menu li {
+
+        position: relative;
+        max-width: 16%;
+        padding-left: 0px !important;
+    }
+
+    .dropdown-item {
+        font-family: 'Montserrat', sans-serif;
+        color: #333 !important;
+        display: block !important;
+        font-size: 13px !important;
+        font-weight: 400 !important;
+        line-height: 26px !important;
+        padding-top: 0 !important;
+        text-align: left !important;
+        text-transform: capitalize !important;
+        text-transform: uppercase;
+    }
+
+    .dropdown-item:hover {
+        background-color: transparent;
+        color: rgb(123, 78, 163) !important;
+        padding-left: 24px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    a.dropdown-item:before {
+        background: #a749ff none repeat scroll 0 0;
+        border-radius: 50%;
+        content: "";
+        height: 7px;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 13px;
+        transition: all .3s ease-in-out 0s;
+        width: 7px;
+        z-index: 999;
+    }
+
+    a.dropdown-item:hover:before {
+        opacity: 1;
+        left: 10px;
+    }
+
+    .mobile-menu .mean-nav ul.menu-overflow {
+        height: 100vh;
+    }
+
+    .search-content {
+        position: relative;
+    }
+
+    .search-content form {
+        position: relative;
+    }
+
+    /* Auto-suggestion dropdown */
+    .suggestions-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        max-height: 300px;
+        overflow-y: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        display: none;
+        margin-top: 2px;
+    }
+
+    .suggestions-dropdown.show {
+        display: block;
+    }
+
+    .suggestion-item {
+        padding: 12px 15px;
+        cursor: pointer;
+        transition: background 0.2s;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .suggestion-item:last-child {
+        border-bottom: none;
+    }
+
+    .suggestion-item:hover,
+    .suggestion-item.selected {
+        background: #f5f5f5;
+    }
+
+    .suggestion-item .product-code {
+        font-weight: bold;
+        color: #333;
+        font-size: 14px;
+    }
+
+    .suggestion-item .product-name {
+        font-size: 13px;
+        color: #666;
+        margin-top: 2px;
+    }
+
+    .highlight {
+        background: #ffeb3b;
+        font-weight: bold;
+    }
+
+    .no-results,
+    .loading {
+        padding: 15px;
+        text-align: center;
+        color: #999;
+        font-size: 14px;
     }
 </style>

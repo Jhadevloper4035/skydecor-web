@@ -1,115 +1,1091 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="zxx">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Breadcrumb</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Skydecor - Premium Quality Laminates Design Collections</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
+
+    <!-- CSS ============================================ -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/icons.min.css" />
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+
+
     <style>
-
-
-        .breadcrumb-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px 50px;
-            position: relative;
-            overflow: hidden;
-        }
-
-
-        .breadcrumb-title {
-            font-weight: 300;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .breadcrumb-subtitle {
-            font-weight: 400;
-            font-size: 1rem;
-            color: #7f8c8d;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-
-        .breadcrumb {
-            background: transparent;
-            padding: 0;
+        * {
             margin: 0;
-            font-size: 0.95rem;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .breadcrumb-item {
-            font-weight: 500;
-            letter-spacing: 0.5px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
         }
 
-        .breadcrumb-item a {
-            color: #95a5a6;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
+        .search-trigger {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
             font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
         }
 
-        .breadcrumb-item a:hover {
-            color: #00649e;
+        .search-trigger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .breadcrumb-item a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #00649e, #f4e4c1) ;
-            transition: width 0.3s ease;
-        }
-
-        .breadcrumb-item a:hover::after {
             width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
         }
 
-        .breadcrumb-item.active {
-            color: #00649e;
+        .modal-overlay.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-modal {
+            background: white;
+            width: 95%;
+            max-width: 1000px;
+            max-height: 90vh;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
             font-weight: 600;
         }
 
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: "›";
-            color: #00649e;
-            font-size: 1.2rem;
-            font-weight: 300;
-            padding: 0 12px;
+        .close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
         }
 
-        .luxury-accent {
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, #00649e, transparent);
-            margin: 20px 0;
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 48px 14px 48px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 20px;
+            display: none;
+        }
+
+        .clear-search.active {
+            display: block;
+        }
+
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 4px;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 10;
+        }
+
+        .autocomplete-dropdown.active {
+            display: block;
+        }
+
+        .autocomplete-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+
+        .autocomplete-item:hover {
+            background: #f8f9fa;
+        }
+
+        .autocomplete-item img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .autocomplete-item-info {
+            flex: 1;
+        }
+
+        .autocomplete-item-name {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .autocomplete-item-code {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .filters-section {
+            margin-bottom: 24px;
+        }
+
+        .filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .filters-header h3 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .clear-filters {
+            background: none;
+            border: none;
+            color: #667eea;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .filter-group label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-group select {
+            padding: 10px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            background: white;
+        }
+
+        .filter-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .active-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .filter-tag {
+            background: #e8eaf6;
+            color: #5c6bc0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-tag button {
+            background: none;
+            border: none;
+            color: #5c6bc0;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .results-section {
+            margin-top: 24px;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .results-count {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .sort-by {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sort-by select {
+            padding: 6px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .no-results-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid #e0e0e0;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination .current-page {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-modal {
+                width: 100%;
+                height: 100%;
+                max-height: 100%;
+                border-radius: 0;
+            }
+
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
         }
     </style>
 
-    
-</head>
-<body>
-    <div class="container-fluid">
-        <div class="breadcrumb-section">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Products</a></li>
-                    <li class="breadcrumb-item"><a href="#">Luxury Items</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Premium Collection</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <%- include("partials/header") %>
+
+
+        <button class="search-trigger" onclick="openSearchModal()">
+            <span>🔍</span> Search Products
+        </button>
+
+        <div class="modal-overlay" id="searchModal" onclick="closeModalOnOutsideClick(event)">
+            <div class="search-modal" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <h2>🔍 Search Products</h2>
+                    <button class="close-btn" onclick="closeSearchModal()">×</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" id="searchInput"
+                            placeholder="Search by name, code, category, texture..." autocomplete="off">
+                        <button class="clear-search" id="clearSearch" onclick="clearSearchInput()">×</button>
+
+                        <div class="autocomplete-dropdown" id="autocompleteDropdown"></div>
+                    </div>
+
+                    <div class="filters-section">
+                        <div class="filters-header">
+                            <h3>Filters</h3>
+                            <button class="clear-filters" onclick="clearAllFilters()">Clear All</button>
+                        </div>
+
+                        <div class="filters-grid">
+                            <div class="filter-group">
+                                <label>Product Type</label>
+                                <select id="filterProductType" onchange="onProductTypeChange()">
+                                    <option value="">All Types</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Category</label>
+                                <select id="filterCategory" onchange="onCategoryChange()">
+                                    <option value="">All Categories</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Sub-Category</label>
+                                <select id="filterSubCategory" onchange="applyFilters()">
+                                    <option value="">All Sub-Categories</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Texture</label>
+                                <select id="filterTexture" onchange="applyFilters()">
+                                    <option value="">All Textures</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Size</label>
+                                <select id="filterSize" onchange="applyFilters()">
+                                    <option value="">All Sizes</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Thickness</label>
+                                <select id="filterThickness" onchange="applyFilters()">
+                                    <option value="">All Thicknesses</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="active-filters" id="activeFilters"></div>
+                    </div>
+
+                    <div class="results-section">
+                        <div class="results-header">
+                            <div class="results-count" id="resultsCount">0 products found</div>
+                            <div class="sort-by">
+                                <label>Sort by:</label>
+                                <select id="sortBy" onchange="applyFilters()">
+                                    <option value="createdAt">Newest</option>
+                                    <option value="productName">Name (A-Z)</option>
+                                    <option value="productCode">Code</option>
+                                    <option value="category">Category</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="shop-bottom-area mt-35">
+                            <div class="tab-content jump">
+                                <div id="shop-1" class="tab-pane active">
+                                    <div class="row" id="productsGrid">
+
+                                        <div class="loading" style="grid-column: 1 / -1;">
+                                            <div class="spinner"></div>
+                                            <div>Loading products...</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+                        <div class="pagination" id="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var currentPage = 1;
+            var searchTimeout = null;
+            var autocompleteTimeout = null;
+            var allFilterData = {};
+            var productHierarchy = {};
+
+            document.addEventListener('DOMContentLoaded', function () {
+                loadFilterOptions();
+                setupEventListeners();
+            });
+
+            function setupEventListeners() {
+                var searchInput = document.getElementById('searchInput');
+                var clearSearch = document.getElementById('clearSearch');
+
+                searchInput.addEventListener('input', function (e) {
+                    if (e.target.value) {
+                        clearSearch.classList.add('active');
+                    } else {
+                        clearSearch.classList.remove('active');
+                    }
+
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(function () {
+                        currentPage = 1;
+                        searchProducts();
+                    }, 300);
+
+                    clearTimeout(autocompleteTimeout);
+                    if (e.target.value.length >= 2) {
+                        autocompleteTimeout = setTimeout(function () {
+                            loadAutocomplete(e.target.value);
+                        }, 200);
+                    } else {
+                        hideAutocomplete();
+                    }
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!e.target.closest('.search-input-wrapper')) {
+                        hideAutocomplete();
+                    }
+                });
+
+                searchInput.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') {
+                        closeSearchModal();
+                    }
+                });
+            }
+
+            function openSearchModal() {
+                document.getElementById('searchModal').classList.add('active');
+                document.getElementById('searchInput').focus();
+                if (document.getElementById('productsGrid').children.length === 1) {
+                    searchProducts();
+                }
+            }
+
+            function closeSearchModal() {
+                document.getElementById('searchModal').classList.remove('active');
+            }
+
+            function closeModalOnOutsideClick(event) {
+                if (event.target.id === 'searchModal') {
+                    closeSearchModal();
+                }
+            }
+
+            function clearSearchInput() {
+                document.getElementById('searchInput').value = '';
+                document.getElementById('clearSearch').classList.remove('active');
+                hideAutocomplete();
+                currentPage = 1;
+                searchProducts();
+            }
+
+            function loadFilterOptions() {
+                fetch('/products/filters')
+                    .then(function (response) { return response.json(); })
+                    .then(function (data) {
+                        if (data.success) {
+                            allFilterData = data.data;
+                            buildProductHierarchy(data.data);
+                            populateSelect('filterProductType', data.data.productTypes);
+                            populateSelect('filterTexture', data.data.textures);
+                            populateSelect('filterSize', data.data.sizes);
+                            populateSelect('filterThickness', data.data.thicknesses);
+                            populateSelect('filterCategory', data.data.categories);
+                            populateSelect('filterSubCategory', data.data.subCategories);
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log('Failed to load filter options');
+                    });
+            }
+
+            function buildProductHierarchy(data) {
+                fetch('/products/hierarchy')
+                    .then(function (response) { return response.json(); })
+                    .then(function (result) {
+                        if (result.success) {
+                            productHierarchy = result.data;
+                        }
+                    })
+                    .catch(function () {
+                        console.log('Failed to load hierarchy');
+                    });
+            }
+
+            function onProductTypeChange() {
+                var selectedType = document.getElementById('filterProductType').value;
+                var categorySelect = document.getElementById('filterCategory');
+                var subCategorySelect = document.getElementById('filterSubCategory');
+
+                categorySelect.value = '';
+                subCategorySelect.value = '';
+
+                if (selectedType && productHierarchy[selectedType]) {
+                    var categories = Object.keys(productHierarchy[selectedType]);
+                    populateSelect('filterCategory', categories);
+                    populateSelect('filterSubCategory', []);
+                } else {
+                    populateSelect('filterCategory', allFilterData.categories);
+                    populateSelect('filterSubCategory', allFilterData.subCategories);
+                }
+
+                applyFilters();
+            }
+
+            function onCategoryChange() {
+                var selectedType = document.getElementById('filterProductType').value;
+                var selectedCategory = document.getElementById('filterCategory').value;
+                var subCategorySelect = document.getElementById('filterSubCategory');
+
+                subCategorySelect.value = '';
+
+                if (selectedType && selectedCategory && productHierarchy[selectedType] && productHierarchy[selectedType][selectedCategory]) {
+                    var subCategories = productHierarchy[selectedType][selectedCategory];
+                    populateSelect('filterSubCategory', subCategories);
+                } else if (selectedCategory) {
+                    var relevantSubCategories = [];
+                    for (var type in productHierarchy) {
+                        if (productHierarchy[type][selectedCategory]) {
+                            relevantSubCategories = relevantSubCategories.concat(productHierarchy[type][selectedCategory]);
+                        }
+                    }
+                    var uniqueSubCategories = relevantSubCategories.filter(function (item, pos) {
+                        return relevantSubCategories.indexOf(item) === pos;
+                    });
+                    populateSelect('filterSubCategory', uniqueSubCategories.length > 0 ? uniqueSubCategories : allFilterData.subCategories);
+                } else {
+                    populateSelect('filterSubCategory', allFilterData.subCategories);
+                }
+
+                applyFilters();
+            }
+
+            function populateSelect(selectId, options) {
+                var select = document.getElementById(selectId);
+                var currentValue = select.value;
+                var firstOption = select.options[0];
+
+                select.innerHTML = '';
+                select.appendChild(firstOption);
+
+                for (var i = 0; i < options.length; i++) {
+                    var opt = document.createElement('option');
+                    opt.value = options[i];
+                    opt.textContent = options[i];
+                    select.appendChild(opt);
+                }
+
+                if (currentValue) {
+                    select.value = currentValue;
+                }
+            }
+
+            function searchProducts() {
+                var params = new URLSearchParams({
+                    q: document.getElementById('searchInput').value,
+                    productType: document.getElementById('filterProductType').value,
+                    category: document.getElementById('filterCategory').value,
+                    subCategory: document.getElementById('filterSubCategory').value,
+                    texture: document.getElementById('filterTexture').value,
+                    size: document.getElementById('filterSize').value,
+                    thickness: document.getElementById('filterThickness').value,
+                    sortBy: document.getElementById('sortBy').value,
+                    page: currentPage,
+                    limit: 12
+                });
+
+                var entries = Array.from(params.entries());
+                for (var i = 0; i < entries.length; i++) {
+                    if (!entries[i][1]) {
+                        params.delete(entries[i][0]);
+                    }
+                }
+
+                showLoading();
+
+                fetch('/products/search?' + params.toString())
+                    .then(function (response) { return response.json(); })
+                    .then(function (data) {
+                        if (data.success) {
+                            displayProducts(data.data);
+                            displayPagination(data.pagination);
+                            updateResultsCount(data.pagination.total);
+                            updateActiveFilters();
+                        }
+                    })
+                    .catch(function () {
+                        document.getElementById('productsGrid').innerHTML = '<div class="no-results" style="grid-column: 1 / -1;"><div class="no-results-icon">⚠️</div><h3>Something went wrong</h3><p>Please try again later</p></div>';
+                    });
+            }
+
+            function showLoading() {
+                document.getElementById('productsGrid').innerHTML = '<div class="loading" style="grid-column: 1 / -1;"><div class="spinner"></div><div>Loading products...</div></div>';
+            }
+
+            function displayProducts(products) {
+                var grid = document.getElementById('productsGrid');
+
+                if (products.length === 0) {
+                    grid.innerHTML = '<div class="no-results" style="grid-column: 1 / -1;"><div class="no-results-icon">🔍</div><h3>No products found</h3><p>Try adjusting your search or filters</p></div>';
+                    return;
+                }
+
+                var html = '';
+                for (var i = 0; i < products.length; i++) {
+                    var p = products[i];
+                    html += '<div class="product-card" onclick="selectProduct(\'' + p._id + '\')">';
+                    html += '<img src="' + p.image + '" alt="' + p.productName + '" class="product-image" onerror="this.src=\'https://via.placeholder.com/200?text=No+Image\'">';
+                    html += '<div class="product-info">';
+                    html += '<div class="product-code">' + p.productCode + '</div>';
+                    html += '<div class="product-name">' + p.productName + '</div>';
+                    html += '<div class="product-category">' + p.category + '</div>';
+                    html += '<div class="product-specs">';
+                    html += '<span class="spec-badge">' + p.productType + '</span>';
+                    html += '<span class="spec-badge">' + p.thickness + '</span>';
+                    html += '<span class="spec-badge">' + p.size + '</span>';
+                    html += '</div></div></div>';
+                }
+                grid.innerHTML = html;
+            }
+
+            function displayPagination(pagination) {
+                var container = document.getElementById('pagination');
+
+                if (pagination.pages <= 1) {
+                    container.innerHTML = '';
+                    return;
+                }
+
+                var html = '<button ' + (currentPage === 1 ? 'disabled' : '') + ' onclick="goToPage(' + (currentPage - 1) + ')">← Previous</button>';
+
+                for (var i = 1; i <= pagination.pages; i++) {
+                    if (i === 1 || i === pagination.pages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                        html += '<button class="' + (i === currentPage ? 'current-page' : '') + '" onclick="goToPage(' + i + ')">' + i + '</button>';
+                    } else if (i === currentPage - 2 || i === currentPage + 2) {
+                        html += '<span>...</span>';
+                    }
+                }
+
+                html += '<button ' + (currentPage === pagination.pages ? 'disabled' : '') + ' onclick="goToPage(' + (currentPage + 1) + ')">Next →</button>';
+
+                container.innerHTML = html;
+            }
+
+            function goToPage(page) {
+                currentPage = page;
+                searchProducts();
+            }
+
+            function updateResultsCount(total) {
+                document.getElementById('resultsCount').textContent = total + ' product' + (total !== 1 ? 's' : '') + ' found';
+            }
+
+            function updateActiveFilters() {
+                var container = document.getElementById('activeFilters');
+                var filters = [];
+
+                var filterMap = {
+                    filterProductType: 'Type',
+                    filterCategory: 'Category',
+                    filterSubCategory: 'Sub-Category',
+                    filterTexture: 'Texture',
+                    filterSize: 'Size',
+                    filterThickness: 'Thickness'
+                };
+
+                for (var key in filterMap) {
+                    var value = document.getElementById(key).value;
+                    if (value) {
+                        filters.push({ id: key, label: filterMap[key], value: value });
+                    }
+                }
+
+                if (filters.length === 0) {
+                    container.innerHTML = '';
+                    return;
+                }
+
+                var html = '';
+                for (var i = 0; i < filters.length; i++) {
+                    var f = filters[i];
+                    html += '<div class="filter-tag"><span>' + f.label + ': ' + f.value + '</span><button onclick="removeFilter(\'' + f.id + '\')">×</button></div>';
+                }
+                container.innerHTML = html;
+            }
+
+            function removeFilter(filterId) {
+                document.getElementById(filterId).value = '';
+                if (filterId === 'filterProductType') {
+                    onProductTypeChange();
+                } else if (filterId === 'filterCategory') {
+                    onCategoryChange();
+                } else {
+                    applyFilters();
+                }
+            }
+
+            function clearAllFilters() {
+                document.getElementById('filterProductType').value = '';
+                document.getElementById('filterCategory').value = '';
+                document.getElementById('filterSubCategory').value = '';
+                document.getElementById('filterTexture').value = '';
+                document.getElementById('filterSize').value = '';
+                document.getElementById('filterThickness').value = '';
+                populateSelect('filterCategory', allFilterData.categories);
+                populateSelect('filterSubCategory', allFilterData.subCategories);
+                applyFilters();
+            }
+
+            function applyFilters() {
+                currentPage = 1;
+                searchProducts();
+            }
+
+            function loadAutocomplete(query) {
+                fetch('/products/autocomplete?q=' + encodeURIComponent(query))
+                    .then(function (response) { return response.json(); })
+                    .then(function (data) {
+                        if (data.success && data.data.length > 0) {
+                            displayAutocomplete(data.data);
+                        } else {
+                            hideAutocomplete();
+                        }
+                    })
+                    .catch(function () {
+                        hideAutocomplete();
+                    });
+            }
+
+
+
+            function displayAutocomplete(suggestions) {
+                const dropdown = document.getElementById('autocompleteDropdown');
+
+                const html = suggestions.map(product => {
+                    const safeName = product.productName.replace(/'/g, "\\'");
+                    return `
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 autocomplete-card" 
+                 onclick="selectAutocompleteItem('${product.productCode}', '${safeName}')">
+
+                <div class="product-wrap mb-25 scroll-zoom">
+                    <div class="product-img">
+                        <a href="/products/detail/${product.productCode}">
+                            <img 
+                                class="default-img" 
+                                src="${product.image}" 
+                                alt="${product.productName}" 
+                                loading="lazy" 
+                                decoding="async" 
+                                width="180" height="240">
+                            <img 
+                                class="hover-img" 
+                                src="${product.image}" 
+                                alt="${product.productName}" 
+                                loading="lazy" 
+                                decoding="async" 
+                                width="180" height="240">
+                        </a>
+
+                        <div class="product-action">
+                            <div class="pro-same-action pro-wishlist">
+                                <a title="Download" href="/products/download/${product.productCode}">
+                                    <i class="pe-7s-download"></i>
+                                </a>
+                            </div>
+
+                            <div class="pro-same-action pro-cart">
+                                <a title="View Product" href="/products/detail/${product.productCode}">
+                                    View Product
+                                </a>
+                            </div>
+
+                            <div class="pro-same-action pro-quickview">
+                                <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    data-productcode="${product.productCode}"
+                                    data-producttype="${product.productType}"
+                                    data-name="${product.productName}"
+                                    data-image="${product.image}"
+                                    data-category="${product.category}"
+                                    data-subcategory="${product.subCategory}"
+                                    data-texture="${product.texture}"
+                                    data-design="${product.design}"
+                                    data-size="${product.size}"
+                                    data-thickness="${product.thickness}"
+                                    data-width="${product.width}"
+                                    data-downloadlink="${product.downloadLink}">
+                                    <i class="pe-7s-look"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-content text-left">
+                        <h3>
+                            <a href="/product-details/${product.id}">
+                                ${product.productCode} <br>
+                                ${product.category} - ${product.texture}
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        `;
+                }).join('');
+
+                dropdown.innerHTML = html;
+                dropdown.classList.add('active');
+            }
+
+
+
+
+
+            function selectAutocompleteItem(code, name) {
+                document.getElementById('searchInput').value = name;
+                hideAutocomplete();
+                currentPage = 1;
+                searchProducts();
+            }
+
+            function hideAutocomplete() {
+                document.getElementById('autocompleteDropdown').classList.remove('active');
+            }
+
+            function selectProduct(productId) {
+                window.location.href = '/products/' + productId;
+            }
+
+            document.addEventListener('keydown', function (e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    openSearchModal();
+                }
+            });
+        </script>
+
+
+
+
+
+
+
+
+
+        <%- include("partials/footer") %>
+
+            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+            <script src="/js/vendor/popper.min.js"></script>
+            <script src="/js/vendor/bootstrap.min.js"></script>
+            <script src="/js/plugins.js"></script>
+            <script src="/js/ajax-mail.js"></script>
+            <script src="/js/main.js"></script>
 </body>
+
 </html>

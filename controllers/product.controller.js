@@ -266,3 +266,124 @@ exports.downloadProductPdf = async (req, res) => {
     res.status(500).json({ success: false, message: "Error generating PDF" });
   }
 };
+
+
+
+
+// Main search endpoint
+exports.searchProducts = async (req, res) => {
+  try {
+    const searchParams = {
+      query: req.query.q || req.query.query,
+      productType: req.query.productType,
+      category: req.query.category,
+      subCategory: req.query.subCategory,
+      texture: req.query.texture,
+      textureCode: req.query.textureCode,
+      size: req.query.size,
+      thickness: req.query.thickness,
+      width: req.query.width,
+      productCode: req.query.productCode,
+      isActive: req.query.isActive !== 'false', // defaults to true
+      page: parseInt(req.query.page) || 1,
+      limit: parseInt(req.query.limit) || 20,
+      sortBy: req.query.sortBy || 'createdAt',
+      sortOrder: req.query.sortOrder || 'desc'
+    };
+
+    const result = await Product.searchProducts(searchParams);
+
+    res.status(200).json({
+      success: true,
+      data: result.products,
+      pagination: result.pagination
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// Get filter options for UI dropdowns
+exports.getFilterOptions = async (req, res) => {
+  try {
+    const options = await Product.getFilterOptions();
+
+    res.status(200).json({
+      success: true,
+      data: options
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// Get product hierarchy (ProductType -> Category -> SubCategory)
+exports.getProductHierarchy = async (req, res) => {
+  try {
+    const products = await Product.find({ isActive: true })
+      .select('productType category subCategory')
+      .lean();
+
+    const hierarchy = {};
+
+    products.forEach(product => {
+      const { productType, category, subCategory } = product;
+
+      if (!hierarchy[productType]) {
+        hierarchy[productType] = {};
+      }
+
+      if (!hierarchy[productType][category]) {
+        hierarchy[productType][category] = [];
+      }
+
+      if (subCategory && !hierarchy[productType][category].includes(subCategory)) {
+        hierarchy[productType][category].push(subCategory);
+      }
+    });
+
+    // Sort subcategories
+    for (const type in hierarchy) {
+      for (const cat in hierarchy[type]) {
+        hierarchy[type][cat].sort();
+      }
+    }
+
+    res.status(200).json({
+      success: true,
+      data: hierarchy
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// Autocomplete suggestions
+exports.autocomplete = async (req, res) => {
+  try {
+    const query = req.query.q || req.query.query;
+    const limit = parseInt(req.query.limit) || 10;
+
+    const suggestions = await Product.getAutocompleteSuggestions(query, limit);
+
+    res.status(200).json({
+      success: true,
+      data: suggestions
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+

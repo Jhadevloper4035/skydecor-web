@@ -6,7 +6,7 @@
         <!-- Use first image of event as cover -->
         <a href="/events/<%= event.slug %>">
           <img 
-            src="<%= event.images && event.images.length ? event.images[0] : '/images/placeholder.jpg' %>" 
+            src="<%= event.coverImage %>" 
             alt="<%= event.title %>" 
             loading="lazy"
             decoding="async"

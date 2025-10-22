@@ -17,7 +17,7 @@
   .modal-dialog {
     margin: auto !important;
     max-width: 960px;
-    width: 960px;
+    width: 100%;
     padding: 35px;
   }
 
@@ -222,6 +222,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    text-decoration: none;
   }
 
   .skydecor-product-modal .skydecor-btn-product-details:hover {
@@ -243,6 +244,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    text-decoration: none;
   }
 
   .skydecor-product-modal .skydecor-btn-enquiry:hover {
@@ -250,10 +252,21 @@
   }
 
   /* Responsive Design */
+  
+  /* Tablets and smaller desktops */
   @media (max-width: 991px) {
+    .modal-dialog {
+      padding: 20px;
+      max-width: 100%;
+    }
+
     .skydecor-product-modal .skydecor-product-image-section {
-      min-height: 400px;
-      padding: 30px;
+      min-height: 450px;
+      padding: 30px 20px;
+    }
+
+    .skydecor-product-modal .skydecor-product-image-wrapper {
+      max-width: 300px;
     }
 
     .skydecor-product-modal .skydecor-product-details-section {
@@ -261,13 +274,22 @@
     }
 
     .skydecor-product-modal .skydecor-product-title {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
+    }
+
+    .skydecor-product-modal .skydecor-spec-label {
+      min-width: 110px;
     }
   }
 
-  @media (max-width: 576px) {
+  /* Large phones and small tablets */
+  @media (max-width: 768px) {
+    .modal-dialog {
+      padding: 15px;
+    }
+
     .skydecor-product-modal .modal-header {
-      padding: 15px 20px;
+      padding: 16px 20px;
     }
 
     .skydecor-product-modal .modal-title {
@@ -275,8 +297,12 @@
     }
 
     .skydecor-product-modal .skydecor-product-image-section {
-      min-height: 300px;
-      padding: 20px;
+      min-height: 350px;
+      padding: 25px 15px;
+    }
+
+    .skydecor-product-modal .skydecor-product-image-wrapper {
+      max-width: 280px;
     }
 
     .skydecor-product-modal .skydecor-product-details-section {
@@ -284,7 +310,18 @@
     }
 
     .skydecor-product-modal .skydecor-product-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
+      padding-bottom: 15px;
+    }
+
+    .skydecor-product-modal .skydecor-spec-item {
+      padding: 12px 0;
+    }
+
+    .skydecor-product-modal .skydecor-spec-icon {
+      width: 20px;
+      margin-right: 12px;
+      font-size: 14px;
     }
 
     .skydecor-product-modal .skydecor-spec-label {
@@ -296,12 +333,169 @@
       font-size: 13px;
     }
 
+    .skydecor-product-modal .skydecor-share-section {
+      gap: 8px;
+    }
+
+    .skydecor-product-modal .skydecor-share-btn {
+      width: 34px;
+      height: 34px;
+    }
+
     .skydecor-product-modal .skydecor-action-buttons {
-      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  /* Standard phones */
+  @media (max-width: 576px) {
+    .modal-dialog {
+      padding: 10px;
+      margin: 0 !important;
+    }
+
+    .skydecor-product-modal .modal-content {
+      border-radius: 0;
+    }
+
+    .skydecor-product-modal .modal-header {
+      padding: 14px 18px;
+    }
+
+    .skydecor-product-modal .modal-title {
+      font-size: 1rem;
+    }
+
+    .skydecor-product-modal .skydecor-product-image-section {
+      min-height: 280px;
+      padding: 20px 15px;
+    }
+
+    .skydecor-product-modal .skydecor-product-image-wrapper {
+      max-width: 240px;
+    }
+
+    .skydecor-product-modal .skydecor-product-details-section {
+      padding: 20px 18px;
+    }
+
+    .skydecor-product-modal .skydecor-product-header {
+      margin-bottom: 20px;
+    }
+
+    .skydecor-product-modal .skydecor-product-title {
+      font-size: 1.15rem;
+      padding-bottom: 12px;
+    }
+
+    .skydecor-product-modal .skydecor-spec-list {
+      margin: 20px 0;
+    }
+
+    .skydecor-product-modal .skydecor-spec-item {
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    .skydecor-product-modal .skydecor-spec-icon {
+      width: 18px;
+      margin-right: 10px;
+      font-size: 13px;
+    }
+
+    .skydecor-product-modal .skydecor-spec-label {
+      min-width: 90px;
+      font-size: 12px;
+    }
+
+    .skydecor-product-modal .skydecor-spec-value {
+      font-size: 12px;
     }
 
     .skydecor-product-modal .skydecor-share-section {
+      gap: 6px;
       flex-wrap: wrap;
+      margin: 20px 0;
+      padding-top: 15px;
+    }
+
+    .skydecor-product-modal .skydecor-share-label {
+      font-size: 13px;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    .skydecor-product-modal .skydecor-share-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 14px;
+    }
+
+    .skydecor-product-modal .skydecor-action-buttons {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .skydecor-product-modal .skydecor-btn-product-details,
+    .skydecor-product-modal .skydecor-btn-enquiry {
+      padding: 12px 20px;
+      font-size: 13px;
+    }
+  }
+
+  /* Small phones */
+  @media (max-width: 400px) {
+    .skydecor-product-modal .skydecor-product-image-section {
+      min-height: 240px;
+      padding: 15px 10px;
+    }
+
+    .skydecor-product-modal .skydecor-product-image-wrapper {
+      max-width: 200px;
+    }
+
+    .skydecor-product-modal .skydecor-product-details-section {
+      padding: 18px 15px;
+    }
+
+    .skydecor-product-modal .skydecor-product-title {
+      font-size: 1.05rem;
+    }
+
+    .skydecor-product-modal .skydecor-spec-label {
+      min-width: 80px;
+      font-size: 11px;
+    }
+
+    .skydecor-product-modal .skydecor-spec-value {
+      font-size: 11px;
+    }
+
+    .skydecor-product-modal .skydecor-share-btn {
+      width: 30px;
+      height: 30px;
+      font-size: 13px;
+    }
+  }
+
+  /* Landscape orientation for phones */
+  @media (max-width: 768px) and (orientation: landscape) {
+    .modal-dialog {
+      padding: 10px;
+    }
+
+    .skydecor-product-modal .skydecor-product-image-section {
+      min-height: 300px;
+      padding: 20px;
+    }
+
+    .skydecor-product-modal .skydecor-product-image-wrapper {
+      max-width: 220px;
+    }
+
+    .skydecor-product-modal .skydecor-product-details-section {
+      padding: 20px;
     }
   }
 </style>
@@ -329,7 +523,7 @@
           <div class="col-lg-5">
             <div class="skydecor-product-image-section">
               <div class="skydecor-product-image-wrapper">
-                <img id="skydecorModalProductImage" src="" alt="Product Image">
+                <img id="skydecorModalProductImage" src="https://via.placeholder.com/350" alt="Product Image">
               </div>
             </div>
           </div>
@@ -387,23 +581,13 @@
                 </div>
               </div>
 
-              <!-- Share Section -->
-              <div class="skydecor-share-section">
-                <span class="skydecor-share-label">Share:</span>
-                <a href="#" class="skydecor-share-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="skydecor-share-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="skydecor-share-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="skydecor-share-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="skydecor-share-btn" title="Copy Link"><i class="fas fa-link"></i></a>
-              </div>
-
               <!-- Action Buttons -->
               <div class="skydecor-action-buttons">
-                <a href="" id="productDownloadLink" class="skydecor-btn-product-details">
-                  <i class="fas fa-download"></i> Product Details
+                <a href="" id="productDownloadLink" class="skydecor-btn-product-details"> 
+                      <i class="fas fa-download"></i>  Product Details
                 </a>
-                <a href="" class="skydecor-btn-enquiry">
-                  <i class="fas fa-envelope"></i> Know More
+                <a href="" id="productPageLink" class="skydecor-btn-enquiry">
+                   <i class="fas fa-envelope"></i> know More
                 </a>
               </div>
 
@@ -416,6 +600,10 @@
     </div>
   </div>
 </div>
+
+
+
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -453,7 +641,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Optional: update download link dynamically if needed
       const downloadLink = button.getAttribute("data-downloadlink") || "#";
-      document.getElementById("productDownloadLink").href = downloadLink;
+      document.getElementById("productDownloadLink").href = "/products/download/" + productCode;
+      document.getElementById("productPageLink").href = "/products/detail/" + productCode;
+
+
+
     });
   }
 });

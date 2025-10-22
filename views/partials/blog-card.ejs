@@ -1,37 +1,55 @@
-<% blogs.forEach(blog=> { %>
+<% blogs.forEach(blog => { %>
   <div class="col-lg-4 col-md-6 col-sm-12 wow animate__animated animate__fadeInUp scroll-zoom" data-wow-delay="0.2s">
     <div class="blog-wrap-2 mb-30">
+      
+      <!-- Image Section -->
       <div class="blog-img-2">
         <a href="/blogs/<%= blog.url %>">
-          <img src="<%= blog.image %>" alt="<%= blog.title %>" loading="lazy" decoding="async" width="370" height="250">
+          <img 
+            src="<%= blog.image %>" 
+            alt="<%= blog.meta_title || blog.title %>" 
+            loading="lazy" 
+            decoding="async" 
+            width="370" 
+            height="250"
+          >
         </a>
       </div>
 
+      <!-- Blog Content -->
       <div class="blog-content-2">
         <div class="blog-meta-2">
           <ul>
             <li>
-              <%= new Date(blog.created_at).toLocaleDateString('en-US', { day: 'numeric' , month: 'long' ,
-                year: 'numeric' }) %>
+              <%= new Date(blog.created_at).toLocaleDateString('en-US', { 
+                day: 'numeric', month: 'long', year: 'numeric' 
+              }) %>
             </li>
-            <li><a href="#">4 <i class="fa fa-comments-o"></i></a></li>
+            <li>
+              <a href="#"><i class="fa fa-user"></i> <%= blog.author || "Admin" %></a>
+            </li>
           </ul>
         </div>
 
-        <h4><a href="/blogs/<%= blog.url %>">
+        <!-- Blog Title -->
+        <h4>
+          <a href="/blogs/<%= blog.url %>">
             <%= blog.title %>
-          </a></h4>
+          </a>
+        </h4>
 
+        <!-- Short Description (HTML stripped for safety) -->
         <p>
           <%= blog.text.replace(/<[^>]*>/g, '').substring(0, 100) %>...
         </p>
 
+        <!-- Read More -->
         <div class="blog-share-comment">
           <div class="blog-btn-2">
-            <a href="/blogs/<%= blog.url %>">read more</a>
+            <a href="/blogs/<%= blog.url %>">Read More</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <% }) %>
+<% }) %>
