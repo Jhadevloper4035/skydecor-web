@@ -568,7 +568,7 @@
                         <div class="results-count" id="resultsCount">Loading products...</div>
                     </div>
 
-                     <div class="results-info">
+                    <div class="results-info">
                         <div class="view-toggle">
                             <button class="view-btn active" data-view="3" onclick="changeView(3)">
                                 <span>◼◼◼</span>
@@ -608,6 +608,9 @@
         <%- include("partials/footer") %>
 
 
+         <%- include("partials/product-modal") %>
+
+
 
 
 
@@ -622,6 +625,10 @@
             <script src="/js/ajax-mail.js"></script>
             <!-- Main JS -->
             <script src="/js/main.js"></script>
+
+
+
+            
 
 
 
@@ -676,39 +683,39 @@
                     });
                 }
 
-            function changeView(viewCount) {
-    currentView = viewCount;
-    var products = document.querySelectorAll('#productsGrid .product-card');
+                function changeView(viewCount) {
+                    currentView = viewCount;
+                    var products = document.querySelectorAll('#productsGrid .product-card');
 
-    products.forEach(function (product) {
-        // Remove all possible column classes you want to toggle
-        product.classList.remove('col-md-3', 'col-md-4', 'col-md-6'); 
+                    products.forEach(function (product) {
+                        // Remove all possible column classes you want to toggle
+                        product.classList.remove('col-md-3', 'col-md-4', 'col-md-6');
 
-        // Add class based on viewCount
-        switch(viewCount) {
-            case 1: 
-                product.classList.add('col-md-12'); // single column
-                break;
-            case 2: 
-                product.classList.add('col-md-6'); // 2 columns
-                break;
-            case 3: 
-                product.classList.add('col-md-4'); // 3 columns
-                break;
-            case 4: 
-                product.classList.add('col-md-3'); // 4 columns
-                break;
-            default:
-                product.classList.add('col-md-4'); // default 3 columns
-        }
-    });
+                        // Add class based on viewCount
+                        switch (viewCount) {
+                            case 1:
+                                product.classList.add('col-md-12'); // single column
+                                break;
+                            case 2:
+                                product.classList.add('col-md-6'); // 2 columns
+                                break;
+                            case 3:
+                                product.classList.add('col-md-4'); // 3 columns
+                                break;
+                            case 4:
+                                product.classList.add('col-md-3'); // 4 columns
+                                break;
+                            default:
+                                product.classList.add('col-md-4'); // default 3 columns
+                        }
+                    });
 
-    // Toggle active button
-    document.querySelectorAll('.view-btn').forEach(function (btn) {
-        btn.classList.remove('active');
-    });
-    document.querySelector('[data-view="' + viewCount + '"]').classList.add('active');
-}
+                    // Toggle active button
+                    document.querySelectorAll('.view-btn').forEach(function (btn) {
+                        btn.classList.remove('active');
+                    });
+                    document.querySelector('[data-view="' + viewCount + '"]').classList.add('active');
+                }
 
 
 
@@ -1106,4 +1113,5 @@
 
 
 </body>
+
 </html>

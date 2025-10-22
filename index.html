@@ -1,30 +1,20 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Skydecor - Premium Quality Laminates Design Collections</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
-
-    <!-- CSS ============================================ -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/icons.min.css" />
-    <link rel="stylesheet" href="/css/plugins.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Guidance Contact Form</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-gold: #C9A961;
+            --dark-brown: #3E2723;
+            --light-bg: #F8F6F3;
+            --text-primary: #2C2C2C;
+            --text-secondary: #666666;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -33,1059 +23,433 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
+            background: var(--light-bg);
+            overflow-x: hidden;
         }
 
-        .search-trigger {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
+        .contact-section {
+            min-height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
+            padding: 60px 0;
         }
 
-        .search-trigger:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
+        .contact-section::before {
+            content: '';
+            position: absolute;
             top: 0;
-            left: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(62, 39, 35, 0.95) 0%, rgba(62, 39, 35, 0.85) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%233E2723" width="1200" height="800"/></svg>');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .form-container {
+            background: white;
+            padding: 50px;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            transform: translateX(0);
+            transition: all 0.3s ease;
+        }
+
+        .form-container:hover {
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .section-title .highlight {
+            color: var(--primary-gold);
+            font-weight: 400;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .form-control, .form-select {
+            border: none;
+            border-bottom: 1px solid #E0E0E0;
+            border-radius: 0;
+            padding: 12px 0;
+            font-size: 1rem;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            box-shadow: none;
+            border-bottom-color: var(--primary-gold);
+            background: transparent;
+        }
+
+        .form-control::placeholder {
+            color: #BDBDBD;
+            font-weight: 300;
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group .form-control {
+            padding-right: 35px;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .form-check {
+            margin: 25px 0;
+            padding-left: 0;
+        }
+
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #D0D0D0;
+            border-radius: 2px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-gold);
+            border-color: var(--primary-gold);
+        }
+
+        .form-check-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background: var(--dark-brown);
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 1000;
-            animation: fadeIn 0.3s ease;
+            background: var(--primary-gold);
+            transition: left 0.4s ease;
+            z-index: -1;
         }
 
-        .modal-overlay.active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .search-modal {
-            background: white;
-            width: 95%;
-            max-width: 1000px;
-            max-height: 90vh;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            animation: slideUp 0.3s ease;
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .btn-submit:hover {
             color: white;
-            padding: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .modal-header h2 {
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        .close-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
-        }
-
-        .close-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .modal-body {
-            padding: 24px;
-            overflow-y: auto;
-            flex: 1;
-        }
-
-        .search-input-wrapper {
-            position: relative;
-            margin-bottom: 24px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 14px 48px 14px 48px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-        }
-
-        .clear-search {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #999;
-            cursor: pointer;
-            font-size: 20px;
-            display: none;
-        }
-
-        .clear-search.active {
-            display: block;
-        }
-
-        .autocomplete-dropdown {
-            position: absolute;
-            top: 100%;
+        .btn-submit:hover::before {
             left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            margin-top: 4px;
-            max-height: 300px;
-            overflow-y: auto;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            display: none;
-            z-index: 10;
         }
 
-        .autocomplete-dropdown.active {
-            display: block;
+        .image-section {
+            position: relative;
+            height: 100%;
+            min-height: 500px;
         }
 
-        .autocomplete-item {
-            padding: 12px 16px;
-            cursor: pointer;
+        .luxury-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            height: 80%;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid #f0f0f0;
-            transition: background 0.2s;
-        }
-
-        .autocomplete-item:hover {
-            background: #f8f9fa;
-        }
-
-        .autocomplete-item img {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .autocomplete-item-info {
-            flex: 1;
-        }
-
-        .autocomplete-item-name {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .autocomplete-item-code {
-            font-size: 12px;
-            color: #999;
-        }
-
-        .filters-section {
-            margin-bottom: 24px;
-        }
-
-        .filters-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .filters-header h3 {
-            font-size: 18px;
-            color: #333;
-        }
-
-        .clear-filters {
-            background: none;
-            border: none;
-            color: #667eea;
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: underline;
-        }
-
-        .filters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .filter-group label {
-            font-size: 13px;
-            font-weight: 500;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .filter-group select {
-            padding: 10px 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: border-color 0.2s;
-            background: white;
-        }
-
-        .filter-group select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .active-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .filter-tag {
-            background: #e8eaf6;
-            color: #5c6bc0;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .filter-tag button {
-            background: none;
-            border: none;
-            color: #5c6bc0;
-            cursor: pointer;
-            font-size: 16px;
-            line-height: 1;
-        }
-
-        .results-section {
-            margin-top: 24px;
-        }
-
-        .results-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .results-count {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .sort-by {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sort-by select {
-            padding: 6px 12px;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #999;
-        }
-
-        .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 16px;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
-        }
-
-        .no-results-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-
-        .pagination {
-            display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 24px;
         }
 
-        .pagination button {
-            padding: 8px 12px;
-            border: 1px solid #e0e0e0;
-            background: white;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s;
+        .luxury-image i {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.3);
         }
 
-        .pagination button:hover:not(:disabled) {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
+        @media (max-width: 991px) {
+            .contact-section::before {
+                width: 100%;
+                height: 40%;
+                top: auto;
+                bottom: 0;
+            }
+
+            .form-container {
+                padding: 40px 30px;
+                margin-bottom: 30px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .image-section {
+                min-height: 400px;
+            }
         }
 
-        .pagination button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        @media (max-width: 767px) {
+            .contact-section {
+                padding: 40px 0;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .btn-submit {
+                width: 100%;
+                padding: 15px 30px;
+            }
+
+            .image-section {
+                min-height: 300px;
+            }
         }
 
-        .pagination .current-page {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
+        @media (max-width: 575px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .form-container {
+                padding: 25px 15px;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-in;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: translateY(20px);
             }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .search-modal {
-                width: 100%;
-                height: 100%;
-                max-height: 100%;
-                border-radius: 0;
-            }
-
-            .filters-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-        }
     </style>
-
-
-
-
 </head>
-
 <body>
+    <section class="contact-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="form-container animate-fade-in">
+                        <h2 class="section-title">
+                            GET EXPERT GUIDANCE<br>
+                            FOR YOUR <span class="highlight">NEED</span>
+                        </h2>
+                        <p class="section-subtitle">
+                            Tell us what you're looking for, and our team will get back to you with tailored solutions.
+                        </p>
 
-
-    <%- include("partials/header") %>
-
-
-        <button class="search-trigger" onclick="openSearchModal()">
-            <span>🔍</span> Search Products
-        </button>
-
-        <div class="modal-overlay" id="searchModal" onclick="closeModalOnOutsideClick(event)">
-            <div class="search-modal" onclick="event.stopPropagation()">
-                <div class="modal-header">
-                    <h2>🔍 Search Products</h2>
-                    <button class="close-btn" onclick="closeSearchModal()">×</button>
-                </div>
-
-                <div class="modal-body">
-                    <div class="search-input-wrapper">
-                        <span class="search-icon">🔍</span>
-                        <input type="text" class="search-input" id="searchInput"
-                            placeholder="Search by name, code, category, texture..." autocomplete="off">
-                        <button class="clear-search" id="clearSearch" onclick="clearSearchInput()">×</button>
-
-                        <div class="autocomplete-dropdown" id="autocompleteDropdown"></div>
-                    </div>
-
-                    <div class="filters-section">
-                        <div class="filters-header">
-                            <h3>Filters</h3>
-                            <button class="clear-filters" onclick="clearAllFilters()">Clear All</button>
-                        </div>
-
-                        <div class="filters-grid">
-                            <div class="filter-group">
-                                <label>Product Type</label>
-                                <select id="filterProductType" onchange="onProductTypeChange()">
-                                    <option value="">All Types</option>
-                                </select>
-                            </div>
-
-                            <div class="filter-group">
-                                <label>Category</label>
-                                <select id="filterCategory" onchange="onCategoryChange()">
-                                    <option value="">All Categories</option>
-                                </select>
-                            </div>
-
-                            <div class="filter-group">
-                                <label>Sub-Category</label>
-                                <select id="filterSubCategory" onchange="applyFilters()">
-                                    <option value="">All Sub-Categories</option>
-                                </select>
-                            </div>
-
-                            <div class="filter-group">
-                                <label>Texture</label>
-                                <select id="filterTexture" onchange="applyFilters()">
-                                    <option value="">All Textures</option>
-                                </select>
-                            </div>
-
-                            <div class="filter-group">
-                                <label>Size</label>
-                                <select id="filterSize" onchange="applyFilters()">
-                                    <option value="">All Sizes</option>
-                                </select>
-                            </div>
-
-                            <div class="filter-group">
-                                <label>Thickness</label>
-                                <select id="filterThickness" onchange="applyFilters()">
-                                    <option value="">All Thicknesses</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="active-filters" id="activeFilters"></div>
-                    </div>
-
-                    <div class="results-section">
-                        <div class="results-header">
-                            <div class="results-count" id="resultsCount">0 products found</div>
-                            <div class="sort-by">
-                                <label>Sort by:</label>
-                                <select id="sortBy" onchange="applyFilters()">
-                                    <option value="createdAt">Newest</option>
-                                    <option value="productName">Name (A-Z)</option>
-                                    <option value="productCode">Code</option>
-                                    <option value="category">Category</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-
-                        <div class="shop-bottom-area mt-35">
-                            <div class="tab-content jump">
-                                <div id="shop-1" class="tab-pane active">
-                                    <div class="row" id="productsGrid">
-
-                                        <div class="loading" style="grid-column: 1 / -1;">
-                                            <div class="spinner"></div>
-                                            <div>Loading products...</div>
-                                        </div>
-
+                        <form id="contactForm" novalidate>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label">Name*</label>
+                                    <input type="text" class="form-control" placeholder="Enter your name" required>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label">Email ID*</label>
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="your@email.com" required>
+                                        <i class="fas fa-envelope input-icon"></i>
                                     </div>
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label">Mobile Number*</label>
+                                    <input type="tel" class="form-control" placeholder="Enter mobile number" required>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label">Country</label>
+                                    <select class="form-select">
+                                        <option selected>India</option>
+                                        <option value="us">United States</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="ae">UAE</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label">Select State</label>
+                                    <select class="form-select">
+                                        <option selected disabled>Select State</option>
+                                        <option value="dl">Delhi</option>
+                                        <option value="mh">Maharashtra</option>
+                                        <option value="ka">Karnataka</option>
+                                        <option value="tn">Tamil Nadu</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label">Select City</label>
+                                    <select class="form-select">
+                                        <option selected disabled>Select City</option>
+                                        <option value="delhi">New Delhi</option>
+                                        <option value="mumbai">Mumbai</option>
+                                        <option value="bangalore">Bangalore</option>
+                                        <option value="chennai">Chennai</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label">You Are*</label>
+                                    <select class="form-select" required>
+                                        <option selected disabled>Select option</option>
+                                        <option value="homeowner">Homeowner</option>
+                                        <option value="architect">Architect</option>
+                                        <option value="designer">Interior Designer</option>
+                                        <option value="builder">Builder/Developer</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label">Message</label>
+                                    <textarea class="form-control" placeholder="Type your message here"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-check d-flex align-items-start">
+                                <input class="form-check-input mt-1" type="checkbox" id="consent" required>
+                                <label class="form-check-label ms-2" for="consent">
+                                    I agree that by clicking the 'Submit' button, I am explicitly soliciting a call and message via WhatsApp or any other medium from Merino Industries Ltd or its partners.
+                                </label>
+                            </div>
+
+                            <div class="form-check d-flex align-items-start">
+                                <input class="form-check-input mt-1" type="checkbox" id="age">
+                                <label class="form-check-label ms-2" for="age">
+                                    I am 18 or above
+                                </label>
+                            </div>
+
+                            <div class="mt-4">
+                                <button type="submit" class="btn-submit">
+                                    Submit Request
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="image-section">
+                        <div class="luxury-image">
+                            <i class="fas fa-home"></i>
                         </div>
-
-
-
-
-
-
-
-                        <div class="pagination" id="pagination"></div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <script>
-            var currentPage = 1;
-            var searchTimeout = null;
-            var autocompleteTimeout = null;
-            var allFilterData = {};
-            var productHierarchy = {};
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (this.checkValidity()) {
+                // Form is valid, show success message
+                alert('Thank you! Your request has been submitted successfully. Our team will contact you soon.');
+                this.reset();
+            } else {
+                // Show validation errors
+                this.classList.add('was-validated');
+            }
+        });
 
-            document.addEventListener('DOMContentLoaded', function () {
-                loadFilterOptions();
-                setupEventListeners();
+        // Add floating label effect
+        document.querySelectorAll('.form-control, .form-select').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
             });
-
-            function setupEventListeners() {
-                var searchInput = document.getElementById('searchInput');
-                var clearSearch = document.getElementById('clearSearch');
-
-                searchInput.addEventListener('input', function (e) {
-                    if (e.target.value) {
-                        clearSearch.classList.add('active');
-                    } else {
-                        clearSearch.classList.remove('active');
-                    }
-
-                    clearTimeout(searchTimeout);
-                    searchTimeout = setTimeout(function () {
-                        currentPage = 1;
-                        searchProducts();
-                    }, 300);
-
-                    clearTimeout(autocompleteTimeout);
-                    if (e.target.value.length >= 2) {
-                        autocompleteTimeout = setTimeout(function () {
-                            loadAutocomplete(e.target.value);
-                        }, 200);
-                    } else {
-                        hideAutocomplete();
-                    }
-                });
-
-                document.addEventListener('click', function (e) {
-                    if (!e.target.closest('.search-input-wrapper')) {
-                        hideAutocomplete();
-                    }
-                });
-
-                searchInput.addEventListener('keydown', function (e) {
-                    if (e.key === 'Escape') {
-                        closeSearchModal();
-                    }
-                });
-            }
-
-            function openSearchModal() {
-                document.getElementById('searchModal').classList.add('active');
-                document.getElementById('searchInput').focus();
-                if (document.getElementById('productsGrid').children.length === 1) {
-                    searchProducts();
-                }
-            }
-
-            function closeSearchModal() {
-                document.getElementById('searchModal').classList.remove('active');
-            }
-
-            function closeModalOnOutsideClick(event) {
-                if (event.target.id === 'searchModal') {
-                    closeSearchModal();
-                }
-            }
-
-            function clearSearchInput() {
-                document.getElementById('searchInput').value = '';
-                document.getElementById('clearSearch').classList.remove('active');
-                hideAutocomplete();
-                currentPage = 1;
-                searchProducts();
-            }
-
-            function loadFilterOptions() {
-                fetch('/products/filters')
-                    .then(function (response) { return response.json(); })
-                    .then(function (data) {
-                        if (data.success) {
-                            allFilterData = data.data;
-                            buildProductHierarchy(data.data);
-                            populateSelect('filterProductType', data.data.productTypes);
-                            populateSelect('filterTexture', data.data.textures);
-                            populateSelect('filterSize', data.data.sizes);
-                            populateSelect('filterThickness', data.data.thicknesses);
-                            populateSelect('filterCategory', data.data.categories);
-                            populateSelect('filterSubCategory', data.data.subCategories);
-                        }
-                    })
-                    .catch(function (error) {
-                        console.log('Failed to load filter options');
-                    });
-            }
-
-            function buildProductHierarchy(data) {
-                fetch('/products/hierarchy')
-                    .then(function (response) { return response.json(); })
-                    .then(function (result) {
-                        if (result.success) {
-                            productHierarchy = result.data;
-                        }
-                    })
-                    .catch(function () {
-                        console.log('Failed to load hierarchy');
-                    });
-            }
-
-            function onProductTypeChange() {
-                var selectedType = document.getElementById('filterProductType').value;
-                var categorySelect = document.getElementById('filterCategory');
-                var subCategorySelect = document.getElementById('filterSubCategory');
-
-                categorySelect.value = '';
-                subCategorySelect.value = '';
-
-                if (selectedType && productHierarchy[selectedType]) {
-                    var categories = Object.keys(productHierarchy[selectedType]);
-                    populateSelect('filterCategory', categories);
-                    populateSelect('filterSubCategory', []);
-                } else {
-                    populateSelect('filterCategory', allFilterData.categories);
-                    populateSelect('filterSubCategory', allFilterData.subCategories);
-                }
-
-                applyFilters();
-            }
-
-            function onCategoryChange() {
-                var selectedType = document.getElementById('filterProductType').value;
-                var selectedCategory = document.getElementById('filterCategory').value;
-                var subCategorySelect = document.getElementById('filterSubCategory');
-
-                subCategorySelect.value = '';
-
-                if (selectedType && selectedCategory && productHierarchy[selectedType] && productHierarchy[selectedType][selectedCategory]) {
-                    var subCategories = productHierarchy[selectedType][selectedCategory];
-                    populateSelect('filterSubCategory', subCategories);
-                } else if (selectedCategory) {
-                    var relevantSubCategories = [];
-                    for (var type in productHierarchy) {
-                        if (productHierarchy[type][selectedCategory]) {
-                            relevantSubCategories = relevantSubCategories.concat(productHierarchy[type][selectedCategory]);
-                        }
-                    }
-                    var uniqueSubCategories = relevantSubCategories.filter(function (item, pos) {
-                        return relevantSubCategories.indexOf(item) === pos;
-                    });
-                    populateSelect('filterSubCategory', uniqueSubCategories.length > 0 ? uniqueSubCategories : allFilterData.subCategories);
-                } else {
-                    populateSelect('filterSubCategory', allFilterData.subCategories);
-                }
-
-                applyFilters();
-            }
-
-            function populateSelect(selectId, options) {
-                var select = document.getElementById(selectId);
-                var currentValue = select.value;
-                var firstOption = select.options[0];
-
-                select.innerHTML = '';
-                select.appendChild(firstOption);
-
-                for (var i = 0; i < options.length; i++) {
-                    var opt = document.createElement('option');
-                    opt.value = options[i];
-                    opt.textContent = options[i];
-                    select.appendChild(opt);
-                }
-
-                if (currentValue) {
-                    select.value = currentValue;
-                }
-            }
-
-            function searchProducts() {
-                var params = new URLSearchParams({
-                    q: document.getElementById('searchInput').value,
-                    productType: document.getElementById('filterProductType').value,
-                    category: document.getElementById('filterCategory').value,
-                    subCategory: document.getElementById('filterSubCategory').value,
-                    texture: document.getElementById('filterTexture').value,
-                    size: document.getElementById('filterSize').value,
-                    thickness: document.getElementById('filterThickness').value,
-                    sortBy: document.getElementById('sortBy').value,
-                    page: currentPage,
-                    limit: 12
-                });
-
-                var entries = Array.from(params.entries());
-                for (var i = 0; i < entries.length; i++) {
-                    if (!entries[i][1]) {
-                        params.delete(entries[i][0]);
-                    }
-                }
-
-                showLoading();
-
-                fetch('/products/search?' + params.toString())
-                    .then(function (response) { return response.json(); })
-                    .then(function (data) {
-                        if (data.success) {
-                            displayProducts(data.data);
-                            displayPagination(data.pagination);
-                            updateResultsCount(data.pagination.total);
-                            updateActiveFilters();
-                        }
-                    })
-                    .catch(function () {
-                        document.getElementById('productsGrid').innerHTML = '<div class="no-results" style="grid-column: 1 / -1;"><div class="no-results-icon">⚠️</div><h3>Something went wrong</h3><p>Please try again later</p></div>';
-                    });
-            }
-
-            function showLoading() {
-                document.getElementById('productsGrid').innerHTML = '<div class="loading" style="grid-column: 1 / -1;"><div class="spinner"></div><div>Loading products...</div></div>';
-            }
-
-            function displayProducts(products) {
-                var grid = document.getElementById('productsGrid');
-
-                if (products.length === 0) {
-                    grid.innerHTML = '<div class="no-results" style="grid-column: 1 / -1;"><div class="no-results-icon">🔍</div><h3>No products found</h3><p>Try adjusting your search or filters</p></div>';
-                    return;
-                }
-
-                var html = '';
-                for (var i = 0; i < products.length; i++) {
-                    var p = products[i];
-                    html += '<div class="product-card" onclick="selectProduct(\'' + p._id + '\')">';
-                    html += '<img src="' + p.image + '" alt="' + p.productName + '" class="product-image" onerror="this.src=\'https://via.placeholder.com/200?text=No+Image\'">';
-                    html += '<div class="product-info">';
-                    html += '<div class="product-code">' + p.productCode + '</div>';
-                    html += '<div class="product-name">' + p.productName + '</div>';
-                    html += '<div class="product-category">' + p.category + '</div>';
-                    html += '<div class="product-specs">';
-                    html += '<span class="spec-badge">' + p.productType + '</span>';
-                    html += '<span class="spec-badge">' + p.thickness + '</span>';
-                    html += '<span class="spec-badge">' + p.size + '</span>';
-                    html += '</div></div></div>';
-                }
-                grid.innerHTML = html;
-            }
-
-            function displayPagination(pagination) {
-                var container = document.getElementById('pagination');
-
-                if (pagination.pages <= 1) {
-                    container.innerHTML = '';
-                    return;
-                }
-
-                var html = '<button ' + (currentPage === 1 ? 'disabled' : '') + ' onclick="goToPage(' + (currentPage - 1) + ')">← Previous</button>';
-
-                for (var i = 1; i <= pagination.pages; i++) {
-                    if (i === 1 || i === pagination.pages || (i >= currentPage - 1 && i <= currentPage + 1)) {
-                        html += '<button class="' + (i === currentPage ? 'current-page' : '') + '" onclick="goToPage(' + i + ')">' + i + '</button>';
-                    } else if (i === currentPage - 2 || i === currentPage + 2) {
-                        html += '<span>...</span>';
-                    }
-                }
-
-                html += '<button ' + (currentPage === pagination.pages ? 'disabled' : '') + ' onclick="goToPage(' + (currentPage + 1) + ')">Next →</button>';
-
-                container.innerHTML = html;
-            }
-
-            function goToPage(page) {
-                currentPage = page;
-                searchProducts();
-            }
-
-            function updateResultsCount(total) {
-                document.getElementById('resultsCount').textContent = total + ' product' + (total !== 1 ? 's' : '') + ' found';
-            }
-
-            function updateActiveFilters() {
-                var container = document.getElementById('activeFilters');
-                var filters = [];
-
-                var filterMap = {
-                    filterProductType: 'Type',
-                    filterCategory: 'Category',
-                    filterSubCategory: 'Sub-Category',
-                    filterTexture: 'Texture',
-                    filterSize: 'Size',
-                    filterThickness: 'Thickness'
-                };
-
-                for (var key in filterMap) {
-                    var value = document.getElementById(key).value;
-                    if (value) {
-                        filters.push({ id: key, label: filterMap[key], value: value });
-                    }
-                }
-
-                if (filters.length === 0) {
-                    container.innerHTML = '';
-                    return;
-                }
-
-                var html = '';
-                for (var i = 0; i < filters.length; i++) {
-                    var f = filters[i];
-                    html += '<div class="filter-tag"><span>' + f.label + ': ' + f.value + '</span><button onclick="removeFilter(\'' + f.id + '\')">×</button></div>';
-                }
-                container.innerHTML = html;
-            }
-
-            function removeFilter(filterId) {
-                document.getElementById(filterId).value = '';
-                if (filterId === 'filterProductType') {
-                    onProductTypeChange();
-                } else if (filterId === 'filterCategory') {
-                    onCategoryChange();
-                } else {
-                    applyFilters();
-                }
-            }
-
-            function clearAllFilters() {
-                document.getElementById('filterProductType').value = '';
-                document.getElementById('filterCategory').value = '';
-                document.getElementById('filterSubCategory').value = '';
-                document.getElementById('filterTexture').value = '';
-                document.getElementById('filterSize').value = '';
-                document.getElementById('filterThickness').value = '';
-                populateSelect('filterCategory', allFilterData.categories);
-                populateSelect('filterSubCategory', allFilterData.subCategories);
-                applyFilters();
-            }
-
-            function applyFilters() {
-                currentPage = 1;
-                searchProducts();
-            }
-
-            function loadAutocomplete(query) {
-                fetch('/products/autocomplete?q=' + encodeURIComponent(query))
-                    .then(function (response) { return response.json(); })
-                    .then(function (data) {
-                        if (data.success && data.data.length > 0) {
-                            displayAutocomplete(data.data);
-                        } else {
-                            hideAutocomplete();
-                        }
-                    })
-                    .catch(function () {
-                        hideAutocomplete();
-                    });
-            }
-
-
-
-            function displayAutocomplete(suggestions) {
-                const dropdown = document.getElementById('autocompleteDropdown');
-
-                const html = suggestions.map(product => {
-                    const safeName = product.productName.replace(/'/g, "\\'");
-                    return `
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 autocomplete-card" 
-                 onclick="selectAutocompleteItem('${product.productCode}', '${safeName}')">
-
-                <div class="product-wrap mb-25 scroll-zoom">
-                    <div class="product-img">
-                        <a href="/products/detail/${product.productCode}">
-                            <img 
-                                class="default-img" 
-                                src="${product.image}" 
-                                alt="${product.productName}" 
-                                loading="lazy" 
-                                decoding="async" 
-                                width="180" height="240">
-                            <img 
-                                class="hover-img" 
-                                src="${product.image}" 
-                                alt="${product.productName}" 
-                                loading="lazy" 
-                                decoding="async" 
-                                width="180" height="240">
-                        </a>
-
-                        <div class="product-action">
-                            <div class="pro-same-action pro-wishlist">
-                                <a title="Download" href="/products/download/${product.productCode}">
-                                    <i class="pe-7s-download"></i>
-                                </a>
-                            </div>
-
-                            <div class="pro-same-action pro-cart">
-                                <a title="View Product" href="/products/detail/${product.productCode}">
-                                    View Product
-                                </a>
-                            </div>
-
-                            <div class="pro-same-action pro-quickview">
-                                <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    data-productcode="${product.productCode}"
-                                    data-producttype="${product.productType}"
-                                    data-name="${product.productName}"
-                                    data-image="${product.image}"
-                                    data-category="${product.category}"
-                                    data-subcategory="${product.subCategory}"
-                                    data-texture="${product.texture}"
-                                    data-design="${product.design}"
-                                    data-size="${product.size}"
-                                    data-thickness="${product.thickness}"
-                                    data-width="${product.width}"
-                                    data-downloadlink="${product.downloadLink}">
-                                    <i class="pe-7s-look"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-content text-left">
-                        <h3>
-                            <a href="/product-details/${product.id}">
-                                ${product.productCode} <br>
-                                ${product.category} - ${product.texture}
-                            </a>
-                        </h3>
-                    </div>
-                </div>
-            </div>
-        `;
-                }).join('');
-
-                dropdown.innerHTML = html;
-                dropdown.classList.add('active');
-            }
-
-
-
-
-
-            function selectAutocompleteItem(code, name) {
-                document.getElementById('searchInput').value = name;
-                hideAutocomplete();
-                currentPage = 1;
-                searchProducts();
-            }
-
-            function hideAutocomplete() {
-                document.getElementById('autocompleteDropdown').classList.remove('active');
-            }
-
-            function selectProduct(productId) {
-                window.location.href = '/products/' + productId;
-            }
-
-            document.addEventListener('keydown', function (e) {
-                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                    e.preventDefault();
-                    openSearchModal();
+            
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentElement.classList.remove('focused');
                 }
             });
-        </script>
-
-
-
-
-
-
-
-
-
-        <%- include("partials/footer") %>
-
-            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
-            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
-            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
-            <script src="/js/vendor/popper.min.js"></script>
-            <script src="/js/vendor/bootstrap.min.js"></script>
-            <script src="/js/plugins.js"></script>
-            <script src="/js/ajax-mail.js"></script>
-            <script src="/js/main.js"></script>
+        });
+    </script>
 </body>
-
 </html>

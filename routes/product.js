@@ -18,7 +18,7 @@ router.get("/autocomplete", autocomplete);
 router.get("/hierarchy", getProductHierarchy);
 
 
-router.get("/search/ui", (req, res) => {
+router.get("/all", (req, res) => {
     res.render("search", {
         title: "conatct Page",
         message: "Welcome to EJS with Static Files!",
