@@ -10,9 +10,6 @@ sudo apt-get upgrade -y
 echo "📦 Installing basic dependencies..."
 sudo apt-get install -y curl wget unzip build-essential git software-properties-common ca-certificates
 
-echo "📦 Installing Node.js 20.x and npm..."
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt-get install -y nodejs
 
 echo "📦 Installing Puppeteer / html-pdf-node dependencies..."
 sudo apt-get install -y \

@@ -92,7 +92,7 @@ exports.downloadProductPdf = async (req, res) => {
     }
 
     // PDF folder path
-    const pdfFolder = path.join(__dirname, "../temp/data/products/pdfs");
+    const pdfFolder = path.join(__dirname, "../data/products/pdfs");
     if (!fs.existsSync(pdfFolder)) {
       fs.mkdirSync(pdfFolder, { recursive: true });
     }
@@ -163,7 +163,7 @@ exports.generateAndStoreAllProductPdfs = async (req, res) => {
     let completed = 0;
 
     // PDF folder path
-    const pdfFolder = path.join(__dirname, "../../temp/data/products/pdfs");
+    const pdfFolder = path.join(__dirname, "../data/products/pdfs");
     if (!fs.existsSync(pdfFolder)) {
       fs.mkdirSync(pdfFolder, { recursive: true });
     }
