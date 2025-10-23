@@ -1,7 +1,929 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
 
 
 
+    .product-search-bar-search-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        z-index: 5000;
+    }
+
+    .product-search-bar-search-modal-overlay.active {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px 20px 20px;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .product-search-bar-search-modal-container {
+        background: white;
+        width: 100%;
+        max-width: 850px;
+        border-radius: 20px;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        animation: slideDown 0.4s ease;
+        height: auto;
+        min-height: 520px;
+        max-height: 80vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .product-search-bar-modal-header {
+        padding: 10px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e8e8e8;
+        flex-shrink: 0;
+    }
+
+    .product-search-bar-modal-header h1 {
+        color: #1a1a1a;
+        font-size: 24px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+    }
+
+    .product-search-bar-modal-close-btn {
+        background: none;
+        border: none;
+        color: #1a1a1a;
+        font-size: 28px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .product-search-bar-modal-close-btn:hover {
+        background: #f5f5f5;
+        transform: rotate(90deg);
+    }
+
+    .product-search-bar-modal-body {
+        padding: 28px 48px 40px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .product-search-bar-search-wrapper {
+        position: relative;
+        margin-bottom: 32px;
+        z-index: 100;
+    }
+
+    .product-search-bar-search-input-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 14px 18px;
+        background: #fff;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .product-search-bar-search-input-container:focus-within {
+        border-color: #333;
+        box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.08);
+    }
+
+    .product-search-bar-search-input {
+        width: 100%;
+        border: none;
+        font-size: 16px;
+        padding: 0;
+        outline: none;
+        background: transparent;
+        color: #1a1a1a;
+        letter-spacing: 0.3px;
+        font-family: inherit;
+    }
+
+    .product-search-bar-search-input::placeholder {
+        color: #ccc;
+        font-size: 15px;
+    }
+
+    .product-search-bar-search-icon {
+        color: #999;
+        font-size: 20px;
+        margin-left: 12px;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: color 0.2s ease;
+    }
+
+    .product-search-bar-search-icon:hover {
+        color: #333;
+    }
+
+    .product-search-bar-clear-search-btn {
+        background: none;
+        border: none;
+        color: #999;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 4px 8px;
+        margin-right: 8px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+    }
+
+    .product-search-bar-clear-search-btn:hover {
+        color: #333;
+        background: rgba(212, 175, 55, 0.1);
+    }
+
+    .product-search-bar-autocomplete-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        max-height: 380px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        display: none;
+        z-index: 1000;
+    }
+
+    .product-search-bar-autocomplete-dropdown.active {
+        display: block;
+    }
+
+    .product-search-bar-autocomplete-item {
+        padding: 14px 16px;
+        cursor: pointer;
+        border-bottom: 1px solid #f5f5f5;
+        transition: all 0.2s ease;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .product-search-bar-autocomplete-item:last-child {
+        border-bottom: none;
+    }
+
+    .product-search-bar-autocomplete-item:hover {
+        background: #fafafa;
+        padding-left: 20px;
+    }
+
+    .product-search-bar-autocomplete-item-image {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 6px;
+        flex-shrink: 0;
+    }
+
+    .product-search-bar-autocomplete-item-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .product-search-bar-autocomplete-item-name {
+        font-weight: 500;
+        color: #1a1a1a;
+        margin-bottom: 3px;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .product-search-bar-autocomplete-item-code {
+        font-size: 12px;
+        color: #333;
+        font-weight: 500;
+        margin-bottom: 2px;
+    }
+
+    .product-search-bar-autocomplete-item-category {
+        font-size: 11px;
+        color: #999;
+    }
+
+    .product-search-bar-keywords-section {
+        margin-top: 24px;
+    }
+
+    .product-search-bar-keywords-title {
+        font-size: 16px;
+        color: #666;
+        font-weight: 400;
+        margin-bottom: 16px;
+        letter-spacing: 0.3px;
+    }
+
+    .product-search-bar-keywords-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .product-search-bar-keyword-btn {
+        padding: 10px 20px;
+        background: #f5f5f5;
+        border: 1px solid #e8e8e8;
+        border-radius: 20px;
+        color: #666;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .product-search-bar-keyword-btn:hover {
+        background: #333;
+        color: white;
+        border-color: #333;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .product-search-bar-view-all-btn {
+        margin-top: 20px;
+        padding: 14px 32px;
+        background-color: darkblue;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        letter-spacing: 0.5px;
+        display: inline-block;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .product-search-bar-view-all-btn:hover {
+        background-color: darkblue;
+    }
+
+    .product-search-bar-no-results {
+        text-align: center;
+        padding: 40px 20px;
+        color: #666;
+    }
+
+    .product-search-bar-no-results-icon {
+        font-size: 48px;
+        margin-bottom: 16px;
+    }
+
+    .product-search-bar-no-results h3 {
+        font-size: 18px;
+        color: #1a1a1a;
+        margin-bottom: 8px;
+    }
+
+    .product-search-bar-no-results p {
+        font-size: 14px;
+        color: #999;
+    }
+
+    /* Scrollbar styling */
+    .product-search-bar-autocomplete-dropdown::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .product-search-bar-autocomplete-dropdown::-webkit-scrollbar-track {
+        background: #f9f9f9;
+        border-radius: 10px;
+    }
+
+    .product-search-bar-autocomplete-dropdown::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 10px;
+        border: 2px solid #f9f9f9;
+    }
+
+    .product-search-bar-autocomplete-dropdown::-webkit-scrollbar-thumb:hover {
+        background: #c99f2e;
+    }
+
+    .product-search-bar-modal-body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .product-search-bar-modal-body::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .product-search-bar-modal-body::-webkit-scrollbar-thumb {
+        background: #e0e0e0;
+        border-radius: 4px;
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+        .product-search-bar-modal-header {
+            padding: 28px 24px 20px;
+        }
+
+        .product-search-bar-modal-header h1 {
+            font-size: 28px;
+        }
+
+        .product-search-bar-modal-body {
+            padding: 20px 24px 28px;
+        }
+
+        .product-search-bar-search-input {
+            font-size: 15px;
+        }
+
+        .product-search-bar-keywords-title {
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        .product-search-bar-keyword-btn {
+            padding: 9px 18px;
+            font-size: 13px;
+        }
+
+        .product-search-bar-view-all-btn {
+            padding: 12px 28px;
+            font-size: 14px;
+            margin-top: 18px;
+        }
+
+        .product-search-bar-autocomplete-item {
+            padding: 12px 14px;
+            gap: 10px;
+        }
+
+        .product-search-bar-autocomplete-item-image {
+            width: 42px;
+            height: 42px;
+        }
+    }
+
+    /* Small Tablet / Large Mobile */
+    @media (max-width: 640px) {
+        .product-search-bar-search-modal-overlay.active {
+            padding: 20px 16px;
+        }
+
+        .product-search-bar-search-modal-container {
+            border-radius: 14px;
+            max-height: 80vh;
+        }
+
+        .product-search-bar-modal-header {
+            padding: 24px 20px 18px;
+        }
+
+        .product-search-bar-modal-header h1 {
+            font-size: 24px;
+        }
+
+        .product-search-bar-modal-close-btn {
+            font-size: 24px;
+        }
+
+        .product-search-bar-modal-body {
+            padding: 18px 20px 24px;
+        }
+
+        .product-search-bar-search-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .product-search-bar-search-input-container {
+            padding: 12px 14px;
+        }
+
+        .product-search-bar-search-input {
+            font-size: 15px;
+        }
+
+        .product-search-bar-search-icon {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        .product-search-bar-clear-search-btn {
+            font-size: 16px;
+            padding: 4px 6px;
+            margin-right: 6px;
+        }
+
+        .product-search-bar-autocomplete-dropdown {
+            max-height: 300px;
+            top: calc(100% + 6px);
+        }
+
+        .product-search-bar-autocomplete-item {
+            padding: 12px 13px;
+            gap: 10px;
+        }
+
+        .product-search-bar-autocomplete-item:hover {
+            padding-left: 18px;
+        }
+
+        .product-search-bar-autocomplete-item-image {
+            width: 40px;
+            height: 40px;
+        }
+
+        .product-search-bar-autocomplete-item-name {
+            font-size: 13px;
+        }
+
+        .product-search-bar-autocomplete-item-code {
+            font-size: 11px;
+        }
+
+        .product-search-bar-autocomplete-item-category {
+            font-size: 10px;
+        }
+
+        .product-search-bar-keywords-section {
+            margin-top: 16px;
+        }
+
+        .product-search-bar-keywords-title {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .product-search-bar-keywords-grid {
+            gap: 8px;
+        }
+
+        .product-search-bar-keyword-btn {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+
+        .product-search-bar-view-all-btn {
+            padding: 12px 24px;
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        .product-search-bar-search-trigger-btn {
+            width: 100%;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+        .product-search-bar-search-modal-overlay.active {
+            padding: 10px 12px;
+        }
+
+        .product-search-bar-search-modal-container {
+            border-radius: 12px;
+            max-height: 85vh;
+        }
+
+        .product-search-bar-modal-header {
+            padding: 20px 16px 14px;
+        }
+
+        .product-search-bar-modal-header h1 {
+            font-size: 20px;
+        }
+
+        .product-search-bar-modal-close-btn {
+            font-size: 20px;
+        }
+
+        .product-search-bar-modal-body {
+            padding: 14px 16px 20px;
+        }
+
+        .product-search-bar-search-wrapper {
+            margin-bottom: 16px;
+        }
+
+        .product-search-bar-search-input-container {
+            padding: 10px 12px;
+        }
+
+        .product-search-bar-search-input {
+            font-size: 14px;
+        }
+
+        .product-search-bar-search-icon {
+            font-size: 16px;
+            margin-left: 8px;
+        }
+
+        .product-search-bar-clear-search-btn {
+            font-size: 14px;
+            padding: 3px 5px;
+            margin-right: 4px;
+        }
+
+        .product-search-bar-autocomplete-dropdown {
+            max-height: 260px;
+        }
+
+        .product-search-bar-autocomplete-item {
+            padding: 10px 12px;
+        }
+
+        .product-search-bar-autocomplete-item-image {
+            width: 36px;
+            height: 36px;
+        }
+
+        .product-search-bar-keywords-section {
+            margin-top: 12px;
+        }
+
+        .product-search-bar-keywords-title {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .product-search-bar-keywords-grid {
+            gap: 6px;
+        }
+
+        .product-search-bar-keyword-btn {
+            padding: 7px 14px;
+            font-size: 11px;
+        }
+
+        .product-search-bar-view-all-btn {
+            padding: 10px 20px;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        .product-search-bar-no-results {
+            padding: 24px 12px;
+        }
+
+        .product-search-bar-no-results-icon {
+            font-size: 36px;
+        }
+
+        .product-search-bar-no-results h3 {
+            font-size: 15px;
+        }
+
+        .product-search-bar-no-results p {
+            font-size: 12px;
+        }
+    }
+</style>
 
 
+<div class="product-search-bar-search-modal-overlay" id="searchOverlay">
+    <div class="product-search-bar-search-modal-container">
+        <div class="product-search-bar-modal-header">
+            <h1>Search</h1>
+            <button class="product-search-bar-modal-close-btn" onclick="ProductSearchModule.close()">✕</button>
+        </div>
 
+        <div class="product-search-bar-modal-body">
+            <div class="product-search-bar-search-wrapper">
+                <div class="product-search-bar-search-input-container">
+                    <input type="text" id="productSearchInput" class="product-search-bar-search-input" placeholder="Search products..."
+                        autocomplete="off">
+                    <button class="product-search-bar-clear-search-btn" id="productSearchClearBtn" onclick="ProductSearchModule.clearSearch()"
+                        style="display: none;">✕</button>
+                    <span class="product-search-bar-search-icon">🔍</span>
+                </div>
+                <div class="product-search-bar-autocomplete-dropdown" id="productSearchAutocomplete"></div>
+            </div>
+
+            <div id="productSearchNoResults" style="display: none;">
+                <div class="product-search-bar-no-results">
+                    <div class="product-search-bar-no-results-icon">🔍</div>
+                    <h3>No Products Found</h3>
+                    <p>Try adjusting your search terms</p>
+                </div>
+            </div>
+
+            <div class="product-search-bar-keywords-section" id="productSearchKeywords">
+                <div class="product-search-bar-keywords-title">Feature keywords Today</div>
+                <div class="product-search-bar-keywords-grid">
+                    <a href="/products/search?q=Dresses" class="product-search-bar-keyword-btn">Dresses</a>
+                    <a href="/products/search?q=Dresses+women" class="product-search-bar-keyword-btn">Dresses women</a>
+                    <a href="/products/search?q=Dresses+midi" class="product-search-bar-keyword-btn">Dresses midi</a>
+                    <a href="/products/search?q=Dress+summer" class="product-search-bar-keyword-btn">Dress summer</a>
+                    <a href="/products/search?q=Casual" class="product-search-bar-keyword-btn">Casual</a>
+                    <a href="/products/search?q=Party+Wear" class="product-search-bar-keyword-btn">Party Wear</a>
+                </div>
+                <a href="/products" class="product-search-bar-view-all-btn">👁️ View All Products</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Namespaced Product Search Module to avoid conflicts
+    const ProductSearchModule = (function() {
+        // Private variables
+        let searchTimeout = null;
+        let selectedIndex = -1;
+        
+        // DOM element references (cached for performance)
+        const elements = {
+            overlay: null,
+            input: null,
+            clearBtn: null,
+            autocomplete: null,
+            noResults: null,
+            keywords: null
+        };
+
+        // Initialize DOM references
+        function initElements() {
+            elements.overlay = document.getElementById('searchOverlay');
+            elements.input = document.getElementById('productSearchInput');
+            elements.clearBtn = document.getElementById('productSearchClearBtn');
+            elements.autocomplete = document.getElementById('productSearchAutocomplete');
+            elements.noResults = document.getElementById('productSearchNoResults');
+            elements.keywords = document.getElementById('productSearchKeywords');
+        }
+
+        // Public: Open search modal
+        function open() {
+            if (!elements.overlay) initElements();
+            
+            elements.overlay.classList.add('active');
+            elements.input.focus();
+            document.body.style.overflow = 'hidden';
+            showKeywords();
+        }
+
+        // Public: Close search modal
+        function close() {
+            if (!elements.overlay) return;
+            
+            elements.overlay.classList.remove('active');
+            elements.input.value = '';
+            hideAutocomplete();
+            document.body.style.overflow = 'auto';
+            selectedIndex = -1;
+        }
+
+        // Public: Clear search input
+        function clearSearch() {
+            if (!elements.input) return;
+            
+            elements.input.value = '';
+            elements.input.focus();
+            elements.clearBtn.style.display = 'none';
+            showKeywords();
+            hideAutocomplete();
+            selectedIndex = -1;
+        }
+
+        // Private: Show keywords section
+        function showKeywords() {
+            if (elements.keywords) {
+                elements.keywords.style.display = 'block';
+            }
+            hideAutocomplete();
+        }
+
+        // Private: Hide autocomplete dropdown
+        function hideAutocomplete() {
+            if (elements.autocomplete) {
+                elements.autocomplete.classList.remove('active');
+            }
+            if (elements.noResults) {
+                elements.noResults.style.display = 'none';
+            }
+        }
+
+        // Private: Show no results message
+        function showNoResults() {
+            if (elements.autocomplete) {
+                elements.autocomplete.classList.remove('active');
+            }
+            if (elements.noResults) {
+                elements.noResults.style.display = 'block';
+            }
+        }
+
+        // Private: Load autocomplete suggestions
+        function loadAutocomplete(query) {
+            fetch('/products/autocomplete?q=' + encodeURIComponent(query))
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.data && data.data.length > 0) {
+                        displayAutocomplete(data.data);
+                        elements.noResults.style.display = 'none';
+                    } else {
+                        showNoResults();
+                    }
+                })
+                .catch(err => {
+                    console.error('Product Search Error:', err);
+                    showNoResults();
+                });
+        }
+
+        // Private: Display autocomplete suggestions
+        function displayAutocomplete(suggestions) {
+            if (!elements.autocomplete) return;
+            
+            let html = '';
+
+            suggestions.slice(0, 8).forEach(item => {
+                const productUrl = `/product/detail/${item.productCode}`;
+                const safeName = (item.productName || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                const safeImage = (item.image || 'https://via.placeholder.com/50?text=Product').replace(/"/g, '&quot;');
+                const safeCategory = (item.category || 'Category').replace(/"/g, '&quot;');
+                
+                html += `
+                    <a href="${productUrl}" class="product-search-bar-autocomplete-item" onclick="ProductSearchModule.close()">
+                        <img src="${safeImage}" alt="${safeName}" class="product-search-bar-autocomplete-item-image" 
+                             onerror="this.src='https://via.placeholder.com/50?text=Product'">
+                        <div class="product-search-bar-autocomplete-item-content">
+                            <div class="product-search-bar-autocomplete-item-name">${item.productName}</div>
+                            <div class="product-search-bar-autocomplete-item-code">${item.productCode}</div>
+                            <div class="product-search-bar-autocomplete-item-category">${safeCategory}</div>
+                        </div>
+                    </a>
+                `;
+            });
+
+            elements.autocomplete.innerHTML = html;
+            elements.autocomplete.classList.add('active');
+            selectedIndex = -1;
+        }
+
+        // Private: Update keyboard selection highlight
+        function updateSelection(items) {
+            items.forEach((item, index) => {
+                item.style.background = index === selectedIndex ? '#f8f8f8' : '';
+            });
+        }
+
+        // Private: Handle search input changes
+        function handleInput(e) {
+            const query = e.target.value.trim();
+            
+            // Show/hide clear button
+            elements.clearBtn.style.display = query.length > 0 ? 'flex' : 'none';
+
+            clearTimeout(searchTimeout);
+
+            if (query.length > 0) {
+                elements.keywords.style.display = 'none';
+                searchTimeout = setTimeout(() => {
+                    loadAutocomplete(query);
+                }, 300);
+            } else {
+                showKeywords();
+            }
+
+            selectedIndex = -1;
+        }
+
+        // Private: Handle keyboard navigation
+        function handleKeydown(e) {
+            const dropdown = elements.autocomplete;
+            const items = dropdown.querySelectorAll('.product-search-bar-autocomplete-item');
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+                updateSelection(items);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                selectedIndex = Math.max(selectedIndex - 1, -1);
+                updateSelection(items);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (selectedIndex >= 0 && items[selectedIndex]) {
+                    items[selectedIndex].click();
+                }
+            }
+        }
+
+        // Private: Handle overlay click (close on backdrop click)
+        function handleOverlayClick(e) {
+            if (e.target === elements.overlay) {
+                close();
+            }
+        }
+
+        // Private: Handle escape key globally
+        function handleEscapeKey(e) {
+            if (e.key === 'Escape' && elements.overlay && elements.overlay.classList.contains('active')) {
+                close();
+            }
+            // Ctrl/Cmd + K shortcut to open search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                open();
+            }
+        }
+
+        // Initialize event listeners
+        function init() {
+            // Wait for DOM to be ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupEventListeners);
+            } else {
+                setupEventListeners();
+            }
+        }
+
+        // Setup all event listeners
+        function setupEventListeners() {
+            initElements();
+
+            if (!elements.overlay) {
+                console.warn('Product Search Module: Search overlay not found');
+                return;
+            }
+
+            // Input events
+            if (elements.input) {
+                elements.input.addEventListener('input', handleInput);
+                elements.input.addEventListener('keydown', handleKeydown);
+            }
+
+            // Overlay click to close
+            elements.overlay.addEventListener('click', handleOverlayClick);
+
+            // Global keyboard shortcuts
+            document.addEventListener('keydown', handleEscapeKey);
+        }
+
+        // Public API
+        return {
+            open: open,
+            close: close,
+            clearSearch: clearSearch,
+            init: init
+        };
+    })();
+
+    // Auto-initialize the module
+    ProductSearchModule.init();
+</script>

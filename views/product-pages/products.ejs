@@ -16,15 +16,47 @@
 <body>
     <%- include("../partials/header") %>
 
-        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/event.jpg);">
-            <div class="container"></div>
+        
+            <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url('/images/product-category/acrylish/1919 x 677 Big Banner/Acrylic Big  Banner .jpg');">
+                <div class="container">
+                </div>
+            </div>
+
+
+            <style>
+                @media (max-width: 1024px) {
+                    .breadcrumb-area {
+                        background-image: url('/images/product-category/acrylish/1919 x 677 Big Banner/Acrylic Big  Banner .jpg') !important;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    .breadcrumb-area {
+                        background-image: url('/images/product-category/acrylish/1919 x 677 Big Banner/Acrylic Big  Banner .jpg') !important;
+                    }
+                }
+            </style>
+
+
+            <div class="container-fluid">
+            <div class="breadcrumb-section">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">products</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
 
-        <div class="catalog-container pb-100 pt-100">
+
+
+
+        <div class="catalog-container pb-100 ">
             <!-- Filters Sidebar - PRODUCT CATALOG SPECIFIC -->
             <aside class="filters-sidebar">
                 <div class="filters-header">
-                    <h2>🎯 Filters</h2>
+                    <h2>Filters</h2>
                     <button class="clear-all-btn" onclick="clearAllFilters()">Clear All</button>
                 </div>
 
@@ -51,7 +83,7 @@
                     </select>
                 </div>
 
-                <div class="filter-group">
+                <div class="filter-group d-none">
                     <label>Texture</label>
                     <select id="filterTexture" onchange="applyFilters()">
                         <option value="">All Textures</option>
@@ -115,7 +147,7 @@
             </main>
         </div>
 
-        <%- include("../partials/footer") %>
+            <%- include("../partials/footer") %>
             <%- include("../partials/product-modal") %>
 
                 <script src="/js/vendor/modernizr-3.11.7.min.js"></script>

@@ -98,3 +98,227 @@
         </div>
     </div>
 </div>
+
+
+<script>
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('productEnquiryForm');
+    const successDiv = document.getElementById('productEnquirySuccess');
+    const formContent = document.getElementById('productEnquiryFormContent');
+    const footer = document.getElementById('productEnquiryFooter');
+
+    if (form) {
+        form.addEventListener('submit', handleProductEnquirySubmit);
+    }
+
+    // Input validation on blur
+    setupValidation();
+});
+
+async function handleProductEnquirySubmit(e) {
+    e.preventDefault();
+
+    // Clear previous errors
+    clearErrors();
+
+    // Get form values
+    const formData = {
+        fullName: document.getElementById('productEnquiryFullName').value.trim(),
+        email: document.getElementById('productEnquiryEmail').value.trim(),
+        phone: document.getElementById('productEnquiryPhone').value.trim(),
+        company: document.getElementById('productEnquiryCompany').value.trim(),
+        product: document.getElementById('productEnquiryProduct').value.trim(),
+        message: document.getElementById('productEnquiryMessage').value.trim()
+    };
+
+    // Validate form
+    if (!validateForm(formData)) {
+        return;
+    }
+
+    // Disable submit button
+    const submitBtn = document.querySelector('.product-enquiry-submit');
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+    try {
+        // Submit form data
+        const response = await fetch('/api/product-enquiry', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+            // Show success message briefly
+            document.getElementById('productEnquiryFormContent').style.display = 'none';
+            document.getElementById('productEnquiryFooter').style.display = 'none';
+            document.getElementById('productEnquirySuccess').style.display = 'block';
+
+            // Redirect to thank you page after 2 seconds
+            setTimeout(() => {
+                window.location.href = '/thank-you?enquiry=success';
+            }, 2000);
+        } else {
+            // Show error message
+            showError('general', data.message || 'Failed to submit enquiry. Please try again.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        showError('general', 'Network error. Please check your connection and try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+    }
+}
+
+function validateForm(formData) {
+    let isValid = true;
+
+    // Validate Full Name
+    if (!formData.fullName || formData.fullName.length < 2) {
+        showError('productEnquiryFullName', 'Please enter a valid name (at least 2 characters)');
+        isValid = false;
+    }
+
+    // Validate Email
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!formData.email || !emailRegex.test(formData.email)) {
+        showError('productEnquiryEmail', 'Please enter a valid email address');
+        isValid = false;
+    }
+
+    // Validate Phone
+    const phoneRegex = /^[0-9+\s\-()]{10,15}$/;
+    if (!formData.phone || !phoneRegex.test(formData.phone)) {
+        showError('productEnquiryPhone', 'Please enter a valid phone number');
+        isValid = false;
+    }
+
+    // Validate Message
+    if (!formData.message || formData.message.length < 10) {
+        showError('productEnquiryMessage', 'Please enter a message (at least 10 characters)');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function showError(fieldId, message) {
+    const errorDiv = document.getElementById(fieldId + 'Error');
+    if (errorDiv) {
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+    }
+
+    // Add error class to input
+    if (fieldId !== 'general') {
+        const input = document.getElementById(fieldId);
+        if (input) {
+            input.classList.add('error');
+        }
+    }
+}
+
+function clearErrors() {
+    const errorDivs = document.querySelectorAll('.product-enquiry-error');
+    errorDivs.forEach(div => {
+        div.textContent = '';
+        div.style.display = 'none';
+    });
+
+    const inputs = document.querySelectorAll('.product-enquiry-input, .product-enquiry-textarea');
+    inputs.forEach(input => {
+        input.classList.remove('error');
+    });
+}
+
+function setupValidation() {
+    // Real-time validation on blur
+    const fullNameInput = document.getElementById('productEnquiryFullName');
+    const emailInput = document.getElementById('productEnquiryEmail');
+    const phoneInput = document.getElementById('productEnquiryPhone');
+    const messageInput = document.getElementById('productEnquiryMessage');
+
+    if (fullNameInput) {
+        fullNameInput.addEventListener('blur', function() {
+            if (this.value.trim().length > 0 && this.value.trim().length < 2) {
+                showError('productEnquiryFullName', 'Name must be at least 2 characters');
+            } else {
+                document.getElementById('productEnquiryFullNameError').style.display = 'none';
+                this.classList.remove('error');
+            }
+        });
+    }
+
+    if (emailInput) {
+        emailInput.addEventListener('blur', function() {
+            const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (this.value.trim() && !emailRegex.test(this.value.trim())) {
+                showError('productEnquiryEmail', 'Please enter a valid email address');
+            } else {
+                document.getElementById('productEnquiryEmailError').style.display = 'none';
+                this.classList.remove('error');
+            }
+        });
+    }
+
+    if (phoneInput) {
+        phoneInput.addEventListener('blur', function() {
+            const phoneRegex = /^[0-9+\s\-()]{10,15}$/;
+            if (this.value.trim() && !phoneRegex.test(this.value.trim())) {
+                showError('productEnquiryPhone', 'Please enter a valid phone number');
+            } else {
+                document.getElementById('productEnquiryPhoneError').style.display = 'none';
+                this.classList.remove('error');
+            }
+        });
+    }
+
+    if (messageInput) {
+        messageInput.addEventListener('blur', function() {
+            if (this.value.trim().length > 0 && this.value.trim().length < 10) {
+                showError('productEnquiryMessage', 'Message must be at least 10 characters');
+            } else {
+                document.getElementById('productEnquiryMessageError').style.display = 'none';
+                this.classList.remove('error');
+            }
+        });
+    }
+}
+
+// Modal functions
+function closeProductEnquiry() {
+    document.getElementById('productEnquiryModal').style.display = 'none';
+    document.getElementById('productEnquiryForm').reset();
+    clearErrors();
+    
+    // Reset form display
+    document.getElementById('productEnquiryFormContent').style.display = 'block';
+    document.getElementById('productEnquiryFooter').style.display = 'flex';
+    document.getElementById('productEnquirySuccess').style.display = 'none';
+}
+
+function closeProductEnquiryOnOutside(event) {
+    const modal = document.getElementById('productEnquiryModal');
+    if (event.target === modal) {
+        closeProductEnquiry();
+    }
+}
+
+function openProductEnquiry() {
+    document.getElementById('productEnquiryModal').style.display = 'block';
+}
+
+</script>
