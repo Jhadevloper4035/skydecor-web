@@ -117,7 +117,7 @@ productSchema.index(
 );
 
 // Individual field indexes for exact/prefix matching and filtering
-productSchema.index({ productCode: 1 });
+
 productSchema.index({ productType: 1 });
 productSchema.index({ category: 1, subCategory: 1 });
 productSchema.index({ texture: 1 });
@@ -271,6 +271,7 @@ productSchema.statics.getFilterOptions = async function () {
 };
 
 // Autocomplete suggestions
+
 productSchema.statics.getAutocompleteSuggestions = async function (
   query,
   limit = 10
@@ -278,17 +279,34 @@ productSchema.statics.getAutocompleteSuggestions = async function (
   if (!query || query.trim().length < 2) return [];
 
   try {
+    const regex = new RegExp(query, "i");
+
     const suggestions = await this.find(
       {
         $or: [
-          { productName: new RegExp(query, "i") },
-          { productCode: new RegExp(query, "i") },
-          { category: new RegExp(query, "i") },
-          { texture: new RegExp(query, "i") },
+          { productName: regex },
+          { productCode: regex },
+          { category: regex },
+          { subcategory: regex },
+          { designName: regex },
+          { productType: regex },
+          { size: regex },
+          { thickness: regex },
+          { texture: regex },
         ],
         isActive: true,
       },
-      { productName: 1, productCode: 1, category: 1, image: 1 }
+      {
+        productName: 1,
+        productCode: 1,
+        category: 1,
+        subcategory: 1,
+        designName: 1,
+        productType: 1,
+        size: 1,
+        thickness: 1,
+        image: 1,
+      }
     )
       .limit(limit)
       .lean();

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Skydecor</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/icons.min.css">
+    <link rel="stylesheet" href="/css/plugins.css">
+    <link rel="stylesheet" href="/css/all-product-page.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+
+<body>
+    <%- include("../partials/header") %>
+
+        <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/event.jpg);">
+            <div class="container"></div>
+        </div>
+
+        <div class="catalog-container pb-100 pt-100">
+            <!-- Filters Sidebar - PRODUCT CATALOG SPECIFIC -->
+            <aside class="filters-sidebar">
+                <div class="filters-header">
+                    <h2>🎯 Filters</h2>
+                    <button class="clear-all-btn" onclick="clearAllFilters()">Clear All</button>
+                </div>
+
+                <div class="active-filters" id="activeFilters"></div>
+
+                <div class="filter-group">
+                    <label>Product Type</label>
+                    <select id="filterProductType" onchange="onProductTypeChange()">
+                        <option value="">All Types</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select id="filterCategory" onchange="onCategoryChange()">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Sub-Category</label>
+                    <select id="filterSubCategory" onchange="applyFilters()">
+                        <option value="">All Sub-Categories</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Texture</label>
+                    <select id="filterTexture" onchange="applyFilters()">
+                        <option value="">All Textures</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Size</label>
+                    <select id="filterSize" onchange="applyFilters()">
+                        <option value="">All Sizes</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Thickness</label>
+                    <select id="filterThickness" onchange="applyFilters()">
+                        <option value="">All Thicknesses</option>
+                    </select>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Results Header -->
+                <div class="results-header">
+                    <div class="results-info">
+                        <div class="results-count" id="resultsCount">Loading products...</div>
+                    </div>
+
+                    <div class="results-info">
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="3" onclick="changeView(3)">
+                                <span>◼◼◼</span>
+                            </button>
+                            <button class="view-btn" data-view="4" onclick="changeView(4)">
+                                <span>◼◼◼◼◼◼</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="sort-controls">
+                        <label>Sort by:</label>
+                        <select id="sortBy" onchange="applyFilters()">
+                            <option value="category">Category</option>
+                            <option value="createdAt">Newest First</option>
+                            <option value="productName">Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid view-3 row " id="productsGrid">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <div>Loading products...</div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination"></div>
+            </main>
+        </div>
+
+        <%- include("../partials/footer") %>
+            <%- include("../partials/product-modal") %>
+
+                <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+                <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+                <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+                <script src="/js/vendor/popper.min.js"></script>
+                <script src="/js/vendor/bootstrap.min.js"></script>
+                <script src="/js/plugins.js"></script>
+                <script src="/js/ajax-mail.js"></script>
+                <script src="/js/main.js"></script>
+
+                <script>
+                    // PRODUCT CATALOG SPECIFIC JAVASCRIPT
+                    var currentPage = 1;
+                    var currentView = 3;
+                    var searchTimeout = null;
+                    var allFilterData = {};
+                    var productHierarchy = {};
+
+                    document.addEventListener('DOMContentLoaded', function () {
+                        loadFilterOptions();
+                        searchProducts();
+                    });
+
+                    function changeView(viewCount) {
+                        currentView = viewCount;
+                        var products = document.querySelectorAll('#productsGrid .product-card');
+
+                        products.forEach(function (product) {
+                            product.classList.remove('col-md-3', 'col-md-4', 'col-md-6');
+
+                            switch (viewCount) {
+                                case 1:
+                                    product.classList.add('col-md-12');
+                                    break;
+                                case 2:
+                                    product.classList.add('col-md-6');
+                                    break;
+                                case 3:
+                                    product.classList.add('col-md-4');
+                                    break;
+                                case 4:
+                                    product.classList.add('col-md-3');
+                                    break;
+                                default:
+                                    product.classList.add('col-md-4');
+                            }
+                        });
+
+                        document.querySelectorAll('.view-btn').forEach(function (btn) {
+                            btn.classList.remove('active');
+                        });
+                        document.querySelector('[data-view="' + viewCount + '"]').classList.add('active');
+                    }
+
+                    function loadFilterOptions() {
+                        fetch('/products/filters')
+                            .then(function (response) { return response.json(); })
+                            .then(function (data) {
+                                if (data.success) {
+                                    allFilterData = data.data;
+                                    buildProductHierarchy(data.data);
+                                    populateSelect('filterProductType', data.data.productTypes);
+                                    populateSelect('filterTexture', data.data.textures);
+                                    populateSelect('filterSize', data.data.sizes);
+                                    populateSelect('filterThickness', data.data.thicknesses);
+                                    populateSelect('filterCategory', data.data.categories);
+                                    populateSelect('filterSubCategory', data.data.subCategories);
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log('Failed to load filter options');
+                            });
+                    }
+
+                    function buildProductHierarchy(data) {
+                        fetch('/products/hierarchy')
+                            .then(function (response) { return response.json(); })
+                            .then(function (result) {
+                                if (result.success) {
+                                    productHierarchy = result.data;
+                                }
+                            })
+                            .catch(function () {
+                                console.log('Failed to load hierarchy');
+                            });
+                    }
+
+                    function onProductTypeChange() {
+                        var selectedType = document.getElementById('filterProductType').value;
+                        var categorySelect = document.getElementById('filterCategory');
+                        var subCategorySelect = document.getElementById('filterSubCategory');
+
+                        categorySelect.value = '';
+                        subCategorySelect.value = '';
+
+                        if (selectedType && productHierarchy[selectedType]) {
+                            var categories = Object.keys(productHierarchy[selectedType]);
+                            populateSelect('filterCategory', categories);
+                            populateSelect('filterSubCategory', []);
+                        } else {
+                            populateSelect('filterCategory', allFilterData.categories);
+                            populateSelect('filterSubCategory', allFilterData.subCategories);
+                        }
+
+                        applyFilters();
+                    }
+
+                    function onCategoryChange() {
+                        var selectedType = document.getElementById('filterProductType').value;
+                        var selectedCategory = document.getElementById('filterCategory').value;
+                        var subCategorySelect = document.getElementById('filterSubCategory');
+
+                        subCategorySelect.value = '';
+
+                        if (selectedType && selectedCategory && productHierarchy[selectedType] && productHierarchy[selectedType][selectedCategory]) {
+                            var subCategories = productHierarchy[selectedType][selectedCategory];
+                            populateSelect('filterSubCategory', subCategories);
+                        } else if (selectedCategory) {
+                            var relevantSubCategories = [];
+                            for (var type in productHierarchy) {
+                                if (productHierarchy[type][selectedCategory]) {
+                                    relevantSubCategories = relevantSubCategories.concat(productHierarchy[type][selectedCategory]);
+                                }
+                            }
+                            var uniqueSubCategories = relevantSubCategories.filter(function (item, pos) {
+                                return relevantSubCategories.indexOf(item) === pos;
+                            });
+                            populateSelect('filterSubCategory', uniqueSubCategories.length > 0 ? uniqueSubCategories : allFilterData.subCategories);
+                        } else {
+                            populateSelect('filterSubCategory', allFilterData.subCategories);
+                        }
+
+                        applyFilters();
+                    }
+
+                    function populateSelect(selectId, options) {
+                        var select = document.getElementById(selectId);
+                        var currentValue = select.value;
+                        var firstOption = select.options[0];
+
+                        select.innerHTML = '';
+                        select.appendChild(firstOption);
+
+                        for (var i = 0; i < options.length; i++) {
+                            var opt = document.createElement('option');
+                            opt.value = options[i];
+                            opt.textContent = options[i];
+                            select.appendChild(opt);
+                        }
+
+                        if (currentValue) {
+                            select.value = currentValue;
+                        }
+                    }
+
+                    function searchProducts() {
+                        var searchInput = document.getElementById('searchInput');
+                        var params = new URLSearchParams({
+                            q: searchInput ? searchInput.value : '',
+                            productType: document.getElementById('filterProductType').value,
+                            category: document.getElementById('filterCategory').value,
+                            subCategory: document.getElementById('filterSubCategory').value,
+                            texture: document.getElementById('filterTexture').value,
+                            size: document.getElementById('filterSize').value,
+                            thickness: document.getElementById('filterThickness').value,
+                            sortBy: document.getElementById('sortBy').value,
+                            page: currentPage,
+                            limit: 24
+                        });
+
+                        var entries = Array.from(params.entries());
+                        for (var i = 0; i < entries.length; i++) {
+                            if (!entries[i][1]) {
+                                params.delete(entries[i][0]);
+                            }
+                        }
+
+                        showLoading();
+
+                        fetch('/products/search?' + params.toString())
+                            .then(function (response) { return response.json(); })
+                            .then(function (data) {
+                                if (data.success) {
+                                    displayProducts(data.data);
+                                    displayPagination(data.pagination);
+                                    updateResultsCount(data.pagination.total);
+                                    updateActiveFilters();
+                                }
+                            })
+                            .catch(function () {
+                                document.getElementById('productsGrid').innerHTML =
+                                    '<div class="empty-state">' +
+                                    '<div class="empty-state-icon">⚠️</div>' +
+                                    '<h3>Something went wrong</h3>' +
+                                    '<p>Please try again later</p>' +
+                                    '</div>';
+                            });
+                    }
+
+                    function showLoading() {
+                        document.getElementById('productsGrid').innerHTML =
+                            '<div class="loading-state">' +
+                            '<div class="spinner"></div>' +
+                            '<div>Loading products...</div>' +
+                            '</div>';
+                    }
+
+                    function displayProducts(products) {
+                        var grid = document.getElementById('productsGrid');
+
+                        if (products.length === 0) {
+                            grid.innerHTML = '<div class="no-results" style="grid-column: 1 / -1;">' +
+                                '<div class="no-results-icon">🔍</div>' +
+                                '<h3>No products found</h3>' +
+                                '<p>Try adjusting your search or filters</p>' +
+                                '</div>';
+                            return;
+                        }
+
+                        var html = '';
+                        for (var i = 0; i < products.length; i++) {
+                            var p = products[i];
+                            html += '<div class="col-xl-4 col-md-6 col-lg-6 col-sm-3">';
+                            html += '  <div class="product-wrap mb-25 scroll-zoom">';
+                            html += '    <div class="product-img">';
+                            html += '      <a href="/products/detail/' + p.productCode + '">';
+                            html += '        <img class="default-img" src="' + p.image + '" alt="' + p.productName + '" onerror="this.src=\'https://via.placeholder.com/200?text=No+Image\'"/>';
+                            html += '        <img class="hover-img" src="' + p.image + '" alt="' + p.productName + '" onerror="this.src=\'https://via.placeholder.com/200?text=No+Image\'"/>';
+                            html += '      </a>';
+                            html += '      <div class="product-action">';
+                            html += '        <div class="pro-same-action pro-wishlist">';
+                            html += '          <a title="Wishlist" href="/products/download/' + p.productCode + '"><i class="pe-7s-download"></i></a>';
+                            html += '        </div>';
+                            html += '        <div class="pro-same-action pro-cart">';
+                            html += '          <a title="Add To Cart" href="/products/detail/' + p.productCode + '">View Product</a>';
+                            html += '        </div>';
+                            html += '        <div class="pro-same-action pro-quickview">';
+                            html += '          <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" ' +
+                                'data-productcode="' + p.productCode + '" ' +
+                                'data-producttype="' + p.productType + '" ' +
+                                'data-name="' + p.productName + '" ' +
+                                'data-image="' + p.image + '" ' +
+                                'data-category="' + p.category + '" ' +
+                                'data-subcategory="' + p.subCategory + '" ' +
+                                'data-texture="' + p.texture + '" ' +
+                                'data-design="' + p.design + '" ' +
+                                'data-size="' + p.size + '" ' +
+                                'data-thickness="' + p.thickness + '" ' +
+                                'data-width="' + p.width + '" ' +
+                                'data-downloadlink="' + p.downloadLink + '">';
+                            html += '            <i class="pe-7s-look"></i>';
+                            html += '          </a>';
+                            html += '        </div>';
+                            html += '      </div>';
+                            html += '    </div>';
+                            html += '    <div class="product-content text-left">';
+                            html += '      <h3>';
+                            html += '        <a href="/product-details/' + p._id + '">' + p.productCode + '<br>' + p.category + ' - ' + p.texture + '</a>';
+                            html += '      </h3>';
+                            html += '    </div>';
+                            html += '  </div>';
+                            html += '</div>';
+                        }
+
+                        grid.innerHTML = html;
+                    }
+
+                    function displayPagination(pagination) {
+                        var container = document.getElementById('pagination');
+
+                        if (pagination.pages <= 1) {
+                            container.innerHTML = '';
+                            return;
+                        }
+
+                        var html = '<button ' + (currentPage === 1 ? 'disabled' : '') + ' onclick="goToPage(' + (currentPage - 1) + ')">← Previous</button>';
+
+                        for (var i = 1; i <= pagination.pages; i++) {
+                            if (i === 1 || i === pagination.pages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                                html += '<button class="' + (i === currentPage ? 'current-page' : '') + '" onclick="goToPage(' + i + ')">' + i + '</button>';
+                            } else if (i === currentPage - 2 || i === currentPage + 2) {
+                                html += '<span>...</span>';
+                            }
+                        }
+
+                        html += '<button ' + (currentPage === pagination.pages ? 'disabled' : '') + ' onclick="goToPage(' + (currentPage + 1) + ')">Next →</button>';
+
+                        container.innerHTML = html;
+                    }
+
+                    function goToPage(page) {
+                        currentPage = page;
+                        searchProducts();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+
+                    function updateResultsCount(total) {
+                        document.getElementById('resultsCount').textContent = total + ' product' + (total !== 1 ? 's' : '') + ' found';
+                    }
+
+                    function updateActiveFilters() {
+                        var container = document.getElementById('activeFilters');
+                        var filters = [];
+
+                        var filterMap = {
+                            filterProductType: 'Type',
+                            filterCategory: 'Category',
+                            filterSubCategory: 'Sub-Category',
+                            filterTexture: 'Texture',
+                            filterSize: 'Size',
+                            filterThickness: 'Thickness'
+                        };
+
+                        for (var key in filterMap) {
+                            var value = document.getElementById(key).value;
+                            if (value) {
+                                filters.push({ id: key, label: filterMap[key], value: value });
+                            }
+                        }
+
+                        if (filters.length === 0) {
+                            container.innerHTML = '';
+                            return;
+                        }
+
+                        var html = '';
+                        for (var i = 0; i < filters.length; i++) {
+                            var f = filters[i];
+                            html += '<div class="filter-tag">' +
+                                '<span>' + f.label + ': ' + f.value + '</span>' +
+                                '<button onclick="removeFilter(\'' + f.id + '\')">×</button>' +
+                                '</div>';
+                        }
+                        container.innerHTML = html;
+                    }
+
+                    function removeFilter(filterId) {
+                        document.getElementById(filterId).value = '';
+                        if (filterId === 'filterProductType') {
+                            onProductTypeChange();
+                        } else if (filterId === 'filterCategory') {
+                            onCategoryChange();
+                        } else {
+                            applyFilters();
+                        }
+                    }
+
+                    function clearAllFilters() {
+                        document.getElementById('filterProductType').value = '';
+                        document.getElementById('filterCategory').value = '';
+                        document.getElementById('filterSubCategory').value = '';
+                        document.getElementById('filterTexture').value = '';
+                        document.getElementById('filterSize').value = '';
+                        document.getElementById('filterThickness').value = '';
+                        populateSelect('filterCategory', allFilterData.categories);
+                        populateSelect('filterSubCategory', allFilterData.subCategories);
+                        applyFilters();
+                    }
+
+                    function applyFilters() {
+                        currentPage = 1;
+                        searchProducts();
+                    }
+
+                    function selectProduct(productCode) {
+                        window.location.href = '/products/detail/' + productCode;
+                    }
+
+                    function viewProduct(productCode) {
+                        window.location.href = '/products/detail/' + productCode;
+                    }
+
+                    function downloadProduct(productCode) {
+                        window.location.href = '/products/download/' + productCode;
+                    }
+                </script>
+</body>
+
+</html>

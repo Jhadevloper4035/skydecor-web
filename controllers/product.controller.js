@@ -3,146 +3,8 @@ const path = require("path");
 const puppeteer = require("puppeteer");
 const ejs = require("ejs");
 const Page = require("../models/page.model.js");
-
-exports.getAllProducts = async (req, res) => {
-  try {
-    let {
-      productType,
-      category,
-      subCategory,
-      texture,
-      designName,
-      size,
-      thickness,
-      page,
-      limit,
-      sort,
-    } = req.query;
-
-    // Helper: convert query param to array
-    const parseArray = (param) => {
-      if (!param) return [];
-      return Array.isArray(param)
-        ? param
-        : param.split(",").map((v) => v.trim());
-    };
-
-    // Build filters
-    const query = {};
-
-    if (productType?.length)
-      query.productType = { $in: parseArray(productType) };
-    if (category?.length) query.category = { $in: parseArray(category) };
-    if (subCategory?.length)
-      query.subCategory = { $in: parseArray(subCategory) };
-    if (texture?.length) query.texture = { $in: parseArray(texture) };
-    if (designName?.length) query.designName = { $in: parseArray(designName) };
-    if (size?.length) query.size = { $in: parseArray(size) };
-    if (thickness?.length) query.thickness = { $in: parseArray(thickness) };
-
-    // Pagination
-    page = parseInt(page, 10) || 1;
-    limit = parseInt(limit, 10) || 200;
-    const skip = (page - 1) * limit;
-
-    // Sorting
-    let sortOption = { createdAt: -1 };
-    if (sort) {
-      sortOption = {};
-      sort
-        .split(",")
-        .map((s) => s.trim())
-        .forEach((field) => {
-          if (field.startsWith("-")) sortOption[field.substring(1)] = -1;
-          else sortOption[field] = 1;
-        });
-    }
-
-    // Execute queries in parallel
-    const [
-      products,
-      total,
-      productTypes,
-      categories,
-      subCategories,
-      textures,
-      designs,
-      sizes,
-      thicknesss,
-    ] = await Promise.all([
-      Product.find(query).sort(sortOption).skip(skip).limit(limit),
-      Product.countDocuments(query),
-      Product.distinct("productType", {}),
-      Product.distinct("category", {}),
-      Product.distinct("subCategory", {}),
-      Product.distinct("texture", {}),
-      Product.distinct("designName", {}),
-      Product.distinct("size", {}),
-      Product.distinct("thickness", {}),
-    ]);
-
-    // Current selected filters
-    const filters = {
-      productType: parseArray(productType),
-      category: parseArray(category),
-      subCategory: parseArray(subCategory),
-      texture: parseArray(texture),
-      designName: parseArray(designName),
-      size: parseArray(size),
-      thickness: parseArray(thickness),
-    };
-
-    // Pagination pages
-    const pages = Math.ceil(total / limit);
-
-    // AJAX request → render only partial
-    if (req.xhr || req.headers["x-requested-with"] === "XMLHttpRequest") {
-      return res.render(
-        "partials/product-card",
-        {
-          products,
-          total,
-          page,
-          pages,
-          productTypes,
-          categories,
-          subCategories,
-          textures,
-          designs,
-          sizes,
-          thicknesss,
-          filters,
-          count: products.length,
-        },
-        (err, html) => {
-          if (err) return res.status(500).send("Error rendering partial");
-          res.send(html);
-        }
-      );
-    }
-
-    // Full page load
-    res.render("product-pages/product", {
-      title: "Shop - SkyDecor",
-      products,
-      total,
-      page,
-      pages,
-      productTypes,
-      categories,
-      subCategories,
-      textures,
-      designs,
-      sizes,
-      thicknesss,
-      filters,
-      count: products.length,
-    });
-  } catch (err) {
-    console.error("❌ Error fetching products:", err);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
-  }
-};
+const htmlPdf = require("html-pdf-node");
+const fs = require("fs");
 
 exports.getSingleProduct = async (req, res) => {
   try {
@@ -151,7 +13,7 @@ exports.getSingleProduct = async (req, res) => {
     // 1. Find the product by productCode (case-insensitive match for safety)
     const product = await Product.findOne({
       productCode: { $regex: new RegExp("^" + productCode + "$", "i") },
-    });
+    }).lean();
 
     if (!product) {
       return res.status(404).render("error", {
@@ -164,7 +26,9 @@ exports.getSingleProduct = async (req, res) => {
     const relatedProducts = await Product.find({
       category: product.category,
       _id: { $ne: product._id },
-    }).limit(20); // you can adjust the limit
+    })
+      .limit(20)
+      .lean();
 
     // 3. Render the product page with product + related products
     res.render("product-pages/single-product", {
@@ -190,7 +54,7 @@ exports.getAllCategoryProduct = async (req, res) => {
     const query = { productType };
     if (category) query.category = category;
 
-    const products = await Product.find(query);
+    const products = await Product.find(query).lean();
     const page = await Page.findOne({
       productType,
     });
@@ -227,37 +91,55 @@ exports.downloadProductPdf = async (req, res) => {
         .json({ success: false, message: "Product code is required" });
     }
 
-    const product = await Product.findOne({ productCode });
-    if (!product) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Product not found" });
+    // PDF folder path
+    const pdfFolder = path.join(__dirname, "../temp/data/products/pdfs");
+    if (!fs.existsSync(pdfFolder)) {
+      fs.mkdirSync(pdfFolder, { recursive: true });
     }
 
-    // Load and render EJS template
-    const templatePath = path.join(
-      __dirname,
-      "../templates/productTemplate.ejs"
-    );
-    const html = await ejs.renderFile(templatePath, { product });
+    const pdfPath = path.join(pdfFolder, `${productCode}.pdf`);
 
-    // Generate PDF
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.setContent(html, { waitUntil: "networkidle0" });
+    let pdfBuffer;
 
-    const pdfBuffer = await page.pdf({
-      format: "A4",
-      printBackground: true,
-      margin: { top: "40px", bottom: "40px", left: "30px", right: "30px" },
-    });
+    // Check if PDF already exists
+    if (fs.existsSync(pdfPath)) {
+      console.log(`📄 Returning existing PDF for: ${productCode}`);
+      pdfBuffer = fs.readFileSync(pdfPath);
+    } else {
+      // Fetch product from DB
+      const product = await Product.findOne({ productCode });
+      if (!product) {
+        return res
+          .status(404)
+          .json({ success: false, message: "Product not found" });
+      }
 
-    await browser.close();
+      // Render EJS template
+      const templatePath = path.join(
+        __dirname,
+        "../templates/productTemplate.ejs"
+      );
+      const html = await ejs.renderFile(templatePath, { product });
 
-    // Send to client
+      // PDF options
+      const options = {
+        format: "A4",
+        printBackground: true,
+      };
+
+      const file = { content: html };
+
+      // Generate PDF buffer
+      pdfBuffer = await htmlPdf.generatePdf(file, options);
+
+      // Save PDF to backend
+      fs.writeFileSync(pdfPath, pdfBuffer);
+    }
+
+    // Send PDF as downloadable file
     res.setHeader(
       "Content-Disposition",
-      `attachment; filename=${product.productCode}.pdf`
+      `attachment; filename=${productCode}.pdf`
     );
     res.setHeader("Content-Type", "application/pdf");
     res.send(pdfBuffer);
@@ -267,8 +149,72 @@ exports.downloadProductPdf = async (req, res) => {
   }
 };
 
+exports.generateAndStoreAllProductPdfs = async (req, res) => {
+  try {
+    // Fetch all products
+    const products = await Product.find({});
+    if (!products || products.length === 0) {
+      return res
+        .status(404)
+        .json({ success: false, message: "No products found" });
+    }
 
+    const totalProducts = products.length;
+    let completed = 0;
 
+    // PDF folder path
+    const pdfFolder = path.join(__dirname, "../../temp/data/products/pdfs");
+    if (!fs.existsSync(pdfFolder)) {
+      fs.mkdirSync(pdfFolder, { recursive: true });
+    }
+
+    const templatePath = path.join(
+      __dirname,
+      "../templates/productTemplate.ejs"
+    );
+
+    // Loop through all products
+    for (const product of products) {
+      try {
+        // Render HTML from EJS
+        const html = await ejs.renderFile(templatePath, { product });
+
+        const options = {
+          format: "A4",
+          printBackground: true,
+        };
+
+        const file = { content: html };
+        const pdfBuffer = await htmlPdf.generatePdf(file, options);
+
+        // Save PDF
+        const pdfPath = path.join(pdfFolder, `${product.productCode}.pdf`);
+        fs.writeFileSync(pdfPath, pdfBuffer);
+
+        completed++;
+        console.log(
+          `✅ [${completed}/${totalProducts}] PDF generated for: ${product.productCode}`
+        );
+      } catch (err) {
+        completed++;
+        console.error(
+          `❌ [${completed}/${totalProducts}] Failed for ${product.productCode}:`,
+          err
+        );
+      }
+    }
+
+    return res.json({
+      success: true,
+      message: "All product PDFs generated and stored successfully",
+      total: totalProducts,
+      completed: completed,
+    });
+  } catch (error) {
+    console.error("❌ Error generating PDFs:", error);
+    res.status(500).json({ success: false, message: "Error generating PDFs" });
+  }
+};
 
 // Main search endpoint
 exports.searchProducts = async (req, res) => {
@@ -284,11 +230,11 @@ exports.searchProducts = async (req, res) => {
       thickness: req.query.thickness,
       width: req.query.width,
       productCode: req.query.productCode,
-      isActive: req.query.isActive !== 'false', // defaults to true
+      isActive: req.query.isActive !== "false", 
       page: parseInt(req.query.page) || 1,
       limit: parseInt(req.query.limit) || 20,
-      sortBy: req.query.sortBy || 'createdAt',
-      sortOrder: req.query.sortOrder || 'desc'
+      sortBy: req.query.sortBy || "createdAt",
+      sortOrder: req.query.sortOrder || "desc",
     };
 
     const result = await Product.searchProducts(searchParams);
@@ -296,12 +242,12 @@ exports.searchProducts = async (req, res) => {
     res.status(200).json({
       success: true,
       data: result.products,
-      pagination: result.pagination
+      pagination: result.pagination,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -313,12 +259,12 @@ exports.getFilterOptions = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      data: options
+      data: options,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -327,12 +273,12 @@ exports.getFilterOptions = async (req, res) => {
 exports.getProductHierarchy = async (req, res) => {
   try {
     const products = await Product.find({ isActive: true })
-      .select('productType category subCategory')
+      .select("productType category subCategory")
       .lean();
 
     const hierarchy = {};
 
-    products.forEach(product => {
+    products.forEach((product) => {
       const { productType, category, subCategory } = product;
 
       if (!hierarchy[productType]) {
@@ -343,7 +289,10 @@ exports.getProductHierarchy = async (req, res) => {
         hierarchy[productType][category] = [];
       }
 
-      if (subCategory && !hierarchy[productType][category].includes(subCategory)) {
+      if (
+        subCategory &&
+        !hierarchy[productType][category].includes(subCategory)
+      ) {
         hierarchy[productType][category].push(subCategory);
       }
     });
@@ -357,12 +306,12 @@ exports.getProductHierarchy = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      data: hierarchy
+      data: hierarchy,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
@@ -371,19 +320,18 @@ exports.getProductHierarchy = async (req, res) => {
 exports.autocomplete = async (req, res) => {
   try {
     const query = req.query.q || req.query.query;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 1000;
 
     const suggestions = await Product.getAutocompleteSuggestions(query, limit);
 
     res.status(200).json({
       success: true,
-      data: suggestions
+      data: suggestions,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
-
