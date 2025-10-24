@@ -1,7 +1,11 @@
 const ProductEnquiry = require('../models/productEnquiry.model');
 
 exports.submitProductEnquiry = async (req, res) => {
+
+
     try {
+
+      
         const { fullName, email, phone, company, product, message } = req.body;
 
         // Validate required fields

@@ -792,7 +792,7 @@
             let html = '';
 
             suggestions.slice(0, 8).forEach(item => {
-                const productUrl = `/product/detail/${item.productCode}`;
+                const productUrl = `/products/detail/${item.productCode}`;
                 const safeName = (item.productName || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
                 const safeImage = (item.image || 'https://via.placeholder.com/50?text=Product').replace(/"/g, '&quot;');
                 const safeCategory = (item.category || 'Category').replace(/"/g, '&quot;');
