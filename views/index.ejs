@@ -73,7 +73,7 @@
               <div class="tab-pane active" id="product-1">
                 <div class="row item-wrapper1">
                   <% const oneMM=productsByCategory.find(c=> c.category === "1mm");
-                    %> <%- include('partials/related-product-card', { products: oneMM ? oneMM.products : [] }) %>
+                    %> <%- include('partials/product-card', { products: oneMM ? oneMM.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
                         <a class="loadMore1" href="/products/page/1mm">VIEW MORE PRODUCTS</a>
                       </div>
@@ -84,7 +84,7 @@
               <div class="tab-pane" id="product-2">
                 <div class="row item-wrapper2">
                   <% const zeroEightMM=productsByCategory.find(c=> c.category ===
-                    "0.8mm"); %> <%- include('partials/related-product-card', { products: zeroEightMM ?
+                    "0.8mm"); %> <%- include('partials/product-card', { products: zeroEightMM ?
                       zeroEightMM.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
                         <a class="loadMore2" href="/products/page/0.8mm">VIEW MORE PRODUCTS</a>
@@ -96,7 +96,7 @@
               <div class="tab-pane" id="product-3">
                 <div class="row item-wrapper3">
                   <% const liner=productsByCategory.find(c=> c.category ===
-                    "liner"); %> <%- include('partials/related-product-card', { products: liner ? liner.products : [] })
+                    "liner"); %> <%- include('partials/product-card', { products: liner ? liner.products : [] })
                       %>
                       <div class="view-more text-center mt-20 col-12">
                         <a class="loadMore3" href="/products/page/liner">VIEW MORE PRODUCTS</a>
@@ -108,7 +108,7 @@
               <div class="tab-pane" id="product-4">
                 <div class="row item-wrapper4">
                   <% const acrylic=productsByCategory.find(c=> c.category ===
-                    "Acrylish"); %> <%- include('partials/related-product-card', { products: acrylic ? acrylic.products
+                    "Acrylish"); %> <%- include('partials/product-card', { products: acrylic ? acrylic.products
                       : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
                         <a class="loadMore4" href="/products/page/Acrylish">VIEW MORE PRODUCTS</a>
@@ -120,7 +120,7 @@
               <div class="tab-pane " id="product-5">
                 <div class="row item-wrapper5">
                   <% const pvc=productsByCategory.find(c=> c.category === "PVC"); %>
-                    <%- include('partials/related-product-card', { products: pvc ? pvc.products : [] }) %>
+                    <%- include('partials/product-card', { products: pvc ? pvc.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
                         <a class="loadMore5" href="/products/page/PVC">VIEW MORE PRODUCTS</a>
                       </div>

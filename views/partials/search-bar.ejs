@@ -646,10 +646,10 @@
         <div class="product-search-bar-modal-body">
             <div class="product-search-bar-search-wrapper">
                 <div class="product-search-bar-search-input-container">
-                    <input type="text" id="productSearchInput" class="product-search-bar-search-input" placeholder="Search products..."
-                        autocomplete="off">
-                    <button class="product-search-bar-clear-search-btn" id="productSearchClearBtn" onclick="ProductSearchModule.clearSearch()"
-                        style="display: none;">✕</button>
+                    <input type="text" id="productSearchInput" class="product-search-bar-search-input"
+                        placeholder="Search products..." autocomplete="off">
+                    <button class="product-search-bar-clear-search-btn" id="productSearchClearBtn"
+                        onclick="ProductSearchModule.clearSearch()" style="display: none;">✕</button>
                     <span class="product-search-bar-search-icon">🔍</span>
                 </div>
                 <div class="product-search-bar-autocomplete-dropdown" id="productSearchAutocomplete"></div>
@@ -666,12 +666,12 @@
             <div class="product-search-bar-keywords-section" id="productSearchKeywords">
                 <div class="product-search-bar-keywords-title">Feature keywords Today</div>
                 <div class="product-search-bar-keywords-grid">
-                    <a href="/products/search?q=Dresses" class="product-search-bar-keyword-btn">Dresses</a>
-                    <a href="/products/search?q=Dresses+women" class="product-search-bar-keyword-btn">Dresses women</a>
-                    <a href="/products/search?q=Dresses+midi" class="product-search-bar-keyword-btn">Dresses midi</a>
-                    <a href="/products/search?q=Dress+summer" class="product-search-bar-keyword-btn">Dress summer</a>
-                    <a href="/products/search?q=Casual" class="product-search-bar-keyword-btn">Casual</a>
-                    <a href="/products/search?q=Party+Wear" class="product-search-bar-keyword-btn">Party Wear</a>
+                    <a href="/products/?q=Dresses" class="product-search-bar-keyword-btn">Dresses</a>
+                    <a href="/products/?q=Dresses+women" class="product-search-bar-keyword-btn">Dresses women</a>
+                    <a href="/products/?q=Dresses+midi" class="product-search-bar-keyword-btn">Dresses midi</a>
+                    <a href="/products/?q=Dress+summer" class="product-search-bar-keyword-btn">Dress summer</a>
+                    <a href="/products/?q=Casual" class="product-search-bar-keyword-btn">Casual</a>
+                    <a href="/products/?q=Party+Wear" class="product-search-bar-keyword-btn">Party Wear</a>
                 </div>
                 <a href="/products" class="product-search-bar-view-all-btn">👁️ View All Products</a>
             </div>
@@ -681,11 +681,11 @@
 
 <script>
     // Namespaced Product Search Module to avoid conflicts
-    const ProductSearchModule = (function() {
+    const ProductSearchModule = (function () {
         // Private variables
         let searchTimeout = null;
         let selectedIndex = -1;
-        
+
         // DOM element references (cached for performance)
         const elements = {
             overlay: null,
@@ -709,7 +709,7 @@
         // Public: Open search modal
         function open() {
             if (!elements.overlay) initElements();
-            
+
             elements.overlay.classList.add('active');
             elements.input.focus();
             document.body.style.overflow = 'hidden';
@@ -719,7 +719,7 @@
         // Public: Close search modal
         function close() {
             if (!elements.overlay) return;
-            
+
             elements.overlay.classList.remove('active');
             elements.input.value = '';
             hideAutocomplete();
@@ -730,7 +730,7 @@
         // Public: Clear search input
         function clearSearch() {
             if (!elements.input) return;
-            
+
             elements.input.value = '';
             elements.input.focus();
             elements.clearBtn.style.display = 'none';
@@ -788,26 +788,32 @@
         // Private: Display autocomplete suggestions
         function displayAutocomplete(suggestions) {
             if (!elements.autocomplete) return;
-            
+
             let html = '';
 
-            suggestions.slice(0, 8).forEach(item => {
+            suggestions.forEach(item => {
                 const productUrl = `/products/detail/${item.productCode}`;
                 const safeName = (item.productName || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
                 const safeImage = (item.image || 'https://via.placeholder.com/50?text=Product').replace(/"/g, '&quot;');
                 const safeCategory = (item.category || 'Category').replace(/"/g, '&quot;');
-                
+
                 html += `
-                    <a href="${productUrl}" class="product-search-bar-autocomplete-item" onclick="ProductSearchModule.close()">
-                        <img src="${safeImage}" alt="${safeName}" class="product-search-bar-autocomplete-item-image" 
-                             onerror="this.src='https://via.placeholder.com/50?text=Product'">
-                        <div class="product-search-bar-autocomplete-item-content">
-                            <div class="product-search-bar-autocomplete-item-name">${item.productName}</div>
-                            <div class="product-search-bar-autocomplete-item-code">${item.productCode}</div>
-                            <div class="product-search-bar-autocomplete-item-category">${safeCategory}</div>
-                        </div>
-                    </a>
-                `;
+    <a href="${productUrl}" class="product-search-bar-autocomplete-item" onclick="ProductSearchModule.close()">
+        <img src="${safeImage}" 
+             alt="${safeName}" 
+             width="50" 
+             height="50"
+             loading="lazy" 
+             decoding="async"
+             class="product-search-bar-autocomplete-item-image" 
+             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2250%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2250%22 height=%2250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2212%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22%3EProduct%3C/text%3E%3C/svg%3E'">
+        <div class="product-search-bar-autocomplete-item-content">
+            <div class="product-search-bar-autocomplete-item-name">${item.productName}</div>
+            <div class="product-search-bar-autocomplete-item-code">${item.productCode}</div>
+            <div class="product-search-bar-autocomplete-item-category">${safeCategory}</div>
+        </div>
+    </a>
+`;
             });
 
             elements.autocomplete.innerHTML = html;
@@ -825,7 +831,7 @@
         // Private: Handle search input changes
         function handleInput(e) {
             const query = e.target.value.trim();
-            
+
             // Show/hide clear button
             elements.clearBtn.style.display = query.length > 0 ? 'flex' : 'none';
 

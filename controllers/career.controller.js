@@ -6,7 +6,7 @@ exports.getCareerPost = async (req, res) => {
 
     if (!jobs || jobs.length === 0) {
       // No jobs found
-      return res.status(404).render("career", {
+      return res.status(404).render("career/career", {
         title: "Career Page",
         message: "No job openings available at the moment.",
         jobs: [],
@@ -14,7 +14,7 @@ exports.getCareerPost = async (req, res) => {
     }
 
     // Render your EJS page and pass blogs
-    res.render("career", {
+    res.render("career/career", {
       title: "Career Page",
       message: "Wel!",
       jobs, // send all blogs to EJS
@@ -40,7 +40,7 @@ exports.getSinglePost = async (req, res) => {
 
     if (!job) {
       // No jobs found
-      return res.status(404).render("single-career-page.ejs", {
+      return res.status(404).render("career/single-career-page.ejs", {
         title: "Career Page",
         message: "No job openings available at the moment.",
         job: {}
@@ -54,7 +54,7 @@ exports.getSinglePost = async (req, res) => {
       job, // send all blogs to EJS
     });
   } catch (error) {
-    res.status(500).render("single-career-page", {
+    res.status(500).render("career/single-career-page", {
       title: "Career Page",
       message: "Something went wrong. Please try again later.",
       job: {},

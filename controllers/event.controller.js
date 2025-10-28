@@ -10,7 +10,7 @@ exports.getEvents = async (req, res) => {
       .lean()
       .exec();
 
-    res.render('event', {
+    res.render('event/event', {
       title: 'Events Page',
       message: 'Welcome to our Events!',
       events,
@@ -45,7 +45,7 @@ exports.getSingleEvent = async (req, res) => {
       });
     }
 
-    res.render('single-event', {
+    res.render('event/single-event', {
       title: event.title,
       message: `Event Details: ${event.title}`,
       event,
@@ -67,7 +67,7 @@ exports.getUpcomingEvents = async (req, res) => {
     // Use the optimized static method from model
     const events = await Event.findUpcoming(limit);
 
-    res.render('event', {
+    res.render('event/event', {
       title: 'Upcoming Events',
       message: 'Check out our upcoming events!',
       events,
@@ -98,7 +98,7 @@ exports.getEventsByDateRange = async (req, res) => {
       new Date(endDate)
     );
 
-    res.render('event', {
+    res.render('event/event', {
       title: 'Events',
       message: `Events from ${startDate} to ${endDate}`,
       events,

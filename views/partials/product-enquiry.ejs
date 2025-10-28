@@ -1,324 +1,701 @@
-<div class="product-enquiry-modal" id="productEnquiryModal" onclick="closeProductEnquiryOnOutside(event)">
-    <div class="product-enquiry-dialog">
-        <div class="product-enquiry-content">
-            <div class="product-enquiry-header">
-                <h5 class="product-enquiry-title text-white" style="font-weight: 400;">
-                    <i class="fas fa-clipboard-list"></i> Product Enquiry Form
-                </h5>
-                <button class="product-enquiry-close" onclick="closeProductEnquiry()" aria-label="Close">
+<style>
+    /* Demo Button */
+    .skydecor-enquiry-demo-btn {
+        background: #007bff;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .skydecor-enquiry-demo-btn:hover {
+        background: #0056b3;
+    }
+
+    /* Modal Styles */
+    .skydecor-enquiry-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        animation: skydecorEnquiryFadeIn 0.3s;
+        overflow-y: auto;
+        padding: 20px 0;
+    }
+
+    @keyframes skydecorEnquiryFadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .skydecor-enquiry-dialog {
+        position: relative;
+        width: 90%;
+        max-width: 700px;
+        margin: 0 auto;
+        animation: skydecorEnquirySlideDown 0.3s;
+        max-height: calc(100vh - 40px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    @keyframes skydecorEnquirySlideDown {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .skydecor-enquiry-content {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        max-height: calc(100vh - 40px);
+    }
+
+    .skydecor-enquiry-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .skydecor-enquiry-title {
+        color: white;
+        font-size: 22px;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .skydecor-enquiry-close {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background 0.3s;
+    }
+
+    .skydecor-enquiry-close:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .skydecor-enquiry-body {
+        padding: 30px;
+        overflow-y: auto;
+        flex: 1;
+    }
+
+    .skydecor-enquiry-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .skydecor-enquiry-col-6 {
+        flex: 1;
+        min-width: calc(50% - 10px);
+    }
+
+    .skydecor-enquiry-col-12 {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .skydecor-enquiry-label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .skydecor-enquiry-required {
+        color: #e74c3c;
+        margin-left: 3px;
+    }
+
+    .skydecor-enquiry-input-group {
+        position: relative;
+    }
+
+    .skydecor-enquiry-input-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        pointer-events: none;
+    }
+
+    .skydecor-enquiry-input-group .skydecor-enquiry-input {
+        padding-left: 40px;
+    }
+
+    .skydecor-enquiry-input,
+    .skydecor-enquiry-textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: all 0.3s;
+        font-family: inherit;
+    }
+
+    .skydecor-enquiry-input:focus,
+    .skydecor-enquiry-textarea:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .skydecor-enquiry-input.skydecor-enquiry-error,
+    .skydecor-enquiry-textarea.skydecor-enquiry-error {
+        border-color: #e74c3c;
+    }
+
+    .skydecor-enquiry-input[readonly] {
+        background-color: #f5f5f5;
+        cursor: not-allowed;
+    }
+
+    .skydecor-enquiry-textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .skydecor-enquiry-error-msg {
+        display: none;
+        color: #e74c3c;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .skydecor-enquiry-success {
+        display: none;
+        text-align: center;
+        padding: 50px 30px;
+    }
+
+    .skydecor-enquiry-success i {
+        font-size: 60px;
+        color: #27ae60;
+        margin-bottom: 20px;
+    }
+
+    .skydecor-enquiry-success h4 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .skydecor-enquiry-success p {
+        color: #666;
+        font-size: 16px;
+    }
+
+    .skydecor-enquiry-footer {
+        padding: 20px 30px;
+        background: #f8f9fa;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        border-top: 1px solid #e0e0e0;
+        flex-shrink: 0;
+    }
+
+    .skydecor-enquiry-btn {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 500;
+    }
+
+    .skydecor-enquiry-btn-cancel {
+        background: #e0e0e0;
+        color: #666;
+    }
+
+    .skydecor-enquiry-btn-cancel:hover {
+        background: #d0d0d0;
+    }
+
+    .skydecor-enquiry-btn-submit {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    .skydecor-enquiry-btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .skydecor-enquiry-btn-submit:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .skydecor-enquiry-modal {
+            padding: 10px 0;
+        }
+
+        .skydecor-enquiry-dialog {
+            width: 95%;
+            max-height: calc(100vh - 20px);
+        }
+
+        .skydecor-enquiry-content {
+            max-height: calc(100vh - 20px);
+        }
+
+        .skydecor-enquiry-col-6 {
+            min-width: 100%;
+        }
+
+        .skydecor-enquiry-body {
+            padding: 20px;
+        }
+
+        .skydecor-enquiry-footer {
+            flex-direction: column;
+        }
+
+        .skydecor-enquiry-btn {
+            width: 100%;
+        }
+    }
+</style>
+
+
+
+
+
+<!-- Product Enquiry Modal -->
+<div id="skydecorEnquiryModal" class="skydecor-enquiry-modal" onclick="skydecorEnquiryCloseOnOutside(event)">
+    <div class="skydecor-enquiry-dialog">
+        <div class="skydecor-enquiry-content">
+            <!-- Modal Header -->
+            <div class="skydecor-enquiry-header">
+                <h3 class="skydecor-enquiry-title">
+                    <i class="fas fa-paper-plane"></i> Product Enquiry
+                </h3>
+                <button class="skydecor-enquiry-close" onclick="skydecorEnquiryClose()" aria-label="Close">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
 
-            <form class="product-enquiry-form" id="productEnquiryForm" novalidate>
-                <div class="product-enquiry-body" id="productEnquiryFormContent">
-                    <div class="product-enquiry-row">
-                        <div class="product-enquiry-col-6">
-                            <label for="productEnquiryFullName" class="product-enquiry-label">
-                                Full Name<span class="product-enquiry-required">*</span>
+            <!-- Modal Body - Form -->
+            <div id="skydecorEnquiryFormContent" class="skydecor-enquiry-body">
+                <form id="skydecorEnquiryForm" onsubmit="skydecorEnquiryHandleSubmit(event)">
+                    <div class="skydecor-enquiry-row">
+                        <!-- Full Name -->
+                        <div class="skydecor-enquiry-col-6">
+                            <label class="skydecor-enquiry-label" for="skydecorEnquiryFullName">
+                                Full Name<span class="skydecor-enquiry-required">*</span>
                             </label>
-                            <input type="text" class="product-enquiry-input" id="productEnquiryFullName"
-                                placeholder="John Doe" required minlength="2" maxlength="50">
-                            <div class="product-enquiry-error" id="productEnquiryFullNameError"></div>
-                        </div>
-
-                        <div class="product-enquiry-col-6">
-                            <label for="productEnquiryEmail" class="product-enquiry-label">
-                                Email Address<span class="product-enquiry-required">*</span>
-                            </label>
-                            <div class="product-enquiry-input-group">
-                                <span class="product-enquiry-input-icon"><i class="fas fa-envelope"></i></span>
-                                <input type="email" class="product-enquiry-input" id="productEnquiryEmail"
-                                    placeholder="john@example.com" required>
+                            <div class="skydecor-enquiry-input-group">
+                                <i class="fas fa-user skydecor-enquiry-input-icon"></i>
+                                <input type="text" id="skydecorEnquiryFullName" class="skydecor-enquiry-input"
+                                    placeholder="Enter your full name" required>
                             </div>
-                            <div class="product-enquiry-error" id="productEnquiryEmailError"></div>
+                            <div id="skydecorEnquiryFullNameError" class="skydecor-enquiry-error-msg"></div>
                         </div>
 
-                        <div class="product-enquiry-col-6">
-                            <label for="productEnquiryPhone" class="product-enquiry-label">
-                                Phone Number<span class="product-enquiry-required">*</span>
+                        <!-- Email -->
+                        <div class="skydecor-enquiry-col-6">
+                            <label class="skydecor-enquiry-label" for="skydecorEnquiryEmail">
+                                Email Address<span class="skydecor-enquiry-required">*</span>
                             </label>
-                            <div class="product-enquiry-input-group">
-                                <span class="product-enquiry-input-icon"><i class="fas fa-phone"></i></span>
-                                <input type="tel" class="product-enquiry-input" id="productEnquiryPhone"
-                                    placeholder="+91 98765 43210" required pattern="[0-9+\s\-()]{10,15}">
+                            <div class="skydecor-enquiry-input-group">
+                                <i class="fas fa-envelope skydecor-enquiry-input-icon"></i>
+                                <input type="email" id="skydecorEnquiryEmail" class="skydecor-enquiry-input"
+                                    placeholder="your.email@example.com" required>
                             </div>
-                            <div class="product-enquiry-error" id="productEnquiryPhoneError"></div>
+                            <div id="skydecorEnquiryEmailError" class="skydecor-enquiry-error-msg"></div>
                         </div>
 
-                        <div class="product-enquiry-col-6">
-                            <label for="productEnquiryCompany" class="product-enquiry-label">
+                        <!-- Phone -->
+                        <div class="skydecor-enquiry-col-6">
+                            <label class="skydecor-enquiry-label" for="skydecorEnquiryPhone">
+                                Phone Number<span class="skydecor-enquiry-required">*</span>
+                            </label>
+                            <div class="skydecor-enquiry-input-group">
+                                <i class="fas fa-phone skydecor-enquiry-input-icon"></i>
+                                <input type="tel" id="skydecorEnquiryPhone" class="skydecor-enquiry-input"
+                                    placeholder="+91 98765 43210" required>
+                            </div>
+                            <div id="skydecorEnquiryPhoneError" class="skydecor-enquiry-error-msg"></div>
+                        </div>
+
+                        <!-- WhatsApp Number -->
+                        <div class="skydecor-enquiry-col-6">
+                            <label class="skydecor-enquiry-label" for="skydecorEnquiryWhatsapp">
+                                WhatsApp Number<span class="skydecor-enquiry-required">*</span>
+                            </label>
+                            <div class="skydecor-enquiry-input-group">
+                                <i class="fab fa-whatsapp skydecor-enquiry-input-icon"></i>
+                                <input type="tel" id="skydecorEnquiryWhatsapp" class="skydecor-enquiry-input"
+                                    placeholder="+91 98765 43210" required>
+                            </div>
+                            <div id="skydecorEnquiryWhatsappError" class="skydecor-enquiry-error-msg"></div>
+                        </div>
+
+                        <!-- Company -->
+                        <div class="skydecor-enquiry-col-6">
+                            <label class="skydecor-enquiry-label" for="skydecorEnquiryCompany">
                                 Company Name
                             </label>
-                            <input type="text" class="product-enquiry-input" id="productEnquiryCompany"
-                                placeholder="Your Company" maxlength="100">
-                            <div class="product-enquiry-error" id="productEnquiryCompanyError"></div>
+                            <div class="skydecor-enquiry-input-group">
+                                <i class="fas fa-building skydecor-enquiry-input-icon"></i>
+                                <input type="text" id="skydecorEnquiryCompany" class="skydecor-enquiry-input"
+                                    placeholder="Your company name (optional)">
+                            </div>
                         </div>
 
-
-                        <div class="product-enquiry-col-6">
-                            <label for="productEnquiryProduct" class="product-enquiry-label">
-                                Product
+                        <!-- Product -->
+                        <div class="skydecor-enquiry-col-6">
+                            <label class="skydecor-enquiry-label" for="skydecorEnquiryProduct">
+                                Product Name
                             </label>
-                            <input type="text" class="product-enquiry-input" id="productEnquiryProduct" value="<%= product.productCode %>" readonly>
-                            <div class="product-enquiry-error" id="productEnquiryProductError"></div>
+                            <div class="skydecor-enquiry-input-group">
+                                <i class="fas fa-box skydecor-enquiry-input-icon"></i>
+                                <input type="text" id="skydecorEnquiryProduct" value="<%= product.productCode %>" class="skydecor-enquiry-input"
+                                    placeholder="Product you're interested in" readonly>
+                            </div>
                         </div>
 
-
-
-
-
-                        <div class="product-enquiry-col-12">
-                            <label for="productEnquiryMessage" class="product-enquiry-label">
-                                Your Message<span class="product-enquiry-required">*</span>
+                        <!-- Message - Full Width -->
+                        <div class="skydecor-enquiry-col-12">
+                            <label class="skydecor-enquiry-label" for="skydecorEnquiryMessage">
+                                Your Message<span class="skydecor-enquiry-required">*</span>
                             </label>
-                            <textarea class="product-enquiry-textarea" id="productEnquiryMessage" rows="4"
-                                placeholder="Please describe your requirements in detail..." required minlength="10"
-                                maxlength="1000"></textarea>
-                            <div class="product-enquiry-error" id="productEnquiryMessageError"></div>
+                            <textarea id="skydecorEnquiryMessage" class="skydecor-enquiry-textarea"
+                                placeholder="Tell us about your requirements..." required></textarea>
+                            <div id="skydecorEnquiryMessageError" class="skydecor-enquiry-error-msg"></div>
                         </div>
                     </div>
-                </div>
+                </form>
+            </div>
 
-                <div class="product-enquiry-success" id="productEnquirySuccess">
-                    <i class="fas fa-check-circle"></i>
-                    <h4>Thank You!</h4>
-                    <p>Your enquiry has been submitted successfully. We'll get back to you soon!</p>
-                </div>
+            <!-- Success Message -->
+            <div id="skydecorEnquirySuccess" class="skydecor-enquiry-success">
+                <i class="fas fa-check-circle"></i>
+                <h4>Thank You!</h4>
+                <p>Your enquiry has been submitted successfully. We'll get back to you soon.</p>
+            </div>
 
-                <div class="product-enquiry-footer" id="productEnquiryFooter">
-                    <button type="button" class="product-enquiry-cancel" onclick="closeProductEnquiry()">
-                        <i class="fas fa-times"></i> Cancel
-                    </button>
-                    <button type="submit" class="product-enquiry-submit">
-                        <i class="fas fa-paper-plane"></i> Submit Enquiry
-                    </button>
-                </div>
-            </form>
+            <!-- Modal Footer -->
+            <div id="skydecorEnquiryFooter" class="skydecor-enquiry-footer">
+                <button type="button" class="skydecor-enquiry-btn skydecor-enquiry-btn-cancel"
+                    onclick="skydecorEnquiryClose()">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+                <button type="submit" form="skydecorEnquiryForm"
+                    class="skydecor-enquiry-btn skydecor-enquiry-btn-submit">
+                    <i class="fas fa-paper-plane"></i> Submit Enquiry
+                </button>
+            </div>
         </div>
     </div>
 </div>
 
-
 <script>
+    // Initialize validation on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        skydecorEnquirySetupValidation();
+    });
 
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('productEnquiryForm');
-    const successDiv = document.getElementById('productEnquirySuccess');
-    const formContent = document.getElementById('productEnquiryFormContent');
-    const footer = document.getElementById('productEnquiryFooter');
-
-    if (form) {
-        form.addEventListener('submit', handleProductEnquirySubmit);
+    // Function to set product name (useful when clicking enquiry from product page)
+    function skydecorEnquirySetProduct(productName) {
+        const productInput = document.getElementById('skydecorEnquiryProduct');
+        if (productInput) {
+            productInput.value = productName;
+        }
     }
 
-    // Input validation on blur
-    setupValidation();
-});
+    // Handle form submission
+    async function skydecorEnquiryHandleSubmit(event) {
+        event.preventDefault();
 
-async function handleProductEnquirySubmit(e) {
-    e.preventDefault();
+        // Clear previous errors
+        skydecorEnquiryClearErrors();
 
-    // Clear previous errors
-    clearErrors();
+        // Collect form data
+        const formData = {
+            fullName: document.getElementById('skydecorEnquiryFullName').value.trim(),
+            email: document.getElementById('skydecorEnquiryEmail').value.trim(),
+            phone: document.getElementById('skydecorEnquiryPhone').value.trim(),
+            whatsapp: document.getElementById('skydecorEnquiryWhatsapp').value.trim(),
+            company: document.getElementById('skydecorEnquiryCompany').value.trim(),
+            product: document.getElementById('skydecorEnquiryProduct').value.trim(),
+            message: document.getElementById('skydecorEnquiryMessage').value.trim()
+        };
 
-    // Get form values
-    const formData = {
-        fullName: document.getElementById('productEnquiryFullName').value.trim(),
-        email: document.getElementById('productEnquiryEmail').value.trim(),
-        phone: document.getElementById('productEnquiryPhone').value.trim(),
-        company: document.getElementById('productEnquiryCompany').value.trim(),
-        product: document.getElementById('productEnquiryProduct').value.trim(),
-        message: document.getElementById('productEnquiryMessage').value.trim()
-    };
+        // Validate form
+        if (!skydecorEnquiryValidateForm(formData)) {
+            return;
+        }
 
-    // Validate form
-    if (!validateForm(formData)) {
-        return;
-    }
+        // Disable submit button
+        const submitBtn = document.querySelector('.skydecor-enquiry-btn-submit');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
 
-    // Disable submit button
-    const submitBtn = document.querySelector('.product-enquiry-submit');
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+        try {
+            // Simulate API call (replace with your actual API endpoint)
+            const response = await fetch('/api/product-enquiry', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
 
-    try {
-        // Submit form data
-        const response = await fetch('/api/product-enquiry', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
-
-        
-
-        const data = await response.json();
-
-        if (response.ok && data.success) {
-            // Show success message briefly
-            document.getElementById('productEnquiryFormContent').style.display = 'none';
-            document.getElementById('productEnquiryFooter').style.display = 'none';
-            document.getElementById('productEnquirySuccess').style.display = 'block';
-
-            // Redirect to thank you page after 2 seconds
+            // For demo purposes, simulate success after 1 second
+            // Remove this setTimeout and uncomment the real API code below
             setTimeout(() => {
-                window.location.href = '/thank-you?enquiry=success';
-            }, 2000);
-        } else {
-            // Show error message
-            showError('general', data.message || 'Failed to submit enquiry. Please try again.');
+                // Show success message
+                document.getElementById('skydecorEnquiryFormContent').style.display = 'none';
+                document.getElementById('skydecorEnquiryFooter').style.display = 'none';
+                document.getElementById('skydecorEnquirySuccess').style.display = 'block';
+
+                // Close modal after 3 seconds
+                setTimeout(() => {
+                    skydecorEnquiryClose();
+                    // Optionally redirect: window.location.href = '/thank-you?enquiry=success';
+                }, 3000);
+            }, 1000);
+
+            /* UNCOMMENT THIS FOR REAL API INTEGRATION
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                document.getElementById('skydecorEnquiryFormContent').style.display = 'none';
+                document.getElementById('skydecorEnquiryFooter').style.display = 'none';
+                document.getElementById('skydecorEnquirySuccess').style.display = 'block';
+
+                setTimeout(() => {
+                    window.location.href = '/thank-you?enquiry=success';
+                }, 2000);
+            } else {
+                skydecorEnquiryShowError('general', data.message || 'Failed to submit enquiry. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+            */
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            skydecorEnquiryShowError('skydecorEnquiryMessage', 'Network error. Please check your connection and try again.');
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnText;
         }
-    } catch (error) {
-        console.error('Error submitting form:', error);
-        showError('general', 'Network error. Please check your connection and try again.');
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnText;
-    }
-}
-
-function validateForm(formData) {
-    let isValid = true;
-
-    // Validate Full Name
-    if (!formData.fullName || formData.fullName.length < 2) {
-        showError('productEnquiryFullName', 'Please enter a valid name (at least 2 characters)');
-        isValid = false;
     }
 
-    // Validate Email
-    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!formData.email || !emailRegex.test(formData.email)) {
-        showError('productEnquiryEmail', 'Please enter a valid email address');
-        isValid = false;
+    function skydecorEnquiryValidateForm(formData) {
+        let isValid = true;
+
+        // Validate Full Name
+        if (!formData.fullName || formData.fullName.length < 2) {
+            skydecorEnquiryShowError('skydecorEnquiryFullName', 'Please enter a valid name (at least 2 characters)');
+            isValid = false;
+        }
+
+        // Validate Email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email || !emailRegex.test(formData.email)) {
+            skydecorEnquiryShowError('skydecorEnquiryEmail', 'Please enter a valid email address');
+            isValid = false;
+        }
+
+        // Validate Phone
+        const phoneRegex = /^[0-9+\s\-()]{10,15}$/;
+        if (!formData.phone || !phoneRegex.test(formData.phone)) {
+            skydecorEnquiryShowError('skydecorEnquiryPhone', 'Please enter a valid phone number');
+            isValid = false;
+        }
+
+        // Validate WhatsApp
+        if (!formData.whatsapp || !phoneRegex.test(formData.whatsapp)) {
+            skydecorEnquiryShowError('skydecorEnquiryWhatsapp', 'Please enter a valid WhatsApp number');
+            isValid = false;
+        }
+
+        // Validate Message
+        if (!formData.message || formData.message.length < 10) {
+            skydecorEnquiryShowError('skydecorEnquiryMessage', 'Please enter a message (at least 10 characters)');
+            isValid = false;
+        }
+
+        return isValid;
     }
 
-    // Validate Phone
-    const phoneRegex = /^[0-9+\s\-()]{10,15}$/;
-    if (!formData.phone || !phoneRegex.test(formData.phone)) {
-        showError('productEnquiryPhone', 'Please enter a valid phone number');
-        isValid = false;
-    }
+    function skydecorEnquiryShowError(fieldId, message) {
+        const errorDiv = document.getElementById(fieldId + 'Error');
+        if (errorDiv) {
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
 
-    // Validate Message
-    if (!formData.message || formData.message.length < 10) {
-        showError('productEnquiryMessage', 'Please enter a message (at least 10 characters)');
-        isValid = false;
-    }
-
-    return isValid;
-}
-
-function showError(fieldId, message) {
-    const errorDiv = document.getElementById(fieldId + 'Error');
-    if (errorDiv) {
-        errorDiv.textContent = message;
-        errorDiv.style.display = 'block';
-    }
-
-    // Add error class to input
-    if (fieldId !== 'general') {
-        const input = document.getElementById(fieldId);
-        if (input) {
-            input.classList.add('error');
+        // Add error class to input
+        if (fieldId !== 'general') {
+            const input = document.getElementById(fieldId);
+            if (input) {
+                input.classList.add('skydecor-enquiry-error');
+            }
         }
     }
-}
 
-function clearErrors() {
-    const errorDivs = document.querySelectorAll('.product-enquiry-error');
-    errorDivs.forEach(div => {
-        div.textContent = '';
-        div.style.display = 'none';
+    function skydecorEnquiryClearErrors() {
+        const errorDivs = document.querySelectorAll('.skydecor-enquiry-error-msg');
+        errorDivs.forEach(div => {
+            div.textContent = '';
+            div.style.display = 'none';
+        });
+
+        const inputs = document.querySelectorAll('.skydecor-enquiry-input, .skydecor-enquiry-textarea');
+        inputs.forEach(input => {
+            input.classList.remove('skydecor-enquiry-error');
+        });
+    }
+
+    function skydecorEnquirySetupValidation() {
+        const fullNameInput = document.getElementById('skydecorEnquiryFullName');
+        const emailInput = document.getElementById('skydecorEnquiryEmail');
+        const phoneInput = document.getElementById('skydecorEnquiryPhone');
+        const whatsappInput = document.getElementById('skydecorEnquiryWhatsapp');
+        const messageInput = document.getElementById('skydecorEnquiryMessage');
+
+        if (fullNameInput) {
+            fullNameInput.addEventListener('blur', function () {
+                if (this.value.trim().length > 0 && this.value.trim().length < 2) {
+                    skydecorEnquiryShowError('skydecorEnquiryFullName', 'Name must be at least 2 characters');
+                } else if (this.value.trim().length >= 2) {
+                    document.getElementById('skydecorEnquiryFullNameError').style.display = 'none';
+                    this.classList.remove('skydecor-enquiry-error');
+                }
+            });
+        }
+
+        if (emailInput) {
+            emailInput.addEventListener('blur', function () {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (this.value.trim() && !emailRegex.test(this.value.trim())) {
+                    skydecorEnquiryShowError('skydecorEnquiryEmail', 'Please enter a valid email address');
+                } else if (this.value.trim() && emailRegex.test(this.value.trim())) {
+                    document.getElementById('skydecorEnquiryEmailError').style.display = 'none';
+                    this.classList.remove('skydecor-enquiry-error');
+                }
+            });
+        }
+
+        if (phoneInput) {
+            phoneInput.addEventListener('blur', function () {
+                const phoneRegex = /^[0-9+\s\-()]{10,15}$/;
+                if (this.value.trim() && !phoneRegex.test(this.value.trim())) {
+                    skydecorEnquiryShowError('skydecorEnquiryPhone', 'Please enter a valid phone number');
+                } else if (this.value.trim() && phoneRegex.test(this.value.trim())) {
+                    document.getElementById('skydecorEnquiryPhoneError').style.display = 'none';
+                    this.classList.remove('skydecor-enquiry-error');
+                }
+            });
+        }
+
+        if (whatsappInput) {
+            whatsappInput.addEventListener('blur', function () {
+                const phoneRegex = /^[0-9+\s\-()]{10,15}$/;
+                if (this.value.trim() && !phoneRegex.test(this.value.trim())) {
+                    skydecorEnquiryShowError('skydecorEnquiryWhatsapp', 'Please enter a valid WhatsApp number');
+                } else if (this.value.trim() && phoneRegex.test(this.value.trim())) {
+                    document.getElementById('skydecorEnquiryWhatsappError').style.display = 'none';
+                    this.classList.remove('skydecor-enquiry-error');
+                }
+            });
+        }
+
+        if (messageInput) {
+            messageInput.addEventListener('blur', function () {
+                if (this.value.trim().length > 0 && this.value.trim().length < 10) {
+                    skydecorEnquiryShowError('skydecorEnquiryMessage', 'Message must be at least 10 characters');
+                } else if (this.value.trim().length >= 10) {
+                    document.getElementById('skydecorEnquiryMessageError').style.display = 'none';
+                    this.classList.remove('skydecor-enquiry-error');
+                }
+            });
+        }
+    }
+
+    // Modal functions
+    function skydecorEnquiryClose() {
+        const modal = document.getElementById('skydecorEnquiryModal');
+        modal.style.display = 'none';
+
+        // Reset form
+        document.getElementById('skydecorEnquiryForm').reset();
+        skydecorEnquiryClearErrors();
+
+        // Reset form display
+        document.getElementById('skydecorEnquiryFormContent').style.display = 'block';
+        document.getElementById('skydecorEnquiryFooter').style.display = 'flex';
+        document.getElementById('skydecorEnquirySuccess').style.display = 'none';
+
+        // Re-enable submit button
+        const submitBtn = document.querySelector('.skydecor-enquiry-btn-submit');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Enquiry';
+    }
+
+    function skydecorEnquiryCloseOnOutside(event) {
+        const modal = document.getElementById('skydecorEnquiryModal');
+        if (event.target === modal) {
+            skydecorEnquiryClose();
+        }
+    }
+
+    function skydecorEnquiryOpen() {
+        const modal = document.getElementById('skydecorEnquiryModal');
+        modal.style.display = 'block';
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            const modal = document.getElementById('skydecorEnquiryModal');
+            if (modal.style.display === 'block') {
+                skydecorEnquiryClose();
+            }
+        }
     });
-
-    const inputs = document.querySelectorAll('.product-enquiry-input, .product-enquiry-textarea');
-    inputs.forEach(input => {
-        input.classList.remove('error');
-    });
-}
-
-function setupValidation() {
-    // Real-time validation on blur
-    const fullNameInput = document.getElementById('productEnquiryFullName');
-    const emailInput = document.getElementById('productEnquiryEmail');
-    const phoneInput = document.getElementById('productEnquiryPhone');
-    const messageInput = document.getElementById('productEnquiryMessage');
-
-    if (fullNameInput) {
-        fullNameInput.addEventListener('blur', function() {
-            if (this.value.trim().length > 0 && this.value.trim().length < 2) {
-                showError('productEnquiryFullName', 'Name must be at least 2 characters');
-            } else {
-                document.getElementById('productEnquiryFullNameError').style.display = 'none';
-                this.classList.remove('error');
-            }
-        });
-    }
-
-    if (emailInput) {
-        emailInput.addEventListener('blur', function() {
-            const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            if (this.value.trim() && !emailRegex.test(this.value.trim())) {
-                showError('productEnquiryEmail', 'Please enter a valid email address');
-            } else {
-                document.getElementById('productEnquiryEmailError').style.display = 'none';
-                this.classList.remove('error');
-            }
-        });
-    }
-
-    if (phoneInput) {
-        phoneInput.addEventListener('blur', function() {
-            const phoneRegex = /^[0-9+\s\-()]{10,15}$/;
-            if (this.value.trim() && !phoneRegex.test(this.value.trim())) {
-                showError('productEnquiryPhone', 'Please enter a valid phone number');
-            } else {
-                document.getElementById('productEnquiryPhoneError').style.display = 'none';
-                this.classList.remove('error');
-            }
-        });
-    }
-
-    if (messageInput) {
-        messageInput.addEventListener('blur', function() {
-            if (this.value.trim().length > 0 && this.value.trim().length < 10) {
-                showError('productEnquiryMessage', 'Message must be at least 10 characters');
-            } else {
-                document.getElementById('productEnquiryMessageError').style.display = 'none';
-                this.classList.remove('error');
-            }
-        });
-    }
-}
-
-// Modal functions
-function closeProductEnquiry() {
-    document.getElementById('productEnquiryModal').style.display = 'none';
-    document.getElementById('productEnquiryForm').reset();
-    clearErrors();
-    
-    // Reset form display
-    document.getElementById('productEnquiryFormContent').style.display = 'block';
-    document.getElementById('productEnquiryFooter').style.display = 'flex';
-    document.getElementById('productEnquirySuccess').style.display = 'none';
-}
-
-function closeProductEnquiryOnOutside(event) {
-    const modal = document.getElementById('productEnquiryModal');
-    if (event.target === modal) {
-        closeProductEnquiry();
-    }
-}
-
-function openProductEnquiry() {
-    document.getElementById('productEnquiryModal').style.display = 'block';
-}
-
 </script>

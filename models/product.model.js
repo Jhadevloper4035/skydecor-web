@@ -75,12 +75,10 @@ const productSchema = new mongoose.Schema(
       required: [true, "Image URL is required"],
       trim: true,
     },
-    // Search-optimized field for text search
     searchText: {
       type: String,
-      select: false, // Don't return in queries by default
+      select: false,
     },
-    // Status for active/inactive products
     isActive: {
       type: Boolean,
       default: true,
@@ -91,9 +89,7 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-// ==================== INDEXES FOR SEARCH OPTIMIZATION ====================
-
-// Text index for full-text search across multiple fields
+// ==================== INDEXES ====================
 productSchema.index(
   {
     productName: "text",
@@ -116,8 +112,6 @@ productSchema.index(
   }
 );
 
-// Individual field indexes for exact/prefix matching and filtering
-
 productSchema.index({ productType: 1 });
 productSchema.index({ category: 1, subCategory: 1 });
 productSchema.index({ texture: 1 });
@@ -126,16 +120,12 @@ productSchema.index({ size: 1 });
 productSchema.index({ thickness: 1 });
 productSchema.index({ width: 1 });
 productSchema.index({ isActive: 1 });
-
-// Compound indexes for common filter combinations
 productSchema.index({ productType: 1, category: 1 });
 productSchema.index({ category: 1, thickness: 1 });
 productSchema.index({ isActive: 1, productType: 1 });
 productSchema.index({ isActive: 1, category: 1 });
 
 // ==================== MIDDLEWARE ====================
-
-// Pre-save hook to populate searchText field
 productSchema.pre("save", function (next) {
   this.searchText = [
     this.productCode,
@@ -158,10 +148,10 @@ productSchema.pre("save", function (next) {
 
 // ==================== STATIC METHODS ====================
 
-// Advanced search method
+// ⚠️ NO .lean() - Testing version
 productSchema.statics.searchProducts = async function (searchParams) {
   const {
-    query = "", // Text search query
+    query = "",
     productType,
     category,
     subCategory,
@@ -187,13 +177,11 @@ productSchema.statics.searchProducts = async function (searchParams) {
     sort: { [sortBy]: sortOrder === "desc" ? -1 : 1 },
   };
 
-  // Text search
   if (query && query.trim()) {
     filter.$text = { $search: query };
     options.sort = { score: { $meta: "textScore" } };
   }
 
-  // Exact match filters
   if (productType) filter.productType = productType;
   if (category) filter.category = new RegExp(category, "i");
   if (subCategory) filter.subCategory = new RegExp(subCategory, "i");
@@ -202,11 +190,7 @@ productSchema.statics.searchProducts = async function (searchParams) {
   if (size) filter.size = size;
   if (thickness) filter.thickness = thickness;
   if (width) filter.width = width;
-
-  // Partial match for product code
-  if (productCode) {
-    filter.productCode = new RegExp(productCode, "i");
-  }
+  if (productCode) filter.productCode = new RegExp(productCode, "i");
 
   try {
     const [products, total] = await Promise.all([
@@ -217,7 +201,7 @@ productSchema.statics.searchProducts = async function (searchParams) {
         .sort(options.sort)
         .skip(options.skip)
         .limit(options.limit)
-        .lean(),
+        .exec(), // ⚠️ NO .lean() for testing
       this.countDocuments(filter),
     ]);
 
@@ -235,7 +219,7 @@ productSchema.statics.searchProducts = async function (searchParams) {
   }
 };
 
-// Get unique filter values for dropdown/faceted search
+// ⚠️ NO .lean() - Testing version (this one is fine, .distinct doesn't need .lean)
 productSchema.statics.getFilterOptions = async function () {
   try {
     const [
@@ -270,13 +254,14 @@ productSchema.statics.getFilterOptions = async function () {
   }
 };
 
-// Autocomplete suggestions
-
+// ⚠️ NO .lean() - Testing version
 productSchema.statics.getAutocompleteSuggestions = async function (
   query,
   limit = 10
 ) {
-  if (!query || query.trim().length < 2) return [];
+  if (!query || query.trim().length < 2) {
+    return [];
+  }
 
   try {
     const regex = new RegExp(query, "i");
@@ -287,7 +272,7 @@ productSchema.statics.getAutocompleteSuggestions = async function (
           { productName: regex },
           { productCode: regex },
           { category: regex },
-          { subcategory: regex },
+          { subCategory: regex },
           { designName: regex },
           { productType: regex },
           { size: regex },
@@ -300,7 +285,7 @@ productSchema.statics.getAutocompleteSuggestions = async function (
         productName: 1,
         productCode: 1,
         category: 1,
-        subcategory: 1,
+        subCategory: 1,
         designName: 1,
         productType: 1,
         size: 1,
@@ -309,7 +294,7 @@ productSchema.statics.getAutocompleteSuggestions = async function (
       }
     )
       .limit(limit)
-      .lean();
+      .exec(); // ⚠️ NO .lean() for testing
 
     return suggestions;
   } catch (error) {

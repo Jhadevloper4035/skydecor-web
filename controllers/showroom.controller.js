@@ -9,7 +9,7 @@ exports.getShowrooms = async (req, res) => {
       .lean();
 
 
-    res.render("showroom", {
+    res.render("showroom/showroom", {
       title: "Showroom Page",
       message: "Welcome to our Showrooms!",
       showrooms: showrooms,
@@ -43,7 +43,7 @@ exports.getSingleShowroom = async (req, res) => {
       });
     }
 
-    res.render("single-showroom", {
+    res.render("showroom/single-showroom", {
       title: showroom.location || "Showroom Page",
       showroom,
     });

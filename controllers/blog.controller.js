@@ -11,7 +11,7 @@ exports.getBlogs = async (req, res) => {
       .select("title url image text meta_description created_at author") // Only necessary fields
       .lean();
 
-    res.render("blog", {
+    res.render("blog/blog", {
       title: "Blog Page",
       message: "Welcome to our Blogs!",
       blogs,
@@ -66,7 +66,7 @@ exports.getSingleBlogs = async (req, res) => {
       .lean();
 
     // ✅ Render EJS with SEO fields
-    res.render("single-blog", {
+    res.render("blog/single-blog", {
       title: blog.meta_title || blog.title,
       meta_description: blog.meta_description,
       meta_tags: blog.meta_tags,
