@@ -2,9 +2,85 @@ const Product = require("../models/product.model.js");
 const path = require("path");
 const puppeteer = require("puppeteer");
 const ejs = require("ejs");
-const Page = require("../models/page.model.js");
-const htmlPdf = require("html-pdf-node");
 const fs = require("fs");
+
+exports.downloadProductPdf = async (req, res) => {
+  try {
+    const { productCode } = req.params;
+    if (!productCode) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Product code is required" });
+    }
+
+    // Ensure PDF folder exists
+    const pdfFolder = path.join(__dirname, "../data/products/pdfs");
+    if (!fs.existsSync(pdfFolder)) fs.mkdirSync(pdfFolder, { recursive: true });
+
+    const pdfPath = path.join(pdfFolder, `${productCode}.pdf`);
+
+    // Return existing PDF if already generated
+    if (fs.existsSync(pdfPath)) {
+      console.log(`📄 Returning existing PDF for: ${productCode}`);
+      const pdfBuffer = fs.readFileSync(pdfPath);
+      res.setHeader(
+        "Content-Disposition",
+        `attachment; filename=${productCode}.pdf`
+      );
+      res.setHeader("Content-Type", "application/pdf");
+      return res.send(pdfBuffer);
+    }
+
+    // Fetch product data
+    const product = await Product.findOne({ productCode }).lean();
+    if (!product) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Product not found" });
+    }
+
+    // Render HTML with EJS
+    const templatePath = path.join(
+      __dirname,
+      "../templates/productTemplate.ejs"
+    );
+    const html = await ejs.renderFile(templatePath, { product });
+
+    // Launch Puppeteer
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      executablePath: "/usr/bin/chromium-browser", // Adjust if using snap
+    });
+    const page = await browser.newPage();
+
+    // Set HTML content and wait until network idle to ensure all assets load
+    await page.setContent(html, { waitUntil: "networkidle0" });
+
+    // Generate PDF
+    const pdfBuffer = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      margin: { top: "20px", bottom: "20px", left: "20px", right: "20px" },
+    });
+
+    await browser.close();
+
+    // Save PDF for future requests
+    fs.writeFileSync(pdfPath, pdfBuffer);
+
+    // Send PDF to client
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename=${productCode}.pdf`
+    );
+    res.setHeader("Content-Type", "application/pdf");
+    res.send(pdfBuffer);
+  } catch (error) {
+    console.error("❌ PDF Generation Error:", error);
+    res.status(500).json({ success: false, message: "Error generating PDF" });
+  }
+};
 
 exports.getSingleProduct = async (req, res) => {
   try {
@@ -78,68 +154,6 @@ exports.getAllCategoryProduct = async (req, res) => {
   }
 };
 
-
-
-
-exports.downloadProductPdf = async (req, res) => {
-  try {
-    const { productCode } = req.params;
-    if (!productCode) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Product code is required" });
-    }
-
-    const pdfFolder = path.join(__dirname, "../data/products/pdfs");
-    if (!fs.existsSync(pdfFolder)) {
-      fs.mkdirSync(pdfFolder, { recursive: true });
-    }
-
-    const pdfPath = path.join(pdfFolder, `${productCode}.pdf`);
-    let pdfBuffer;
-
-    if (fs.existsSync(pdfPath)) {
-      console.log(`📄 Returning existing PDF for: ${productCode}`);
-      pdfBuffer = fs.readFileSync(pdfPath);
-    } else {
-      const product = await Product.findOne({ productCode }).lean();
-      if (!product) {
-        return res
-          .status(404)
-          .json({ success: false, message: "Product not found" });
-      }
-
-      const templatePath = path.join(
-        __dirname,
-        "../templates/productTemplate.ejs"
-      );
-      const html = await ejs.renderFile(templatePath, { product });
-
-      const options = {
-        format: "A4",
-        printBackground: true,
-        executablePath: "/snap/bin/chromium", // Snap Chromium path
-        args: ["--no-sandbox", "--disable-setuid-sandbox"], // required on headless EC2
-      };
-
-      const file = { content: html };
-      pdfBuffer = await htmlPdf.generatePdf(file, options);
-      fs.writeFileSync(pdfPath, pdfBuffer);
-    }
-
-    res.setHeader(
-      "Content-Disposition",
-      `attachment; filename=${productCode}.pdf`
-    );
-    res.setHeader("Content-Type", "application/pdf");
-    res.send(pdfBuffer);
-  } catch (error) {
-    console.error("❌ PDF Generation Error:", error);
-    res.status(500).json({ success: false, message: "Error generating PDF" });
-  }
-};
-
-
 exports.generateAndStoreAllProductPdfs = async (req, res) => {
   try {
     const products = await Product.find({}).lean();
@@ -202,11 +216,6 @@ exports.generateAndStoreAllProductPdfs = async (req, res) => {
   }
 };
 
-/**
- * ✅ Main search endpoint
- * NOTE: Product.searchProducts() already returns plain objects
- * DO NOT call .lean() on the result
- */
 exports.searchProducts = async (req, res) => {
   try {
     const searchParams = {
@@ -244,11 +253,6 @@ exports.searchProducts = async (req, res) => {
   }
 };
 
-/**
- * ✅ Get filter options for UI dropdowns
- * NOTE: Product.getFilterOptions() already returns plain objects
- * DO NOT call .lean() on the result
- */
 exports.getFilterOptions = async (req, res) => {
   try {
     // ✅ CORRECT: No .lean() here - the static method returns plain objects
@@ -315,7 +319,6 @@ exports.getProductHierarchy = async (req, res) => {
     });
   }
 };
-
 
 exports.autocomplete = async (req, res) => {
   try {
