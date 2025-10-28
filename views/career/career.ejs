@@ -50,7 +50,7 @@
 
 <body>
 
-    <%- include("partials/header") %>
+    <%- include("../partials/header") %>
 
 
         <div class="breadcrumb-area pt-35 pb-35 bg-gray-3" style="background-image: url(/images/banner/career.jpg);">
@@ -59,19 +59,19 @@
         </div>
 
 
-          <div class="container-fluid">
-        <div class="breadcrumb-section">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                      <li class="breadcrumb-item"><a href="/career">Career</a></li>
-                </ol>
-            </nav>
+        <div class="container-fluid">
+            <div class="breadcrumb-section">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/career">Career</a></li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-    </div>
 
 
-        
+
 
 
 
@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="row">
-                    <%- include('partials/career-card', { jobs: jobs }) %>
+                    <%- include('../partials/career-card', { jobs: jobs }) %>
                 </div>
             </div>
         </section>
@@ -185,7 +185,7 @@
 
 
 
-        <%- include("partials/footer") %>
+        <%- include("../partials/footer") %>
 
 
 

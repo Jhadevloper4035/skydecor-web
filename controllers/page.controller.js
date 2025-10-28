@@ -12,7 +12,7 @@ exports.getSingleProduct = async (req, res) => {
 
     const product = await Product.findOne({
       productCode: { $regex: new RegExp("^" + productCode + "$", "i") },
-    }); // ⚠️ NO .lean() for testing
+    }); 
 
     if (!product) {
       return res.status(404).render("error", {
@@ -24,7 +24,7 @@ exports.getSingleProduct = async (req, res) => {
     const relatedProducts = await Product.find({
       category: product.category,
       _id: { $ne: product._id },
-    }).limit(8); // ⚠️ NO .lean() for testing
+    }).limit(8); 
 
     res.render("product-pages/single-product", {
       title: `${product.productCode} - SkyDecor`,

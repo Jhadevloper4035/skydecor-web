@@ -48,7 +48,7 @@ exports.getSinglePost = async (req, res) => {
     }
 
     // Render your EJS page and pass blogs
-    res.render("single-career-page", {
+    res.render("career/single-career-page", {
       title: "Career Page",
       message: "Wel!",
       job, // send all blogs to EJS
