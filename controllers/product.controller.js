@@ -4,83 +4,40 @@ const puppeteer = require("puppeteer");
 const ejs = require("ejs");
 const fs = require("fs");
 
+
 exports.downloadProductPdf = async (req, res) => {
   try {
     const { productCode } = req.params;
     if (!productCode) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Product code is required" });
+      return res.status(400).send(`<h1>Product code is required</h1>`);
     }
 
-    // Ensure PDF folder exists
-    const pdfFolder = path.join(__dirname, "../data/products/pdfs");
-    if (!fs.existsSync(pdfFolder)) fs.mkdirSync(pdfFolder, { recursive: true });
+    // Render HTML response for under-development feature
+    return res.send(`
+      <html>
+        <head>
+          <title>PDF Feature Under Development</title>
+          <style>
+            body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+            h1 { color: #333; }
+            p { font-size: 18px; color: #555; }
+            .notice { margin-top: 20px; font-style: italic; color: #888; }
+          </style>
+        </head>
+        <body>
+          <h1>🚧 PDF Feature Under Development</h1>
+          <p>The PDF download for product <strong>${productCode}</strong> is currently under development.</p>
+          <p class="notice">Please check back later.</p>
+        </body>
+      </html>
+    `);
 
-    const pdfPath = path.join(pdfFolder, `${productCode}.pdf`);
-
-    // Return existing PDF if already generated
-    if (fs.existsSync(pdfPath)) {
-      console.log(`📄 Returning existing PDF for: ${productCode}`);
-      const pdfBuffer = fs.readFileSync(pdfPath);
-      res.setHeader(
-        "Content-Disposition",
-        `attachment; filename=${productCode}.pdf`
-      );
-      res.setHeader("Content-Type", "application/pdf");
-      return res.send(pdfBuffer);
-    }
-
-    // Fetch product data
-    const product = await Product.findOne({ productCode }).lean();
-    if (!product) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Product not found" });
-    }
-
-    // Render HTML with EJS
-    const templatePath = path.join(
-      __dirname,
-      "../templates/productTemplate.ejs"
-    );
-    const html = await ejs.renderFile(templatePath, { product });
-
-    // Launch Puppeteer
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-      executablePath: "/usr/bin/chromium-browser", // Adjust if using snap
-    });
-    const page = await browser.newPage();
-
-    // Set HTML content and wait until network idle to ensure all assets load
-    await page.setContent(html, { waitUntil: "networkidle0" });
-
-    // Generate PDF
-    const pdfBuffer = await page.pdf({
-      format: "A4",
-      printBackground: true,
-      margin: { top: "20px", bottom: "20px", left: "20px", right: "20px" },
-    });
-
-    await browser.close();
-
-    // Save PDF for future requests
-    fs.writeFileSync(pdfPath, pdfBuffer);
-
-    // Send PDF to client
-    res.setHeader(
-      "Content-Disposition",
-      `attachment; filename=${productCode}.pdf`
-    );
-    res.setHeader("Content-Type", "application/pdf");
-    res.send(pdfBuffer);
   } catch (error) {
-    console.error("❌ PDF Generation Error:", error);
-    res.status(500).json({ success: false, message: "Error generating PDF" });
+    console.error("❌ PDF Route Error:", error);
+    res.status(500).send("<h1>Server error</h1>");
   }
 };
+
 
 exports.getSingleProduct = async (req, res) => {
   try {
@@ -154,67 +111,6 @@ exports.getAllCategoryProduct = async (req, res) => {
   }
 };
 
-exports.generateAndStoreAllProductPdfs = async (req, res) => {
-  try {
-    const products = await Product.find({}).lean();
-    if (!products || products.length === 0) {
-      return res
-        .status(404)
-        .json({ success: false, message: "No products found" });
-    }
-
-    const totalProducts = products.length;
-    let completed = 0;
-
-    const pdfFolder = path.join(__dirname, "../data/products/pdfs");
-    if (!fs.existsSync(pdfFolder)) {
-      fs.mkdirSync(pdfFolder, { recursive: true });
-    }
-
-    const templatePath = path.join(
-      __dirname,
-      "../templates/productTemplate.ejs"
-    );
-
-    for (const product of products) {
-      try {
-        const html = await ejs.renderFile(templatePath, { product });
-
-        const options = {
-          format: "A4",
-          printBackground: true,
-        };
-
-        const file = { content: html };
-        const pdfBuffer = await htmlPdf.generatePdf(file, options);
-
-        const pdfPath = path.join(pdfFolder, `${product.productCode}.pdf`);
-        fs.writeFileSync(pdfPath, pdfBuffer);
-
-        completed++;
-        console.log(
-          `✅ [${completed}/${totalProducts}] PDF generated for: ${product.productCode}`
-        );
-      } catch (err) {
-        completed++;
-        console.error(
-          `❌ [${completed}/${totalProducts}] Failed for ${product.productCode}:`,
-          err
-        );
-      }
-    }
-
-    return res.json({
-      success: true,
-      message: "All product PDFs generated and stored successfully",
-      total: totalProducts,
-      completed: completed,
-    });
-  } catch (error) {
-    console.error("❌ Error generating PDFs:", error);
-    res.status(500).json({ success: false, message: "Error generating PDFs" });
-  }
-};
 
 exports.searchProducts = async (req, res) => {
   try {
@@ -271,9 +167,6 @@ exports.getFilterOptions = async (req, res) => {
   }
 };
 
-/**
- * ✅ Get product hierarchy (ProductType -> Category -> SubCategory)
- */
 exports.getProductHierarchy = async (req, res) => {
   try {
     const products = await Product.find({ isActive: true })
