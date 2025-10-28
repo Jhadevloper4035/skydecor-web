@@ -79,11 +79,7 @@ exports.getAllCategoryProduct = async (req, res) => {
 };
 
 
-const path = require("path");
-const fs = require("fs");
-const ejs = require("ejs");
-const htmlPdf = require("html-pdf-node");
-const Product = require("../models/Product"); // adjust path
+
 
 exports.downloadProductPdf = async (req, res) => {
   try {
