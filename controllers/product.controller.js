@@ -78,6 +78,13 @@ exports.getAllCategoryProduct = async (req, res) => {
   }
 };
 
+
+const path = require("path");
+const fs = require("fs");
+const ejs = require("ejs");
+const htmlPdf = require("html-pdf-node");
+const Product = require("../models/Product"); // adjust path
+
 exports.downloadProductPdf = async (req, res) => {
   try {
     const { productCode } = req.params;
@@ -115,6 +122,8 @@ exports.downloadProductPdf = async (req, res) => {
       const options = {
         format: "A4",
         printBackground: true,
+        executablePath: "/snap/bin/chromium", // Snap Chromium path
+        args: ["--no-sandbox", "--disable-setuid-sandbox"], // required on headless EC2
       };
 
       const file = { content: html };
@@ -133,6 +142,7 @@ exports.downloadProductPdf = async (req, res) => {
     res.status(500).json({ success: false, message: "Error generating PDF" });
   }
 };
+
 
 exports.generateAndStoreAllProductPdfs = async (req, res) => {
   try {
