@@ -7,7 +7,6 @@ const {
   getFilterOptions,
   autocomplete,
   getProductHierarchy,
-  generateAndStoreAllProductPdfs,
 } = require("../controllers/product.controller.js");
 
 router.get("/", (req, res) => {
@@ -23,7 +22,7 @@ router.get("/page/:productType", getAllCategoryProduct);
 
 router.get("/download/:productCode", downloadProductPdf);
 
-router.get("/genrateall", generateAndStoreAllProductPdfs);
+
 
 router.get("/search", searchProducts);
 

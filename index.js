@@ -7,7 +7,7 @@ const eventRoute = require("./routes/event.js");
 const careerRoute = require("./routes/career.js");
 const experienceCenterRoute = require("./routes/showroom.js");
 const IndexRoute = require("./routes/index.js");
-const productEnquiry = require("./routes/productEnquiry.js")
+const productEnquiry = require("./routes/productEnquiry.js");
 
 const app = express();
 
