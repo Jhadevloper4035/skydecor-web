@@ -59,6 +59,7 @@
                                 <li><a href="/events"> Events </a></li>
                                 <li><a href="/contact">Contact us</a></li>
                                 <li><a href="/blogs"> Blogs</a></li>
+                                <li><a href="/catalouge">E-Catalogous </a></li>
                                 <li><a href="/certificates"> Certificates</a></li>
                                 <li><a href="/privacy-policy">Privacy and Policy </a></li>
                             </ul>
@@ -161,413 +162,413 @@
 
 
 
-<style>
-    .pt60 {
-        padding-top: 60px !important;
-    }
-
-    .pb30 {
-        padding-bottom: 30px !important;
-    }
-
-    .mb60 {
-        margin-bottom: 60px !important;
-    }
-
-    .mb0 {
-        margin-bottom: 0 !important;
-    }
-
-    .ml20 {
-        margin-left: 20px !important;
-    }
-
-    .mb20 {
-        margin-bottom: 20px !important;
-    }
-
-    .fz30 {
-        font-size: 30px !important;
-    }
-
-    .fz14 {
-        font-size: 14px;
-    }
-
-    .section {
-        padding: 120px 0;
-        position: relative;
-    }
-
-    .bb-white-light {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-
-    .footer-style1 {
-        background-color: #333;
-    }
-
-    .footer-style1.at-home2 {
-        padding-top: 230px;
-    }
-
-    .footer-style1.at-home4 {
-        background-color: #ffffff;
-    }
-
-    .footer-style1.at-home6 {
-        background-color: transparent;
-        background-image: url(../images/home/footer-bg-6.jpg);
-        background-size: cover;
-    }
-
-    .footer-widget {
-        position: relative;
-    }
-
-    .footer-widget .info-title {
-        color: #BEBDBD;
-        font-family: var(--title-font-family);
-        margin-bottom: 5px;
-    }
-
-    .footer-widget .info-phone a,
-    .footer-widget .info-mail a {
-        color: #ffffff;
-    }
-
-    .footer-widget.light-style .info-phone a,
-    .footer-widget.light-style .info-mail a {
-        color: var(--headings-color);
-        font-family: var(--title-font-family);
-        font-weight: 600;
-    }
-
-    .app-widget {
-        position: relative;
-    }
-
-    .app-widget .app-info {
-        background-color: rgba(255, 255, 255, 0.04);
-        border-radius: 12px;
-        padding: 10px 20px 2px;
-        width: 210px;
-        -webkit-transition: all 0.4s ease;
-        -moz-transition: all 0.4s ease;
-        -ms-transition: all 0.4s ease;
-        -o-transition: all 0.4s ease;
-        transition: all 0.4s ease;
-    }
-
-    .app-widget .app-info:hover {
-        background-color: #EB6753;
-    }
-
-    .app-widget .app-info.light-style {
-        background-color: #181A20;
-    }
-
-    .app-widget .app-info.light-style:hover {
-        background-color: #EB6753;
-    }
-
-    .app-widget .app-info.light-style:hover .app-text {
-        color: #ffffff;
-    }
-
-    .app-widget .app-text {
-        color: #BEBDBD;
-    }
-
-    .app-widget.at-home6 .app-info {
-        background-color: #0D1C39;
-        padding: 8px 20px 10px;
-    }
-
-    .app-widget.at-home6 .app-info .flex-shrink-0 {
-        border-right: 1px solid rgba(255, 255, 255, 0.3);
-        padding-right: 20px;
-    }
-
-    .app-widget.at-home6 .app-info .flex-grow-1 {
-        padding-left: 20px;
-    }
-
-    .app-widget.at-home6 .app-info .app-text {
-        color: #ffffff;
-    }
-
-    .app-widget.at-home7 .app-info {
-        border-radius: 0;
-    }
-
-    .mailchimp-style1 {
-        position: relative;
-    }
-
-    .mailchimp-style1 .form-control {
-        background-color: rgba(255, 255, 255, 0.04);
-        border: none;
-        border-radius: 12px;
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 400;
-        height: 70px;
-        padding-left: 30px;
-    }
-
-    .mailchimp-style1 .form-control:placeholder {
-        color: #ffffff;
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    .mailchimp-style1 .form-control:focus {
-        border: none;
-        box-shadow: none;
-        outline: none;
-    }
-
-    .mailchimp-style1 button {
-        background-color: transparent;
-        border: none;
-        color: #ffffff;
-        font-family: var(--title-font-family);
-        font-size: 15px;
-        font-weight: 600;
-        position: absolute;
-        right: 25px;
-        top: 20px;
-    }
-
-    .mailchimp-style1.white-version .form-control {
-        background-color: #ffffff;
-    }
-
-    .mailchimp-style1.white-version .form-control:placeholder {
-        color: var(--headings-color);
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    .mailchimp-style1.white-version button {
-        font-size: 15px;
-        color: var(--headings-color);
-        font-family: var(--title-font-family);
-        font-weight: 600;
-    }
-
-    .mailchimp-style1.at-home4 {
-        border-radius: 12px;
-        border: 1px solid #DDDDDD;
-    }
-
-    .mailchimp-style1.at-home4 .form-control {
-        height: 60px;
-    }
-
-    .mailchimp-style1.at-home4 button {
-        background-color: var(--headings-color);
-        border-radius: 50%;
-        color: #ffffff;
-        display: block;
-        height: 40px;
-        line-height: 35px;
-        right: 10px;
-        top: 10px;
-        width: 40px;
-    }
-
-    .mailchimp-style1.at-home7 {
-        border: 1px solid #DDDDDD;
-        border-radius: 0;
-    }
-
-    .mailchimp-style1.at-home7 .form-control {
-        height: 60px;
-    }
-
-    .mailchimp-style1.at-home7 button {
-        background-color: var(--headings-color);
-        border-radius: 0;
-        color: #ffffff;
-        display: block;
-        height: 40px;
-        line-height: 35px;
-        right: 10px;
-        top: 10px;
-        width: 40px;
-    }
-
-    .mailchimp-style1.at-home9 {
-        border: 1px solid #DDDDDD;
-        border-radius: 12px;
-    }
-
-    .mailchimp-style1.at-home9 .form-control {
-        height: 70px;
-    }
-
-    .mailchimp-style2 {
-        position: relative;
-    }
-
-    .mailchimp-style2 .form-control {
-        background-color: #ffffff;
-        border: none;
-        border-radius: 12px;
-        color: var(--headings-color);
-        font-size: 14px;
-        font-weight: 400;
-        height: 70px;
-        padding-left: 30px;
-    }
-
-    .mailchimp-style2 .form-control:placeholder {
-        color: var(--headings-color);
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    .mailchimp-style2 .form-control:focus {
-        border: none;
-        box-shadow: none;
-        outline: none;
-    }
-
-    .mailchimp-style2 button {
-        height: 50px;
-        position: absolute;
-        right: 10px;
-        top: 10px;
-    }
-
-    .link-style1 a {
-        color: #BEBDBD;
-        display: block;
-        font-family: var(--title-font-family);
-        line-height: 40px;
-        position: relative;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-    }
-
-    .link-style1 a:hover {
-        color: #ffffff;
-        text-decoration: underline;
-    }
-
-    .link-style1.light-style a {
-        color: var(--headings-color);
-        font-family: var(--title-font-family);
-        font-weight: 400;
-    }
-
-    .link-style1.at-home9 a:hover {
-        color: #EB6753;
-    }
-
-
-
-
-
-    .white-bdrt1 {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .link-style1 a {
-        color: #BEBDBD;
-        display: block;
-        font-family: var(--title-font-family);
-        line-height: 35px;
-        position: relative;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        text-transform: capitalize;
-    }
-
-    .link-style1 a:hover {
-        color: #ffffff;
-        text-decoration: underline !important;
-    }
-
-    .footer-widget {
-        position: relative;
-    }
-
-    .footer-widget .info-title {
-        color: #BEBDBD;
-        font-family: var(--title-font-family);
-        margin-bottom: 5px;
-    }
-
-    .footer-widget .info-phone a,
-    .footer-widget .info-mail a {
-        color: #ffffff;
-    }
-
-    .footer-widget .info-title {
-        color: #BEBDBD;
-        font-family: var(--title-font-family);
-        margin-bottom: 5px;
-    }
-
-    .footer-widget .info-phone a,
-    .footer-widget .info-mail a {
-        color: #ffffff;
-    }
-
-    .app-widget .app-info {
-        background-color: rgba(255, 255, 255, 0.04);
-        border-radius: 12px;
-        padding: 10px 20px 2px;
-        width: 210px;
-        -webkit-transition: all 0.4s ease;
-        -moz-transition: all 0.4s ease;
-        -ms-transition: all 0.4s ease;
-        -o-transition: all 0.4s ease;
-        transition: all 0.4s ease;
-    }
-
-
-
-    .social-style1 i {
-        color: #BEBDBD;
-        border-radius: 50%;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        width: 40px;
-        -webkit-transition: all 0.4s ease;
-        -moz-transition: all 0.4s ease;
-        -ms-transition: all 0.4s ease;
-        -o-transition: all 0.4s ease;
-        transition: all 0.4s ease;
-    }
-
-
-    .app-widget .app-text {
-        color: #BEBDBD;
-    }
-
-    .social-style1 i:hover {
-        background-color: rgb(0 100 158);
-        color: #ffffff;
-    }
-
-    .app-widget .app-info:hover {
-        background-color: rgb(0 100 158) !important;
-    }
-
-    .link-style1 h6 {
-        text-transform: uppercase;
-        font-size: 18px;
-    }
-</style>
+    <style>
+        .pt60 {
+            padding-top: 60px !important;
+        }
+
+        .pb30 {
+            padding-bottom: 30px !important;
+        }
+
+        .mb60 {
+            margin-bottom: 60px !important;
+        }
+
+        .mb0 {
+            margin-bottom: 0 !important;
+        }
+
+        .ml20 {
+            margin-left: 20px !important;
+        }
+
+        .mb20 {
+            margin-bottom: 20px !important;
+        }
+
+        .fz30 {
+            font-size: 30px !important;
+        }
+
+        .fz14 {
+            font-size: 14px;
+        }
+
+        .section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .bb-white-light {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+
+        .footer-style1 {
+            background-color: #333;
+        }
+
+        .footer-style1.at-home2 {
+            padding-top: 230px;
+        }
+
+        .footer-style1.at-home4 {
+            background-color: #ffffff;
+        }
+
+        .footer-style1.at-home6 {
+            background-color: transparent;
+            background-image: url(../images/home/footer-bg-6.jpg);
+            background-size: cover;
+        }
+
+        .footer-widget {
+            position: relative;
+        }
+
+        .footer-widget .info-title {
+            color: #BEBDBD;
+            font-family: var(--title-font-family);
+            margin-bottom: 5px;
+        }
+
+        .footer-widget .info-phone a,
+        .footer-widget .info-mail a {
+            color: #ffffff;
+        }
+
+        .footer-widget.light-style .info-phone a,
+        .footer-widget.light-style .info-mail a {
+            color: var(--headings-color);
+            font-family: var(--title-font-family);
+            font-weight: 600;
+        }
+
+        .app-widget {
+            position: relative;
+        }
+
+        .app-widget .app-info {
+            background-color: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 10px 20px 2px;
+            width: 210px;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            -ms-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        .app-widget .app-info:hover {
+            background-color: #EB6753;
+        }
+
+        .app-widget .app-info.light-style {
+            background-color: #181A20;
+        }
+
+        .app-widget .app-info.light-style:hover {
+            background-color: #EB6753;
+        }
+
+        .app-widget .app-info.light-style:hover .app-text {
+            color: #ffffff;
+        }
+
+        .app-widget .app-text {
+            color: #BEBDBD;
+        }
+
+        .app-widget.at-home6 .app-info {
+            background-color: #0D1C39;
+            padding: 8px 20px 10px;
+        }
+
+        .app-widget.at-home6 .app-info .flex-shrink-0 {
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            padding-right: 20px;
+        }
+
+        .app-widget.at-home6 .app-info .flex-grow-1 {
+            padding-left: 20px;
+        }
+
+        .app-widget.at-home6 .app-info .app-text {
+            color: #ffffff;
+        }
+
+        .app-widget.at-home7 .app-info {
+            border-radius: 0;
+        }
+
+        .mailchimp-style1 {
+            position: relative;
+        }
+
+        .mailchimp-style1 .form-control {
+            background-color: rgba(255, 255, 255, 0.04);
+            border: none;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 400;
+            height: 70px;
+            padding-left: 30px;
+        }
+
+        .mailchimp-style1 .form-control:placeholder {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .mailchimp-style1 .form-control:focus {
+            border: none;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .mailchimp-style1 button {
+            background-color: transparent;
+            border: none;
+            color: #ffffff;
+            font-family: var(--title-font-family);
+            font-size: 15px;
+            font-weight: 600;
+            position: absolute;
+            right: 25px;
+            top: 20px;
+        }
+
+        .mailchimp-style1.white-version .form-control {
+            background-color: #ffffff;
+        }
+
+        .mailchimp-style1.white-version .form-control:placeholder {
+            color: var(--headings-color);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .mailchimp-style1.white-version button {
+            font-size: 15px;
+            color: var(--headings-color);
+            font-family: var(--title-font-family);
+            font-weight: 600;
+        }
+
+        .mailchimp-style1.at-home4 {
+            border-radius: 12px;
+            border: 1px solid #DDDDDD;
+        }
+
+        .mailchimp-style1.at-home4 .form-control {
+            height: 60px;
+        }
+
+        .mailchimp-style1.at-home4 button {
+            background-color: var(--headings-color);
+            border-radius: 50%;
+            color: #ffffff;
+            display: block;
+            height: 40px;
+            line-height: 35px;
+            right: 10px;
+            top: 10px;
+            width: 40px;
+        }
+
+        .mailchimp-style1.at-home7 {
+            border: 1px solid #DDDDDD;
+            border-radius: 0;
+        }
+
+        .mailchimp-style1.at-home7 .form-control {
+            height: 60px;
+        }
+
+        .mailchimp-style1.at-home7 button {
+            background-color: var(--headings-color);
+            border-radius: 0;
+            color: #ffffff;
+            display: block;
+            height: 40px;
+            line-height: 35px;
+            right: 10px;
+            top: 10px;
+            width: 40px;
+        }
+
+        .mailchimp-style1.at-home9 {
+            border: 1px solid #DDDDDD;
+            border-radius: 12px;
+        }
+
+        .mailchimp-style1.at-home9 .form-control {
+            height: 70px;
+        }
+
+        .mailchimp-style2 {
+            position: relative;
+        }
+
+        .mailchimp-style2 .form-control {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            color: var(--headings-color);
+            font-size: 14px;
+            font-weight: 400;
+            height: 70px;
+            padding-left: 30px;
+        }
+
+        .mailchimp-style2 .form-control:placeholder {
+            color: var(--headings-color);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .mailchimp-style2 .form-control:focus {
+            border: none;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .mailchimp-style2 button {
+            height: 50px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .link-style1 a {
+            color: #BEBDBD;
+            display: block;
+            font-family: var(--title-font-family);
+            line-height: 40px;
+            position: relative;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        .link-style1 a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .link-style1.light-style a {
+            color: var(--headings-color);
+            font-family: var(--title-font-family);
+            font-weight: 400;
+        }
+
+        .link-style1.at-home9 a:hover {
+            color: #EB6753;
+        }
+
+
+
+
+
+        .white-bdrt1 {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .link-style1 a {
+            color: #BEBDBD;
+            display: block;
+            font-family: var(--title-font-family);
+            line-height: 35px;
+            position: relative;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+        }
+
+        .link-style1 a:hover {
+            color: #ffffff;
+            text-decoration: underline !important;
+        }
+
+        .footer-widget {
+            position: relative;
+        }
+
+        .footer-widget .info-title {
+            color: #BEBDBD;
+            font-family: var(--title-font-family);
+            margin-bottom: 5px;
+        }
+
+        .footer-widget .info-phone a,
+        .footer-widget .info-mail a {
+            color: #ffffff;
+        }
+
+        .footer-widget .info-title {
+            color: #BEBDBD;
+            font-family: var(--title-font-family);
+            margin-bottom: 5px;
+        }
+
+        .footer-widget .info-phone a,
+        .footer-widget .info-mail a {
+            color: #ffffff;
+        }
+
+        .app-widget .app-info {
+            background-color: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 10px 20px 2px;
+            width: 210px;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            -ms-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+
+
+        .social-style1 i {
+            color: #BEBDBD;
+            border-radius: 50%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            width: 40px;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            -ms-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+
+        .app-widget .app-text {
+            color: #BEBDBD;
+        }
+
+        .social-style1 i:hover {
+            background-color: rgb(0 100 158);
+            color: #ffffff;
+        }
+
+        .app-widget .app-info:hover {
+            background-color: rgb(0 100 158) !important;
+        }
+
+        .link-style1 h6 {
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+    </style>

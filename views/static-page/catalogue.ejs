@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Catalogues - Skydecor Premium Laminates</title>
+    <meta
+      name="description"
+      content="Download Skydecor premium laminate catalogues and explore our exclusive design collections"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
+
+    <!-- CSS ============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+      /* Hero Section */
+      .catalogue-hero {
+        background: #fff;
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .catalogue-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("/images/pattern.png") repeat;
+        opacity: 0.03;
+      }
+
+      .catalogue-hero h1 {
+        color: #fff;
+        font-size: 48px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .catalogue-hero p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Breadcrumb */
+      .breadcrumb-section {
+        padding: 20px 0;
+        background: #f8f9fa;
+      }
+
+      .breadcrumb {
+        background: transparent;
+        padding: 0;
+        margin: 0;
+      }
+
+      .breadcrumb-item + .breadcrumb-item::before {
+        content: "›";
+        color: #666;
+      }
+
+      /* Catalogue Grid - Fixed Spacing */
+      .catalogue-section {
+        padding: 80px 0;
+        background: #fff;
+      }
+
+      .catalogue-grid-wrapper {
+        margin: 0 -15px;
+      }
+
+      .catalogue-col {
+        padding: 0 15px;
+        margin-bottom: 30px;
+        display: flex;
+      }
+
+      .catalogue-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .catalogue-card:hover {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .catalogue-image-wrapper {
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        height: 280px;
+        width: 100%;
+      }
+
+      .catalogue-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .catalogue-card:hover .catalogue-image {
+        transform: scale(1.08);
+      }
+
+      .catalogue-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 2;
+      }
+
+      .catalogue-new {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .catalogue-popular {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .catalogue-content {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: #f6f3f3;
+      }
+
+      .catalogue-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1a1a2e;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .catalogue-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+        margin-top: auto;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #888;
+        font-size: 14px;
+      }
+
+      .meta-item i {
+        color: #667eea;
+        font-size: 18px;
+      }
+
+      .catalogue-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-catalogue {
+        flex: 1;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        text-decoration: none;
+      }
+
+      .btn-download {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+      }
+
+      .btn-download:hover {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        color: #fff;
+      }
+
+      .btn-preview {
+        background: #fff;
+        color: #667eea;
+        border: 2px solid #667eea;
+      }
+
+      .btn-preview:hover {
+        background: #667eea;
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      /* Stats Section */
+      .stats-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 60px 0;
+        color: #fff;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 16px;
+        opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Filter Section */
+      .filter-section {
+        background: #f8f9fa;
+        padding: 30px 0;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .filter-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 12px 30px;
+        background: #fff;
+        border: 2px solid #e0e0e0;
+        border-radius: 30px;
+        color: #666;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 14px;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: #1a1a2e;
+        padding: 80px 0;
+        color: #fff;
+        text-align: center;
+      }
+
+      .cta-title {
+        font-size: 36px;
+        font-weight: 300;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+
+      .cta-description {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn-cta {
+        padding: 16px 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        border-radius: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        color: #fff;
+      }
+
+      /* Responsive */
+      @media (max-width: 991px) {
+        .catalogue-image-wrapper {
+          height: 250px;
+        }
+
+        .catalogue-title {
+          font-size: 18px;
+          min-height: 50px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .catalogue-hero h1 {
+          font-size: 32px;
+        }
+
+        .catalogue-hero {
+          padding: 60px 0 40px;
+        }
+
+        .catalogue-section {
+          padding: 50px 0;
+        }
+
+        .catalogue-image-wrapper {
+          height: 220px;
+        }
+
+        .catalogue-title {
+          font-size: 18px;
+          min-height: auto;
+        }
+
+        .catalogue-content {
+          padding: 20px;
+        }
+
+        .catalogue-actions {
+          flex-direction: column;
+        }
+
+        .btn-catalogue {
+          padding: 14px 20px;
+        }
+
+        .stat-number {
+          font-size: 36px;
+        }
+
+        .filter-buttons {
+          gap: 10px;
+        }
+
+        .filter-btn {
+          padding: 10px 20px;
+          font-size: 12px;
+        }
+
+        .cta-title {
+          font-size: 28px;
+        }
+
+        .cta-description {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .catalogue-col {
+          padding: 0 10px;
+          margin-bottom: 20px;
+        }
+
+        .catalogue-grid-wrapper {
+          margin: 0 -10px;
+        }
+
+        .catalogue-image-wrapper {
+          height: 200px;
+        }
+
+        .meta-item {
+          font-size: 13px;
+        }
+      }
+
+      /* Loading Animation */
+      .catalogue-card {
+        animation: fadeInUp 0.6s ease-out;
+        animation-fill-mode: both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .catalogue-col:nth-child(1) .catalogue-card {
+        animation-delay: 0.1s;
+      }
+
+      .catalogue-col:nth-child(2) .catalogue-card {
+        animation-delay: 0.2s;
+      }
+
+      .catalogue-col:nth-child(3) .catalogue-card {
+        animation-delay: 0.3s;
+      }
+
+      .catalogue-col:nth-child(4) .catalogue-card {
+        animation-delay: 0.4s;
+      }
+
+      .catalogue-col:nth-child(5) .catalogue-card {
+        animation-delay: 0.5s;
+      }
+
+      .catalogue-col:nth-child(6) .catalogue-card {
+        animation-delay: 0.6s;
+      }
+
+      .catalogue-col:nth-child(7) .catalogue-card {
+        animation-delay: 0.7s;
+      }
+
+      .catalogue-col:nth-child(8) .catalogue-card {
+        animation-delay: 0.8s;
+      }
+
+      .catalogue-col:nth-child(9) .catalogue-card {
+        animation-delay: 0.9s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%- include("../partials/header") %>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Catalogues
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all"> All Collections </button>
+          <button class="filter-btn" data-filter="new">New Arrivals</button>
+          <button class="filter-btn" data-filter="popular">Popular</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catalogue Grid -->
+    <section class="catalogue-section">
+      <div class="container">
+        <% const catalogues=[ 
+        { 
+        id: 1, 
+        title: "Acrylish Laminates" , 
+        image: "/images/catalouges/acrylish-laminate.jpg" , 
+        pdfUrl: "https://skydecor.in/catalouges/Acrylic_Laminates.pdf" , 
+        pages: 48, size: "12.5 MB" ,
+        badge: "New" , 
+        category: "new" 
+    },
+     { 
+        id: 2, 
+        title: "Ambience Collection 2025" , 
+        image: "/images/catalouges/ambience.jpg" , 
+        pdfUrl: "/pdf/catalogues/AMBIENCE_0.8_mm.pdf" , 
+        pages: 48, size: "12.5 MB" ,
+        badge: "New" , 
+        category: "popular" 
+    },
+     { 
+        id: 3, 
+        title: "Design Master 1mm+" , 
+        image: "/images/catalouges/design-master.jpg" , 
+        pdfUrl: "https://skydecor.in/catalouges/Design_Master_1MM+%20Laminates.pdf" , 
+        pages: 48, size: "12.5 MB" ,
+        badge: "New" , 
+        category: "new" 
+    },
+    { 
+        id: 4, 
+        title: "Soffito Groovex Panel" , 
+        image: "/images/catalouges/groovex.jpg" , 
+        pdfUrl: "https://skydecor.in/catalouges/GROOVEX_E-CATALOGUE.pdf" , 
+        pages: 48, size: "12.5 MB" ,
+        badge: "New" , 
+        category: "popular" 
+    },
+     { 
+        id: 5, 
+        title: "Maestro Fr Flexi Laminates" , 
+        image: "/images/catalouges/maestro.jpg" , 
+        pdfUrl: "https://skydecor.in/catalouges/MAESTRO_FR_LEXI_LAMINATES.pdf" , 
+        pages: 48, size: "12.5 MB" ,
+        badge: "New" , 
+        category: "popular" 
+    },
+     { 
+        id: 6, 
+        title: "Moderna Liner laminates" , 
+        image: "/images/catalouges/moderna.jpg" , 
+        pdfUrl: "/https://skydecor.in/catalouges/EXTERIOR_CLADDING_FOLDER.pdf" , 
+        pages: 48, size: "12.5 MB" ,
+        badge: "New" , 
+        category: "new" 
+    },
+    { 
+        id: 7, 
+        title: "Soffito Soffline Panel" , 
+        image: "/images/catalouges/soffline.jpg" , 
+        pdfUrl: "https://skydecor.in/catalouges/SOFFLINE_E-CATALOGUE.pdf" , 
+        pages: 48, size: "12.5 MB" ,
+        badge: "New" , 
+        category: "popular" 
+    },  
+    { 
+        id: 8, 
+        title: "Soffito Verto Panel" , 
+        image: "/images/catalouges/verto.jpg" , 
+        pdfUrl: "https://skydecor.in/catalouges/VERTO_E-CATALOGUE.pdf", 
+        pages: 48, size: "12.5 MB" ,
+        badge: "New" , 
+        category: "popular" 
+    },
+        
+      ]; %>
+
+        <div class="row catalogue-grid-wrapper" id="catalogueGrid">
+          <% catalogues.forEach(function(catalogue, index) { %>
+          <div
+            class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 catalogue-col"
+            data-category="<%= catalogue.category %>"
+          >
+            <div class="catalogue-card">
+              <div class="catalogue-image-wrapper">
+                <img
+                  src="<%= catalogue.image %>"
+                  alt="<%= catalogue.title %>"
+                  class="catalogue-image"
+                  loading="lazy"
+                />
+                <% if (catalogue.badge) { %>
+                <span
+                  class="catalogue-badge <%= catalogue.badge.toLowerCase() === 'new' ? 'catalogue-new' : catalogue.badge.toLowerCase() === 'popular' ? 'catalogue-popular' : '' %>"
+                >
+                  <%= catalogue.badge %>
+                </span>
+                <% } %>
+              </div>
+              <div class="catalogue-content">
+                <h3 class="catalogue-title"><%= catalogue.title %></h3>
+                <div class="catalogue-meta">
+                  <div class="meta-item">
+                    <i class="pe-7s-note2"></i>
+                    <span> <%= catalogue.pages %> Pages </span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="pe-7s-cloud-download"></i>
+                    <span> <%= catalogue.size %> </span>
+                  </div>
+                </div>
+                <div class="catalogue-actions">
+                  <a
+                    href="<%= catalogue.pdfUrl %>"
+                    class="btn-catalogue btn-download"
+                    download
+                  >
+                    <i class="pe-7s-download"></i>
+                    Download
+                  </a>
+                  <a
+                    href="<%= catalogue.pdfUrl %>"
+                    target="_blank"
+                    class="btn-catalogue btn-preview"
+                  >
+                    <i class="pe-7s-look"></i>
+                    Preview
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <%- include("../partials/footer") %>
+
+    <!-- JS -->
+    <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+    <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+    <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+    <script src="/js/vendor/popper.min.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script>
+      // Filter functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const catalogueItems = document.querySelectorAll(".catalogue-col");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Update active button
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            const filter = this.getAttribute("data-filter");
+
+            // Filter items with animation
+            catalogueItems.forEach((item, index) => {
+              const category = item.getAttribute("data-category");
+              const card = item.querySelector(".catalogue-card");
+
+              if (filter === "all" || category === filter) {
+                item.style.display = "flex";
+                card.style.animation = "none";
+                setTimeout(() => {
+                  card.style.animation = `fadeInUp 0.6s ease-out ${
+                    index * 0.1
+                  }s forwards`;
+                }, 10);
+              } else {
+                item.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // Track downloads (optional analytics)
+        document.querySelectorAll(".btn-download").forEach((button) => {
+          button.addEventListener("click", function () {
+            const catalogueName =
+              this.closest(".catalogue-card").querySelector(
+                ".catalogue-title"
+              ).textContent;
+            console.log("Catalogue downloaded:", catalogueName);
+            // Add your analytics tracking here
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

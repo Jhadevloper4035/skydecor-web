@@ -49,7 +49,7 @@ router.get("/about-us", (req, res) => {
 });
 
 router.get("/certificates", (req, res) => {
-  res.render("certificates", {
+  res.render("static-page/certificates", {
     title: "conatct Page",
     message: "Welcome to EJS with Static Files!",
   });
@@ -62,10 +62,15 @@ router.get("/customer-review", (req, res) => {
   });
 });
 
-
+router.get("/catalouge", (req, res) => {
+  res.render("static-page/catalogue.ejs", {
+    title: "conatct Page",
+    message: "Welcome to EJS with Static Files!",
+  });
+});
 
 router.get("/privacy-policy", (req, res) => {
-  res.render("privacy-policy", {
+  res.render("static-page/privacy-policy", {
     title: "conatct Page",
     message: "Welcome to EJS with Static Files!",
   });
