@@ -59,7 +59,7 @@ exports.getSingleProduct = async (req, res) => {
       category: product.category,
       _id: { $ne: product._id },
     })
-      .limit(8)
+      .limit(4)
       .lean();
 
     res.render("product-pages/single-product", {

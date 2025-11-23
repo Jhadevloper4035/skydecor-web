@@ -28,5 +28,4 @@ function getDistinctAttributes(products) {
   };
 }
 
-
 module.exports = { getDistinctAttributes } 

@@ -11,6 +11,10 @@ const productEnquiry = require("./routes/productEnquiry.js");
 
 const app = express();
 
+// Add these middleware BEFORE your routes
+app.use(express.json()); // For parsing application/json
+app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
@@ -21,6 +25,6 @@ app.use("/blogs", blogRoute);
 app.use("/events", eventRoute);
 app.use("/career", careerRoute);
 app.use("/experience-center", experienceCenterRoute);
-app.use("/api/product-enquiry", productEnquiry);
+app.use("/api/lead/", productEnquiry);
 
 module.exports = app;

@@ -4,178 +4,973 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Skydecor - Premium Quality Laminates Design Collections</title>
-    <meta name="description" content="">
+    <title>
+        <%= event.title %> - Skydecor Event Gallery | Premium Laminates & Design
+    </title>
+    <meta name="description"
+        content="Explore <%= event.title %> at Skydecor. View our exclusive event gallery featuring premium quality laminates, innovative designs, and memorable moments from our latest showcase.">
+    <meta name="keywords"
+        content="Skydecor event, <%= event.title %>, laminate designs, interior design event, design showcase, event gallery">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="<%= event.title %> - Skydecor Event Gallery">
+    <meta property="og:description"
+        content="Explore <%= event.title %> at Skydecor. View our exclusive event gallery featuring premium quality laminates and innovative designs.">
+    <meta property="og:image" content="<%= event.images[0] %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= typeof url !== 'undefined' ? url : '' %>">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= event.title %> - Skydecor Event Gallery">
+    <meta name="twitter:description"
+        content="Explore <%= event.title %> at Skydecor. View our exclusive event gallery featuring premium quality laminates and innovative designs.">
+    <meta name="twitter:image" content="<%= event.images[0] %>">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="<%= typeof url !== 'undefined' ? url : '' %>">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
 
     <!-- CSS ============================================ -->
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Icon Font CSS -->
     <link rel="stylesheet" href="/css/icons.min.css">
+    <!-- Font Awesome 6 - Modern Icons with Lazy Loading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="/css/plugins.css">
-
-
     <!-- Magnific Popup CSS -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
-
-
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="/css/style.css">
 
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "<%= event.title %>",
+        "description": "Explore <%= event.title %> at Skydecor featuring premium quality laminates and innovative designs",
+        "image": <%= JSON.stringify(event.images) %>,
+        "organizer": {
+            "@type": "Organization",
+            "name": "Skydecor",
+            "url": "<%= typeof baseUrl !== 'undefined' ? baseUrl : '' %>"
+        },
+        "location": {
+            "@type": "Place",
+            "name": "Skydecor"
+        }
+    }
+    </script>
 
     <style>
-        .blog-content-2 {
-            height: 220px;
+        /* Modern Design Enhancements */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Modern Spacing System */
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-2xl: 64px;
+            --spacing-3xl: 80px;
+            --spacing-4xl: 120px;
         }
 
-        .blog-wrap-2 .blog-img-2 a img {
-            height: 250px;
+        * {
+            box-sizing: border-box;
         }
 
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Performance Optimization */
+        .gallery-item,
+        .featured-image-container,
+        .back-to-top {
+            will-change: transform;
+        }
+
+        .gallery-img img,
+        .featured-image-container img {
+            will-change: transform;
+        }
+
+        /* Modern Breadcrumb */
+        .breadcrumb-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: var(--spacing-md) 0;
+            margin-bottom: 0;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            margin-bottom: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb-item+.breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.7);
+            content: "›";
+            font-size: 20px;
+            padding: 0 10px;
+        }
+
+        .breadcrumb-item.active {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .welcome-area {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .welcome-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-content h5 {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .welcome-content h5 i {
+            font-size: 18px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .welcome-content h1 {
+            color: #fff;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 0;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            line-height: 1.3;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .event-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: var(--spacing-md);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .event-meta i {
+            margin-right: 6px;
+        }
+
+        /* Featured Image Section */
+        .featured-section {
+            margin-top: calc(var(--spacing-3xl) * -1);
+            margin-bottom: var(--spacing-4xl);
+            position: relative;
+            z-index: 10;
+            padding: 0 15px;
+        }
+
+        .featured-image-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            background: #fff;
+            padding: 12px;
+        }
+
+        .featured-image-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            background: #f0f0f0;
+        }
+
+        .featured-image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        .featured-image-container:hover img {
+            transform: scale(1.04) translateZ(0);
+        }
+
+        .featured-overlay {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .featured-overlay i {
+            color: #ffd700;
+            font-size: 16px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.15);
+            }
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 0 0 var(--spacing-4xl);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-top: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .section-title p i {
+            color: var(--secondary-color);
+        }
+
+        /* Modern Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            padding: 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) translateZ(0);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .gallery-img {
+            position: relative;
+            padding-bottom: 75%;
+            /* 4:3 aspect ratio */
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .gallery-img img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        .gallery-item{
+            padding-top: 0px;
+        }
+
+        .gallery-item:hover .gallery-img img {
+            transform: scale(1.08) translateZ(0);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .gallery-item:hover .gallery-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .gallery-icon i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --spacing-xl: 40px;
+                --spacing-2xl: 56px;
+                --spacing-3xl: 64px;
+                --spacing-4xl: 80px;
+            }
+
+            .welcome-content h1 {
+                font-size: 32px;
+            }
+
+            .welcome-content h5 {
+                font-size: 13px;
+                letter-spacing: 2px;
+            }
+
+            .welcome-area {
+                padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+            }
+
+            .featured-section {
+                margin-top: calc(var(--spacing-2xl) * -1);
+                margin-bottom: var(--spacing-3xl);
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: var(--spacing-sm);
+            }
+
+            .gallery-section {
+                padding: 0 0 var(--spacing-3xl);
+            }
+
+            .section-title {
+                margin-bottom: var(--spacing-2xl);
+            }
+
+            .breadcrumb-section {
+                padding: var(--spacing-sm) 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --spacing-xl: 32px;
+                --spacing-2xl: 48px;
+                --spacing-3xl: 56px;
+                --spacing-4xl: 64px;
+            }
+
+            .welcome-content h1 {
+                font-size: 24px;
+            }
+
+            .welcome-content h5 {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+
+            .featured-image-wrapper {
+                padding: 8px;
+            }
+
+            .featured-overlay {
+                top: 16px;
+                right: 16px;
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .section-title h2 {
+                font-size: 24px;
+            }
+
+            .section-title p {
+                font-size: 14px;
+            }
+
+            .event-meta {
+                font-size: 14px;
+                margin-top: var(--spacing-sm);
+            }
+        }
+
+        /* Magnific Popup Customization */
+        .mfp-fade.mfp-bg {
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        .mfp-fade.mfp-bg.mfp-ready {
+            opacity: 0.95;
+            background: #0b0b0b;
+        }
+
+        .mfp-fade.mfp-wrap .mfp-content {
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+            opacity: 1;
+        }
+
+        /* Image Loading State */
+        .gallery-img img:not([src]),
+        .gallery-img img[src=""] {
+            background: #f0f0f0;
+        }
+
+        .gallery-img img {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-img img.loaded {
+            opacity: 1;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            border: none;
+        }
+
+        .back-to-top i {
+            font-size: 20px;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) translateZ(0);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-3px) translateZ(0);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+                width: 45px;
+                height: 45px;
+            }
+
+            .back-to-top i {
+                font-size: 18px;
+            }
+        }
     </style>
-
-
 </head>
 
 <body>
+    <%- include("../partials/header") %>
 
-    <%- include("partials/header") %>
-
-
-
-       
-       <div class="container-fluid">
-        <div class="breadcrumb-section">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                   <li class="breadcrumb-item"><a href="/event">event</a></li>
-                    <li class="breadcrumb-item"><%= event.title %></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-
-
-        <div class="welcome-area pt-60">
-            <div class="container">
-                <div class="welcome-content text-center">
-                    <h5>Skydecor event</h5>
-                    <h1>
-                        <%= event.title %>
-                    </h1>
+        <!-- Breadcrumb Section -->
+        <div class="container-fluid">
+            <div class="breadcrumb-section">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/">
+                                    <i class="fas fa-home"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="/event">Events</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <%= event.title %>
+                            </li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
 
-
-        
-
-
-
-
-
-
-        <section class="">
+        <!-- Hero Section -->
+        <div class="welcome-area">
             <div class="container">
-                <div class="row gallery">
-                    <div class="row gallery" id="event-gallery-<%= event.id %>">
-                        <div class="col-md-12 col-lg-12 col-sm-6 gallery-item">
-                            <a href="<%= event.images[0] %>" class="img-zoom" title="<%= event.title %>">
+                <div class="welcome-content text-center">
+                    <h5>
+                        <i class="fas fa-calendar-star"></i>
+                        Skydecor Event
+                    </h5>
+                    <h1>
+                        <%= event.title %>
+                    </h1>
+                    <% if (typeof event.date !=='undefined' && event.date) { %>
+                        <div class="event-meta"
+                            style="margin-top: 24px; color: rgba(255, 255, 255, 0.9); font-size: 16px;">
+                            <i class="far fa-calendar-alt"></i>
+                            <%= event.date %>
+                                <% if (typeof event.location !=='undefined' && event.location) { %>
+                                    <span style="margin: 0 12px;">|</span>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <%= event.location %>
+                                        <% } %>
+                        </div>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Image Section -->
+        <section class="featured-section">
+            <div class="container">
+                <div class="featured-image-wrapper">
+                    <div class="featured-overlay">
+                        <i class="fas fa-star"></i>
+                        Featured
+                    </div>
+                    <a href="<%= event.images[0] %>" class="featured-image-link">
+                        <div class="featured-image-container">
+                            <img src="<%= event.images[0] %>" alt="<%= event.title %>" loading="eager">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Event Gallery</h2>
+                    <p>
+                        <i class="fas fa-images"></i>
+                        Explore <%= event.images.length %> stunning moments from this event
+                    </p>
+                </div>
+
+                <div class="gallery-grid" id="event-gallery-<%= event.id %>">
+                    <% event.images.forEach(function(img, index) { %>
+                        <div class="gallery-item">
+                            <a href="<%= img %>" class="img-zoom" title="<%= event.title %> - Image <%= index + 1 %>">
                                 <div class="gallery-box">
                                     <div class="gallery-img">
-                                        <img src="<%= event.images[0] %>" class="img-fluid mx-auto d-block"
-                                            alt="<%= event.title %>">
+                                        <img src="<%= img || '/images/placeholder.jpg' %>"
+                                            alt="<%= event.title %> <%= index + 1 %>" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="gallery-overlay">
+                                        <div class="gallery-icon">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                    </div>
-
+                        <% }) %>
                 </div>
             </div>
         </section>
 
+        <!-- Back to Top Button -->
+        <div class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </div>
 
+        <%- include("../partials/footer") %>
 
-        <section class="pb-60 mt-60">
-            <div class="container">
-                <div class="row gallery">
-                    <div class="row gallery" id="event-gallery-<%= event.id %>">
-                        <% event.images.forEach(function(img, index) { %>
-                            <div class="col-md-4 col-lg-4 col-sm-6 gallery-item">
-                                <a href="<%= img %>" class="img-zoom"
-                                    title="<%= event.title %> - Image <%= index + 1 %>">
-                                    <div class="gallery-box">
-                                        <div class="gallery-img">
-                                            <img src="<%= img || '/images/placeholder.jpg' %>"
-                                                class="img-fluid image-box-event mx-auto d-block"
-                                                alt="<%= event.title %> <%= index + 1 %>" loading="lazy"
-                                                decoding="async" width="400" height="300">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <% }) %>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-
-
-
-        <%- include("partials/footer") %>
-
-
-            <!-- jQuery (required for Magnific Popup) -->
+            <!-- Scripts -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-            <!-- Magnific Popup JS -->
             <script
                 src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-
             <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
             <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
             <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
             <script src="/js/vendor/popper.min.js"></script>
             <script src="/js/vendor/bootstrap.min.js"></script>
             <script src="/js/plugins.js"></script>
-            <!-- Ajax Mail -->
             <script src="/js/ajax-mail.js"></script>
-            <!-- Main JS -->
             <script src="/js/main.js"></script>
 
             <script>
+                // Font Awesome lazy loading polyfill
+                (function () {
+                    var link = document.querySelector('link[rel="preload"][as="style"]');
+                    if (link) {
+                        link.rel = 'stylesheet';
+                    }
+                })();
+
                 $(document).ready(function () {
-                    $('.gallery').magnificPopup({
+                    // Magnific Popup for featured image
+                    $('.featured-image-link').magnificPopup({
+                        type: 'image',
+                        closeOnContentClick: true,
+                        mainClass: 'mfp-fade',
+                        removalDelay: 300,
+                        image: {
+                            titleSrc: function (item) {
+                                return '<%= event.title %>';
+                            }
+                        }
+                    });
+
+                    // Magnific Popup for gallery
+                    $('#event-gallery-<%= event.id %>').magnificPopup({
                         delegate: 'a.img-zoom',
                         type: 'image',
                         gallery: {
-                            enabled: true,   // enables gallery mode
+                            enabled: true,
                             navigateByImgClick: true,
-                            preload: [0, 1]   // preload previous & next images for smoother navigation
+                            preload: [0, 2],
+                            tCounter: '<span class="mfp-counter">%curr% of %total%</span>'
                         },
-                        mainClass: 'mfp-fade', // animation effect
-                        removalDelay: 300,     // duration of fade effect
-                        fixedContentPos: false
+                        mainClass: 'mfp-fade',
+                        removalDelay: 300,
+                        image: {
+                            titleSrc: function (item) {
+                                return item.el.attr('title');
+                            },
+                            verticalFit: true
+                        },
+                        callbacks: {
+                            beforeOpen: function () {
+                                this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+                            }
+                        }
+                    });
+
+                    // Throttle function for better scroll performance
+                    function throttle(func, wait) {
+                        let timeout;
+                        return function executedFunction(...args) {
+                            const later = () => {
+                                clearTimeout(timeout);
+                                func(...args);
+                            };
+                            clearTimeout(timeout);
+                            timeout = setTimeout(later, wait);
+                        };
+                    }
+
+                    // Back to top button with throttled scroll
+                    const backToTop = $('#backToTop');
+                    let lastScrollTop = 0;
+
+                    const handleScroll = throttle(function () {
+                        const scrollTop = $(window).scrollTop();
+
+                        if (scrollTop > 300) {
+                            backToTop.addClass('show');
+                        } else {
+                            backToTop.removeClass('show');
+                        }
+
+                        lastScrollTop = scrollTop;
+                    }, 100);
+
+                    $(window).on('scroll', handleScroll);
+
+                    backToTop.on('click', function (e) {
+                        e.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 800, 'swing');
+                        return false;
+                    });
+
+                    // Image loading handler
+                    const images = document.querySelectorAll('.gallery-img img, .featured-image-container img');
+
+                    images.forEach(img => {
+                        if (img.complete) {
+                            img.classList.add('loaded');
+                        } else {
+                            img.addEventListener('load', function () {
+                                this.classList.add('loaded');
+                            });
+                            img.addEventListener('error', function () {
+                                this.classList.add('loaded');
+                                this.src = '/images/placeholder.jpg';
+                            });
+                        }
+                    });
+
+                    // Lazy loading enhancement with Intersection Observer
+                    if ('IntersectionObserver' in window) {
+                        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+                        const imageObserver = new IntersectionObserver((entries, observer) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    const img = entry.target;
+                                    img.src = img.src; // Trigger load
+                                    img.classList.add('loaded');
+                                    observer.unobserve(img);
+                                }
+                            });
+                        }, {
+                            rootMargin: '50px 0px',
+                            threshold: 0.01
+                        });
+
+                        lazyImages.forEach(img => imageObserver.observe(img));
+                    }
+
+                    // Prevent scroll jank on hover
+                    const galleryItems = document.querySelectorAll('.gallery-item');
+                    galleryItems.forEach(item => {
+                        item.addEventListener('mouseenter', function () {
+                            this.style.willChange = 'transform';
+                        });
+                        item.addEventListener('mouseleave', function () {
+                            this.style.willChange = 'auto';
+                        });
+                    });
+
+                    // Smooth scroll for anchor links
+                    $('a[href^="#"]').on('click', function (e) {
+                        const target = $(this.getAttribute('href'));
+                        if (target.length) {
+                            e.preventDefault();
+                            $('html, body').stop().animate({
+                                scrollTop: target.offset().top - 80
+                            }, 800, 'swing');
+                        }
                     });
                 });
+
+                // Passive event listeners for better scroll performance
+                if (typeof window !== 'undefined') {
+                    let supportsPassive = false;
+                    try {
+                        const opts = Object.defineProperty({}, 'passive', {
+                            get: function () {
+                                supportsPassive = true;
+                            }
+                        });
+                        window.addEventListener('testPassive', null, opts);
+                        window.removeEventListener('testPassive', null, opts);
+                    } catch (e) { }
+
+                    if (supportsPassive) {
+                        window.addEventListener('scroll', function () { }, { passive: true });
+                        window.addEventListener('touchstart', function () { }, { passive: true });
+                    }
+                }
             </script>
-
-
-
 </body>
 
 </html>

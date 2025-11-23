@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Skydecor - Product Details</title>
-  <meta name="description" content />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= product.productName %> - <%= product.texture %> | Product Detail
+  </title>
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
 
   <!-- CSS ============================================ -->
   <!-- Bootstrap CSS -->
@@ -18,450 +24,519 @@
   <link rel="stylesheet" href="/css/style.css" />
 
   <style>
-    /* LUXURY PRODUCT MAGNIFIER - Reference Style */
-    .product-details.dec-img-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 550px;
-      margin: 0 auto;
+   
+    /* Breadcrumb */
+    .pdp-breadcrumb {
+      background: #f5f5f5;
+      padding: 15px 0;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
     }
 
-    .luxury-magnifier-container {
+    .pdp-breadcrumb a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .pdp-breadcrumb a:hover {
+      color: #0066cc;
+    }
+
+    .pdp-breadcrumb-separator {
+      margin: 0 8px;
+    }
+
+    /* Main Product Section */
+    .pdp-product-section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    /* Image Gallery with Magnifier */
+    .pdp-product-gallery {
+      position: relative;
+    }
+
+    .pdp-main-image {
+      width: 100%;
+      height: 800px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e0e0e0;
       position: relative;
       cursor: crosshair;
-      overflow: hidden;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
     }
 
-    .luxury-magnifier-container:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    }
-
-    .luxury-magnifier-container img {
-      width: 100%;
-      height: auto;
+    .pdp-main-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       display: block;
-      border-radius: 16px;
+      height: 700px;
+      width: 350px;
+      aspect-ratio: 1/2;
     }
 
-    /* Visible Lens Box - Like Reference Image */
-    .magnifier-lens {
+    /* Magnifier Lens */
+    .pdp-magnifier-lens {
       position: absolute;
-      border: 3px solid #ffffff;
-      background-color: rgba(255, 255, 255, 0.3);
+      width: 150px;
+      height: 150px;
+      border: 3px solid #0066cc;
+      border-radius: 50%;
       cursor: none;
-      width: 180px;
-      height: 180px;
       pointer-events: none;
-      display: none;
-      z-index: 15;
-      box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.15),
-        0 8px 32px rgba(0, 0, 0, 0.2),
-        inset 0 0 0 2px rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(1px);
-      transition: opacity 0.2s ease;
-    }
-
-    .magnifier-lens.active {
-      display: block;
-      animation: lensAppear 0.3s ease;
-    }
-
-    @keyframes lensAppear {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    /* Luxury Zoom Preview Panel - Same Size as Product */
-    .luxury-zoom-panel {
-      position: absolute;
-      top: 0;
-      left: calc(100% + 30px);
-      width: 550px;
-      height: 550px;
-      background: #ffffff;
-      border-radius: 16px;
-      overflow: hidden;
-      display: none;
-      z-index: 100;
-      box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.05),
-        0 20px 60px rgba(0, 0, 0, 0.15),
-        0 4px 12px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .luxury-zoom-panel::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 50px;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), transparent);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .luxury-zoom-panel.active {
-      display: block;
-      animation: panelSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    @keyframes panelSlideIn {
-      from {
-        opacity: 0;
-        transform: translateX(-20px) scale(0.95);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-      }
-    }
-
-    .luxury-zoom-panel img {
-      position: absolute;
-      max-width: none;
-    }
-
-    /* Zoom Label */
-    .zoom-label {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(0, 0, 0, 0.85);
-      color: #ffffff;
-      padding: 10px 18px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      z-index: 2;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .zoom-label i {
-      margin-right: 6px;
-      font-size: 14px;
-    }
-
-    /* Magnifier Instruction Hint */
-    .magnifier-instruction {
-      position: absolute;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(29, 78, 216, 0.95));
-      color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 500;
       opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: opacity 0.3s;
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
     }
 
-    .luxury-magnifier-container:hover .magnifier-instruction {
+    .pdp-main-image.magnifying .pdp-magnifier-lens {
       opacity: 1;
     }
 
-    .magnifier-instruction i {
-      margin-right: 8px;
-      font-size: 16px;
-      animation: pulse 2s ease-in-out infinite;
+    /* Magnified View Container */
+    .pdp-magnified-view {
+      position: absolute;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      height: 400px;
+      border: 2px solid #0066cc;
+      border-radius: 8px;
+      background: white;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 1000;
     }
 
-    @keyframes pulse {
+    .pdp-magnified-view.active {
+      opacity: 1;
+    }
 
-      0%,
-      100% {
-        transform: scale(1);
+    .pdp-magnified-view img {
+      position: absolute;
+      max-width: none;
+      width: auto;
+      height: auto;
+    }
+
+    .pdp-magnified-view::before {
+      content: 'ZOOMED VIEW';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 102, 204, 0.9);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      z-index: 10;
+    }
+
+    .pdp-thumbnail-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .pdp-thumbnail {
+      width: 100%;
+      height: 100px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pdp-thumbnail:hover,
+    .pdp-thumbnail.active {
+      border-color: #0066cc;
+    }
+
+    .pdp-thumbnail img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    .pdp-image-zoom {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s;
+      z-index: 10;
+    }
+
+    .pdp-image-zoom:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Zoom Hint */
+    .pdp-zoom-hint {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .pdp-main-image:hover .pdp-zoom-hint {
+      opacity: 1;
+    }
+
+    /* Product Info */
+    .pdp-product-title {
+      font-size: 32px;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .pdp-product-subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .pdp-product-meta {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #e0e0e0;
+      flex-wrap: wrap;
+    }
+
+    .pdp-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .pdp-meta-item i {
+      color: #0066cc;
+    }
+
+    /* Options Section */
+    .pdp-option-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pdp-form-select,
+    .pdp-form-control {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+
+    .pdp-form-select:focus,
+    .pdp-form-control:focus {
+      border-color: #0066cc;
+      box-shadow: none;
+    }
+
+    .pdp-quantity-controls {
+      display: flex;
+      align-items: center;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      width: fit-content;
+    }
+
+    .pdp-quantity-btn {
+      width: 45px;
+      height: 45px;
+      border: none;
+      background: white;
+      cursor: pointer;
+      font-size: 18px;
+      color: #333;
+      transition: all 0.3s;
+    }
+
+    .pdp-quantity-btn:hover {
+      background: #f5f5f5;
+    }
+
+    .pdp-quantity-input {
+      width: 60px;
+      height: 45px;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      border-left: 2px solid #e0e0e0;
+      border-right: 2px solid #e0e0e0;
+    }
+
+    /* Buttons */
+    .pdp-btn-primary {
+      background: #0066cc;
+      color: white;
+      border: none;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .pdp-btn-primary:hover {
+      background: #0052a3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+      color: white;
+    }
+
+    .pdp-btn-secondary {
+      background: white;
+      color: #0066cc;
+      border: 2px solid #0066cc;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .pdp-btn-secondary:hover {
+      background: #f0f7ff;
+      color: #0066cc;
+    }
+
+    .pdp-icon-btn {
+      padding: 14px;
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    .pdp-icon-btn:hover {
+      border-color: #0066cc;
+      color: #0066cc;
+    }
+
+    .pdp-icon-btn i {
+      font-size: 18px;
+    }
+
+    /* Detail Rows */
+    .pdp-detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .pdp-detail-label {
+      font-weight: 600;
+      color: #666;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pdp-detail-value {
+      color: #1a1a1a;
+      font-weight: 500;
+    }
+
+  
+
+    
+   
+
+    /* Section Styling */
+    .pdp-section-card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .pdp-section-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .pdp-section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    /* Disclaimer Text */
+    .pdp-disclaimer {
+      color: #6c757d;
+      margin-top: 0.5rem;
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    /* Alert Messages */
+    .pdp-alert-custom {
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      animation: pdpSlideDown 0.3s;
+    }
+
+    @keyframes pdpSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
       }
 
-      50% {
-        transform: scale(1.1);
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Loading Spinner */
+    .pdp-spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #0066cc;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: pdpSpin 1s linear infinite;
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    @keyframes pdpSpin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
       }
     }
 
     /* Responsive Adjustments */
-    @media (max-width: 1399px) {
-      .luxury-zoom-panel {
-        width: 480px;
-        height: 480px;
-        left: calc(100% + 25px);
-      }
-
-      .product-details.dec-img-wrap {
-        max-width: 480px;
+    @media (max-width: 1400px) {
+      .pdp-magnified-view {
+        right: auto;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
       }
     }
 
-    @media (max-width: 1199px) {
-      .luxury-zoom-panel {
-        width: 420px;
-        height: 420px;
-        left: calc(100% + 20px);
+    @media (max-width: 768px) {
+      .pdp-product-section {
+        padding: 25px;
       }
 
-      .product-details.dec-img-wrap {
-        max-width: 420px;
-      }
-
-      .magnifier-lens {
-        width: 150px;
-        height: 150px;
-      }
-    }
-
-    @media (max-width: 991px) {
-      .luxury-zoom-panel {
-        display: none !important;
-      }
-
-      .magnifier-lens {
-        display: none !important;
-      }
-
-      .luxury-magnifier-container {
+      .pdp-main-image {
+        height: 400px;
         cursor: default;
       }
 
-      .magnifier-instruction {
-        display: none;
+      .pdp-product-title {
+        font-size: 24px;
       }
 
-      .product-details.dec-img-wrap {
-        max-width: 100%;
+      .pdp-section-title {
+        font-size: 24px;
       }
-    }
 
-    /* Product Image Container */
-    .product-image-container {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      padding: 50px;
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 500px;
-      position: relative;
-      overflow: visible;
-    }
+      .pdp-thumbnail-gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
-    .product-image-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
-      pointer-events: none;
-      border-radius: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .product-image-container {
-        padding: 30px;
-        min-height: 400px;
+      /* Disable magnifier on mobile */
+      .pdp-magnified-view,
+      .pdp-magnifier-lens,
+      .pdp-zoom-hint {
+        display: none !important;
       }
     }
 
-    /* Minimalist Social Share */
-    .product-share {
-      margin-top: 24px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    @media (max-width: 576px) {
 
-    .share-label {
-      font-size: 13px;
-      color: #6b7280;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-    }
-
-    .share-icons {
-      display: flex;
-      gap: 6px;
-    }
-
-    .share-icon {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #f3f4f6;
-      color: #6b7280;
-      text-decoration: none;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid #e5e7eb;
-      cursor: pointer;
-    }
-
-    .share-icon:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .share-icon i {
-      font-size: 16px;
-    }
-
-    .share-icon.whatsapp:hover {
-      background: #25d366;
-      color: #fff;
-      border-color: #25d366;
-    }
-
-    .share-icon.facebook:hover {
-      background: #1877f2;
-      color: #fff;
-      border-color: #1877f2;
-    }
-
-    .share-icon.linkedin:hover {
-      background: #0a66c2;
-      color: #fff;
-      border-color: #0a66c2;
-    }
-
-    .share-icon.instagram:hover {
-      background: linear-gradient(135deg, #e4405f, #c13584, #833ab4);
-      color: #fff;
-      border-color: #e4405f;
-    }
-
-    .share-icon.copy:hover {
-      background: #111827;
-      color: #fff;
-      border-color: #111827;
-    }
-
-    .share-icon.copied {
-      background: #10b981 !important;
-      color: #fff !important;
-      border-color: #10b981 !important;
-    }
-
-    @media (max-width: 768px) {
-      .product-share {
-        flex-wrap: wrap;
+      .pdp-product-section,
+      .pdp-section-card {
+        padding: 20px;
       }
-    }
 
-    /* Product Specifications Table */
-    .product-specs-table {
-      margin-top: 20px;
-    }
+      .pdp-main-image {
+        height: 350px;
+      }
 
-    .specs-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      overflow: hidden;
-    }
+      .pdp-product-title {
+        font-size: 20px;
+      }
 
-    .specs-table tbody tr:nth-child(even) {
-      background-color: #f9fafb;
-    }
+      .pdp-section-title {
+        font-size: 20px;
+      }
 
-    .specs-table td {
-      padding: 12px 16px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .specs-table tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    .spec-label {
-      font-weight: 500;
-      color: #6b7280;
-      width: 40%;
-    }
-
-    .spec-label i {
-      margin-right: 8px;
-      color: #9ca3af;
-    }
-
-    .spec-value {
-      color: #111827;
-      font-weight: 500;
-    }
-
-    /* Product Actions */
-    .product-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .btn-download,
-    .btn-enquiry {
-      flex: 1;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 500;
-      text-align: center;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-download {
-      background: #f3f4f6;
-      color: #111827;
-      border: 1px solid #e5e7eb;
-    }
-
-    .btn-download:hover {
-      background: #e5e7eb;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-enquiry {
-      background: #2563eb;
-      color: #fff;
-    }
-
-    .btn-enquiry:hover {
-      background: #1d4ed8;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+      .pdp-thumbnail-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
@@ -469,179 +544,177 @@
 <body>
   <%- include("../partials/header") %>
 
-    <!-- Product Details Area -->
-    <div class="product-details-area pt-100 pb-100">
-      <div class="container">
-        <div class="row">
-          <!-- Product Image with LUXURY Magnifier -->
-          <div class="col-lg-5 col-md-6">
-            <div class="product-image-container">
-              <div class="product-details dec-img-wrap">
-                <div class="luxury-magnifier-container" id="luxuryMagnifier">
-                  <img src="<%= product.image %>" alt="<%= product.productCode %>" class="img-fluid" id="productImage"
-                    style=" max-height: 600px;" />
-                  <!-- Visible Lens Box -->
-                  <div class="magnifier-lens" id="magnifierLens"></div>
 
-                  <!-- Hover Instruction -->
-                  <div class="magnifier-instruction">
-                    <i class="fas fa-hand-pointer"></i>
-                    Hover to see details
-                  </div>
-                </div>
+  <div class="container-fluid p-0">
 
-                <!-- Luxury Zoom Panel -->
-                <div class="luxury-zoom-panel" id="zoomPanel">
-                  <img src="<%= product.image %>" alt="Zoomed view" id="zoomImage" />
-                  <div class="zoom-label">
-                    <i class="fas fa-search-plus"></i>
-                    ZOOMED VIEW
-                  </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb pdp-breadcrumb px-4">
+          <li class="breadcrumb-item"><a href="/">HOME</a></li>
+          <li class="breadcrumb-item"><a href="/products">PRODUCTS</a></li>
+          <li class="breadcrumb-item"><a href="/products/<%= product.productType.toLowerCase() %>">
+              <%= product.productType %>
+            </a></li>
+          <li class="breadcrumb-item">
+            <a
+              href="/products/<%= product.productType.toLowerCase() %>/<%= product.category.toLowerCase().replace(/\s+/g, '-') %>">
+              <%= product.category %>
+            </a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page"><strong>
+              <%= product.productName %>
+            </strong></li>
+        </ol>
+      </nav>
+
+  </div>
+
+    <div class="container py-4 pdp-container">
+      <div class="pdp-product-section">
+        <div class="row g-5">
+          <!-- Image Gallery -->
+          <div class="col-lg-6">
+            <div class="pdp-product-gallery">
+              <div class="pdp-main-image" id="pdpMainImage">
+                <img src="<%= product.image %>" alt="<%= product.productName %> - <%= product.texture %>"
+                  id="pdpProductImage">
+                <div class="pdp-magnifier-lens" id="pdpMagnifierLens"></div>
+                <div class="pdp-zoom-hint">
+                  <i class="fas fa-search-plus me-2"></i>Hover to zoom
                 </div>
               </div>
+              <div class="pdp-magnified-view" id="pdpMagnifiedView">
+                <img src="<%= product.image %>" alt="Zoomed" id="pdpZoomedImage">
+              </div>
+              <button class="pdp-image-zoom" onclick="openImageZoom()">
+                <i class="fas fa-search-plus"></i>
+              </button>
             </div>
+
+            <p class="text-muted mt-2 pdp-disclaimer">
+              <i class="fas fa-info-circle"></i> Disclaimer: Colours on screen may vary from actual product
+            </p>
           </div>
 
-          <!-- Product Content -->
-          <div class="col-lg-6 col-md-6 offset-lg-1">
-            <div class="product-details-content">
-              <h2 class="product-title mb-4">
-                <%= product.productCode %>
-              </h2>
+          <!-- Product Info -->
+          <div class="col-lg-6">
+            <h1 class="pdp-product-title">
+              <%= product.productCode %>
+            </h1>
+            <p class="pdp-product-subtitle">
+              <%= product.texture.toUpperCase() %>
+                <%= product.designName ? '- ' + product.designName : '' %>
+            </p>
 
-              <!-- Product Specifications Table -->
-              <div class="product-specs-table">
-                <table class="specs-table">
-                  <tbody>
-                    <tr>
-                      <td class="spec-label">
-                        <i class="fas fa-barcode"></i>
-                        <span>Product Code</span>
-                      </td>
-                      <td class="spec-value">
-                        <%= product.productCode %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="spec-label">
-                        <i class="fas fa-tag"></i>
-                        <span>Product Type</span>
-                      </td>
-                      <td class="spec-value">
-                        <%= product.productType %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="spec-label">
-                        <i class="fas fa-folder"></i>
-                        <span>Category</span>
-                      </td>
-                      <td class="spec-value">
-                        <%= product.category %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="spec-label">
-                        <i class="fas fa-folder-open"></i>
-                        <span>SubCategory</span>
-                      </td>
-                      <td class="spec-value">
-                        <%= product.subCategory %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="spec-label">
-                        <i class="fas fa-hand-paper"></i>
-                        <span>Texture</span>
-                      </td>
-                      <td class="spec-value">
-                        <%= product.texture %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="spec-label">
-                        <i class="fas fa-palette"></i>
-                        <span>Design</span>
-                      </td>
-                      <td class="spec-value">
-                        <%= product.designName %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="spec-label">
-                        <i class="fas fa-ruler-combined"></i>
-                        <span>Size</span>
-                      </td>
-                      <td class="spec-value">
-                        <%= product.size %> mm
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="spec-label">
-                        <i class="fas fa-ruler-vertical"></i>
-                        <span>Thickness</span>
-                      </td>
-                      <td class="spec-value">
-                        <%= product.thickness %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="spec-label">
-                        <i class="fas fa-ruler-horizontal"></i>
-                        <span>Width</span>
-                      </td>
-                      <td class="spec-value">
-                        <%= product.width %>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div class="pdp-product-meta">
+              <div class="pdp-meta-item">
+                <i class="fas fa-layer-group"></i>
+                <span>
+                  <%= product.productType %> / <%= product.category %>
+                      <%= product.subCategory ? '/ ' + product.subCategory : '' %>
+                </span>
               </div>
-
-              <!-- Social Share -->
-              <div class="product-share">
-                <span class="share-label">Share:</span>
-                <div class="share-icons">
-                  <a href="#" class="share-icon whatsapp" id="shareWhatsApp" title="Share on WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                  </a>
-                  <a href="#" class="share-icon facebook" id="shareFacebook" title="Share on Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#" class="share-icon linkedin" id="shareLinkedIn" title="Share on LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                  <a href="#" class="share-icon instagram" id="shareInstagram" title="Share on Instagram">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                  <button class="share-icon copy" id="copyLink" title="Copy link">
-                    <i class="fas fa-link"></i>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Action Buttons -->
-              <div class="product-actions">
-                <a href="/products/download/<%= product.productCode %>" class="btn-download">
-                  <i class="fas fa-download"></i>
-                  <span>Download Details</span>
-                </a>
-
-
-                <!-- Demo button to trigger modal -->
-                <button class="skydecor-enquiry-demo-btn" onclick="skydecorEnquiryOpen()">
-                  <i class="fas fa-envelope"></i>  Product Enquiry
-                </button>
-
-
+              <div class="pdp-meta-item">
+                <i class="fas fa-palette"></i>
+                <span>Code: <%= product.productCode %></span>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Product Code</span>
+                  <span class="pdp-detail-value">
+                    <%= product.productCode %>
+                  </span>
+                </div>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Product Name</span>
+                  <span class="pdp-detail-value">
+                    <%= product.productName %>
+                  </span>
+                </div>
+                <% if (product.designName) { %>
+                  <div class="pdp-detail-row">
+                    <span class="pdp-detail-label">Design Name</span>
+                    <span class="pdp-detail-value">
+                      <%= product.designName %>
+                    </span>
+                  </div>
+                  <% } %>
+                    <div class="pdp-detail-row">
+                      <span class="pdp-detail-label">Product Type</span>
+                      <span class="pdp-detail-value">
+                        <%= product.productType %>
+                      </span>
+                    </div>
+                    <div class="pdp-detail-row">
+                      <span class="pdp-detail-label">Category</span>
+                      <span class="pdp-detail-value">
+                        <%= product.category %>
+                      </span>
+                    </div>
+                    <% if (product.subCategory) { %>
+                      <div class="pdp-detail-row">
+                        <span class="pdp-detail-label">Sub Category</span>
+                        <span class="pdp-detail-value">
+                          <%= product.subCategory %>
+                        </span>
+                      </div>
+                      <% } %>
+                        <div class="pdp-detail-row">
+                          <span class="pdp-detail-label">Texture</span>
+                          <span class="pdp-detail-value">
+                            <%= product.texture %>
+                          </span>
+                        </div>
+                        <div class="pdp-detail-row">
+                          <span class="pdp-detail-label">Texture Code</span>
+                          <span class="pdp-detail-value">
+                            <%= product.textureCode %>
+                          </span>
+                        </div>
+                        <div class="pdp-detail-row">
+                          <span class="pdp-detail-label">Thickness</span>
+                          <span class="pdp-detail-value">
+                            <%= product.thickness %>
+                          </span>
+                        </div>
+                        <div class="pdp-detail-row">
+                          <span class="pdp-detail-label">Size</span>
+                          <span class="pdp-detail-value">
+                            <%= product.size %>
+                          </span>
+                        </div>
+                        <div class="pdp-detail-row">
+                          <span class="pdp-detail-label">Width</span>
+                          <span class="pdp-detail-value">
+                            <%= product.width %>
+                          </span>
+                        </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="row g-3 mb-4 mt-4">
+              <div class="col-md-6">
+                <button class="pdp-btn-primary" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                  <i class="fas fa-envelope me-2"></i>REQUEST SAMPLE
+                </button>
+              </div>
+              <div class="col-md-6">
+                <button class="pdp-icon-btn" onclick="downloadSwatch()">
+                  <i class="fas fa-download me-2"></i> DETAILS
+                </button>
+              </div>
+            </div>
+
+            
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Related Products -->
+     <!-- Related Products -->
     <div class="related-product-area pb-95">
       <div class="container">
         <div class="section-title text-center mb-50">
@@ -694,150 +767,190 @@
       </div>
     </div>
 
+
+
+    
+
     <%- include("../partials/footer") %>
-      <%- include("../partials/product-modal") %>
+     <%- include("../partials/product-modal") %>
         <%- include("../partials/product-enquiry", { product: product }) %>
 
-          <!-- All JS ============================================ -->
-          <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
-          <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
-          <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
-          <script src="/js/vendor/popper.min.js"></script>
-          <script src="/js/vendor/bootstrap.min.js"></script>
-          <script src="/js/plugins.js"></script>
-          <script src="/js/ajax-mail.js"></script>
-          <script src="/js/main.js"></script>
 
-          <!-- LUXURY MAGNIFIER SCRIPT -->
-          <script>
-            class LuxuryMagnifier {
-              constructor(containerId, zoomLevel = 2.5) {
-                this.container = document.getElementById(containerId);
-                if (!this.container) return;
+      <!-- All JS ============================================ -->
+      <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+      <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+      <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+      <script src="/js/vendor/popper.min.js"></script>
+      <script src="/js/vendor/bootstrap.min.js"></script>
+      <script src="/js/plugins.js"></script>
+      <script src="/js/ajax-mail.js"></script>
+      <script src="/js/main.js"></script>
 
-                this.img = this.container.querySelector('img');
-                this.lens = document.getElementById('magnifierLens');
-                this.zoomPanel = document.getElementById('zoomPanel');
-                this.zoomImage = document.getElementById('zoomImage');
-                this.zoomLevel = zoomLevel;
-                this.isActive = false;
 
-                this.init();
-              }
+     <script>
+(function() {
+  'use strict';
+  
+  // Product data from server
+  const productData = {
+    id: '<%= product._id %>',
+    productCode: '<%= product.productCode %>',
+    productName: '<%= product.productName %>',
+    image: '<%= product.image %>',
+    texture: '<%= product.texture %>',
+    productType: '<%= product.productType %>',
+    category: '<%= product.category %>'
+  };
 
-              init() {
-                // Mouse events
-                this.container.addEventListener('mouseenter', () => this.activate());
-                this.container.addEventListener('mouseleave', () => this.deactivate());
-                this.container.addEventListener('mousemove', (e) => this.move(e));
+  // Simple Image Magnifier
+  function initMagnifier() {
+    const mainImageContainer = document.getElementById('pdpMainImage');
+    const productImage = document.getElementById('pdpProductImage');
+    const magnifierLens = document.getElementById('pdpMagnifierLens');
+    const magnifiedView = document.getElementById('pdpMagnifiedView');
+    const zoomedImage = document.getElementById('pdpZoomedImage');
 
-                // Touch events for mobile
-                this.container.addEventListener('touchstart', (e) => {
-                  e.preventDefault();
-                  this.activate();
-                  this.move(e.touches[0]);
-                });
+    if (!mainImageContainer || !productImage || window.innerWidth <= 768) {
+      console.log('Magnifier disabled - mobile or elements missing');
+      return;
+    }
 
-                this.container.addEventListener('touchmove', (e) => {
-                  e.preventDefault();
-                  this.move(e.touches[0]);
-                });
+    console.log('Magnifier initialized');
 
-                this.container.addEventListener('touchend', () => this.deactivate());
-              }
+    const zoomLevel = 2.5;
 
-              activate() {
-                this.isActive = true;
-                this.lens.classList.add('active');
-                this.zoomPanel.classList.add('active');
+    mainImageContainer.addEventListener('mouseenter', function() {
+      console.log('Mouse entered');
+      mainImageContainer.classList.add('magnifying');
+      magnifiedView.classList.add('active');
+      
+      // Set the zoomed image
+      zoomedImage.src = productImage.src;
+      
+      // Calculate zoom dimensions
+      const rect = productImage.getBoundingClientRect();
+      zoomedImage.style.width = (rect.width * zoomLevel) + 'px';
+      zoomedImage.style.height = (rect.height * zoomLevel) + 'px';
+    });
 
-                // Set zoom image size
-                const zoomedWidth = this.img.offsetWidth * this.zoomLevel;
-                const zoomedHeight = this.img.offsetHeight * this.zoomLevel;
-                this.zoomImage.style.width = `${zoomedWidth}px`;
-                this.zoomImage.style.height = `${zoomedHeight}px`;
-              }
+    mainImageContainer.addEventListener('mousemove', function(e) {
+      const bounds = mainImageContainer.getBoundingClientRect();
+      const x = e.clientX - bounds.left;
+      const y = e.clientY - bounds.top;
 
-              deactivate() {
-                this.isActive = false;
-                this.lens.classList.remove('active');
-                this.zoomPanel.classList.remove('active');
-              }
+      // Position the lens
+      const lensSize = 150;
+      let lensX = x - (lensSize / 2);
+      let lensY = y - (lensSize / 2);
 
-              move(e) {
-                if (!this.isActive) return;
+      // Keep lens within bounds
+      lensX = Math.max(0, Math.min(lensX, bounds.width - lensSize));
+      lensY = Math.max(0, Math.min(lensY, bounds.height - lensSize));
 
-                e.preventDefault();
+      magnifierLens.style.left = lensX + 'px';
+      magnifierLens.style.top = lensY + 'px';
 
-                const pos = this.getCursorPos(e);
+      // Calculate zoomed image position
+      const percentX = x / bounds.width;
+      const percentY = y / bounds.height;
 
-                // Lens dimensions
-                const lensWidth = this.lens.offsetWidth;
-                const lensHeight = this.lens.offsetHeight;
+      const zoomedWidth = parseFloat(zoomedImage.style.width);
+      const zoomedHeight = parseFloat(zoomedImage.style.height);
+      const viewWidth = magnifiedView.offsetWidth;
+      const viewHeight = magnifiedView.offsetHeight;
 
-                // Calculate lens position
-                let lensX = pos.x - (lensWidth / 2);
-                let lensY = pos.y - (lensHeight / 2);
+      const moveX = -(percentX * zoomedWidth - viewWidth / 2);
+      const moveY = -(percentY * zoomedHeight - viewHeight / 2);
 
-                // Prevent lens from going outside image bounds
-                const imgWidth = this.img.offsetWidth;
-                const imgHeight = this.img.offsetHeight;
+      // Constrain movement
+      const maxMoveX = -(zoomedWidth - viewWidth);
+      const maxMoveY = -(zoomedHeight - viewHeight);
 
-                if (lensX < 0) lensX = 0;
-                if (lensY < 0) lensY = 0;
-                if (lensX > imgWidth - lensWidth) lensX = imgWidth - lensWidth;
-                if (lensY > imgHeight - lensHeight) lensY = imgHeight - lensHeight;
+      const finalX = Math.min(0, Math.max(maxMoveX, moveX));
+      const finalY = Math.min(0, Math.max(maxMoveY, moveY));
 
-                // Set lens position
-                this.lens.style.left = `${lensX}px`;
-                this.lens.style.top = `${lensY}px`;
+      zoomedImage.style.left = finalX + 'px';
+      zoomedImage.style.top = finalY + 'px';
+    });
 
-                // Calculate zoom panel position
-                const zoomPanelWidth = this.zoomPanel.offsetWidth;
-                const zoomPanelHeight = this.zoomPanel.offsetHeight;
+    mainImageContainer.addEventListener('mouseleave', function() {
+      console.log('Mouse left');
+      mainImageContainer.classList.remove('magnifying');
+      magnifiedView.classList.remove('active');
+    });
+  }
 
-                // Calculate the ratio
-                const ratioX = (lensX / imgWidth);
-                const ratioY = (lensY / imgHeight);
+  // Initialize on DOM load
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded');
+    
+    // Wait a bit for images to load
+    setTimeout(initMagnifier, 500);
+  });
 
-                // Calculate zoomed image offset
-                const zoomedWidth = this.img.offsetWidth * this.zoomLevel;
-                const zoomedHeight = this.img.offsetHeight * this.zoomLevel;
+  // Reinitialize on window resize
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initMagnifier, 250);
+  });
 
-                const offsetX = ratioX * (zoomedWidth - zoomPanelWidth);
-                const offsetY = ratioY * (zoomedHeight - zoomPanelHeight);
+  // Global functions - attach to window object
+  window.openImageZoom = function() {
+    const img = document.getElementById('pdpProductImage');
+    if (img && img.src) {
+      window.open(img.src, '_blank');
+    }
+  };
 
-                // Set zoomed image position
-                this.zoomImage.style.left = `-${offsetX}px`;
-                this.zoomImage.style.top = `-${offsetY}px`;
-              }
+  window.downloadSwatch = function() {
+    const link = document.createElement('a');
+    link.href = productData.image;
+    link.download = `${productData.productCode}-swatch.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
-              getCursorPos(e) {
-                const rect = this.img.getBoundingClientRect();
-                const x = (e.clientX || e.pageX) - rect.left - window.pageXOffset;
-                const y = (e.clientY || e.pageY) - rect.top - window.pageYOffset;
-                return { x, y };
-              }
-            }
+  window.shareProduct = function() {
+    if (navigator.share) {
+      navigator.share({
+        title: `${productData.productCode} - ${productData.productName}`,
+        text: `Check out this product: ${productData.productCode}`,
+        url: window.location.href
+      }).catch(err => console.log('Error sharing:', err));
+    } else {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        alert('Product link copied to clipboard!');
+      });
+    }
+  };
 
-            // Initialize when DOM is ready
-            window.addEventListener('DOMContentLoaded', () => {
-              const productImg = document.getElementById('productImage');
-              if (productImg) {
-                // Wait for image to load
-                if (productImg.complete) {
-                  new LuxuryMagnifier('luxuryMagnifier', 2.5);
-                } else {
-                  productImg.addEventListener('load', () => {
-                    new LuxuryMagnifier('luxuryMagnifier', 2.5);
-                  });
-                }
-              }
-            });
-          </script>
+  // Phone input validation - use different approach to avoid conflicts
+  document.addEventListener('DOMContentLoaded', function() {
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function(e) {
+        this.value = this.value.replace(/[^0-9+]/g, '');
+      });
+    }
 
-          <!-- Product Page JS -->
-          <script src="/js/product-page.js"></script>
+    // Reset form when modal is closed - avoid duplicate declaration
+    const enquiryModalElement = document.getElementById('enquiryModal');
+    if (enquiryModalElement) {
+      enquiryModalElement.addEventListener('hidden.bs.modal', function() {
+        const form = document.getElementById('productEnquiryForm');
+        const message = document.getElementById('formMessage');
+        if (form) form.reset();
+        if (message) message.style.display = 'none';
+      });
+    }
+  });
+
+})();
+</script>
+
+
 </body>
-
 </html>

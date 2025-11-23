@@ -863,16 +863,7 @@
   });
 })(jQuery);
 
-document.addEventListener("DOMContentLoaded", function () {
-  const magnifier = new Magnifier();
-  document.querySelectorAll(".magnifiable").forEach((img) => {
-    magnifier.attach({
-      thumb: img,
-      large: img.getAttribute("data-magnify-src"),
-      zoom: 2.5, // gentle zoom level; tweak if needed
-    });
-  });
-});
+
 
 // lazy lodaing product
 document.addEventListener("DOMContentLoaded", function () {
