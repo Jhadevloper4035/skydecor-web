@@ -1,0 +1,1152 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Job Application Form Styles */
+    .sky-job-wrapper {
+        background: #f1f1f1;
+        padding: 60px 20px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .sky-job-container {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        background: #f1f1f1;
+    }
+
+    .sky-job-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .sky-job-header h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+        font-weight: 400;
+        color: #333;
+        letter-spacing: 0.3px;
+    }
+
+    .sky-job-header p {
+        font-size: 1em;
+        font-weight: 300;
+        color: #666;
+    }
+
+    .sky-job-body {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .sky-job-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-bottom: 25px;
+    }
+
+    .sky-job-group {
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    .sky-job-group.sky-full-width {
+        grid-column: 1 / -1;
+    }
+
+    .sky-job-input,
+    .sky-job-select,
+    .sky-job-textarea {
+        width: 100%;
+        padding: 18px 20px;
+        border: none;
+        border-radius: 0;
+        font-size: 0.95em;
+        transition: all 0.3s ease;
+        background: #ffffff;
+        font-family: 'Montserrat', sans-serif;
+        color: #666;
+        font-weight: 300;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sky-job-input::placeholder,
+    .sky-job-select::placeholder,
+    .sky-job-textarea::placeholder {
+        color: #999;
+        font-weight: 300;
+    }
+
+    .sky-job-input:focus,
+    .sky-job-select:focus,
+    .sky-job-textarea:focus {
+        outline: none;
+        background: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .sky-job-input.sky-error,
+    .sky-job-select.sky-error,
+    .sky-job-textarea.sky-error {
+        border: 1px solid #e74c3c;
+        background: #fff5f5;
+    }
+
+    .sky-job-input.sky-success,
+    .sky-job-select.sky-success,
+    .sky-job-textarea.sky-success {
+        border: 1px solid #27ae60;
+        background: #ffffff;
+    }
+
+    .sky-job-input[readonly] {
+        background: #f5f5f5;
+        color: #333;
+        cursor: not-allowed;
+        font-weight: 500;
+    }
+
+    .sky-job-input[readonly]:focus {
+        background: #f5f5f5;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sky-error-message {
+        color: #e74c3c;
+        font-size: 0.8em;
+        margin-top: 8px;
+        display: none;
+        font-weight: 400;
+        padding-left: 5px;
+    }
+
+    .sky-error-message.sky-show {
+        display: block;
+    }
+
+    .sky-success-icon,
+    .sky-error-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.1em;
+        display: none;
+    }
+
+    .sky-success-icon {
+        color: #27ae60;
+    }
+
+    .sky-error-icon {
+        color: #e74c3c;
+    }
+
+    .sky-success-icon.sky-show,
+    .sky-error-icon.sky-show {
+        display: block;
+    }
+
+    .sky-job-textarea {
+        resize: vertical;
+        min-height: 140px;
+        max-height: 300px;
+    }
+
+    .sky-job-select {
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 20px center;
+        padding-right: 45px;
+    }
+
+    .sky-job-select option {
+        color: #333;
+    }
+
+    /* File Upload Styles */
+    .sky-upload-section {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .sky-upload-section h3 {
+        color: #e74c3c;
+        margin-bottom: 20px;
+        font-size: 0.85em;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .sky-upload-section h3 .sky-required {
+        color: #e74c3c;
+        margin-left: 3px;
+    }
+
+    .sky-file-upload-container {
+        background: #ffffff;
+        padding: 30px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        position: relative;
+    }
+
+    .sky-file-upload-wrapper {
+        border: 2px dashed #ddd;
+        padding: 40px 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: #fafafa;
+    }
+
+    .sky-file-upload-wrapper:hover {
+        border-color: #333;
+        background: #f5f5f5;
+    }
+
+    .sky-file-upload-wrapper.sky-dragging {
+        border-color: #333;
+        background: #f0f0f0;
+    }
+
+    .sky-file-upload-wrapper.sky-error {
+        border-color: #e74c3c;
+        background: #fff5f5;
+    }
+
+    .sky-file-upload-wrapper.sky-success {
+        border-color: #27ae60;
+        background: #f0f9f4;
+    }
+
+    .sky-upload-icon {
+        font-size: 3em;
+        color: #999;
+        margin-bottom: 15px;
+    }
+
+    .sky-upload-text {
+        font-size: 0.95em;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .sky-upload-text strong {
+        color: #333;
+        font-weight: 500;
+    }
+
+    .sky-upload-hint {
+        font-size: 0.85em;
+        color: #999;
+        font-weight: 300;
+    }
+
+    .sky-upload-hint .sky-pdf-only {
+        color: #e74c3c;
+        font-weight: 500;
+    }
+
+    .sky-file-input {
+        display: none;
+    }
+
+    .sky-file-preview {
+        display: none;
+        margin-top: 20px;
+        padding: 20px;
+        background: #f9f9f9;
+        border: 1px solid #e0e0e0;
+    }
+
+    .sky-file-preview.sky-show {
+        display: block;
+    }
+
+    .sky-file-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .sky-file-details {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex: 1;
+    }
+
+    .sky-file-icon {
+        font-size: 2em;
+        color: #e74c3c;
+    }
+
+    .sky-file-meta {
+        flex: 1;
+    }
+
+    .sky-file-name {
+        font-size: 0.95em;
+        color: #333;
+        font-weight: 500;
+        margin-bottom: 5px;
+        word-break: break-word;
+    }
+
+    .sky-file-size {
+        font-size: 0.85em;
+        color: #666;
+        font-weight: 300;
+    }
+
+    .sky-remove-file {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        font-size: 0.85em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .sky-remove-file:hover {
+        background: #c0392b;
+    }
+
+    .sky-consent-group {
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        border: none;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    .sky-consent-group.sky-error {
+        border: none;
+        background: transparent;
+    }
+
+    .sky-consent-checkbox {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .sky-consent-checkbox input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin-right: 12px;
+        margin-top: 3px;
+        cursor: pointer;
+        accent-color: #333;
+        flex-shrink: 0;
+    }
+
+    .sky-consent-checkbox label {
+        margin: 0;
+        cursor: pointer;
+        font-size: 0.85em;
+        line-height: 1.6;
+        color: #666;
+        font-weight: 300;
+    }
+
+    .sky-submit-btn {
+        width: auto;
+        min-width: 200px;
+        padding: 14px 40px;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 0;
+        font-size: 0.85em;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: none;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+        margin: 0;
+    }
+
+    .sky-submit-btn:hover {
+        background: #000;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .sky-submit-btn:active {
+        transform: none;
+    }
+
+    .sky-submit-btn:disabled {
+        background: #999;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .sky-loading-spinner {
+        display: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: skySpin 0.8s linear infinite;
+        margin: 0 auto;
+    }
+
+    @keyframes skySpin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .sky-submit-btn.sky-loading .sky-btn-text {
+        display: none;
+    }
+
+    .sky-submit-btn.sky-loading .sky-loading-spinner {
+        display: block;
+    }
+
+    .sky-success-message {
+        display: none;
+        background: #d4edda;
+        color: #155724;
+        padding: 20px 25px;
+        border-radius: 0;
+        margin-bottom: 30px;
+        border: none;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sky-success-message.sky-show {
+        display: block;
+    }
+
+    .sky-success-message h4 {
+        margin-bottom: 8px;
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+
+    .sky-success-message p {
+        font-weight: 300;
+        font-size: 0.95em;
+    }
+
+    .sky-alert-error {
+        background: #f8d7da;
+        color: #721c24;
+        padding: 20px 25px;
+        border-radius: 0;
+        margin-bottom: 30px;
+        border: none;
+        text-align: center;
+        display: none;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sky-alert-error.sky-show {
+        display: block;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .sky-job-wrapper {
+            padding: 40px 15px;
+        }
+
+        .sky-job-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .sky-job-header h1 {
+            font-size: 1.5em;
+        }
+
+        .sky-job-header p {
+            font-size: 0.95em;
+        }
+
+        .sky-file-upload-container {
+            padding: 20px;
+        }
+
+        .sky-file-info {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .sky-remove-file {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sky-job-wrapper {
+            padding: 30px 10px;
+        }
+
+        .sky-job-header h1 {
+            font-size: 1.3em;
+        }
+
+        .sky-job-header p {
+            font-size: 0.9em;
+        }
+
+        .sky-job-input,
+        .sky-job-select,
+        .sky-job-textarea {
+            padding: 15px 18px;
+            font-size: 0.9em;
+        }
+
+        .sky-file-upload-wrapper {
+            padding: 30px 15px;
+        }
+
+        .sky-upload-icon {
+            font-size: 2.5em;
+        }
+
+        .sky-submit-btn {
+            padding: 16px 25px;
+            font-size: 0.9em;
+            width: 100%;
+        }
+    }
+</style>
+
+<section class="sky-job-wrapper">
+    <div class="sky-job-header">
+        <h1>Apply for <%= job.title %>
+        </h1>
+        <p>Join our team! Fill out the form below and upload your resume to apply for this position.</p>
+    </div>
+
+    <div class="sky-job-container">
+        <div class="sky-job-body">
+            <div class="sky-success-message" id="skyJobSuccessMessage">
+                <h4>✓ Application Submitted!</h4>
+                <p>Thank you for applying. We'll review your application and get back to you soon.</p>
+            </div>
+
+            <div class="sky-alert-error" id="skyJobErrorMessage">
+                <strong>Error:</strong> <span id="skyJobErrorText">Something went wrong. Please try again.</span>
+            </div>
+
+            <form id="skyJobApplicationForm" novalidate>
+                <!-- Personal Information Section -->
+                <div class="sky-job-grid">
+                    <div class="sky-job-group">
+                        <input type="text" id="skyJobName" name="fullName" class="sky-job-input"
+                            placeholder="Full Name*" value="">
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+
+                    <div class="sky-job-group">
+                        <input type="email" id="skyJobEmail" name="email" class="sky-job-input"
+                            placeholder="Email Address*" value="">
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+                </div>
+
+                <div class="sky-job-grid">
+                    <div class="sky-job-group">
+                        <input type="tel" id="skyJobPhone" name="phone" class="sky-job-input"
+                            placeholder="Phone Number*" value="">
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+
+                    <div class="sky-job-group">
+                        <input type="text" id="skyJobCity" name="city" class="sky-job-input" placeholder="City*"
+                            value="">
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+                </div>
+
+                <!-- Job Details Section -->
+                <div class="sky-job-grid">
+                    <div class="sky-job-group">
+                        <input type="text" id="skyJobPosition" name="position" class="sky-job-input"
+                            placeholder="Position*" value="<%= job.title %>" readonly>
+                        <span class="sky-success-icon sky-show">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+
+                    <div class="sky-job-group">
+                        <select id="skyJobExperience" name="experience" class="sky-job-select">
+                            <option value="">-- Years of Experience* --</option>
+                            <option value="Fresher">Fresher</option>
+                            <option value="0-1 years">0-1 years</option>
+                            <option value="1-3 years">1-3 years</option>
+                            <option value="3-5 years">3-5 years</option>
+                            <option value="5-10 years">5-10 years</option>
+                            <option value="10+ years">10+ years</option>
+                        </select>
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+                </div>
+
+                <div class="sky-job-grid">
+                    <div class="sky-job-group">
+                        <input type="text" id="skyJobQualification" name="qualification" class="sky-job-input"
+                            placeholder="Highest Qualification*" value="">
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+
+                    <div class="sky-job-group">
+                        <input type="text" id="skyJobCurrentCompany" name="currentCompany" class="sky-job-input"
+                            placeholder="Current/Last Company" value="">
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+                </div>
+
+                <!-- Cover Letter Section -->
+                <div class="sky-job-grid">
+                    <div class="sky-job-group sky-full-width">
+                        <textarea id="skyJobCoverLetter" name="coverLetter" class="sky-job-textarea"
+                            placeholder="Cover Letter / Why should we hire you?*"></textarea>
+                        <div class="sky-error-message"></div>
+                    </div>
+                </div>
+
+                <!-- Resume Upload Section -->
+                <div class="sky-upload-section">
+                    <h3>*UPLOAD RESUME <span class="sky-required">(PDF FORMAT ONLY)</span></h3>
+                    <div class="sky-file-upload-container">
+                        <div class="sky-file-upload-wrapper" id="skyFileUploadWrapper">
+                            <div class="sky-upload-icon">📄</div>
+                            <div class="sky-upload-text">
+                                <strong>Click to upload</strong> or drag and drop
+                            </div>
+                            <div class="sky-upload-hint">
+                                Maximum file size: 5MB | <span class="sky-pdf-only">PDF files only</span>
+                            </div>
+                            <input type="file" id="skyResumeFile" name="resume" class="sky-file-input" accept=".pdf">
+                        </div>
+
+                        <div class="sky-file-preview" id="skyFilePreview">
+                            <div class="sky-file-info">
+                                <div class="sky-file-details">
+                                    <div class="sky-file-icon">📑</div>
+                                    <div class="sky-file-meta">
+                                        <div class="sky-file-name" id="skyFileName"></div>
+                                        <div class="sky-file-size" id="skyFileSize"></div>
+                                    </div>
+                                </div>
+                                <button type="button" class="sky-remove-file" id="skyRemoveFile">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="sky-error-message" id="skyFileError"></div>
+                    </div>
+                </div>
+
+                <!-- Consent Section -->
+                <div class="sky-consent-group" id="skyJobConsentGroup">
+                    <div class="sky-consent-checkbox">
+                        <input type="checkbox" id="skyJobConsent" name="consent">
+                        <label for="skyJobConsent">
+                            I consent to have this website store my submitted information and resume so they can respond
+                            to my application.<span style="color: #e74c3c;">*</span>
+                        </label>
+                    </div>
+                    <div class="sky-error-message" id="skyJobConsentError"></div>
+                </div>
+
+                <!-- Hidden field for job ID -->
+                <input type="hidden" name="jobId" value="<%= job._id || job.id %>">
+
+                <button type="submit" class="sky-submit-btn">
+                    <span class="sky-btn-text">Submit Application</span>
+                    <div class="sky-loading-spinner"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    (function () {
+        const form = document.getElementById('skyJobApplicationForm');
+        const successMessage = document.getElementById('skyJobSuccessMessage');
+        const errorMessage = document.getElementById('skyJobErrorMessage');
+        const errorText = document.getElementById('skyJobErrorText');
+
+        // File upload elements
+        const fileInput = document.getElementById('skyResumeFile');
+        const fileUploadWrapper = document.getElementById('skyFileUploadWrapper');
+        const filePreview = document.getElementById('skyFilePreview');
+        const fileName = document.getElementById('skyFileName');
+        const fileSize = document.getElementById('skyFileSize');
+        const removeFileBtn = document.getElementById('skyRemoveFile');
+        const fileError = document.getElementById('skyFileError');
+
+        let uploadedFile = null;
+
+        // Mark position field as valid since it's pre-filled
+        const positionInput = document.getElementById('skyJobPosition');
+        if (positionInput && positionInput.value) {
+            positionInput.classList.add('sky-success');
+        }
+
+        // Validation rules
+        const validationRules = {
+            fullName: {
+                required: true,
+                minLength: 2,
+                maxLength: 50,
+                pattern: /^[a-zA-Z\s]+$/,
+                message: 'Please enter a valid name (letters only, 2-50 characters)'
+            },
+            email: {
+                required: true,
+                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: 'Please enter a valid email address'
+            },
+            phone: {
+                required: true,
+                pattern: /^[\d\s\+\-\(\)]{10,15}$/,
+                message: 'Please enter a valid phone number (10-15 digits)'
+            },
+            city: {
+                required: true,
+                minLength: 2,
+                maxLength: 50,
+                message: 'Please enter your city'
+            },
+            position: {
+                required: true,
+                message: 'Position is required'
+            },
+            experience: {
+                required: true,
+                message: 'Please select your experience level'
+            },
+            qualification: {
+                required: true,
+                minLength: 2,
+                maxLength: 100,
+                message: 'Please enter your qualification'
+            },
+            currentCompany: {
+                required: false,
+                maxLength: 100,
+                message: 'Company name is too long'
+            },
+            coverLetter: {
+                required: true,
+                minLength: 50,
+                maxLength: 1000,
+                message: 'Please enter your cover letter (50-1000 characters)'
+            }
+        };
+
+        // Validate individual field
+        function validateField(field, value) {
+            const rules = validationRules[field];
+            if (!rules) return { valid: true };
+
+            if (rules.required && (!value || value.trim() === '')) {
+                return { valid: false, message: rules.message };
+            }
+
+            if (!rules.required && (!value || value.trim() === '')) {
+                return { valid: true };
+            }
+
+            if (rules.minLength && value.length < rules.minLength) {
+                return { valid: false, message: rules.message };
+            }
+
+            if (rules.maxLength && value.length > rules.maxLength) {
+                return { valid: false, message: rules.message };
+            }
+
+            if (rules.pattern && !rules.pattern.test(value)) {
+                return { valid: false, message: rules.message };
+            }
+
+            return { valid: true };
+        }
+
+        // Show error
+        function showError(input, message) {
+            const formGroup = input.closest('.sky-job-group');
+            if (!formGroup) return;
+
+            const errorMsg = formGroup.querySelector('.sky-error-message');
+            const successIcon = formGroup.querySelector('.sky-success-icon');
+            const errorIcon = formGroup.querySelector('.sky-error-icon');
+
+            input.classList.add('sky-error');
+            input.classList.remove('sky-success');
+            if (errorMsg) {
+                errorMsg.textContent = message;
+                errorMsg.classList.add('sky-show');
+            }
+
+            if (successIcon) successIcon.classList.remove('sky-show');
+            if (errorIcon) errorIcon.classList.add('sky-show');
+        }
+
+        // Show success
+        function showSuccess(input) {
+            const formGroup = input.closest('.sky-job-group');
+            if (!formGroup) return;
+
+            const errorMsg = formGroup.querySelector('.sky-error-message');
+            const successIcon = formGroup.querySelector('.sky-success-icon');
+            const errorIcon = formGroup.querySelector('.sky-error-icon');
+
+            input.classList.remove('sky-error');
+            input.classList.add('sky-success');
+            if (errorMsg) errorMsg.classList.remove('sky-show');
+
+            if (successIcon) successIcon.classList.add('sky-show');
+            if (errorIcon) errorIcon.classList.remove('sky-show');
+        }
+
+        // Clear validation
+        function clearValidation(input) {
+            const formGroup = input.closest('.sky-job-group');
+            if (!formGroup) return;
+
+            const errorMsg = formGroup.querySelector('.sky-error-message');
+            const successIcon = formGroup.querySelector('.sky-success-icon');
+            const errorIcon = formGroup.querySelector('.sky-error-icon');
+
+            input.classList.remove('sky-error', 'sky-success');
+            if (errorMsg) errorMsg.classList.remove('sky-show');
+
+            if (successIcon) successIcon.classList.remove('sky-show');
+            if (errorIcon) errorIcon.classList.remove('sky-show');
+        }
+
+        // Real-time validation for text inputs
+        const inputs = form.querySelectorAll('.sky-job-input, .sky-job-select, .sky-job-textarea');
+        inputs.forEach(input => {
+            // Skip readonly fields
+            if (input.hasAttribute('readonly')) {
+                return;
+            }
+
+            input.addEventListener('blur', function () {
+                if (this.value.trim() !== '' || validationRules[this.name]?.required) {
+                    const validation = validateField(this.name, this.value);
+                    if (validation.valid) {
+                        showSuccess(this);
+                    } else {
+                        showError(this, validation.message);
+                    }
+                }
+            });
+
+            input.addEventListener('focus', function () {
+                if (this.classList.contains('sky-error')) {
+                    clearValidation(this);
+                }
+            });
+
+            input.addEventListener('input', function () {
+                if (this.classList.contains('sky-error') || this.classList.contains('sky-success')) {
+                    const validation = validateField(this.name, this.value);
+                    if (validation.valid) {
+                        showSuccess(this);
+                    } else if (this.value.trim() !== '') {
+                        showError(this, validation.message);
+                    }
+                }
+            });
+        });
+
+        // File Upload Handling
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        function validateFile(file) {
+            if (!file) {
+                return { valid: false, message: 'Please select a file' };
+            }
+
+            if (file.type !== 'application/pdf') {
+                return { valid: false, message: 'Only PDF files are allowed' };
+            }
+
+            const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+            if (file.size > maxSize) {
+                return { valid: false, message: 'File size must be less than 5MB' };
+            }
+
+            return { valid: true };
+        }
+
+        function handleFileSelect(file) {
+            const validation = validateFile(file);
+
+            if (!validation.valid) {
+                fileError.textContent = validation.message;
+                fileError.classList.add('sky-show');
+                fileUploadWrapper.classList.add('sky-error');
+                fileUploadWrapper.classList.remove('sky-success');
+                uploadedFile = null;
+                return;
+            }
+
+            uploadedFile = file;
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            filePreview.classList.add('sky-show');
+            fileError.classList.remove('sky-show');
+            fileUploadWrapper.classList.remove('sky-error');
+            fileUploadWrapper.classList.add('sky-success');
+        }
+
+        fileUploadWrapper.addEventListener('click', function () {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                handleFileSelect(file);
+            }
+        });
+
+        fileUploadWrapper.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            this.classList.add('sky-dragging');
+        });
+
+        fileUploadWrapper.addEventListener('dragleave', function (e) {
+            e.preventDefault();
+            this.classList.remove('sky-dragging');
+        });
+
+        fileUploadWrapper.addEventListener('drop', function (e) {
+            e.preventDefault();
+            this.classList.remove('sky-dragging');
+
+            const file = e.dataTransfer.files[0];
+            if (file) {
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                fileInput.files = dataTransfer.files;
+                handleFileSelect(file);
+            }
+        });
+
+        removeFileBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            uploadedFile = null;
+            fileInput.value = '';
+            filePreview.classList.remove('sky-show');
+            fileUploadWrapper.classList.remove('sky-success', 'sky-error');
+            fileError.classList.remove('sky-show');
+        });
+
+        // Validate consent checkbox
+        function validateConsent() {
+            const consent = document.getElementById('skyJobConsent');
+            const consentError = document.getElementById('skyJobConsentError');
+            const consentGroup = document.getElementById('skyJobConsentGroup');
+
+            if (!consent.checked) {
+                consentError.textContent = 'You must consent to data storage to submit this application';
+                consentError.classList.add('sky-show');
+                consentGroup.classList.add('sky-error');
+                return false;
+            }
+
+            consentError.classList.remove('sky-show');
+            consentGroup.classList.remove('sky-error');
+            return true;
+        }
+
+        document.getElementById('skyJobConsent').addEventListener('change', validateConsent);
+
+        // Form submission
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            let isValid = true;
+
+            successMessage.classList.remove('sky-show');
+            errorMessage.classList.remove('sky-show');
+
+            // Validate all fields
+            inputs.forEach(input => {
+                if (input.hasAttribute('readonly')) return;
+
+                const validation = validateField(input.name, input.value);
+                if (!validation.valid) {
+                    showError(input, validation.message);
+                    isValid = false;
+                } else {
+                    showSuccess(input);
+                }
+            });
+
+            // Validate file upload
+            if (!uploadedFile) {
+                fileError.textContent = 'Please upload your resume in PDF format';
+                fileError.classList.add('sky-show');
+                fileUploadWrapper.classList.add('sky-error');
+                isValid = false;
+            } else {
+                const fileValidation = validateFile(uploadedFile);
+                if (!fileValidation.valid) {
+                    fileError.textContent = fileValidation.message;
+                    fileError.classList.add('sky-show');
+                    fileUploadWrapper.classList.add('sky-error');
+                    isValid = false;
+                }
+            }
+
+            // Validate consent
+            if (!validateConsent()) {
+                isValid = false;
+            }
+
+            if (!isValid) {
+                const firstError = form.querySelector('.sky-error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+
+            // Prepare form data with file
+            const formData = new FormData();
+
+            // Add all text fields
+            const textFields = form.querySelectorAll('.sky-job-input, .sky-job-select, .sky-job-textarea, input[type="hidden"]');
+            textFields.forEach(field => {
+                formData.append(field.name, field.value);
+            });
+
+            // Add consent
+            const consentCheckbox = document.getElementById('skyJobConsent');
+            formData.append('consent', consentCheckbox.checked);
+
+            // Add resume file
+            if (uploadedFile) {
+                formData.append('resume', uploadedFile);
+            }
+
+            // Show loading state
+            const submitBtn = form.querySelector('.sky-submit-btn');
+            submitBtn.classList.add('sky-loading');
+            submitBtn.disabled = true;
+
+            try {
+                // Submit to API endpoint
+                const response = await fetch('/api/lead/jobapplication', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    // Show success message
+                    successMessage.classList.add('sky-show');
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Reset form
+                    form.reset();
+                    uploadedFile = null;
+                    filePreview.classList.remove('sky-show');
+                    fileUploadWrapper.classList.remove('sky-success', 'sky-error');
+
+                    // Clear all validation states
+                    inputs.forEach(input => {
+                        input.classList.remove('sky-error', 'sky-success');
+                        const formGroup = input.closest('.sky-job-group');
+                        if (formGroup) {
+                            const icons = formGroup.querySelectorAll('.sky-success-icon, .sky-error-icon');
+                            icons.forEach(icon => icon.classList.remove('sky-show'));
+                        }
+                    });
+
+                    // Re-add position field value and success state
+                    positionInput.value = '<%= job.title %>';
+                    positionInput.classList.add('sky-success');
+                    const posGroup = positionInput.closest('.sky-job-group');
+                    if (posGroup) {
+                        const posSuccessIcon = posGroup.querySelector('.sky-success-icon');
+                        if (posSuccessIcon) posSuccessIcon.classList.add('sky-show');
+                    }
+
+                    // Optional: Redirect to thank you page
+                    if (result.redirectUrl) {
+                        setTimeout(() => {
+                            window.location.href = result.redirectUrl;
+                        }, 2000);
+                    }
+                } else {
+                    // Show error message
+                    errorText.textContent = result.message || 'Failed to submit application. Please try again.';
+                    errorMessage.classList.add('sky-show');
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+            } catch (error) {
+                console.error('Submission error:', error);
+                errorText.textContent = 'Network error. Please check your connection and try again.';
+                errorMessage.classList.add('sky-show');
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                // Remove loading state
+                submitBtn.classList.remove('sky-loading');
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Prevent form submission on Enter key (except in textarea)
+        form.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+            }
+        });
+    })();
+</script>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Skydecor - Premium Quality Laminates Design Collections</title>
+    <title>Skydecor - <%= job.title %></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -347,9 +347,11 @@
         </div>
 
 
-        <div class="container pb-100">
-            <!-- Job Description -->
-            <div class="hero mt-60">
+        <div class="container ">
+
+
+
+            <div class="hero ">
                 <h1 class="job-title">
                     <%= job.title %>
                 </h1>
@@ -413,64 +415,10 @@
                 </div>
 
             </div>
-
-            <!-- Optional Application Form -->
-            <div class="form-container ">
-                <h2 class="form-title">Apply for <%= job.title %>
-                </h2>
-                <p class="form-subtitle">Join the team at <%= job.company %>
-                </p>
-
-                <form id="applicationForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="location">Current Location *</label>
-                            <input type="text" id="location" name="location" placeholder="City, State" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="experience">Years of Experience *</label>
-                            <select id="experience" name="experience" required>
-                                <option value="">Select...</option>
-                                <option value="3-5">3-5 years</option>
-                                <option value="5-7">5-7 years</option>
-                                <option value="8-10">8-10 years</option>
-                                <option value="10+">10+ years</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label for="resume">Upload Resume *</label>
-                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Submit Application</button>
-                </form>
-            </div>
         </div>
 
 
+        <%- include('../partials/job-enquiry', { job: job }) %>
 
 
 
@@ -489,65 +437,68 @@
 
 
 
-        <%- include("../partials/footer") %>
 
 
 
-            <!-- jQuery (required for Magnific Popup) -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-            <!-- Magnific Popup JS -->
-            <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-
-            <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
-            <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
-            <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
-            <script src="/js/vendor/popper.min.js"></script>
-            <script src="/js/vendor/bootstrap.min.js"></script>
-            <script src="/js/plugins.js"></script>
-            <!-- Ajax Mail -->
-            <script src="/js/ajax-mail.js"></script>
-            <!-- Main JS -->
-            <script src="/js/main.js"></script>
+            <%- include("../partials/footer") %>
 
 
-            <script>
-                const fileInput = document.getElementById('resume');
-                const fileLabel = document.querySelector('.file-input-label');
-                const originalText = fileLabel.innerHTML;
 
-                fileInput.addEventListener('change', function (e) {
-                    const fileName = e.target.files[0]?.name;
-                    if (fileName) {
-                        fileLabel.innerHTML = `<span>✓</span><span>${fileName}</span>`;
-                    } else {
+                <!-- jQuery (required for Magnific Popup) -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+                <!-- Magnific Popup JS -->
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+                <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+                <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+                <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+                <script src="/js/vendor/popper.min.js"></script>
+                <script src="/js/vendor/bootstrap.min.js"></script>
+                <script src="/js/plugins.js"></script>
+                <!-- Ajax Mail -->
+                <script src="/js/ajax-mail.js"></script>
+                <!-- Main JS -->
+                <script src="/js/main.js"></script>
+
+
+                <script>
+                    const fileInput = document.getElementById('resume');
+                    const fileLabel = document.querySelector('.file-input-label');
+                    const originalText = fileLabel.innerHTML;
+
+                    fileInput.addEventListener('change', function (e) {
+                        const fileName = e.target.files[0]?.name;
+                        if (fileName) {
+                            fileLabel.innerHTML = `<span>✓</span><span>${fileName}</span>`;
+                        } else {
+                            fileLabel.innerHTML = originalText;
+                        }
+                    });
+
+                    document.getElementById('applicationForm').addEventListener('submit', function (e) {
+                        e.preventDefault();
+
+                        const formData = {
+                            firstName: document.getElementById('firstName').value,
+                            lastName: document.getElementById('lastName').value,
+                            email: document.getElementById('email').value,
+                            phone: document.getElementById('phone').value,
+                            location: document.getElementById('location').value,
+                            experience: document.getElementById('experience').value,
+                            linkedin: document.getElementById('linkedin').value,
+                            portfolio: document.getElementById('portfolio').value,
+                            coverLetter: document.getElementById('coverLetter').value,
+                            resume: document.getElementById('resume').files[0]?.name
+                        };
+
+                        alert('Application submitted successfully!\n\nThank you for applying to Pinterest. We will review your application and get back to you soon.');
+                        console.log('Form Data:', formData);
+                        this.reset();
                         fileLabel.innerHTML = originalText;
-                    }
-                });
-
-                document.getElementById('applicationForm').addEventListener('submit', function (e) {
-                    e.preventDefault();
-
-                    const formData = {
-                        firstName: document.getElementById('firstName').value,
-                        lastName: document.getElementById('lastName').value,
-                        email: document.getElementById('email').value,
-                        phone: document.getElementById('phone').value,
-                        location: document.getElementById('location').value,
-                        experience: document.getElementById('experience').value,
-                        linkedin: document.getElementById('linkedin').value,
-                        portfolio: document.getElementById('portfolio').value,
-                        coverLetter: document.getElementById('coverLetter').value,
-                        resume: document.getElementById('resume').files[0]?.name
-                    };
-
-                    alert('Application submitted successfully!\n\nThank you for applying to Pinterest. We will review your application and get back to you soon.');
-                    console.log('Form Data:', formData);
-                    this.reset();
-                    fileLabel.innerHTML = originalText;
-                });
-            </script>
+                    });
+                </script>
 
 
 </body>

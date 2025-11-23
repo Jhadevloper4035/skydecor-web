@@ -20,6 +20,8 @@ const {
   deleteContactLead,
 } = require("../controllers/contactLead.controller.js");
 
+const jobApplicationController = require("../controllers/jobaplication.controller.js");
+
 // Middleware for authentication (you need to create this)
 // const { protect, authorize } = require('../middleware/auth');
 
@@ -34,7 +36,6 @@ router.post("/productEnquiry", createProductEnquiry);
 // router.post('/productEnquiry/:id/note', protect, authorize('admin'), addEnquiryNote);
 // router.delete('/productEnquiry/:id', protect, authorize('admin'), deleteEnquiry);
 
-
 // Create new contact lead (form submission)
 router.post("/contactlead", createContactLead);
 // router.get("/contactleads", getAllContactLeads);
@@ -42,5 +43,53 @@ router.post("/contactlead", createContactLead);
 // router.get("/contactlead/:id", getContactLeadById);
 // router.patch("/contactlead/:id", updateContactLead);
 // router.delete("/contactlead/:id", deleteContactLead);
+
+router.post(
+  "/jobapplication",
+  jobApplicationController.uploadResume,
+  jobApplicationController.handleUploadErrors,
+  jobApplicationController.submitApplication
+);
+
+
+router.get(
+  "/jobapplications",
+  // Add your authentication middleware here
+  // authMiddleware.isAdmin,
+  jobApplicationController.getAllApplications
+);
+
+router.get(
+  "/jobapplication/:id",
+  // Add your authentication middleware here
+  // authMiddleware.isAdmin,
+  jobApplicationController.getApplicationById
+);
+
+router.patch(
+  "/jobapplication/:id",
+  // Add your authentication middleware here
+  // authMiddleware.isAdmin,
+  jobApplicationController.updateApplicationStatus
+);
+
+router.delete(
+  "/jobapplication/:id",
+  // Add your authentication middleware here
+  // authMiddleware.isAdmin,
+  jobApplicationController.deleteApplication
+);
+
+/**
+ * @route   GET /api/lead/jobapplication/:id/resume
+ * @desc    Download resume file for an application
+ * @access  Private/Admin
+ */
+router.get(
+  "/jobapplication/:id/resume",
+  // Add your authentication middleware here
+  // authMiddleware.isAdmin,
+  jobApplicationController.downloadResume
+);
 
 module.exports = router;
