@@ -76,6 +76,13 @@ router.get("/privacy-policy", (req, res) => {
   });
 });
 
+router.get("/thankyou", (req, res) => {
+  res.render("static-page/thankyou", {
+    title: "conatct Page",
+    message: "Welcome to EJS with Static Files!",
+  });
+});
+
 router.get("/application/bedroom-design-laminates", (req, res) => {
   res.render("design-idea/bedroom-design-laminates", {
     title: "conatct Page",

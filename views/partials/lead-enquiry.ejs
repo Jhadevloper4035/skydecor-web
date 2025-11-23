@@ -1,0 +1,844 @@
+<!-- Contact Form Section - Import this in your main page -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Contact Form Styles - Prefixed with .sky-contact */
+    .sky-contact-wrapper {
+        background: #f1f1f1;
+        padding: 60px 20px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .sky-contact-container {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        background: #f1f1f1;
+    }
+
+    .sky-contact-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .sky-contact-header h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+        font-weight: 400;
+        color: #333;
+        letter-spacing: 0.3px;
+    }
+
+    .sky-contact-header p {
+        font-size: 1em;
+        font-weight: 300;
+        color: #666;
+    }
+
+    .sky-contact-body {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .sky-contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-bottom: 25px;
+    }
+
+    .sky-contact-group {
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    .sky-contact-group.sky-full-width {
+        grid-column: 1 / -1;
+    }
+
+    .sky-contact-label {
+        display: none;
+    }
+
+    .sky-contact-input,
+    .sky-contact-select,
+    .sky-contact-textarea {
+        width: 100%;
+        padding: 18px 20px;
+        border: none;
+        border-radius: 0;
+        font-size: 0.95em;
+        transition: all 0.3s ease;
+        background: #ffffff;
+        font-family: 'Montserrat', sans-serif;
+        color: #666;
+        font-weight: 300;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sky-contact-input::placeholder,
+    .sky-contact-select::placeholder,
+    .sky-contact-textarea::placeholder {
+        color: #999;
+        font-weight: 300;
+    }
+
+    .sky-contact-input:focus,
+    .sky-contact-select:focus,
+    .sky-contact-textarea:focus {
+        outline: none;
+        background: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .sky-contact-input.sky-error,
+    .sky-contact-select.sky-error,
+    .sky-contact-textarea.sky-error {
+        border: 1px solid #e74c3c;
+        background: #fff5f5;
+    }
+
+    .sky-contact-input.sky-success,
+    .sky-contact-select.sky-success,
+    .sky-contact-textarea.sky-success {
+        border: 1px solid #27ae60;
+        background: #ffffff;
+    }
+
+    .sky-error-message {
+        color: #e74c3c;
+        font-size: 0.8em;
+        margin-top: 8px;
+        display: none;
+        font-weight: 400;
+        padding-left: 5px;
+    }
+
+    .sky-error-message.sky-show {
+        display: block;
+    }
+
+    .sky-success-icon,
+    .sky-error-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.1em;
+        display: none;
+    }
+
+    .sky-success-icon {
+        color: #27ae60;
+    }
+
+    .sky-error-icon {
+        color: #e74c3c;
+    }
+
+    .sky-success-icon.sky-show,
+    .sky-error-icon.sky-show {
+        display: block;
+    }
+
+    .sky-contact-textarea {
+        resize: vertical;
+        min-height: 140px;
+        max-height: 300px;
+    }
+
+    .sky-contact-select {
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 20px center;
+        padding-right: 45px;
+    }
+
+    .sky-contact-select option {
+        color: #333;
+    }
+
+    .sky-products-section {
+        margin-top: 40px;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .sky-products-section h3 {
+        color: #e74c3c;
+        margin-bottom: 25px;
+        font-size: 0.85em;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .sky-products-section h3 .sky-required {
+        color: #e74c3c;
+        margin-left: 3px;
+    }
+
+    .sky-products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    .sky-checkbox-group {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .sky-checkbox-group:hover {
+        background: transparent;
+        border: none;
+    }
+
+    .sky-checkbox-group input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin-right: 12px;
+        cursor: pointer;
+        accent-color: #333;
+        flex-shrink: 0;
+    }
+
+    .sky-checkbox-group label {
+        margin: 0;
+        cursor: pointer;
+        flex: 1;
+        font-weight: 300;
+        font-size: 0.9em;
+        color: #666;
+        line-height: 1.4;
+    }
+
+    .sky-consent-group {
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        border: none;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    .sky-consent-group.sky-error {
+        border: none;
+        background: transparent;
+    }
+
+    .sky-consent-checkbox {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .sky-consent-checkbox input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin-right: 12px;
+        margin-top: 3px;
+        cursor: pointer;
+        accent-color: #333;
+        flex-shrink: 0;
+    }
+
+    .sky-consent-checkbox label {
+        margin: 0;
+        cursor: pointer;
+        font-size: 0.85em;
+        line-height: 1.6;
+        color: #666;
+        font-weight: 300;
+    }
+
+    .sky-recaptcha-container {
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 0;
+        text-align: left;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sky-recaptcha-container p {
+        margin: 0;
+    }
+
+    .sky-submit-btn {
+        width: auto;
+        min-width: 200px;
+        padding: 14px 40px;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 0;
+        font-size: 0.85em;
+        font-weight: 400;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: none;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+        margin: 0;
+    }
+
+    .sky-submit-btn:hover {
+        background: #000;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .sky-submit-btn:active {
+        transform: none;
+    }
+
+    .sky-submit-btn:disabled {
+        background: #999;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+    }
+
+    .sky-loading-spinner {
+        display: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: skySpin 0.8s linear infinite;
+        margin: 0 auto;
+    }
+
+    @keyframes skySpin {
+        to { transform: rotate(360deg); }
+    }
+
+    .sky-submit-btn.sky-loading .sky-btn-text {
+        display: none;
+    }
+
+    .sky-submit-btn.sky-loading .sky-loading-spinner {
+        display: block;
+    }
+
+    .sky-success-message {
+        display: none;
+        background: #d4edda;
+        color: #155724;
+        padding: 20px 25px;
+        border-radius: 0;
+        margin-bottom: 30px;
+        border: none;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sky-success-message.sky-show {
+        display: block;
+    }
+
+    .sky-success-message h4 {
+        margin-bottom: 8px;
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+
+    .sky-success-message p {
+        font-weight: 300;
+        font-size: 0.95em;
+    }
+
+    .sky-alert-error {
+        background: #f8d7da;
+        color: #721c24;
+        padding: 20px 25px;
+        border-radius: 0;
+        margin-bottom: 30px;
+        border: none;
+        text-align: center;
+        display: none;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sky-alert-error.sky-show {
+        display: block;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+        .sky-products-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .sky-contact-wrapper {
+            padding: 40px 15px;
+        }
+
+        .sky-contact-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .sky-contact-header h1 {
+            font-size: 1.5em;
+        }
+
+        .sky-contact-header p {
+            font-size: 0.95em;
+        }
+
+        .sky-products-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sky-contact-wrapper {
+            padding: 30px 10px;
+        }
+
+        .sky-contact-header h1 {
+            font-size: 1.3em;
+        }
+
+        .sky-contact-header p {
+            font-size: 0.9em;
+        }
+
+        .sky-contact-input,
+        .sky-contact-select,
+        .sky-contact-textarea {
+            padding: 15px 18px;
+            font-size: 0.9em;
+        }
+
+        .sky-submit-btn {
+            padding: 16px 25px;
+            font-size: 0.9em;
+        }
+    }
+</style>
+
+<section class="sky-contact-wrapper">
+    <div class="sky-contact-header">
+        <p>Please provide us with a few details in the form below, and we'll be in touch soon.</p>
+    </div>
+
+    <div class="sky-contact-container">
+        <div class="sky-contact-body">
+            <div class="sky-success-message" id="skySuccessMessage">
+                <h4>✓ Thank You!</h4>
+                <p>Your inquiry has been submitted successfully. We'll get back to you soon.</p>
+            </div>
+
+            <div class="sky-alert-error" id="skyErrorMessage">
+                <strong>Error:</strong> <span id="skyErrorText">Something went wrong. Please try again.</span>
+            </div>
+
+            <form id="skyContactForm" novalidate>
+                <div class="sky-contact-grid">
+                    <div class="sky-contact-group">
+                        <input type="text" id="skyName" name="name" class="sky-contact-input" placeholder="Name*">
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+
+                    <div class="sky-contact-group">
+                        <input type="email" id="skyEmail" name="email" class="sky-contact-input" placeholder="Email*">
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+                </div>
+
+                <div class="sky-contact-grid">
+                    <div class="sky-contact-group">
+                        <input type="tel" id="skyPhone" name="phone" class="sky-contact-input" placeholder="Phone*">
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+
+                    <div class="sky-contact-group">
+                        <select id="skyEnquiryType" name="enquiryType" class="sky-contact-select">
+                            <option value="">-- Select Enquiry Type --</option>
+                            <option value="Product Information">Product Information</option>
+                            <option value="Price Quote">Price Quote</option>
+                            <option value="Dealer Enquiry">Dealer Enquiry</option>
+                            <option value="Support">Support</option>
+                            <option value="Bulk Order">Bulk Order</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="sky-success-icon">✓</span>
+                        <span class="sky-error-icon">✕</span>
+                        <div class="sky-error-message"></div>
+                    </div>
+                </div>
+
+                <div class="sky-contact-grid">
+                    <div class="sky-contact-group sky-full-width">
+                        <textarea id="skyComments" name="comments" class="sky-contact-textarea" placeholder="Comments*"></textarea>
+                        <div class="sky-error-message"></div>
+                    </div>
+                </div>
+
+                <div class="sky-products-section">
+                    <h3>*PRODUCTS</h3>
+                    <div class="sky-products-grid">
+                        <div class="sky-checkbox-group">
+                            <input type="checkbox" id="skyProduct1" name="products" value="ACRYLISH LAMINATES">
+                            <label for="skyProduct1">ACRYLISH LAMINATES</label>
+                        </div>
+                        <div class="sky-checkbox-group">
+                            <input type="checkbox" id="skyProduct2" name="products" value="PVC LAMINATES">
+                            <label for="skyProduct2">PVC LAMINATES</label>
+                        </div>
+                        <div class="sky-checkbox-group">
+                            <input type="checkbox" id="skyProduct3" name="products" value="1 MM + LAMINATES">
+                            <label for="skyProduct3">1 MM + LAMINATES</label>
+                        </div>
+                        <div class="sky-checkbox-group">
+                            <input type="checkbox" id="skyProduct4" name="products" value="0.8 MM LAMINATES">
+                            <label for="skyProduct4">0.8 MM LAMINATES</label>
+                        </div>
+                        <div class="sky-checkbox-group">
+                            <input type="checkbox" id="skyProduct5" name="products" value="LINER">
+                            <label for="skyProduct5">LINER</label>
+                        </div>
+                        <div class="sky-checkbox-group">
+                            <input type="checkbox" id="skyProduct6" name="products" value="SOFFITO PANELS">
+                            <label for="skyProduct6">SOFFITO PANELS</label>
+                        </div>
+                        <div class="sky-checkbox-group">
+                            <input type="checkbox" id="skyProduct7" name="products" value="EXTERIOR CLADDING">
+                            <label for="skyProduct7">EXTERIOR CLADDING</label>
+                        </div>
+                    </div>
+                    <div class="sky-error-message" id="skyProductsError"></div>
+                </div>
+
+                <div class="sky-consent-group" id="skyConsentGroup">
+                    <div class="sky-consent-checkbox">
+                        <input type="checkbox" id="skyConsent" name="consent">
+                        <label for="skyConsent">
+                            I consent to have this website store my submitted information so they can respond to my inquiry.<span class="sky-required">*</span>
+                        </label>
+                    </div>
+                    <div class="sky-error-message" id="skyConsentError"></div>
+                </div>
+
+                <button type="submit" class="sky-submit-btn">
+                    <span class="sky-btn-text">Submit Inquiry</span>
+                    <div class="sky-loading-spinner"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    (function() {
+        // Form validation and handling
+        const form = document.getElementById('skyContactForm');
+        const successMessage = document.getElementById('skySuccessMessage');
+        const errorMessage = document.getElementById('skyErrorMessage');
+        const errorText = document.getElementById('skyErrorText');
+        
+        // Validation rules
+        const validationRules = {
+            name: {
+                required: true,
+                minLength: 2,
+                maxLength: 50,
+                pattern: /^[a-zA-Z\s]+$/,
+                message: 'Please enter a valid name (letters only, 2-50 characters)'
+            },
+            email: {
+                required: true,
+                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: 'Please enter a valid email address'
+            },
+            enquiryType: {
+                required: true,
+                message: 'Please select an enquiry type'
+            },
+            phone: {
+                required: true,
+                pattern: /^[\d\s\+\-\(\)]{10,15}$/,
+                message: 'Please enter a valid phone number (10-15 digits)'
+            },
+            comments: {
+                required: true,
+                minLength: 10,
+                maxLength: 500,
+                message: 'Please enter your comments (10-500 characters)'
+            }
+        };
+
+        // Validate individual field
+        function validateField(field, value) {
+            const rules = validationRules[field];
+            if (!rules) return { valid: true };
+
+            if (rules.required && (!value || value.trim() === '')) {
+                return { valid: false, message: rules.message };
+            }
+
+            if (rules.minLength && value.length < rules.minLength) {
+                return { valid: false, message: rules.message };
+            }
+
+            if (rules.maxLength && value.length > rules.maxLength) {
+                return { valid: false, message: rules.message };
+            }
+
+            if (rules.pattern && !rules.pattern.test(value)) {
+                return { valid: false, message: rules.message };
+            }
+
+            return { valid: true };
+        }
+
+        // Show error
+        function showError(input, message) {
+            const formGroup = input.closest('.sky-contact-group');
+            const errorMsg = formGroup.querySelector('.sky-error-message');
+            const successIcon = formGroup.querySelector('.sky-success-icon');
+            const errorIcon = formGroup.querySelector('.sky-error-icon');
+
+            input.classList.add('sky-error');
+            input.classList.remove('sky-success');
+            errorMsg.textContent = message;
+            errorMsg.classList.add('sky-show');
+            
+            if (successIcon) successIcon.classList.remove('sky-show');
+            if (errorIcon) errorIcon.classList.add('sky-show');
+        }
+
+        // Show success
+        function showSuccess(input) {
+            const formGroup = input.closest('.sky-contact-group');
+            const errorMsg = formGroup.querySelector('.sky-error-message');
+            const successIcon = formGroup.querySelector('.sky-success-icon');
+            const errorIcon = formGroup.querySelector('.sky-error-icon');
+
+            input.classList.remove('sky-error');
+            input.classList.add('sky-success');
+            errorMsg.classList.remove('sky-show');
+            
+            if (successIcon) successIcon.classList.add('sky-show');
+            if (errorIcon) errorIcon.classList.remove('sky-show');
+        }
+
+        // Clear validation
+        function clearValidation(input) {
+            const formGroup = input.closest('.sky-contact-group');
+            const errorMsg = formGroup.querySelector('.sky-error-message');
+            const successIcon = formGroup.querySelector('.sky-success-icon');
+            const errorIcon = formGroup.querySelector('.sky-error-icon');
+
+            input.classList.remove('sky-error', 'sky-success');
+            errorMsg.classList.remove('sky-show');
+            
+            if (successIcon) successIcon.classList.remove('sky-show');
+            if (errorIcon) errorIcon.classList.remove('sky-show');
+        }
+
+        // Real-time validation
+        const inputs = form.querySelectorAll('.sky-contact-input, .sky-contact-select, .sky-contact-textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() !== '') {
+                    const validation = validateField(this.name, this.value);
+                    if (validation.valid) {
+                        showSuccess(this);
+                    } else {
+                        showError(this, validation.message);
+                    }
+                }
+            });
+
+            input.addEventListener('focus', function() {
+                if (this.classList.contains('sky-error')) {
+                    clearValidation(this);
+                }
+            });
+
+            input.addEventListener('input', function() {
+                if (this.classList.contains('sky-error') || this.classList.contains('sky-success')) {
+                    const validation = validateField(this.name, this.value);
+                    if (validation.valid) {
+                        showSuccess(this);
+                    } else if (this.value.trim() !== '') {
+                        showError(this, validation.message);
+                    }
+                }
+            });
+        });
+
+        // Validate products checkboxes
+        function validateProducts() {
+            const checkboxes = form.querySelectorAll('input[name="products"]:checked');
+            const productsError = document.getElementById('skyProductsError');
+            
+            if (checkboxes.length === 0) {
+                productsError.textContent = 'Please select at least one product';
+                productsError.classList.add('sky-show');
+                return false;
+            }
+            
+            productsError.classList.remove('sky-show');
+            return true;
+        }
+
+        // Validate consent checkbox
+        function validateConsent() {
+            const consent = document.getElementById('skyConsent');
+            const consentError = document.getElementById('skyConsentError');
+            const consentGroup = document.getElementById('skyConsentGroup');
+            
+            if (!consent.checked) {
+                consentError.textContent = 'You must consent to data storage to submit this form';
+                consentError.classList.add('sky-show');
+                consentGroup.classList.add('sky-error');
+                return false;
+            }
+            
+            consentError.classList.remove('sky-show');
+            consentGroup.classList.remove('sky-error');
+            return true;
+        }
+
+        // Product checkboxes validation
+        const productCheckboxes = form.querySelectorAll('input[name="products"]');
+        productCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', validateProducts);
+        });
+
+        // Consent checkbox validation
+        document.getElementById('skyConsent').addEventListener('change', validateConsent);
+
+        // Form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+
+            // Hide previous messages
+            successMessage.classList.remove('sky-show');
+            errorMessage.classList.remove('sky-show');
+
+            // Validate all fields
+            inputs.forEach(input => {
+                const validation = validateField(input.name, input.value);
+                if (!validation.valid) {
+                    showError(input, validation.message);
+                    isValid = false;
+                } else {
+                    showSuccess(input);
+                }
+            });
+
+            // Validate products
+            if (!validateProducts()) {
+                isValid = false;
+            }
+
+            // Validate consent
+            if (!validateConsent()) {
+                isValid = false;
+            }
+
+            if (!isValid) {
+                const firstError = form.querySelector('.sky-error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+
+            // Get form data
+            const formData = new FormData(form);
+            const data = {};
+            
+            // Convert FormData to object
+            for (let [key, value] of formData.entries()) {
+                if (key === 'products') {
+                    if (!data.products) data.products = [];
+                    data.products.push(value);
+                } else if (key === 'consent') {
+                    // Convert consent to boolean true
+                    data[key] = true;
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Ensure consent is set to true if checkbox is checked
+            const consentCheckbox = document.getElementById('skyConsent');
+            if (consentCheckbox.checked) {
+                data.consent = true;
+            }
+
+            // Show loading state
+            const submitBtn = form.querySelector('.sky-submit-btn');
+            submitBtn.classList.add('sky-loading');
+            submitBtn.disabled = true;
+
+            try {
+                // Submit to API
+                const response = await fetch('/api/lead/contactlead', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    // Redirect to thank you page
+                    window.location.href = result.redirectUrl || '/thankyou';
+                } else {
+                    // Show error message
+                    errorText.textContent = result.message || 'Failed to submit inquiry. Please try again.';
+                    errorMessage.classList.add('sky-show');
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+            } catch (error) {
+                console.error('Submission error:', error);
+                errorText.textContent = 'Network error. Please check your connection and try again.';
+                errorMessage.classList.add('sky-show');
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                // Remove loading state
+                submitBtn.classList.remove('sky-loading');
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Prevent form submission on Enter key (except in textarea)
+        form.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+            }
+        });
+    })();
+</script>
