@@ -4,13 +4,21 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>RAN Technology - Digital Marketing Agency</title>
+  <title>Skydecor - Premium Quality Laminates Design Collections</title>
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+
+  <link rel="icon" type="image/png" href="/site/favicon/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/site/favicon.svg" />
+  <link rel="shortcut icon" href="/public/site/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/site/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Skydecor India" />
+  <link rel="manifest" href="/site/site.webmanifest" />
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
-  <!-- Icon Font CSS -->
+  <!-- Icon Font CSS -->  
   <link rel="stylesheet" href="/css/icons.min.css" />
   <!-- Plugins CSS -->
   <link rel="stylesheet" href="/css/plugins.css" />
@@ -84,8 +92,8 @@
               <div class="tab-pane" id="product-2">
                 <div class="row item-wrapper2">
                   <% const zeroEightMM=productsByCategory.find(c=> c.category ===
-                    "0.8mm"); %> <%- include('partials/product-card', { products: zeroEightMM ?
-                      zeroEightMM.products : [] }) %>
+                    "0.8mm"); %> <%- include('partials/product-card', { products: zeroEightMM ? zeroEightMM.products :
+                      [] }) %>
                       <div class="view-more text-center mt-20 col-12">
                         <a class="loadMore2" href="/products/page/0.8mm">VIEW MORE PRODUCTS</a>
                       </div>
@@ -96,8 +104,7 @@
               <div class="tab-pane" id="product-3">
                 <div class="row item-wrapper3">
                   <% const liner=productsByCategory.find(c=> c.category ===
-                    "liner"); %> <%- include('partials/product-card', { products: liner ? liner.products : [] })
-                      %>
+                    "liner"); %> <%- include('partials/product-card', { products: liner ? liner.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
                         <a class="loadMore3" href="/products/page/liner">VIEW MORE PRODUCTS</a>
                       </div>
@@ -108,8 +115,8 @@
               <div class="tab-pane" id="product-4">
                 <div class="row item-wrapper4">
                   <% const acrylic=productsByCategory.find(c=> c.category ===
-                    "Acrylish"); %> <%- include('partials/product-card', { products: acrylic ? acrylic.products
-                      : [] }) %>
+                    "Acrylish"); %> <%- include('partials/product-card', { products: acrylic ? acrylic.products : [] })
+                      %>
                       <div class="view-more text-center mt-20 col-12">
                         <a class="loadMore4" href="/products/page/Acrylish">VIEW MORE PRODUCTS</a>
                       </div>

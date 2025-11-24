@@ -10,7 +10,12 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
+        <link rel="icon" type="image/png" href="/site/favicon/favicon-96x96.png" />
+  <link rel="icon" type="image/svg+xml" href="/site/favicon.svg" />
+  <link rel="shortcut icon" href="/public/site/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/site/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Skydecor India" />
+  <link rel="manifest" href="/site/site.webmanifest" />
 
     <!-- CSS ============================================ -->
     <!-- Bootstrap CSS -->
@@ -612,16 +617,7 @@
               </div>
               <div class="catalogue-content">
                 <h3 class="catalogue-title"><%= catalogue.title %></h3>
-                <div class="catalogue-meta">
-                  <div class="meta-item">
-                    <i class="pe-7s-note2"></i>
-                    <span> <%= catalogue.pages %> Pages </span>
-                  </div>
-                  <div class="meta-item">
-                    <i class="pe-7s-cloud-download"></i>
-                    <span> <%= catalogue.size %> </span>
-                  </div>
-                </div>
+             
                 <div class="catalogue-actions">
                   <a
                     href="<%= catalogue.pdfUrl %>"
@@ -647,6 +643,8 @@
         </div>
       </div>
     </section>
+
+
 
     <%- include("../partials/footer") %>
 

@@ -39,7 +39,7 @@ exports.getProductPDF = async (req, res) => {
     }
 
     // Fetch product from database
-    const product = await Product.findOne({ productCode: productCode });
+    const product = await Product.findOne({ productCode: productCode }).lean()
 
     if (!product) {
       return res.status(404).json({
