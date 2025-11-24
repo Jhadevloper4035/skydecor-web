@@ -1,8 +1,15 @@
 const router = require("express").Router();
 const {
   getSingleProduct,
+  streamProductPDF,
+  getProductPDFInfo,
+  getPDFStats,
+  getAllPDFsList,
+  regenerateProductPDF,
+  deleteProductPDF,
+  cleanupOldPDFs,
   getAllCategoryProduct,
-  downloadProductPdf,
+  getProductPDF,
   searchProducts,
   getFilterOptions,
   autocomplete,
@@ -18,9 +25,17 @@ router.get("/", (req, res) => {
 
 router.get("/detail/:productCode", getSingleProduct);
 
-router.get("/page/:productType", getAllCategoryProduct);
+router.get("/pdf/:productCode", getProductPDF);
+router.get('/pdf/stream/:productCode', streamProductPDF);
+router.get('/pdf/info/:productCode', getProductPDFInfo);
+router.get('/pdf/list', getAllPDFsList);
+router.get('/pdf/stats', getPDFStats);
+router.post('/pdf/regenerate/:productCode', regenerateProductPDF);
+router.delete('/pdf/:productCode', deleteProductPDF);
+router.delete('/pdf/cleanup/:days', cleanupOldPDFs);
 
-router.get("/download/:productCode", downloadProductPdf);
+
+router.get("/page/:productType", getAllCategoryProduct);
 
 
 
@@ -31,12 +46,5 @@ router.get("/filters", getFilterOptions);
 router.get("/autocomplete", autocomplete);
 
 router.get("/hierarchy", getProductHierarchy);
-
-// router.get("/search/all", (req, res) => {
-//     res.render("search", {
-//         title: "conatct Page",
-//         message: "Welcome to EJS with Static Files!",
-//     });
-// }, searchProducts);
 
 module.exports = router;

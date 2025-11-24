@@ -3,42 +3,422 @@ const path = require("path");
 const puppeteer = require("puppeteer");
 const ejs = require("ejs");
 const fs = require("fs");
-const Page  = require("../models/page.model.js")
+const Page = require("../models/page.model.js");
 
+const {
+  generateProductPDF,
+  fileExists,
+  getPDFPath,
+  deletePDF,
+  getPDFStats,
+  isValidProductCode,
+  ensureUploadDirectory,
+  getAllPDFs,
+  cleanupOldPDFs,
+  getTotalPDFSize,
+} = require("../helpers/Producthelper.js");
 
-exports.downloadProductPdf = async (req, res) => {
+exports.getProductPDF = async (req, res) => {
   try {
     const { productCode } = req.params;
+
+    // Validate product code
     if (!productCode) {
-      return res.status(400).send(`<h1>Product code is required</h1>`);
+      return res.status(400).json({
+        success: false,
+        message: "Product code is required",
+      });
     }
 
-    // Render HTML response for under-development feature
-    return res.send(`
-      <html>
-        <head>
-          <title>PDF Feature Under Development</title>
-          <style>
-            body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-            h1 { color: #333; }
-            p { font-size: 18px; color: #555; }
-            .notice { margin-top: 20px; font-style: italic; color: #888; }
-          </style>
-        </head>
-        <body>
-          <h1>🚧 PDF Feature Under Development</h1>
-          <p>The PDF download for product <strong>${productCode}</strong> is currently under development.</p>
-          <p class="notice">Please check back later.</p>
-        </body>
-      </html>
-    `);
+    if (!isValidProductCode(productCode)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid product code format",
+      });
+    }
 
+    // Fetch product from database
+    const product = await Product.findOne({ productCode: productCode });
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: `Product not found with code: ${productCode}`,
+      });
+    }
+
+    // Get PDF file paths
+    const { filePath, filename } = getPDFPath(productCode);
+
+    // Check if PDF already exists
+    const pdfExists = await fileExists(filePath);
+
+    if (pdfExists) {
+      // Return existing PDF
+      return res.download(filePath, filename, (err) => {
+        if (err) {
+          console.error("Error sending file:", err);
+          return res.status(500).json({
+            success: false,
+            message: "Error downloading file",
+          });
+        }
+      });
+    } else {
+      // Generate new PDF
+      try {
+        await generateProductPDF(product.toObject(), filePath);
+
+        // Return newly generated PDF
+        return res.download(filePath, filename, (err) => {
+          if (err) {
+            console.error("Error sending file:", err);
+            return res.status(500).json({
+              success: false,
+              message: "Error downloading file",
+            });
+          }
+        });
+      } catch (pdfError) {
+        console.error("PDF generation error:", pdfError);
+        return res.status(500).json({
+          success: false,
+          message: "Failed to generate PDF",
+          error: pdfError.message,
+        });
+      }
+    }
   } catch (error) {
-    console.error("❌ PDF Route Error:", error);
-    res.status(500).send("<h1>Server error</h1>");
+    console.error("Controller error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
   }
 };
 
+exports.streamProductPDF = async (req, res) => {
+  try {
+    const { productCode } = req.params;
+
+    if (!productCode) {
+      return res.status(400).json({
+        success: false,
+        message: "Product code is required",
+      });
+    }
+
+    if (!isValidProductCode(productCode)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid product code format",
+      });
+    }
+
+    // Fetch product from database
+    const product = await Product.findOne({ productCode: productCode });
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: `Product not found with code: ${productCode}`,
+      });
+    }
+
+    // Get PDF file paths
+    const { filePath, filename } = getPDFPath(productCode);
+
+    // Check if PDF already exists
+    const pdfExists = await fileExists(filePath);
+
+    if (pdfExists) {
+      // Stream existing PDF
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader("Content-Disposition", `inline; filename="${filename}"`);
+
+      const fileStream = require("fs").createReadStream(filePath);
+      fileStream.pipe(res);
+    } else {
+      // Generate new PDF
+      try {
+        await generateProductPDF(product.toObject(), filePath);
+
+        // Stream newly generated PDF
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Content-Disposition", `inline; filename="${filename}"`);
+
+        const fileStream = require("fs").createReadStream(filePath);
+        fileStream.pipe(res);
+      } catch (pdfError) {
+        console.error("PDF generation error:", pdfError);
+        return res.status(500).json({
+          success: false,
+          message: "Failed to generate PDF",
+          error: pdfError.message,
+        });
+      }
+    }
+  } catch (error) {
+    console.error("Controller error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
+
+exports.deleteProductPDF = async (req, res) => {
+  try {
+    const { productCode } = req.params;
+
+    if (!productCode) {
+      return res.status(400).json({
+        success: false,
+        message: "Product code is required",
+      });
+    }
+
+    if (!isValidProductCode(productCode)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid product code format",
+      });
+    }
+
+    // Get PDF file paths
+    const { filePath, filename } = getPDFPath(productCode);
+
+    // Delete the PDF
+    const deleted = await deletePDF(filePath);
+
+    if (!deleted) {
+      return res.status(404).json({
+        success: false,
+        message: "PDF file not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "PDF deleted successfully",
+      productCode: productCode,
+      filename: filename,
+    });
+  } catch (error) {
+    console.error("Delete error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error deleting PDF",
+      error: error.message,
+    });
+  }
+};
+
+exports.regenerateProductPDF = async (req, res) => {
+  try {
+    const { productCode } = req.params;
+
+    if (!productCode) {
+      return res.status(400).json({
+        success: false,
+        message: "Product code is required",
+      });
+    }
+
+    if (!isValidProductCode(productCode)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid product code format",
+      });
+    }
+
+    // Fetch product from database
+    const product = await Product.findOne({ productCode: productCode });
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: `Product not found with code: ${productCode}`,
+      });
+    }
+
+    // Get PDF file paths
+    const { filePath, filename } = getPDFPath(productCode);
+
+    // Delete existing PDF if present
+    await deletePDF(filePath);
+
+    // Generate new PDF
+    try {
+      await generateProductPDF(product.toObject(), filePath);
+
+      // Return newly generated PDF
+      return res.download(filePath, filename, (err) => {
+        if (err) {
+          console.error("Error sending file:", err);
+          return res.status(500).json({
+            success: false,
+            message: "Error downloading file",
+          });
+        }
+      });
+    } catch (pdfError) {
+      console.error("PDF generation error:", pdfError);
+      return res.status(500).json({
+        success: false,
+        message: "Failed to regenerate PDF",
+        error: pdfError.message,
+      });
+    }
+  } catch (error) {
+    console.error("Controller error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
+
+exports.getProductPDFInfo = async (req, res) => {
+  try {
+    const { productCode } = req.params;
+
+    if (!productCode) {
+      return res.status(400).json({
+        success: false,
+        message: "Product code is required",
+      });
+    }
+
+    if (!isValidProductCode(productCode)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid product code format",
+      });
+    }
+
+    // Check if product exists
+    const product = await Product.findOne({ productCode: productCode });
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: `Product not found with code: ${productCode}`,
+      });
+    }
+
+    // Get PDF file paths
+    const { filePath, filename } = getPDFPath(productCode);
+
+    // Check if PDF exists
+    const pdfExists = await fileExists(filePath);
+
+    if (!pdfExists) {
+      return res.status(200).json({
+        success: true,
+        productCode: productCode,
+        pdfExists: false,
+        message: "PDF not generated yet",
+      });
+    }
+
+    // Get file stats
+    const stats = await getPDFStats(filePath);
+
+    return res.status(200).json({
+      success: true,
+      productCode: productCode,
+      pdfExists: true,
+      filename: filename,
+      fileSize: stats.fileSize,
+      fileSizeKB: stats.fileSizeKB,
+      fileSizeMB: stats.fileSizeMB,
+      createdAt: stats.createdAt,
+      modifiedAt: stats.modifiedAt,
+      downloadUrl: `/api/product/pdf/${productCode}`,
+      streamUrl: `/api/product/pdf/stream/${productCode}`,
+    });
+  } catch (error) {
+    console.error("Info error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error getting PDF info",
+      error: error.message,
+    });
+  }
+};
+
+exports.getAllPDFsList = async (req, res) => {
+  try {
+    const pdfs = await getAllPDFs();
+    const totalInfo = await getTotalPDFSize();
+
+    return res.status(200).json({
+      success: true,
+      count: pdfs.length,
+      pdfs: pdfs,
+      totalSize: totalInfo,
+    });
+  } catch (error) {
+    console.error("List error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error getting PDFs list",
+      error: error.message,
+    });
+  }
+};
+
+exports.cleanupOldPDFs = async (req, res) => {
+  try {
+    const { days } = req.params;
+    const daysNumber = parseInt(days) || 30;
+
+    const deletedFiles = await cleanupOldPDFs(daysNumber);
+
+    return res.status(200).json({
+      success: true,
+      message: `Cleaned up PDFs older than ${daysNumber} days`,
+      deletedCount: deletedFiles.length,
+      deletedFiles: deletedFiles,
+    });
+  } catch (error) {
+    console.error("Cleanup error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error cleaning up PDFs",
+      error: error.message,
+    });
+  }
+};
+
+exports.getPDFStats = async (req, res) => {
+  try {
+    const totalInfo = await getTotalPDFSize();
+
+    return res.status(200).json({
+      success: true,
+      statistics: {
+        totalPDFs: totalInfo.totalFiles,
+        totalSize: {
+          bytes: totalInfo.totalSize,
+          kb: totalInfo.totalSizeKB,
+          mb: totalInfo.totalSizeMB,
+        },
+      },
+    });
+  } catch (error) {
+    console.error("Stats error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error getting PDF statistics",
+      error: error.message,
+    });
+  }
+};
 
 exports.getSingleProduct = async (req, res) => {
   try {
@@ -111,7 +491,6 @@ exports.getAllCategoryProduct = async (req, res) => {
     });
   }
 };
-
 
 exports.searchProducts = async (req, res) => {
   try {

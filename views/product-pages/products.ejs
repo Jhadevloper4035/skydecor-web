@@ -380,7 +380,7 @@
                             html += '      </a>';
                             html += '      <div class="product-action">';
                             html += '        <div class="pro-same-action pro-wishlist">';
-                            html += '          <a title="Wishlist" href="/products/download/' + p.productCode + '"><i class="pe-7s-download"></i></a>';
+                            html += '          <a title="Wishlist" href="/products/pdf/' + p.productCode + '"><i class="pe-7s-download"></i></a>';
                             html += '        </div>';
                             html += '        <div class="pro-same-action pro-cart">';
                             html += '          <a title="Add To Cart" href="/products/detail/' + p.productCode + '">View Product</a>';
@@ -522,7 +522,7 @@
                     }
 
                     function downloadProduct(productCode) {
-                        window.location.href = '/products/download/' + productCode;
+                        window.location.href = '/products/pdf/' + productCode;
                     }
                 </script>
 </body>

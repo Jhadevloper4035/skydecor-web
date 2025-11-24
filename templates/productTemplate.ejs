@@ -1,34 +1,271 @@
-<style>
-  body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; }
-  .header { background: #1a252f; color: #fff; padding: 20px; text-align: center; font-weight: 700; }
-  .product-title { font-size: 24px; margin: 20px 0; text-align: center; }
-  .product-image img { width: 200px; height: 300px; object-fit: cover; display: block; margin: 0 auto; border: 2px solid #ccc; border-radius: 8px; }
-  .specs-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-  .specs-table th, .specs-table td { padding: 10px; border: 1px solid #ccc; text-align: left; }
-  .specs-table th { width: 40%; background: #f0f0f0; }
-</style>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="header">SKYDECOR - Product Specification</div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Specification - <%= productCode %>
+  </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<h2 class="product-title"><%= product.productCode || product.productName %></h2>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
 
-<div class="product-image">
-  <img src="<%= product.image %>" alt="<%= product.productName || product.designName %>" />
-</div>
+    .product-card {
+      background: white;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
 
-<table class="specs-table">
-  <tr><th>Product Code</th><td><%= product.productCode %></td></tr>
-  <tr><th>Product Name</th><td><%= product.productName || 'N/A' %></td></tr>
-  <tr><th>Design Name</th><td><%= product.designName || 'N/A' %></td></tr>
-  <tr><th>Category</th><td><%= product.category || 'N/A' %></td></tr>
-  <tr><th>SubCategory</th><td><%= product.subCategory || 'N/A' %></td></tr>
-  <tr><th>Texture</th><td><%= product.texture ? product.texture + (product.textureCode ? ` (${product.textureCode})` : '') : 'N/A' %></td></tr>
-  <tr><th>Size</th><td><%= product.size || 'N/A' %></td></tr>
-  <tr><th>Thickness</th><td><%= product.thickness || 'N/A' %></td></tr>
-  <tr><th>Width</th><td><%= product.width || 'N/A' %></td></tr>
-  <tr><th>Height</th><td><%= product.height || 'N/A' %></td></tr>
-  <tr><th>Weight</th><td><%= product.weight || 'N/A' %></td></tr>
-  <tr><th>Color</th><td><%= product.color || 'N/A' %></td></tr>
-  <tr><th>Material</th><td><%= product.material || 'N/A' %></td></tr>
-  <tr><th>Finish</th><td><%= product.finish || 'N/A' %></td></tr>
-</table>
+    .header {
+      background-color: #2c3e50;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .badge {
+      background-color: #e67e22;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .product-title {
+      background-color: white;
+      padding: 20px 30px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .product-title h1 {
+      font-size: 20px;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    .product-image {
+      padding: 40px;
+      text-align: center;
+      background-color: #fafafa;
+    }
+
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .specifications {
+      background-color: white;
+    }
+
+    .spec-header {
+      background-color: #34495e;
+      color: white;
+      padding: 12px 30px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .spec-table {
+      width: 100%;
+    }
+
+    .spec-row {
+      display: flex;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .spec-row:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      flex: 0 0 40%;
+      padding: 15px 30px;
+      background-color: #f8f9fa;
+      font-weight: 600;
+      font-size: 13px;
+      color: #2c3e50;
+      text-transform: uppercase;
+      border-right: 3px solid #e67e22;
+    }
+
+    .spec-value {
+      flex: 1;
+      padding: 15px 30px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .footer {
+      background-color: #2c3e50;
+      color: #95a5a6;
+      padding: 15px 30px;
+      text-align: center;
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 8px;
+    }
+
+    .footer-link {
+      color: #95a5a6;
+      text-decoration: none;
+    }
+
+    .copyright {
+      color: #7f8c8d;
+    }
+
+    /* Print-specific styles for PDF generation */
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      .product-card {
+        box-shadow: none;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="product-card">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">SKYDECOR</div>
+      <div class="badge">Product Specification</div>
+    </div>
+
+    <!-- Product Title -->
+    <div class="product-title">
+      <h1>
+        <%= productCode %>
+      </h1>
+    </div>
+
+    <!-- Product Image -->
+    <div class="product-image">
+      <img src="<%= image %>" alt="<%= productName %>" onerror="this.style.display='none'">
+    </div>
+
+    <!-- Specifications -->
+    <div class="specifications">
+      <div class="spec-header">Product Specifications</div>
+
+      <div class="spec-table">
+        <div class="spec-row">
+          <div class="spec-label">Product Code</div>
+          <div class="spec-value">
+            <%= productCode %>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <div class="spec-label">Product Name</div>
+          <div class="spec-value">
+            <%= productName %>
+          </div>
+        </div>
+
+        <% if (designName) { %>
+          <div class="spec-row">
+            <div class="spec-label">Design Name</div>
+            <div class="spec-value">
+              <%= designName %>
+            </div>
+          </div>
+          <% } %>
+
+            <div class="spec-row">
+              <div class="spec-label">Category</div>
+              <div class="spec-value">
+                <%= category %>
+              </div>
+            </div>
+
+            <div class="spec-row">
+              <div class="spec-label">Sub-Category</div>
+              <div class="spec-value">
+                <%= subCategory %>
+              </div>
+            </div>
+
+            <div class="spec-row">
+              <div class="spec-label">Texture</div>
+              <div class="spec-value">
+                <%= texture %> (<%= textureCode %>)
+              </div>
+            </div>
+
+            <div class="spec-row">
+              <div class="spec-label">Size</div>
+              <div class="spec-value">
+                <%= size %>
+              </div>
+            </div>
+
+            <div class="spec-row">
+              <div class="spec-label">Thickness</div>
+              <div class="spec-value">
+                <%= thickness %>
+              </div>
+            </div>
+
+            <div class="spec-row">
+              <div class="spec-label">Width</div>
+              <div class="spec-value">
+                <%= width %>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-links">
+        <span class="footer-link">www.skydecor.in</span>
+        <span class="footer-link">info@skydecor.in</span>
+        <span class="footer-link">+91 8800777777</span>
+      </div>
+      <div class="copyright">© 2025 Skydecor. All Rights Reserved</div>
+    </div>
+  </div>
+</body>
+
+</html>
