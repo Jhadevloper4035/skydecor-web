@@ -124,7 +124,7 @@ blogSchema.pre(/^find/, function (next) {
 // 🔹 Post-save hook (for logging or cache invalidation)
 //
 blogSchema.post("save", function (doc) {
-  console.log(`✅ Blog saved: ${doc.title}`);
+
 });
 
 module.exports = mongoose.model("Blog", blogSchema);

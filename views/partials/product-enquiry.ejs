@@ -714,7 +714,7 @@
       terms: document.getElementById('terms').checked
     };
 
-    console.log('Submitting form data:', formData); // Debug log
+ 
 
     // Disable submit button and show loading state
     submitBtn.disabled = true;
@@ -723,7 +723,7 @@
     submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
 
     try {
-      console.log('Making API call to /api/lead/productEnquiry'); // Debug log
+   
       
       const response = await fetch('/api/lead/productEnquiry', {
         method: 'POST',
@@ -733,11 +733,10 @@
         body: JSON.stringify(formData)
       });
 
-      console.log('Response status:', response.status); // Debug log
-      console.log('Response ok:', response.ok); // Debug log
+    
 
       const result = await response.json();
-      console.log('Response data:', result); // Debug log
+   
 
       if (response.ok && result.success) {
         showMessage(result.message || 'Thank you for your enquiry! Our team will contact you shortly.', 'success');

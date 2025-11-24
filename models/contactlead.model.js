@@ -52,7 +52,7 @@ const contactLeadSchema = new mongoose.Schema(
       },
       enum: [
         "ACRYLISH LAMINATES",
-        "PVC LAMINATES",
+        "FR FLEXI LAMINATES",
         "1 MM + LAMINATES",
         "0.8 MM LAMINATES",
         "LINER",

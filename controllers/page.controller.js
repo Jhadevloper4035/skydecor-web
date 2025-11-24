@@ -94,7 +94,7 @@ exports.downloadProductPdf = async (req, res) => {
     let pdfBuffer;
 
     if (fs.existsSync(pdfPath)) {
-      console.log(`📄 Returning existing PDF for: ${productCode}`);
+      
       pdfBuffer = fs.readFileSync(pdfPath);
     } else {
       const product = await Product.findOne({ productCode }); // ⚠️ NO .lean() for testing
@@ -170,9 +170,7 @@ exports.generateAndStoreAllProductPdfs = async (req, res) => {
         fs.writeFileSync(pdfPath, pdfBuffer);
 
         completed++;
-        console.log(
-          `✅ [${completed}/${totalProducts}] PDF generated for: ${product.productCode}`
-        );
+      
       } catch (err) {
         completed++;
         console.error(
@@ -197,7 +195,7 @@ exports.generateAndStoreAllProductPdfs = async (req, res) => {
 // ⚠️ NO .lean() - Testing version
 exports.searchProducts = async (req, res) => {
   try {
-    console.log("🔍 searchProducts called with params:", req.query);
+   
     
     const searchParams = {
       query: req.query.q || req.query.query,
@@ -217,7 +215,7 @@ exports.searchProducts = async (req, res) => {
       sortOrder: req.query.sortOrder || "desc",
     };
 
-    console.log("🔍 Calling Product.searchProducts with:", searchParams);
+   
     const result = await Product.searchProducts(searchParams);
     console.log("✅ Product.searchProducts returned:", { 
       productCount: result.products.length, 
@@ -241,9 +239,9 @@ exports.searchProducts = async (req, res) => {
 // ⚠️ NO .lean() - Testing version
 exports.getFilterOptions = async (req, res) => {
   try {
-    console.log("🔍 getFilterOptions called");
+  
     const options = await Product.getFilterOptions();
-    console.log("✅ getFilterOptions returned options");
+ 
 
     res.status(200).json({
       success: true,
@@ -261,7 +259,7 @@ exports.getFilterOptions = async (req, res) => {
 // ⚠️ NO .lean() - Testing version
 exports.getProductHierarchy = async (req, res) => {
   try {
-    console.log("🔍 getProductHierarchy called");
+  
     const products = await Product.find({ isActive: true })
       .select("productType category subCategory"); // ⚠️ NO .lean() for testing
 
@@ -292,7 +290,6 @@ exports.getProductHierarchy = async (req, res) => {
       }
     }
 
-    console.log("✅ getProductHierarchy completed");
     res.status(200).json({
       success: true,
       data: hierarchy,
@@ -312,9 +309,9 @@ exports.autocomplete = async (req, res) => {
     const query = req.query.q || req.query.query;
     const limit = parseInt(req.query.limit) || 1000;
 
-    console.log("🔍 autocomplete called with query:", query, "limit:", limit);
+    
     const suggestions = await Product.getAutocompleteSuggestions(query, limit);
-    console.log("✅ autocomplete returned", suggestions.length, "suggestions");
+    
 
     res.status(200).json({
       success: true,

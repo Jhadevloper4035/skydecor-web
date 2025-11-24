@@ -62,7 +62,7 @@ exports.createContactLead = async (req, res) => {
         await contactLead.save();
 
         // Log successful submission
-        console.log(`New contact lead created: ${contactLead.email} - ${contactLead.name}`);
+      
 
         // Send success response with redirect URL
         return res.status(201).json({

@@ -529,13 +529,13 @@
           <li class="breadcrumb-item"><a href="/">HOME</a></li>
           <li class="breadcrumb-item"><a href="/products">PRODUCTS</a></li>
           <li class="breadcrumb-item">
-            <a href="/products/<%= product.productType.toLowerCase() %>">
+            <a href="/products/page/<%= product.productType.toLowerCase() %>">
               <%= product.productType %>
             </a>
           </li>
           <li class="breadcrumb-item">
             <a
-              href="/products/<%= product.productType.toLowerCase() %>/<%= product.category.toLowerCase().replace(/\s+/g, '-') %>"
+              href="/products/page/<%= product.productType.toLowerCase() %>/<%= product.category.toLowerCase().replace(/\s+/g, '-') %>"
             >
               <%= product.category %>
             </a>
@@ -816,16 +816,16 @@
             !productImage ||
             window.innerWidth <= 768
           ) {
-            console.log("Magnifier disabled - mobile or elements missing");
+            
             return;
           }
 
-          console.log("Magnifier initialized");
+          
 
           const zoomLevel = 2.5;
 
           mainImageContainer.addEventListener("mouseenter", function () {
-            console.log("Mouse entered");
+          
             mainImageContainer.classList.add("magnifying");
             magnifiedView.classList.add("active");
 
@@ -879,7 +879,7 @@
           });
 
           mainImageContainer.addEventListener("mouseleave", function () {
-            console.log("Mouse left");
+          
             mainImageContainer.classList.remove("magnifying");
             magnifiedView.classList.remove("active");
           });
@@ -887,7 +887,7 @@
 
         // Initialize on DOM load
         document.addEventListener("DOMContentLoaded", function () {
-          console.log("DOM loaded");
+         
 
           // Wait a bit for images to load
           setTimeout(initMagnifier, 500);

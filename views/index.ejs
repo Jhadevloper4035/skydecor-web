@@ -16,9 +16,61 @@
   <meta name="apple-mobile-web-app-title" content="Skydecor India" />
   <link rel="manifest" href="/site/site.webmanifest" />
 
+
+  <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-K95XKH77');</script>
+
+
+
+  <!-- Event snippet for Contact conversion page -->
+  <script>
+    gtag('event', 'conversion', { 'send_to': 'AW-11475575569/XklMCMiYqrkZEJHG_d8q' });
+  </script>
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11475575569"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-11475575569');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1678920265596214');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1678920265596214&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W73T5DELLH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-W73T5DELLH');
+  </script>
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
-  <!-- Icon Font CSS -->  
+  <!-- Icon Font CSS -->
   <link rel="stylesheet" href="/css/icons.min.css" />
   <!-- Plugins CSS -->
   <link rel="stylesheet" href="/css/plugins.css" />
@@ -83,7 +135,7 @@
                   <% const oneMM=productsByCategory.find(c=> c.category === "1mm");
                     %> <%- include('partials/product-card', { products: oneMM ? oneMM.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore1" href="/products/page/1mm">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore1" href="/products">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
@@ -95,7 +147,7 @@
                     "0.8mm"); %> <%- include('partials/product-card', { products: zeroEightMM ? zeroEightMM.products :
                       [] }) %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore2" href="/products/page/0.8mm">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore2" href="/products">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
@@ -106,7 +158,7 @@
                   <% const liner=productsByCategory.find(c=> c.category ===
                     "liner"); %> <%- include('partials/product-card', { products: liner ? liner.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore3" href="/products/page/liner">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore3" href="/products">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
@@ -118,7 +170,7 @@
                     "Acrylish"); %> <%- include('partials/product-card', { products: acrylic ? acrylic.products : [] })
                       %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore4" href="/products/page/Acrylish">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore4" href="/products">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
@@ -129,7 +181,7 @@
                   <% const pvc=productsByCategory.find(c=> c.category === "PVC"); %>
                     <%- include('partials/product-card', { products: pvc ? pvc.products : [] }) %>
                       <div class="view-more text-center mt-20 col-12">
-                        <a class="loadMore5" href="/products/page/PVC">VIEW MORE PRODUCTS</a>
+                        <a class="loadMore5" href="/products">VIEW MORE PRODUCTS</a>
                       </div>
                 </div>
               </div>
@@ -435,5 +487,4 @@
 
 
 </body>
-
 </html>

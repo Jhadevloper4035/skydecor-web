@@ -42,7 +42,7 @@ async function generateProductPDF(product, outputPath) {
                     console.error(`❌ Failed: ${product.productCode} - ${err.message}`);
                     reject(err);
                 } else {
-                    console.log(`✅ Generated: ${product.productCode}`);
+                    
                     resolve(result.filename);
                 }
             });
@@ -61,24 +61,21 @@ async function generateAllPDFs() {
     const startTime = Date.now();
     
     try {
-        console.log('\n╔════════════════════════════════════════════════════════╗');
-        console.log('║       SKYDECOR PDF GENERATION - Starting...           ║');
-        console.log('╚════════════════════════════════════════════════════════╝\n');
+       
 
         // Read products.json
         const productsJsonPath = path.join(__dirname, 'data', 'products.json');
-        console.log(`📂 Reading: ${productsJsonPath}`);
+      
         
         const jsonData = await fs.readFile(productsJsonPath, 'utf-8');
         const products = JSON.parse(jsonData);
 
-        console.log(`📦 Found ${products.length} products\n`);
-        console.log('🚀 Starting PDF generation...\n');
+        
 
         // Output directory
         const outputDir = path.join(__dirname, 'uploads', 'product', 'pdf');
         await fs.mkdir(outputDir, { recursive: true });
-        console.log(`📁 Output directory: ${outputDir}\n`);
+       
 
         // Track results
         const results = [];
@@ -90,7 +87,7 @@ async function generateAllPDFs() {
             const product = products[i];
             const progress = `[${i + 1}/${products.length}]`;
 
-            console.log(`${progress} Processing: ${product.productCode || product.productName}`);
+            
 
             // Create filename from product code
             const filename = `${(product.productCode || product.productName).replace(/\s+/g, '-')}.pdf`;
@@ -116,7 +113,7 @@ async function generateAllPDFs() {
 
             // Show progress every 10 products
             if ((i + 1) % 10 === 0) {
-                console.log(`\n📊 Progress: ${i + 1}/${products.length} (${successCount} successful, ${failCount} failed)\n`);
+               
             }
         }
 
@@ -125,26 +122,17 @@ async function generateAllPDFs() {
         const duration = ((endTime - startTime) / 1000).toFixed(2);
         const avgTime = (duration / products.length).toFixed(2);
 
-        // Display results
-        console.log('\n╔════════════════════════════════════════════════════════╗');
-        console.log('║              PDF GENERATION COMPLETE                   ║');
-        console.log('╚════════════════════════════════════════════════════════╝\n');
-        console.log(`⏱️  Total time: ${duration} seconds`);
-        console.log(`📄 Total products: ${products.length}`);
-        console.log(`✅ Successful: ${successCount}`);
-        console.log(`❌ Failed: ${failCount}`);
-        console.log(`⚡ Average time per PDF: ${avgTime}s`);
-        console.log(`📁 PDFs saved in: ${outputDir}\n`);
+     
 
         // Show failed products if any
         if (failCount > 0) {
-            console.log('❌ Failed Products:');
+         
             results
                 .filter(r => !r.success)
                 .forEach(r => {
-                    console.log(`   - ${r.productCode}: ${r.error}`);
+                    
                 });
-            console.log('');
+            
         }
 
         // Save results log
@@ -158,7 +146,7 @@ async function generateAllPDFs() {
             results: results
         }, null, 2));
 
-        console.log(`📝 Log saved: ${logPath}\n`);
+       
 
         return results;
 
@@ -194,7 +182,7 @@ async function generateSinglePDF(productCode) {
         const outputPath = path.join(outputDir, filename);
 
         await generateProductPDF(product, outputPath);
-        console.log(`\n✅ PDF generated: ${outputPath}\n`);
+        
 
     } catch (error) {
         console.error('Error:', error.message);
@@ -211,7 +199,7 @@ async function generateRange(startIndex, endIndex) {
         const products = JSON.parse(jsonData);
 
         const subset = products.slice(startIndex, endIndex);
-        console.log(`\nGenerating ${subset.length} PDFs (${startIndex} to ${endIndex})...\n`);
+       
 
         const outputDir = path.join(__dirname, 'uploads', 'product', 'pdf');
         await fs.mkdir(outputDir, { recursive: true });
@@ -222,7 +210,7 @@ async function generateRange(startIndex, endIndex) {
             await generateProductPDF(product, outputPath);
         }
 
-        console.log('\n✅ Range generation complete!\n');
+      
 
     } catch (error) {
         console.error('Error:', error.message);
@@ -242,35 +230,8 @@ if (require.main === module) {
         const end = parseInt(args[2]);
         generateRange(start, end).catch(console.error);
     } else if (args[0] === 'help' || args[0] === '--help' || args[0] === '-h') {
-        console.log(`
-╔════════════════════════════════════════════════════════╗
-║         SKYDECOR PDF GENERATOR - Usage Guide           ║
-╚════════════════════════════════════════════════════════╝
 
-Usage:
-  node generatepdf.js                    Generate all PDFs from products.json
-  node generatepdf.js single <code>      Generate single product PDF
-  node generatepdf.js range <start> <end>  Generate range of products
-  node generatepdf.js help               Show this help
-
-Examples:
-  node generatepdf.js                         # Generate all products
-  node generatepdf.js single "SD 1006 HG"     # Generate one product
-  node generatepdf.js range 0 10              # Generate first 10 products
-
-Input:
-  - Template: templates/productTemplate.ejs
-  - Data: data/products.json
-  
-Output:
-  - PDFs saved to: ./uploads/product/pdf/
-  - Log file: ./uploads/product/pdf/generation-log.json
-
-Requirements:
-  - data/products.json file with array of product objects
-  - templates/productTemplate.ejs template file
-  - npm packages: ejs, html-pdf
-        `);
+       
     } else {
         // Default: Generate all PDFs
         generateAllPDFs().catch(error => {
