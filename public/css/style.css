@@ -14007,3 +14007,25 @@ video {
     .search-content form {
         position: relative;
     }
+
+     .pdp-breadcrumb {
+        background: #f5f5f5;
+        padding: 15px 0;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .pdp-breadcrumb a {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .pdp-breadcrumb a:hover {
+        color: #0066cc;
+      }
+
+      .pdp-breadcrumb-separator {
+        margin: 0 8px;
+      }

@@ -5,6 +5,7 @@ const ejs = require("ejs");
 const fs = require("fs");
 const Page = require("../models/page.model.js");
 
+
 const {
   generateProductPDF,
   fileExists,
@@ -16,7 +17,7 @@ const {
   getAllPDFs,
   cleanupOldPDFs,
   getTotalPDFSize,
-} = require("../helpers/Producthelper.js");
+} = require("../helper/Producthelper.js");
 
 exports.getProductPDF = async (req, res) => {
   try {

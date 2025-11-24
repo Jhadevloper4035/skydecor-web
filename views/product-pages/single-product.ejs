@@ -1,572 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <%= product.productName %> - <%= product.texture %> | Product Detail
-  </title>
-
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
-
-  <!-- CSS ============================================ -->
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css" />
-  <!-- Icon Font CSS -->
-  <link rel="stylesheet" href="/css/icons.min.css" />
-  <!-- Plugins CSS -->
-  <link rel="stylesheet" href="/css/plugins.css" />
-  <link rel="stylesheet" href="/css/style.css" />
-
-  <style>
-   
-    /* Breadcrumb */
-    .pdp-breadcrumb {
-      background: #f5f5f5;
-      padding: 15px 0;
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 20px;
-    }
-
-    .pdp-breadcrumb a {
-      color: #666;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .pdp-breadcrumb a:hover {
-      color: #0066cc;
-    }
-
-    .pdp-breadcrumb-separator {
-      margin: 0 8px;
-    }
-
-    /* Main Product Section */
-    .pdp-product-section {
-      background: white;
-      padding: 20px;
-      margin-bottom: 30px;
-    }
-
-    /* Image Gallery with Magnifier */
-    .pdp-product-gallery {
-      position: relative;
-    }
-
-    .pdp-main-image {
-      width: 100%;
-      height: 800px;
-      background: #f5f5f5;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #e0e0e0;
-      position: relative;
-      cursor: crosshair;
-    }
-
-    .pdp-main-image img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      display: block;
-      height: 700px;
-      width: 350px;
-      aspect-ratio: 1/2;
-    }
-
-    /* Magnifier Lens */
-    .pdp-magnifier-lens {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      border: 3px solid #0066cc;
-      border-radius: 50%;
-      cursor: none;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s;
-      background: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
-    }
-
-    .pdp-main-image.magnifying .pdp-magnifier-lens {
-      opacity: 1;
-    }
-
-    /* Magnified View Container */
-    .pdp-magnified-view {
-      position: absolute;
-      top: 0;
-      right: -420px;
-      width: 400px;
-      height: 400px;
-      border: 2px solid #0066cc;
-      border-radius: 8px;
-      background: white;
-      overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-      z-index: 1000;
-    }
-
-    .pdp-magnified-view.active {
-      opacity: 1;
-    }
-
-    .pdp-magnified-view img {
-      position: absolute;
-      max-width: none;
-      width: auto;
-      height: auto;
-    }
-
-    .pdp-magnified-view::before {
-      content: 'ZOOMED VIEW';
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0, 102, 204, 0.9);
-      color: white;
-      padding: 5px 12px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      z-index: 10;
-    }
-
-    .pdp-thumbnail-gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-
-    .pdp-thumbnail {
-      width: 100%;
-      height: 100px;
-      background: #f5f5f5;
-      border-radius: 6px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: all 0.3s;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .pdp-thumbnail:hover,
-    .pdp-thumbnail.active {
-      border-color: #0066cc;
-    }
-
-    .pdp-thumbnail img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: cover;
-    }
-
-    .pdp-image-zoom {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s;
-      z-index: 10;
-    }
-
-    .pdp-image-zoom:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Zoom Hint */
-    .pdp-zoom-hint {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 12px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .pdp-main-image:hover .pdp-zoom-hint {
-      opacity: 1;
-    }
-
-    /* Product Info */
-    .pdp-product-title {
-      font-size: 32px;
-      font-weight: 400;
-      color: #1a1a1a;
-      margin-bottom: 10px;
-    }
-
-    .pdp-product-subtitle {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 20px;
-    }
-
-    .pdp-product-meta {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 25px;
-      padding-bottom: 25px;
-      border-bottom: 1px solid #e0e0e0;
-      flex-wrap: wrap;
-    }
-
-    .pdp-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: #666;
-    }
-
-    .pdp-meta-item i {
-      color: #0066cc;
-    }
-
-    /* Options Section */
-    .pdp-option-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 10px;
-      display: block;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .pdp-form-select,
-    .pdp-form-control {
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 14px 16px;
-      font-size: 15px;
-      transition: all 0.3s;
-    }
-
-    .pdp-form-select:focus,
-    .pdp-form-control:focus {
-      border-color: #0066cc;
-      box-shadow: none;
-    }
-
-    .pdp-quantity-controls {
-      display: flex;
-      align-items: center;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      overflow: hidden;
-      width: fit-content;
-    }
-
-    .pdp-quantity-btn {
-      width: 45px;
-      height: 45px;
-      border: none;
-      background: white;
-      cursor: pointer;
-      font-size: 18px;
-      color: #333;
-      transition: all 0.3s;
-    }
-
-    .pdp-quantity-btn:hover {
-      background: #f5f5f5;
-    }
-
-    .pdp-quantity-input {
-      width: 60px;
-      height: 45px;
-      border: none;
-      text-align: center;
-      font-size: 16px;
-      font-weight: 600;
-      border-left: 2px solid #e0e0e0;
-      border-right: 2px solid #e0e0e0;
-    }
-
-    /* Buttons */
-    .pdp-btn-primary {
-      background: #0066cc;
-      color: white;
-      border: none;
-      padding: 16px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s;
-      width: 100%;
-    }
-
-    .pdp-btn-primary:hover {
-      background: #0052a3;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-      color: white;
-    }
-
-    .pdp-btn-secondary {
-      background: white;
-      color: #0066cc;
-      border: 2px solid #0066cc;
-      padding: 16px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-
-    .pdp-btn-secondary:hover {
-      background: #f0f7ff;
-      color: #0066cc;
-    }
-
-    .pdp-icon-btn {
-      padding: 14px;
-      background: white;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 14px;
-      color: #666;
-      text-decoration: none;
-      width: 100%;
-    }
-
-    .pdp-icon-btn:hover {
-      border-color: #0066cc;
-      color: #0066cc;
-    }
-
-    .pdp-icon-btn i {
-      font-size: 18px;
-    }
-
-    /* Detail Rows */
-    .pdp-detail-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 15px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    .pdp-detail-label {
-      font-weight: 600;
-      color: #666;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .pdp-detail-value {
-      color: #1a1a1a;
-      font-weight: 500;
-    }
-
-  
-
-    
-   
-
-    /* Section Styling */
-    .pdp-section-card {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      margin-bottom: 30px;
-    }
-
-    .pdp-section-title {
-      font-size: 28px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .pdp-section-subtitle {
-      text-align: center;
-      color: #666;
-      margin-bottom: 40px;
-    }
-
-    /* Disclaimer Text */
-    .pdp-disclaimer {
-      color: #6c757d;
-      margin-top: 0.5rem;
-      font-size: 13px;
-      font-style: italic;
-    }
-
-    /* Alert Messages */
-    .pdp-alert-custom {
-      padding: 15px 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      animation: pdpSlideDown 0.3s;
-    }
-
-    @keyframes pdpSlideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Loading Spinner */
-    .pdp-spinner {
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid #0066cc;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      animation: pdpSpin 1s linear infinite;
-      display: inline-block;
-      margin-left: 10px;
-    }
-
-    @keyframes pdpSpin {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 1400px) {
-      .pdp-magnified-view {
-        right: auto;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    @media (max-width: 768px) {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      <%= product.productName %> - <%= product.texture %> | Product Detail
+    </title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS ============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/css/icons.min.css" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/css/plugins.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+      /* Breadcrumb */
+     
+      /* Main Product Section */
       .pdp-product-section {
-        padding: 25px;
-      }
-
-      .pdp-main-image {
-        height: 400px;
-        cursor: default;
-      }
-
-      .pdp-product-title {
-        font-size: 24px;
-      }
-
-      .pdp-section-title {
-        font-size: 24px;
-      }
-
-      .pdp-thumbnail-gallery {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      /* Disable magnifier on mobile */
-      .pdp-magnified-view,
-      .pdp-magnifier-lens,
-      .pdp-zoom-hint {
-        display: none !important;
-      }
-    }
-
-    @media (max-width: 576px) {
-
-      .pdp-product-section,
-      .pdp-section-card {
+        background: white;
         padding: 20px;
+        margin-bottom: 30px;
+      }
+
+      /* Image Gallery with Magnifier */
+      .pdp-product-gallery {
+        position: relative;
       }
 
       .pdp-main-image {
-        height: 350px;
+        width: 100%;
+        height: 800px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #e0e0e0;
+        position: relative;
+        cursor: crosshair;
       }
 
-      .pdp-product-title {
-        font-size: 20px;
+      .pdp-main-image img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        height: 700px;
+        width: 350px;
+        aspect-ratio: 1/2;
       }
 
-      .pdp-section-title {
-        font-size: 20px;
+      /* Magnifier Lens */
+      .pdp-magnifier-lens {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border: 3px solid #0066cc;
+        border-radius: 50%;
+        cursor: none;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
+      }
+
+      .pdp-main-image.magnifying .pdp-magnifier-lens {
+        opacity: 1;
+      }
+
+      /* Magnified View Container */
+      .pdp-magnified-view {
+        position: absolute;
+        top: 0;
+        right: -420px;
+        width: 400px;
+        height: 400px;
+        border: 2px solid #0066cc;
+        border-radius: 8px;
+        background: white;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        z-index: 1000;
+      }
+
+      .pdp-magnified-view.active {
+        opacity: 1;
+      }
+
+      .pdp-magnified-view img {
+        position: absolute;
+        max-width: none;
+        width: auto;
+        height: auto;
+      }
+
+      .pdp-magnified-view::before {
+        content: "ZOOMED VIEW";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 102, 204, 0.9);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        z-index: 10;
       }
 
       .pdp-thumbnail-gallery {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <%- include("../partials/header") %>
+      .pdp-thumbnail {
+        width: 100%;
+        height: 100px;
+        background: #f5f5f5;
+        border-radius: 6px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.3s;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
+      .pdp-thumbnail:hover,
+      .pdp-thumbnail.active {
+        border-color: #0066cc;
+      }
 
-  <div class="container-fluid p-0">
+      .pdp-thumbnail img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
 
+      .pdp-image-zoom {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s;
+        z-index: 10;
+      }
+
+      .pdp-image-zoom:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Zoom Hint */
+      .pdp-zoom-hint {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        z-index: 5;
+      }
+
+      .pdp-main-image:hover .pdp-zoom-hint {
+        opacity: 1;
+      }
+
+      /* Product Info */
+      .pdp-product-title {
+        font-size: 32px;
+        font-weight: 400;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+      }
+
+      .pdp-product-subtitle {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .pdp-product-meta {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e0e0e0;
+        flex-wrap: wrap;
+      }
+
+      .pdp-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .pdp-meta-item i {
+        color: #0066cc;
+      }
+
+      /* Options Section */
+      .pdp-option-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .pdp-form-select,
+      .pdp-form-control {
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 14px 16px;
+        font-size: 15px;
+        transition: all 0.3s;
+      }
+
+      .pdp-form-select:focus,
+      .pdp-form-control:focus {
+        border-color: #0066cc;
+        box-shadow: none;
+      }
+
+      .pdp-quantity-controls {
+        display: flex;
+        align-items: center;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        width: fit-content;
+      }
+
+      .pdp-quantity-btn {
+        width: 45px;
+        height: 45px;
+        border: none;
+        background: white;
+        cursor: pointer;
+        font-size: 18px;
+        color: #333;
+        transition: all 0.3s;
+      }
+
+      .pdp-quantity-btn:hover {
+        background: #f5f5f5;
+      }
+
+      .pdp-quantity-input {
+        width: 60px;
+        height: 45px;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        border-left: 2px solid #e0e0e0;
+        border-right: 2px solid #e0e0e0;
+      }
+
+      /* Buttons */
+      .pdp-btn-primary {
+        background: #0066cc;
+        color: white;
+        border: none;
+        padding: 16px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s;
+        width: 100%;
+      }
+
+      .pdp-btn-primary:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        color: white;
+      }
+
+      .pdp-btn-secondary {
+        background: white;
+        color: #0066cc;
+        border: 2px solid #0066cc;
+        padding: 16px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .pdp-btn-secondary:hover {
+        background: #f0f7ff;
+        color: #0066cc;
+      }
+
+      .pdp-icon-btn {
+        padding: 14px;
+        background: white;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 14px;
+        color: #666;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      .pdp-icon-btn:hover {
+        border-color: #0066cc;
+        color: #0066cc;
+      }
+
+      .pdp-icon-btn i {
+        font-size: 18px;
+      }
+
+      /* Detail Rows */
+      .pdp-detail-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .pdp-detail-label {
+        font-weight: 600;
+        color: #666;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .pdp-detail-value {
+        color: #1a1a1a;
+        font-weight: 500;
+      }
+
+      /* Section Styling */
+      .pdp-section-card {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+
+      .pdp-section-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .pdp-section-subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 40px;
+      }
+
+      /* Disclaimer Text */
+      .pdp-disclaimer {
+        color: #6c757d;
+        margin-top: 0.5rem;
+        font-size: 13px;
+        font-style: italic;
+      }
+
+      /* Alert Messages */
+      .pdp-alert-custom {
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        animation: pdpSlideDown 0.3s;
+      }
+
+      @keyframes pdpSlideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Loading Spinner */
+      .pdp-spinner {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #0066cc;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: pdpSpin 1s linear infinite;
+        display: inline-block;
+        margin-left: 10px;
+      }
+
+      @keyframes pdpSpin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 1400px) {
+        .pdp-magnified-view {
+          right: auto;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .pdp-product-section {
+          padding: 25px;
+        }
+
+        .pdp-main-image {
+          height: 400px;
+          cursor: default;
+        }
+
+        .pdp-product-title {
+          font-size: 24px;
+        }
+
+        .pdp-section-title {
+          font-size: 24px;
+        }
+
+        .pdp-thumbnail-gallery {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Disable magnifier on mobile */
+        .pdp-magnified-view,
+        .pdp-magnifier-lens,
+        .pdp-zoom-hint {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .pdp-product-section,
+        .pdp-section-card {
+          padding: 20px;
+        }
+
+        .pdp-main-image {
+          height: 350px;
+        }
+
+        .pdp-product-title {
+          font-size: 20px;
+        }
+
+        .pdp-section-title {
+          font-size: 20px;
+        }
+
+        .pdp-thumbnail-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <%- include("../partials/header") %>
+
+    <div class="container-fluid p-0">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb pdp-breadcrumb px-4">
           <li class="breadcrumb-item"><a href="/">HOME</a></li>
           <li class="breadcrumb-item"><a href="/products">PRODUCTS</a></li>
-          <li class="breadcrumb-item"><a href="/products/<%= product.productType.toLowerCase() %>">
+          <li class="breadcrumb-item">
+            <a href="/products/<%= product.productType.toLowerCase() %>">
               <%= product.productType %>
-            </a></li>
+            </a>
+          </li>
           <li class="breadcrumb-item">
             <a
-              href="/products/<%= product.productType.toLowerCase() %>/<%= product.category.toLowerCase().replace(/\s+/g, '-') %>">
+              href="/products/<%= product.productType.toLowerCase() %>/<%= product.category.toLowerCase().replace(/\s+/g, '-') %>"
+            >
               <%= product.category %>
             </a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page"><strong>
-              <%= product.productName %>
-            </strong></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <strong> <%= product.productName %> </strong>
+          </li>
         </ol>
       </nav>
-
-  </div>
+    </div>
 
     <div class="container py-4 pdp-container">
       <div class="pdp-product-section">
@@ -575,15 +546,22 @@
           <div class="col-lg-6">
             <div class="pdp-product-gallery">
               <div class="pdp-main-image" id="pdpMainImage">
-                <img src="<%= product.image %>" alt="<%= product.productName %> - <%= product.texture %>"
-                  id="pdpProductImage">
+                <img
+                  src="<%= product.image %>"
+                  alt="<%= product.productName %> - <%= product.texture %>"
+                  id="pdpProductImage"
+                />
                 <div class="pdp-magnifier-lens" id="pdpMagnifierLens"></div>
                 <div class="pdp-zoom-hint">
                   <i class="fas fa-search-plus me-2"></i>Hover to zoom
                 </div>
               </div>
               <div class="pdp-magnified-view" id="pdpMagnifiedView">
-                <img src="<%= product.image %>" alt="Zoomed" id="pdpZoomedImage">
+                <img
+                  src="<%= product.image %>"
+                  alt="Zoomed"
+                  id="pdpZoomedImage"
+                />
               </div>
               <button class="pdp-image-zoom" onclick="openImageZoom()">
                 <i class="fas fa-search-plus"></i>
@@ -591,26 +569,25 @@
             </div>
 
             <p class="text-muted mt-2 pdp-disclaimer">
-              <i class="fas fa-info-circle"></i> Disclaimer: Colours on screen may vary from actual product
+              <i class="fas fa-info-circle"></i> Disclaimer: Colours on screen
+              may vary from actual product
             </p>
           </div>
 
           <!-- Product Info -->
           <div class="col-lg-6">
-            <h1 class="pdp-product-title">
-              <%= product.productCode %>
-            </h1>
+            <h1 class="pdp-product-title"><%= product.productCode %></h1>
             <p class="pdp-product-subtitle">
-              <%= product.texture.toUpperCase() %>
-                <%= product.designName ? '- ' + product.designName : '' %>
+              <%= product.texture.toUpperCase() %> <%= product.designName ? '- '
+              + product.designName : '' %>
             </p>
 
             <div class="pdp-product-meta">
               <div class="pdp-meta-item">
                 <i class="fas fa-layer-group"></i>
                 <span>
-                  <%= product.productType %> / <%= product.category %>
-                      <%= product.subCategory ? '/ ' + product.subCategory : '' %>
+                  <%= product.productType %> / <%= product.category %> <%=
+                  product.subCategory ? '/ ' + product.subCategory : '' %>
                 </span>
               </div>
               <div class="pdp-meta-item">
@@ -634,70 +611,68 @@
                   </span>
                 </div>
                 <% if (product.designName) { %>
-                  <div class="pdp-detail-row">
-                    <span class="pdp-detail-label">Design Name</span>
-                    <span class="pdp-detail-value">
-                      <%= product.designName %>
-                    </span>
-                  </div>
-                  <% } %>
-                    <div class="pdp-detail-row">
-                      <span class="pdp-detail-label">Product Type</span>
-                      <span class="pdp-detail-value">
-                        <%= product.productType %>
-                      </span>
-                    </div>
-                    <div class="pdp-detail-row">
-                      <span class="pdp-detail-label">Category</span>
-                      <span class="pdp-detail-value">
-                        <%= product.category %>
-                      </span>
-                    </div>
-                    <% if (product.subCategory) { %>
-                      <div class="pdp-detail-row">
-                        <span class="pdp-detail-label">Sub Category</span>
-                        <span class="pdp-detail-value">
-                          <%= product.subCategory %>
-                        </span>
-                      </div>
-                      <% } %>
-                        <div class="pdp-detail-row">
-                          <span class="pdp-detail-label">Texture</span>
-                          <span class="pdp-detail-value">
-                            <%= product.texture %>
-                          </span>
-                        </div>
-                        <div class="pdp-detail-row">
-                          <span class="pdp-detail-label">Texture Code</span>
-                          <span class="pdp-detail-value">
-                            <%= product.textureCode %>
-                          </span>
-                        </div>
-                        <div class="pdp-detail-row">
-                          <span class="pdp-detail-label">Thickness</span>
-                          <span class="pdp-detail-value">
-                            <%= product.thickness %>
-                          </span>
-                        </div>
-                        <div class="pdp-detail-row">
-                          <span class="pdp-detail-label">Size</span>
-                          <span class="pdp-detail-value">
-                            <%= product.size %>
-                          </span>
-                        </div>
-                        <div class="pdp-detail-row">
-                          <span class="pdp-detail-label">Width</span>
-                          <span class="pdp-detail-value">
-                            <%= product.width %>
-                          </span>
-                        </div>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Design Name</span>
+                  <span class="pdp-detail-value">
+                    <%= product.designName %>
+                  </span>
+                </div>
+                <% } %>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Product Type</span>
+                  <span class="pdp-detail-value">
+                    <%= product.productType %>
+                  </span>
+                </div>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Category</span>
+                  <span class="pdp-detail-value">
+                    <%= product.category %>
+                  </span>
+                </div>
+                <% if (product.subCategory) { %>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Sub Category</span>
+                  <span class="pdp-detail-value">
+                    <%= product.subCategory %>
+                  </span>
+                </div>
+                <% } %>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Texture</span>
+                  <span class="pdp-detail-value"> <%= product.texture %> </span>
+                </div>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Texture Code</span>
+                  <span class="pdp-detail-value">
+                    <%= product.textureCode %>
+                  </span>
+                </div>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Thickness</span>
+                  <span class="pdp-detail-value">
+                    <%= product.thickness %>
+                  </span>
+                </div>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Size</span>
+                  <span class="pdp-detail-value"> <%= product.size %> </span>
+                </div>
+                <div class="pdp-detail-row">
+                  <span class="pdp-detail-label">Width</span>
+                  <span class="pdp-detail-value"> <%= product.width %> </span>
+                </div>
               </div>
             </div>
 
             <!-- Action Buttons -->
             <div class="row g-3 mb-4 mt-4">
               <div class="col-md-6">
-                <button class="pdp-btn-primary" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+                <button
+                  class="pdp-btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#enquiryModal"
+                >
                   <i class="fas fa-envelope me-2"></i>REQUEST SAMPLE
                 </button>
               </div>
@@ -707,250 +682,274 @@
                 </button>
               </div>
             </div>
-
-            
           </div>
         </div>
       </div>
     </div>
 
-     <!-- Related Products -->
+    <!-- Related Products -->
     <div class="related-product-area pb-95">
       <div class="container">
         <div class="section-title text-center mb-50">
           <h2>Related Products</h2>
         </div>
         <div class="related-product-active owl-carousel owl-dot-none">
-          <% if (relatedProducts && relatedProducts.length> 0) { %>
-            <% relatedProducts.forEach(rp=> { %>
-              <div class="product-wrap">
-                <div class="product-img">
-                  <a href="/products/detail/<%= rp.productCode %>">
-                    <img class="default-img" src="<%= rp.image %>" alt="<%= rp.productName %>" />
-                    <img class="hover-img" src="<%= rp.image %>" alt="<%= rp.productName %>" />
+          <% if (relatedProducts && relatedProducts.length> 0) { %> <%
+          relatedProducts.forEach(rp=> { %>
+          <div class="product-wrap">
+            <div class="product-img">
+              <a href="/products/detail/<%= rp.productCode %>">
+                <img
+                  class="default-img"
+                  src="<%= rp.image %>"
+                  alt="<%= rp.productName %>"
+                  loading="lazy"
+                />
+                <img
+                  class="hover-img"
+                  src="<%= rp.image %>"
+                  alt="<%= rp.productName %>"
+                  loading="lazy"
+                />
+              </a>
+              <div class="product-action">
+                <div class="pro-same-action pro-wishlist">
+                  <a
+                    title="Download"
+                    href="/products/pdf/<%= rp.productCode %>"
+                  >
+                    <i class="pe-7s-download"></i>
                   </a>
-                  <div class="product-action">
-                    <div class="pro-same-action pro-wishlist">
-                      <a title="Download" href="/products/pdf/<%= rp.productCode %>">
-                        <i class="pe-7s-download"></i>
-                      </a>
-                    </div>
-                    <div class="pro-same-action pro-cart">
-                      <a title="View Product" href="/products/detail/<%= rp.productCode %>">
-                        View product
-                      </a>
-                    </div>
-                    <div class="pro-same-action pro-quickview">
-                      <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        data-productCode="<%= rp.productCode %>" data-productType="<%= rp.productType %>"
-                        data-name="<%= rp.productName %>" data-image="<%= rp.image %>"
-                        data-category="<%= rp.category %>" data-subcategory="<%= rp.subCategory %>"
-                        data-texture="<%= rp.texture %>" data-design="<%= rp.designName %>" data-size="<%= rp.size %>"
-                        data-thickness="<%= rp.thickness %>" data-width="<%= rp.width %>">
-                        <i class="pe-7s-look"></i>
-                      </a>
-                    </div>
-                  </div>
                 </div>
-                <div class="product-content text-left">
-                  <h3>
-                    <a href="/products/detail/<%= rp.productCode %>">
-                      <%= rp.productCode %><br />
-                        <%= rp.category %> - <%= rp.texture %>
-                    </a>
-                  </h3>
+                <div class="pro-same-action pro-cart">
+                  <a
+                    title="View Product"
+                    href="/products/detail/<%= rp.productCode %>"
+                  >
+                    View product
+                  </a>
+                </div>
+                <div class="pro-same-action pro-quickview">
+                  <a
+                    title="Quick View"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    data-productCode="<%= rp.productCode %>"
+                    data-productType="<%= rp.productType %>"
+                    data-name="<%= rp.productName %>"
+                    data-image="<%= rp.image %>"
+                    data-category="<%= rp.category %>"
+                    data-subcategory="<%= rp.subCategory %>"
+                    data-texture="<%= rp.texture %>"
+                    data-design="<%= rp.designName %>"
+                    data-size="<%= rp.size %>"
+                    data-thickness="<%= rp.thickness %>"
+                    data-width="<%= rp.width %>"
+                  >
+                    <i class="pe-7s-look"></i>
+                  </a>
                 </div>
               </div>
-              <% }) %>
-                <% } %>
+            </div>
+            <div class="product-content text-left">
+              <h3>
+                <a href="/products/detail/<%= rp.productCode %>">
+                  <%= rp.productCode %><br />
+                  <%= rp.category %> - <%= rp.texture %>
+                </a>
+              </h3>
+            </div>
+          </div>
+          <% }) %> <% } %>
         </div>
       </div>
     </div>
 
+    <%- include("../partials/footer") %> 
+    <%- include("../partials/product-modal") %> 
+    <%- include("../partials/product-enquiry", { product: product }) %>
 
+    <!-- All JS ============================================ -->
+    <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
+    <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
+    <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+    <script src="/js/vendor/popper.min.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/ajax-mail.js"></script>
+    <script src="/js/main.js"></script>
 
-    
+    <script>
+      (function () {
+        "use strict";
 
-    <%- include("../partials/footer") %>
-     <%- include("../partials/product-modal") %>
-        <%- include("../partials/product-enquiry", { product: product }) %>
+        // Product data from server
+        const productData = {
+          id: "<%= product._id %>",
+          productCode: "<%= product.productCode %>",
+          productName: "<%= product.productName %>",
+          image: "<%= product.image %>",
+          texture: "<%= product.texture %>",
+          productType: "<%= product.productType %>",
+          category: "<%= product.category %>",
+        };
 
+        // Simple Image Magnifier
+        function initMagnifier() {
+          const mainImageContainer = document.getElementById("pdpMainImage");
+          const productImage = document.getElementById("pdpProductImage");
+          const magnifierLens = document.getElementById("pdpMagnifierLens");
+          const magnifiedView = document.getElementById("pdpMagnifiedView");
+          const zoomedImage = document.getElementById("pdpZoomedImage");
 
-      <!-- All JS ============================================ -->
-      <script src="/js/vendor/modernizr-3.11.7.min.js"></script>
-      <script src="/js/vendor/jquery-v3.6.0.min.js"></script>
-      <script src="/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
-      <script src="/js/vendor/popper.min.js"></script>
-      <script src="/js/vendor/bootstrap.min.js"></script>
-      <script src="/js/plugins.js"></script>
-      <script src="/js/ajax-mail.js"></script>
-      <script src="/js/main.js"></script>
+          if (
+            !mainImageContainer ||
+            !productImage ||
+            window.innerWidth <= 768
+          ) {
+            console.log("Magnifier disabled - mobile or elements missing");
+            return;
+          }
 
+          console.log("Magnifier initialized");
 
-     <script>
-(function() {
-  'use strict';
-  
-  // Product data from server
-  const productData = {
-    id: '<%= product._id %>',
-    productCode: '<%= product.productCode %>',
-    productName: '<%= product.productName %>',
-    image: '<%= product.image %>',
-    texture: '<%= product.texture %>',
-    productType: '<%= product.productType %>',
-    category: '<%= product.category %>'
-  };
+          const zoomLevel = 2.5;
 
-  // Simple Image Magnifier
-  function initMagnifier() {
-    const mainImageContainer = document.getElementById('pdpMainImage');
-    const productImage = document.getElementById('pdpProductImage');
-    const magnifierLens = document.getElementById('pdpMagnifierLens');
-    const magnifiedView = document.getElementById('pdpMagnifiedView');
-    const zoomedImage = document.getElementById('pdpZoomedImage');
+          mainImageContainer.addEventListener("mouseenter", function () {
+            console.log("Mouse entered");
+            mainImageContainer.classList.add("magnifying");
+            magnifiedView.classList.add("active");
 
-    if (!mainImageContainer || !productImage || window.innerWidth <= 768) {
-      console.log('Magnifier disabled - mobile or elements missing');
-      return;
-    }
+            // Set the zoomed image
+            zoomedImage.src = productImage.src;
 
-    console.log('Magnifier initialized');
+            // Calculate zoom dimensions
+            const rect = productImage.getBoundingClientRect();
+            zoomedImage.style.width = rect.width * zoomLevel + "px";
+            zoomedImage.style.height = rect.height * zoomLevel + "px";
+          });
 
-    const zoomLevel = 2.5;
+          mainImageContainer.addEventListener("mousemove", function (e) {
+            const bounds = mainImageContainer.getBoundingClientRect();
+            const x = e.clientX - bounds.left;
+            const y = e.clientY - bounds.top;
 
-    mainImageContainer.addEventListener('mouseenter', function() {
-      console.log('Mouse entered');
-      mainImageContainer.classList.add('magnifying');
-      magnifiedView.classList.add('active');
-      
-      // Set the zoomed image
-      zoomedImage.src = productImage.src;
-      
-      // Calculate zoom dimensions
-      const rect = productImage.getBoundingClientRect();
-      zoomedImage.style.width = (rect.width * zoomLevel) + 'px';
-      zoomedImage.style.height = (rect.height * zoomLevel) + 'px';
-    });
+            // Position the lens
+            const lensSize = 150;
+            let lensX = x - lensSize / 2;
+            let lensY = y - lensSize / 2;
 
-    mainImageContainer.addEventListener('mousemove', function(e) {
-      const bounds = mainImageContainer.getBoundingClientRect();
-      const x = e.clientX - bounds.left;
-      const y = e.clientY - bounds.top;
+            // Keep lens within bounds
+            lensX = Math.max(0, Math.min(lensX, bounds.width - lensSize));
+            lensY = Math.max(0, Math.min(lensY, bounds.height - lensSize));
 
-      // Position the lens
-      const lensSize = 150;
-      let lensX = x - (lensSize / 2);
-      let lensY = y - (lensSize / 2);
+            magnifierLens.style.left = lensX + "px";
+            magnifierLens.style.top = lensY + "px";
 
-      // Keep lens within bounds
-      lensX = Math.max(0, Math.min(lensX, bounds.width - lensSize));
-      lensY = Math.max(0, Math.min(lensY, bounds.height - lensSize));
+            // Calculate zoomed image position
+            const percentX = x / bounds.width;
+            const percentY = y / bounds.height;
 
-      magnifierLens.style.left = lensX + 'px';
-      magnifierLens.style.top = lensY + 'px';
+            const zoomedWidth = parseFloat(zoomedImage.style.width);
+            const zoomedHeight = parseFloat(zoomedImage.style.height);
+            const viewWidth = magnifiedView.offsetWidth;
+            const viewHeight = magnifiedView.offsetHeight;
 
-      // Calculate zoomed image position
-      const percentX = x / bounds.width;
-      const percentY = y / bounds.height;
+            const moveX = -(percentX * zoomedWidth - viewWidth / 2);
+            const moveY = -(percentY * zoomedHeight - viewHeight / 2);
 
-      const zoomedWidth = parseFloat(zoomedImage.style.width);
-      const zoomedHeight = parseFloat(zoomedImage.style.height);
-      const viewWidth = magnifiedView.offsetWidth;
-      const viewHeight = magnifiedView.offsetHeight;
+            // Constrain movement
+            const maxMoveX = -(zoomedWidth - viewWidth);
+            const maxMoveY = -(zoomedHeight - viewHeight);
 
-      const moveX = -(percentX * zoomedWidth - viewWidth / 2);
-      const moveY = -(percentY * zoomedHeight - viewHeight / 2);
+            const finalX = Math.min(0, Math.max(maxMoveX, moveX));
+            const finalY = Math.min(0, Math.max(maxMoveY, moveY));
 
-      // Constrain movement
-      const maxMoveX = -(zoomedWidth - viewWidth);
-      const maxMoveY = -(zoomedHeight - viewHeight);
+            zoomedImage.style.left = finalX + "px";
+            zoomedImage.style.top = finalY + "px";
+          });
 
-      const finalX = Math.min(0, Math.max(maxMoveX, moveX));
-      const finalY = Math.min(0, Math.max(maxMoveY, moveY));
+          mainImageContainer.addEventListener("mouseleave", function () {
+            console.log("Mouse left");
+            mainImageContainer.classList.remove("magnifying");
+            magnifiedView.classList.remove("active");
+          });
+        }
 
-      zoomedImage.style.left = finalX + 'px';
-      zoomedImage.style.top = finalY + 'px';
-    });
+        // Initialize on DOM load
+        document.addEventListener("DOMContentLoaded", function () {
+          console.log("DOM loaded");
 
-    mainImageContainer.addEventListener('mouseleave', function() {
-      console.log('Mouse left');
-      mainImageContainer.classList.remove('magnifying');
-      magnifiedView.classList.remove('active');
-    });
-  }
+          // Wait a bit for images to load
+          setTimeout(initMagnifier, 500);
+        });
 
-  // Initialize on DOM load
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded');
-    
-    // Wait a bit for images to load
-    setTimeout(initMagnifier, 500);
-  });
+        // Reinitialize on window resize
+        let resizeTimer;
+        window.addEventListener("resize", function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(initMagnifier, 250);
+        });
 
-  // Reinitialize on window resize
-  let resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(initMagnifier, 250);
-  });
+        // Global functions - attach to window object
+        window.openImageZoom = function () {
+          const img = document.getElementById("pdpProductImage");
+          if (img && img.src) {
+            window.open(img.src, "_blank");
+          }
+        };
 
-  // Global functions - attach to window object
-  window.openImageZoom = function() {
-    const img = document.getElementById('pdpProductImage');
-    if (img && img.src) {
-      window.open(img.src, '_blank');
-    }
-  };
+        window.downloadSwatch = function () {
+          const link = document.createElement("a");
+          link.href = productData.image;
+          link.download = `${productData.productCode}-swatch.jpg`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        };
 
-  window.downloadSwatch = function() {
-    const link = document.createElement('a');
-    link.href = productData.image;
-    link.download = `${productData.productCode}-swatch.jpg`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+        window.shareProduct = function () {
+          if (navigator.share) {
+            navigator
+              .share({
+                title: `${productData.productCode} - ${productData.productName}`,
+                text: `Check out this product: ${productData.productCode}`,
+                url: window.location.href,
+              })
+              .catch((err) => console.log("Error sharing:", err));
+          } else {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+              alert("Product link copied to clipboard!");
+            });
+          }
+        };
 
-  window.shareProduct = function() {
-    if (navigator.share) {
-      navigator.share({
-        title: `${productData.productCode} - ${productData.productName}`,
-        text: `Check out this product: ${productData.productCode}`,
-        url: window.location.href
-      }).catch(err => console.log('Error sharing:', err));
-    } else {
-      const url = window.location.href;
-      navigator.clipboard.writeText(url).then(() => {
-        alert('Product link copied to clipboard!');
-      });
-    }
-  };
+        // Phone input validation - use different approach to avoid conflicts
+        document.addEventListener("DOMContentLoaded", function () {
+          const phoneInput = document.getElementById("phone");
+          if (phoneInput) {
+            phoneInput.addEventListener("input", function (e) {
+              this.value = this.value.replace(/[^0-9+]/g, "");
+            });
+          }
 
-  // Phone input validation - use different approach to avoid conflicts
-  document.addEventListener('DOMContentLoaded', function() {
-    const phoneInput = document.getElementById('phone');
-    if (phoneInput) {
-      phoneInput.addEventListener('input', function(e) {
-        this.value = this.value.replace(/[^0-9+]/g, '');
-      });
-    }
-
-    // Reset form when modal is closed - avoid duplicate declaration
-    const enquiryModalElement = document.getElementById('enquiryModal');
-    if (enquiryModalElement) {
-      enquiryModalElement.addEventListener('hidden.bs.modal', function() {
-        const form = document.getElementById('productEnquiryForm');
-        const message = document.getElementById('formMessage');
-        if (form) form.reset();
-        if (message) message.style.display = 'none';
-      });
-    }
-  });
-
-})();
-</script>
-
-
-</body>
+          // Reset form when modal is closed - avoid duplicate declaration
+          const enquiryModalElement = document.getElementById("enquiryModal");
+          if (enquiryModalElement) {
+            enquiryModalElement.addEventListener(
+              "hidden.bs.modal",
+              function () {
+                const form = document.getElementById("productEnquiryForm");
+                const message = document.getElementById("formMessage");
+                if (form) form.reset();
+                if (message) message.style.display = "none";
+              }
+            );
+          }
+        });
+      })();
+    </script>
+  </body>
 </html>

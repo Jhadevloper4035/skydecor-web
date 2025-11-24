@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Skydecor - <%= job.title %></title>
+    <title>Skydecor - <%= job.title %>
+    </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -332,18 +333,17 @@
 
 
 
-        <div class="container-fluid">
-            <div class="breadcrumb-section">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="/career">career</a></li>
-                        <li class="breadcrumb-item">
+
+        <div class="container-fluid p-0">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb pdp-breadcrumb px-4">
+                    <li class="breadcrumb-item"><a href="/">HOME</a></li>
+                    <li class="breadcrumb-item"><a href="/career">Career</a></li>
+                    <li class="breadcrumb-item"><a href="/career/<%= job.title %>">
                             <%= job.title %>
-                        </li>
-                    </ol>
-                </nav>
-            </div>
+                        </a></li>
+                </ol>
+            </nav>
         </div>
 
 

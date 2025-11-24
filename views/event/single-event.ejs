@@ -108,13 +108,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
-        }
+     
 
         /* Performance Optimization */
         .gallery-item,
@@ -128,53 +122,6 @@
             will-change: transform;
         }
 
-        /* Modern Breadcrumb */
-        .breadcrumb-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: var(--spacing-md) 0;
-            margin-bottom: 0;
-        }
-
-        .breadcrumb {
-            background: transparent;
-            margin-bottom: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .breadcrumb-item {
-            display: flex;
-            align-items: center;
-        }
-
-        .breadcrumb-item a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .breadcrumb-item a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        .breadcrumb-item+.breadcrumb-item::before {
-            color: rgba(255, 255, 255, 0.7);
-            content: "›";
-            font-size: 20px;
-            padding: 0 10px;
-        }
-
-        .breadcrumb-item.active {
-            color: #fff;
-            font-weight: 600;
-        }
 
         /* Hero Section */
         .welcome-area {
@@ -685,27 +632,21 @@
 <body>
     <%- include("../partials/header") %>
 
-        <!-- Breadcrumb Section -->
-        <div class="container-fluid">
-            <div class="breadcrumb-section">
-                <div class="container">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="/">
-                                    <i class="fas fa-home"></i>
-                                    Home
-                                </a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="/event">Events</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">
-                                <%= event.title %>
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
+     
+
+
+           <div class="container-fluid p-0">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb pdp-breadcrumb px-4">
+          <li class="breadcrumb-item"><a href="/">HOME</a></li>
+          <li class="breadcrumb-item "><a href="/events"> Event </a></li>
+          <li class="breadcrumb-item active"><a href="/"> <%= event.title %> </a></li>
+        </ol>
+      </nav>
+    </div>
+
+
+        
 
         <!-- Hero Section -->
         <div class="welcome-area">
@@ -735,7 +676,7 @@
         </div>
 
         <!-- Featured Image Section -->
-        <section class="featured-section">
+        <section class="featured-section pt-0">
             <div class="container">
                 <div class="featured-image-wrapper">
                     <div class="featured-overlay">
