@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pm2 start server.js -i max --name skydecor-server",
-    "dev": "nodemon server.js "
+    "start": "pm2 start app.js -i max --name skydecor-server",
+    "dev": "nodemon app.js "
   },
   "keywords": [],
   "author": "",
