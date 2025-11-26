@@ -1,3 +1,4 @@
+process.env.OPENSSL_CONF = '/dev/null';
 const express = require("express");
 const path = require("path");
 

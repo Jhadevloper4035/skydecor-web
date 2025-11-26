@@ -4,7 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Specification - <%= productCode %></title>
+  <title>Product Specification - <%= productCode %>
+  </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,7 +17,7 @@
     }
 
     body {
-      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-family: 'Montserrat', 'Arial', 'Helvetica', sans-serif;
       background-color: #ffffff;
       padding: 0;
       margin: 0;
@@ -30,7 +34,7 @@
     /* Header - Using table for better PDF support */
     .header {
       background-color: #34495e;
-      padding: 30px 40px;
+      padding: 20px 40px;
       width: 100%;
     }
 
@@ -47,20 +51,10 @@
       text-align: left;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: 6px;
-      margin-bottom: 5px;
-    }
-
-    .tagline {
-      font-size: 9px;
-      color: #95a5a6;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      font-weight: 400;
+    .logo-img {
+      max-width: 200px;
+      height: auto;
+      display: block;
     }
 
     .badge-cell {
@@ -70,12 +64,12 @@
     .badge {
       background-color: #f39c12;
       color: white;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border-radius: 3px;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 1px;
       display: inline-block;
     }
 
@@ -86,10 +80,10 @@
     }
 
     .product-code {
-      font-size: 20px;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 500;
       color: #2c3e50;
-      padding: 40px 40px 25px 40px;
+      padding: 25px 40px 20px 40px;
       text-align: center;
       background-color: #ffffff;
     }
@@ -97,29 +91,36 @@
     .product-image-container {
       text-align: center;
       background-color: #ffffff;
-      padding: 25px 40px 50px 40px;
+      padding: 20px 40px 30px 40px;
     }
 
     .product-image-container img {
-      max-width: 320px;
+      width: 380px;
       height: auto;
+      max-height: 760px;
       border-radius: 2px;
+    }
+
+    /* PAGE BREAK - Ensures page 2 starts here */
+    .page-break {
+      page-break-before: always;
+      break-before: page;
     }
 
     /* Specifications Table */
     .spec-section {
       background-color: #ffffff;
-      padding: 0 0 40px 0;
+      padding: 0 0 30px 0;
     }
 
     .spec-header {
       background-color: #34495e;
       color: white;
-      padding: 15px 40px;
-      font-size: 12px;
-      font-weight: 600;
+      padding: 12px 40px;
+      font-size: 22px;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 1.8px;
+      letter-spacing: 1.5px;
       text-align: center;
       margin: 0 40px 0 40px;
     }
@@ -145,20 +146,20 @@
 
     .spec-label {
       width: 45%;
-      padding: 15px 25px;
-      font-size: 16x;
-      font-weight: 600;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-weight: 500;
       color: #2c3e50;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.5px;
       background-color: #ffffff;
       vertical-align: top;
     }
 
     .spec-value {
       width: 55%;
-      padding: 15px 25px;
-      font-size: 16x;
+      padding: 14px 20px;
+      font-size: 16px;
       color: #2c3e50;
       font-weight: 400;
       background-color: #ffffff;
@@ -169,16 +170,20 @@
     /* Footer */
     .footer {
       background-color: #34495e;
-      padding: 22px 40px;
+      padding: 18px 40px;
       text-align: center;
+      position: fixed;
+      bottom: -2;
+      left: 0;
+      width: 100%;
     }
 
     .footer-links {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .footer-link {
-      font-size: 11px;
+      font-size: 16px;
       color: #ecf0f1;
       text-decoration: none;
       font-weight: 400;
@@ -187,14 +192,14 @@
 
     .footer-divider {
       color: #7f8c8d;
-      font-size: 11px;
-      margin: 0 10px;
+      font-size: 10px;
+      margin: 0 8px;
     }
 
     .copyright {
-      font-size: 9px;
+      font-size: 8px;
       color: #95a5a6;
-      margin-top: 4px;
+      margin-top: 3px;
       font-weight: 300;
     }
 
@@ -218,13 +223,13 @@
 
 <body>
   <div class="container">
+    <!-- PAGE 1: Header, Product Code & Image -->
     <!-- Header -->
     <div class="header">
       <table class="header-table">
         <tr>
           <td class="logo-section">
-            <div class="logo">SKYDECOR</div>
-            <div class="tagline">High Gloss Laminates</div>
+            <img src="https://skydecor.in/images/logo/ai-white.png" alt="Skydecor Logo" class="logo-img">
           </td>
           <td class="badge-cell">
             <div class="badge">Product Specification</div>
@@ -236,7 +241,9 @@
     <!-- Product Content -->
     <div class="product-content">
       <!-- Product Code -->
-      <div class="product-code"><%= productCode %></div>
+      <div class="product-code">
+        <%= productCode %>
+      </div>
 
       <!-- Product Image -->
       <div class="product-image-container">
@@ -244,60 +251,88 @@
       </div>
     </div>
 
+    <!-- PAGE 2: Specifications -->
     <!-- Specifications Section -->
     <div class="spec-section">
       <div class="spec-header">Product Specifications</div>
 
       <div class="spec-table-wrapper">
         <table class="spec-table">
+          <tr>
+            <td class="spec-label">Product Type</td>
+            <td class="spec-value">
+              <%= productType %>
+            </td>
+          </tr>
 
-          
           <tr>
             <td class="spec-label">Product Code</td>
-            <td class="spec-value"><%= productCode %></td>
+            <td class="spec-value">
+              <%= productCode %>
+            </td>
           </tr>
 
           <tr>
             <td class="spec-label">Product Name</td>
-            <td class="spec-value"><%= productName %></td>
+            <td class="spec-value">
+              <%= productName %>
+            </td>
           </tr>
 
           <% if (designName) { %>
-          <tr>
-            <td class="spec-label">Design Name</td>
-            <td class="spec-value"><%= designName %></td>
-          </tr>
-          <% } %>
+            <tr>
+              <td class="spec-label">Design Name</td>
+              <td class="spec-value">
+                <%= designName %>
+              </td>
+            </tr>
+            <% } %>
 
-          <tr>
-            <td class="spec-label">Category</td>
-            <td class="spec-value"><%= category %></td>
-          </tr>
+              <tr>
+                <td class="spec-label">Category</td>
+                <td class="spec-value">
+                  <%= category %>
+                </td>
+              </tr>
 
-          <tr>
-            <td class="spec-label">Subcategory</td>
-            <td class="spec-value"><%= subCategory %></td>
-          </tr>
+              <tr>
+                <td class="spec-label">Subcategory</td>
+                <td class="spec-value">
+                  <%= subCategory %>
+                </td>
+              </tr>
 
-          <tr>
-            <td class="spec-label">Texture</td>
-            <td class="spec-value"><%= texture %> (<%= textureCode %>)</td>
-          </tr>
+              <tr>
+                <td class="spec-label">Texture</td>
+                <td class="spec-value">
+                  <%= texture %> (<%= textureCode %>)
+                </td>
+              </tr>
 
-          <tr>
-            <td class="spec-label">Size</td>
-            <td class="spec-value"><%= size %></td>
-          </tr>
+              <tr>
+                <td class="spec-label">Size</td>
+                <td class="spec-value">
+                  <%= size %>
+                </td>
+              </tr>
 
-          <tr>
-            <td class="spec-label">Thickness</td>
-            <td class="spec-value"><%= thickness %></td>
-          </tr>
+              <tr>
+                <td class="spec-label">Width</td>
+                <td class="spec-value">
+                  <%= width %>
+                </td>
+              </tr>
 
-          <tr>
-            <td class="spec-label">Width</td>
-            <td class="spec-value"><%= width %></td>
-          </tr>
+              <tr>
+                <td class="spec-label">Thickness</td>
+                <td class="spec-value">
+                  <%= thickness %>
+                </td>
+              </tr>
+
+              
+
+
         </table>
       </div>
     </div>
@@ -309,7 +344,7 @@
         <span class="footer-divider">|</span>
         <span class="footer-link">info@skydecor.in</span>
         <span class="footer-divider">|</span>
-        <span class="footer-link">+91 8800777777</span>
+        <span class="footer-link">+91 8800777731</span>
       </div>
       <div class="copyright">© 2025 Skydecor. All Rights Reserved</div>
     </div>

@@ -5,7 +5,6 @@ const ejs = require("ejs");
 const fs = require("fs");
 const Page = require("../models/page.model.js");
 
-
 const {
   generateProductPDF,
   fileExists,
