@@ -1,4 +1,4 @@
-const ContactLead = require('../models/contactlead.model.js'); // Adjust path as needed
+const ContactLead = require('../models/enquiry.js'); // Adjust path as needed
 
 /**
  * Create a new contact lead

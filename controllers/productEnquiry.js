@@ -1,4 +1,4 @@
-const ProductEnquiry = require('../models/productEnquiry.model.js');
+const ProductEnquiry = require('../models/productEnquiry.js');
 const { validationResult } = require('express-validator');
 
 // @desc    Create new product enquiry

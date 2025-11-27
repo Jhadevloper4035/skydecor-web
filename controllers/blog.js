@@ -1,4 +1,4 @@
-const Blog = require("../models/blog.model");
+const Blog = require("../models/blog");
 
 //
 // 🔹 Get All Blogs — optimized for performance and SEO

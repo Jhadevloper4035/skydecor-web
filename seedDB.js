@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Product = require("./models/product.model.js"); // your schema
+const Product = require("./models/product.js"); // your schema
 const products = require("./data/products.json"); // import JSON file
 
 const events = require("./data/event.json");
@@ -12,12 +12,12 @@ const jobs = require("./data/jobData.json");
 const Job = require("./models/job.model.js");
 
 const testimonials = require("./data/testimonial.json");
-const Testimonial = require("./models/testimonial.model.js");
+const Testimonial = require("./models/testimonial.js");
 
 const Page = require("./models/page.model.js");
 const pageData = require("./data/page.json");
 
-const Showroom = require("./models/showroom.model.js");
+const Showroom = require("./models/showroom.js");
 const showroomData = require("./data/showroom.json");
 
 const { ConnectDB } = require("./config/db.js");

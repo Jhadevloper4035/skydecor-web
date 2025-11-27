@@ -1,9 +1,9 @@
-const Product = require("../models/product.model.js");
+const Product = require("../models/product.js");
 const path = require("path");
 const puppeteer = require("puppeteer");
 const ejs = require("ejs");
 const fs = require("fs");
-const Page = require("../models/page.model.js");
+const Page = require("../models/seoSchema.js");
 
 const {
   generateProductPDF,
@@ -16,7 +16,7 @@ const {
   getAllPDFs,
   cleanupOldPDFs,
   getTotalPDFSize,
-} = require("../helper/Producthelper.js");
+} = require("../middleware/Producthelper.js");
 
 exports.getProductPDF = async (req, res) => {
   try {
@@ -599,7 +599,7 @@ exports.autocomplete = async (req, res) => {
     const limit = parseInt(req.query.limit) || 18;
 
     // ✅ CORRECT: No .lean() here!
-    // The method already returns plain objects (see product.model.js)
+    // The method already returns plain objects (see product.js)
     const suggestions = await Product.getAutocompleteSuggestions(query, limit);
 
     res.status(200).json({

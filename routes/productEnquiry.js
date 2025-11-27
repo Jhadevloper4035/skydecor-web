@@ -18,9 +18,9 @@ const {
   getContactLeadById,
   updateContactLead,
   deleteContactLead,
-} = require("../controllers/contactLead.controller.js");
+} = require("../controllers/enquiry.js");
 
-const jobApplicationController = require("../controllers/jobaplication.controller.js");
+const jobApplicationController = require("../controllers/jobEnquiry.js");
 
 // Middleware for authentication (you need to create this)
 // const { protect, authorize } = require('../middleware/auth');

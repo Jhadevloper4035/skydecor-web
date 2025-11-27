@@ -14,7 +14,7 @@ const {
   getFilterOptions,
   autocomplete,
   getProductHierarchy,
-} = require("../controllers/product.controller.js");
+} = require("../controllers/product.js");
 
 router.get("/", (req, res) => {
   res.render("product-pages/products", {

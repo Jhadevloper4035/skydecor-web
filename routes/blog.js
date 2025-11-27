@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const { getBlogs , getSingleBlogs  } = require("../controllers/blog.controller.js");
+const { getBlogs , getSingleBlogs  } = require("../controllers/blog.js");
 
 router.get("/", getBlogs);
 

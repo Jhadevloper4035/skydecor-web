@@ -3,7 +3,7 @@ const router = require("express").Router();
 const {
   getShowrooms,
   getSingleShowroom,
-} = require("../controllers/showroom.controller.js");
+} = require("../controllers/showroom.js");
 
 router.get("/", getShowrooms);
 

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const {getCareerPost , getSinglePost}  = require("../controllers/career.controller.js")
+const {getCareerPost , getSinglePost}  = require("../controllers/career.js")
  
 
 

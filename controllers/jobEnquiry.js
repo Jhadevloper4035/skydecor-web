@@ -1,4 +1,4 @@
-const JobApplication = require('../models/jobapplication.model');
+const JobApplication = require('../models/jobPost.js');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs').promises;

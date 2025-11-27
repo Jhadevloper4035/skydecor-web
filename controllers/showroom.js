@@ -1,4 +1,4 @@
-const Showroom = require("../models/showroom.model.js");
+const Showroom = require("../models/showroom.js");
 
 exports.getShowrooms = async (req, res) => {
   try {
@@ -7,7 +7,6 @@ exports.getShowrooms = async (req, res) => {
       .select("-images")
       .sort({ created_at: -1 })
       .lean();
-
 
     res.render("showroom/showroom", {
       title: "Showroom Page",
