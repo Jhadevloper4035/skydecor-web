@@ -1,5 +1,5 @@
-const ProductEnquiry = require('../models/productEnquiry.js');
-const { validationResult } = require('express-validator');
+const ProductEnquiry = require("../models/productEnquiry.js");
+const { validationResult } = require("express-validator");
 
 // @desc    Create new product enquiry
 // @route   POST /api/lead/productEnquiry
@@ -13,14 +13,21 @@ exports.createProductEnquiry = async (req, res) => {
       estimatedQuantity,
       productInterest,
       message,
-      terms
+      terms,
     } = req.body;
 
     // Validation
-    if (!fullName || !email || !phone || !productInterest || !message || !terms) {
+    if (
+      !fullName ||
+      !email ||
+      !phone ||
+      !productInterest ||
+      !message ||
+      !terms
+    ) {
       return res.status(400).json({
         success: false,
-        message: 'Please provide all required fields'
+        message: "Please provide all required fields",
       });
     }
 
@@ -28,7 +35,7 @@ exports.createProductEnquiry = async (req, res) => {
     if (fullName.trim().length < 3) {
       return res.status(400).json({
         success: false,
-        message: 'Name must be at least 3 characters long'
+        message: "Name must be at least 3 characters long",
       });
     }
 
@@ -37,16 +44,16 @@ exports.createProductEnquiry = async (req, res) => {
     if (!emailRegex.test(email)) {
       return res.status(400).json({
         success: false,
-        message: 'Please provide a valid email address'
+        message: "Please provide a valid email address",
       });
     }
 
     // Validate phone number
-    const cleanPhone = phone.replace(/\D/g, '');
+    const cleanPhone = phone.replace(/\D/g, "");
     if (cleanPhone.length !== 10 || !/^[6-9]\d{9}$/.test(cleanPhone)) {
       return res.status(400).json({
         success: false,
-        message: 'Please provide a valid 10-digit Indian phone number'
+        message: "Please provide a valid 10-digit Indian phone number",
       });
     }
 
@@ -54,7 +61,7 @@ exports.createProductEnquiry = async (req, res) => {
     if (message.trim().length < 10) {
       return res.status(400).json({
         success: false,
-        message: 'Message must be at least 10 characters long'
+        message: "Message must be at least 10 characters long",
       });
     }
 
@@ -62,7 +69,7 @@ exports.createProductEnquiry = async (req, res) => {
     if (terms !== true) {
       return res.status(400).json({
         success: false,
-        message: 'You must agree to terms and conditions'
+        message: "You must agree to terms and conditions",
       });
     }
 
@@ -71,32 +78,34 @@ exports.createProductEnquiry = async (req, res) => {
     const existingEnquiry = await ProductEnquiry.findOne({
       email: email.toLowerCase(),
       productInterest,
-      createdAt: { $gte: twentyFourHoursAgo }
+      createdAt: { $gte: twentyFourHoursAgo },
     });
 
     if (existingEnquiry) {
       return res.status(400).json({
         success: false,
-        message: 'You have already submitted an enquiry for this product recently. Our team will contact you soon.'
+        message:
+          "You have already submitted an enquiry for this product recently. Our team will contact you soon.",
       });
     }
 
     // Get IP address and user agent
-    const ipAddress = req.ip || req.connection.remoteAddress || req.headers['x-forwarded-for'];
-    const userAgent = req.headers['user-agent'] || '';
+    const ipAddress =
+      req.ip || req.connection.remoteAddress || req.headers["x-forwarded-for"];
+    const userAgent = req.headers["user-agent"] || "";
 
     // Create new enquiry
     const enquiry = await ProductEnquiry.create({
       fullName: fullName.trim(),
       email: email.toLowerCase().trim(),
       phone: cleanPhone,
-      estimatedQuantity: estimatedQuantity?.trim() || '',
+      estimatedQuantity: estimatedQuantity?.trim() || "",
       productInterest: productInterest.trim(),
       message: message.trim(),
       terms,
       ipAddress,
       userAgent,
-      source: 'website'
+      source: "website",
     });
 
     // TODO: Send email notification to admin/sales team
@@ -107,29 +116,28 @@ exports.createProductEnquiry = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: 'Thank you for your enquiry! Our team will contact you shortly.',
+      message: "Thank you for your enquiry! Our team will contact you shortly.",
       data: {
         enquiryId: enquiry._id,
         fullName: enquiry.fullName,
-        email: enquiry.email
-      }
+        email: enquiry.email,
+      },
     });
-
   } catch (error) {
-    console.error('Error creating product enquiry:', error);
+    console.error("Error creating product enquiry:", error);
 
     // Handle validation errors
-    if (error.name === 'ValidationError') {
-      const messages = Object.values(error.errors).map(err => err.message);
+    if (error.name === "ValidationError") {
+      const messages = Object.values(error.errors).map((err) => err.message);
       return res.status(400).json({
         success: false,
-        message: messages.join(', ')
+        message: messages.join(", "),
       });
     }
 
     res.status(500).json({
       success: false,
-      message: 'Failed to submit enquiry. Please try again later.'
+      message: "Failed to submit enquiry. Please try again later.",
     });
   }
 };
@@ -149,10 +157,10 @@ exports.getAllEnquiries = async (req, res) => {
 
     if (search) {
       query.$or = [
-        { fullName: { $regex: search, $options: 'i' } },
-        { email: { $regex: search, $options: 'i' } },
-        { phone: { $regex: search, $options: 'i' } },
-        { productInterest: { $regex: search, $options: 'i' } }
+        { fullName: { $regex: search, $options: "i" } },
+        { email: { $regex: search, $options: "i" } },
+        { phone: { $regex: search, $options: "i" } },
+        { productInterest: { $regex: search, $options: "i" } },
       ];
     }
 
@@ -163,7 +171,7 @@ exports.getAllEnquiries = async (req, res) => {
       .sort({ createdAt: -1 })
       .limit(parseInt(limit))
       .skip(skip)
-      .populate('assignedTo', 'name email');
+      .populate("assignedTo", "name email");
 
     const total = await ProductEnquiry.countDocuments(query);
 
@@ -173,14 +181,37 @@ exports.getAllEnquiries = async (req, res) => {
       total,
       totalPages: Math.ceil(total / limit),
       currentPage: parseInt(page),
-      data: enquiries
+      data: enquiries,
     });
-
   } catch (error) {
-    console.error('Error fetching enquiries:', error);
+    console.error("Error fetching enquiries:", error);
     res.status(500).json({
       success: false,
-      message: 'Failed to fetch enquiries'
+      message: "Failed to fetch enquiries",
+    });
+  }
+};
+
+// @desc    Download all enquiries (Admin)
+// @route   GET /api/lead/all/productEnquiry
+// @access  Private/Admin
+exports.downloadAllEnquiries = async (req, res) => {
+  try {
+    const enquiries = await ProductEnquiry.find().sort({ createdAt: -1 });
+
+    const total = await ProductEnquiry.countDocuments();
+
+    res.status(200).json({
+      success: true,
+      count: enquiries.length,
+      total,
+      data: enquiries,
+    });
+  } catch (error) {
+    console.error("Error fetching enquiries:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch enquiries",
     });
   }
 };
@@ -190,26 +221,27 @@ exports.getAllEnquiries = async (req, res) => {
 // @access  Private/Admin
 exports.getEnquiryById = async (req, res) => {
   try {
-    const enquiry = await ProductEnquiry.findById(req.params.id)
-      .populate('assignedTo', 'name email');
+    const enquiry = await ProductEnquiry.findById(req.params.id).populate(
+      "assignedTo",
+      "name email"
+    );
 
     if (!enquiry) {
       return res.status(404).json({
         success: false,
-        message: 'Enquiry not found'
+        message: "Enquiry not found",
       });
     }
 
     res.status(200).json({
       success: true,
-      data: enquiry
+      data: enquiry,
     });
-
   } catch (error) {
-    console.error('Error fetching enquiry:', error);
+    console.error("Error fetching enquiry:", error);
     res.status(500).json({
       success: false,
-      message: 'Failed to fetch enquiry'
+      message: "Failed to fetch enquiry",
     });
   }
 };
@@ -221,11 +253,17 @@ exports.updateEnquiryStatus = async (req, res) => {
   try {
     const { status } = req.body;
 
-    const validStatuses = ['pending', 'contacted', 'qualified', 'converted', 'rejected'];
+    const validStatuses = [
+      "pending",
+      "contacted",
+      "qualified",
+      "converted",
+      "rejected",
+    ];
     if (!validStatuses.includes(status)) {
       return res.status(400).json({
         success: false,
-        message: 'Invalid status value'
+        message: "Invalid status value",
       });
     }
 
@@ -238,21 +276,20 @@ exports.updateEnquiryStatus = async (req, res) => {
     if (!enquiry) {
       return res.status(404).json({
         success: false,
-        message: 'Enquiry not found'
+        message: "Enquiry not found",
       });
     }
 
     res.status(200).json({
       success: true,
-      message: 'Status updated successfully',
-      data: enquiry
+      message: "Status updated successfully",
+      data: enquiry,
     });
-
   } catch (error) {
-    console.error('Error updating enquiry status:', error);
+    console.error("Error updating enquiry status:", error);
     res.status(500).json({
       success: false,
-      message: 'Failed to update status'
+      message: "Failed to update status",
     });
   }
 };
@@ -267,7 +304,7 @@ exports.addEnquiryNote = async (req, res) => {
     if (!content) {
       return res.status(400).json({
         success: false,
-        message: 'Note content is required'
+        message: "Note content is required",
       });
     }
 
@@ -276,23 +313,22 @@ exports.addEnquiryNote = async (req, res) => {
     if (!enquiry) {
       return res.status(404).json({
         success: false,
-        message: 'Enquiry not found'
+        message: "Enquiry not found",
       });
     }
 
-    await enquiry.addNote(content, addedBy || 'Admin');
+    await enquiry.addNote(content, addedBy || "Admin");
 
     res.status(200).json({
       success: true,
-      message: 'Note added successfully',
-      data: enquiry
+      message: "Note added successfully",
+      data: enquiry,
     });
-
   } catch (error) {
-    console.error('Error adding note:', error);
+    console.error("Error adding note:", error);
     res.status(500).json({
       success: false,
-      message: 'Failed to add note'
+      message: "Failed to add note",
     });
   }
 };
@@ -307,20 +343,19 @@ exports.deleteEnquiry = async (req, res) => {
     if (!enquiry) {
       return res.status(404).json({
         success: false,
-        message: 'Enquiry not found'
+        message: "Enquiry not found",
       });
     }
 
     res.status(200).json({
       success: true,
-      message: 'Enquiry deleted successfully'
+      message: "Enquiry deleted successfully",
     });
-
   } catch (error) {
-    console.error('Error deleting enquiry:', error);
+    console.error("Error deleting enquiry:", error);
     res.status(500).json({
       success: false,
-      message: 'Failed to delete enquiry'
+      message: "Failed to delete enquiry",
     });
   }
 };
@@ -331,28 +366,38 @@ exports.deleteEnquiry = async (req, res) => {
 exports.getEnquiryStats = async (req, res) => {
   try {
     const totalEnquiries = await ProductEnquiry.countDocuments();
-    const pendingEnquiries = await ProductEnquiry.countDocuments({ status: 'pending' });
-    const contactedEnquiries = await ProductEnquiry.countDocuments({ status: 'contacted' });
-    const qualifiedEnquiries = await ProductEnquiry.countDocuments({ status: 'qualified' });
-    const convertedEnquiries = await ProductEnquiry.countDocuments({ status: 'converted' });
-    const rejectedEnquiries = await ProductEnquiry.countDocuments({ status: 'rejected' });
+    const pendingEnquiries = await ProductEnquiry.countDocuments({
+      status: "pending",
+    });
+    const contactedEnquiries = await ProductEnquiry.countDocuments({
+      status: "contacted",
+    });
+    const qualifiedEnquiries = await ProductEnquiry.countDocuments({
+      status: "qualified",
+    });
+    const convertedEnquiries = await ProductEnquiry.countDocuments({
+      status: "converted",
+    });
+    const rejectedEnquiries = await ProductEnquiry.countDocuments({
+      status: "rejected",
+    });
 
     // Get enquiries from last 7 days
     const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
     const recentEnquiries = await ProductEnquiry.countDocuments({
-      createdAt: { $gte: sevenDaysAgo }
+      createdAt: { $gte: sevenDaysAgo },
     });
 
     // Get most enquired products
     const topProducts = await ProductEnquiry.aggregate([
       {
         $group: {
-          _id: '$productInterest',
-          count: { $sum: 1 }
-        }
+          _id: "$productInterest",
+          count: { $sum: 1 },
+        },
       },
       { $sort: { count: -1 } },
-      { $limit: 5 }
+      { $limit: 5 },
     ]);
 
     res.status(200).json({
@@ -365,18 +410,17 @@ exports.getEnquiryStats = async (req, res) => {
         converted: convertedEnquiries,
         rejected: rejectedEnquiries,
         lastSevenDays: recentEnquiries,
-        topProducts: topProducts.map(p => ({
+        topProducts: topProducts.map((p) => ({
           product: p._id,
-          count: p.count
-        }))
-      }
+          count: p.count,
+        })),
+      },
     });
-
   } catch (error) {
-    console.error('Error fetching enquiry stats:', error);
+    console.error("Error fetching enquiry stats:", error);
     res.status(500).json({
       success: false,
-      message: 'Failed to fetch statistics'
+      message: "Failed to fetch statistics",
     });
   }
 };

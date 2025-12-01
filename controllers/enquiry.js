@@ -105,13 +105,10 @@ exports.createContactLead = async (req, res) => {
     }
 };
 
-/**
- * Get all contact leads (Admin)
- * GET /api/lead/contactleads
- */
+
 exports.getAllContactLeads = async (req, res) => {
     try {
-        const { status, limit = 50, page = 1 } = req.query;
+        const { status, limit, page  } = req.query;
 
         const query = status ? { status } : {};
         const skip = (page - 1) * limit;

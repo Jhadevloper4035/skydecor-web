@@ -202,7 +202,6 @@ exports.getAllApplications = async (req, res) => {
       .exec();
 
     const count = await JobApplication.countDocuments(query);
-
     res.status(200).json({
       success: true,
       data: applications,

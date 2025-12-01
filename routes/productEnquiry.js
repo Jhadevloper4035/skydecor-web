@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const requireAdmin = require("../middleware/admin.js");
 
 const {
   createProductEnquiry,
   getAllEnquiries,
+  downloadAllEnquiries,
   getEnquiryById,
   updateEnquiryStatus,
   addEnquiryNote,
@@ -20,76 +22,54 @@ const {
   deleteContactLead,
 } = require("../controllers/enquiry.js");
 
-const jobApplicationController = require("../controllers/jobEnquiry.js");
+const {
+  uploadResume,
+  handleUploadErrors,
+  getAllApplications,
+  submitApplication,
+  getApplicationById,
+  updateApplicationStatus,
+  deleteApplication,
+  downloadResume,
+} = require("../controllers/jobEnquiry.js");
 
 // Middleware for authentication (you need to create this)
 // const { protect, authorize } = require('../middleware/auth');
 
 // Product eqnuiry Route route
 router.post("/productEnquiry", createProductEnquiry);
+router.get("/productEnquiry", requireAdmin, getAllEnquiries);
+router.get("/all/productEnquiry", requireAdmin, downloadAllEnquiries);
+router.delete('/productEnquiry/:id', requireAdmin, deleteEnquiry);
 
 // Protected routes (uncomment when you have auth middleware)
-// router.get('/productEnquiry', protect, authorize('admin'), getAllEnquiries);
 // router.get('/productEnquiry/stats', protect, authorize('admin'), getEnquiryStats);
 // router.get('/productEnquiry/:id', protect, authorize('admin'), getEnquiryById);
 // router.put('/productEnquiry/:id/status', protect, authorize('admin'), updateEnquiryStatus);
 // router.post('/productEnquiry/:id/note', protect, authorize('admin'), addEnquiryNote);
-// router.delete('/productEnquiry/:id', protect, authorize('admin'), deleteEnquiry);
 
 // Create new contact lead (form submission)
 router.post("/contactlead", createContactLead);
-// router.get("/contactleads", getAllContactLeads);
+router.get("/contactleads", requireAdmin, getAllContactLeads);
 // router.get("/stats", getLeadStats);
 // router.get("/contactlead/:id", getContactLeadById);
 // router.patch("/contactlead/:id", updateContactLead);
-// router.delete("/contactlead/:id", deleteContactLead);
+router.delete("/contactlead/:id", requireAdmin , deleteContactLead);
 
-router.post(
-  "/jobapplication",
-  jobApplicationController.uploadResume,
-  jobApplicationController.handleUploadErrors,
-  jobApplicationController.submitApplication
-);
+router.post("/jobapplication",
+  uploadResume,
+  handleUploadErrors,
+  submitApplication
+);  
 
+router.get("/jobapplications", requireAdmin , getAllApplications);
 
-router.get(
-  "/jobapplications",
-  // Add your authentication middleware here
-  // authMiddleware.isAdmin,
-  jobApplicationController.getAllApplications
-);
+router.get("/jobapplication/:id", getApplicationById);
 
-router.get(
-  "/jobapplication/:id",
-  // Add your authentication middleware here
-  // authMiddleware.isAdmin,
-  jobApplicationController.getApplicationById
-);
+router.patch("/jobapplication/:id", updateApplicationStatus);
 
-router.patch(
-  "/jobapplication/:id",
-  // Add your authentication middleware here
-  // authMiddleware.isAdmin,
-  jobApplicationController.updateApplicationStatus
-);
+router.delete("/jobapplication/:id", deleteApplication);
 
-router.delete(
-  "/jobapplication/:id",
-  // Add your authentication middleware here
-  // authMiddleware.isAdmin,
-  jobApplicationController.deleteApplication
-);
-
-/**
- * @route   GET /api/lead/jobapplication/:id/resume
- * @desc    Download resume file for an application
- * @access  Private/Admin
- */
-router.get(
-  "/jobapplication/:id/resume",
-  // Add your authentication middleware here
-  // authMiddleware.isAdmin,
-  jobApplicationController.downloadResume
-);
+router.get("/jobapplication/:id/resume", downloadResume);
 
 module.exports = router;
