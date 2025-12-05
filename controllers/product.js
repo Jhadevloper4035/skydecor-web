@@ -16,7 +16,7 @@ const {
   getAllPDFs,
   cleanupOldPDFs,
   getTotalPDFSize,
-} = require("../middleware/Producthelper.js");
+} = require("../middleware/producthelper.js");
 
 exports.getProductPDF = async (req, res) => {
   try {
