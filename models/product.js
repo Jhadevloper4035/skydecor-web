@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: [true, "Product type is required"],
       trim: true,
-      enum: ["PVC", "Acrylish", "1mm", "0.8mm", "SOFFITTO", "liner"],
+      enum: ["PVC", "Acrylish", "1mm", "0.8mm", "SOFFITTO", "liner" , "FR Flexi Laminates"],
     },
     productName: {
       type: String,

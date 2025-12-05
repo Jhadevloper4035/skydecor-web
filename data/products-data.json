@@ -2,7 +2,7 @@
   {
     "id": 1,
     "productCode": "SD 1001 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1001",
     "designName": "",
     "category": "Solid",
@@ -17,7 +17,7 @@
   {
     "id": 2,
     "productCode": "SD 1002 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1002",
     "designName": "",
     "category": "Solid",
@@ -32,7 +32,7 @@
   {
     "id": 3,
     "productCode": "SD 1005 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1005",
     "designName": "",
     "category": "Solid",
@@ -47,7 +47,7 @@
   {
     "id": 4,
     "productCode": "SD 1006 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1006",
     "designName": "",
     "category": "Solid",
@@ -62,7 +62,7 @@
   {
     "id": 5,
     "productCode": "SD 1009 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1009",
     "designName": "",
     "category": "Solid",
@@ -77,7 +77,7 @@
   {
     "id": 6,
     "productCode": "SD 1010 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1010",
     "designName": "",
     "category": "Solid",
@@ -92,7 +92,7 @@
   {
     "id": 7,
     "productCode": "SD 1011 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1011",
     "designName": "",
     "category": "Solid",
@@ -107,7 +107,7 @@
   {
     "id": 8,
     "productCode": "SD 1012 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1012",
     "designName": "",
     "category": "Solid",
@@ -122,7 +122,7 @@
   {
     "id": 9,
     "productCode": "SD 1014 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1014",
     "designName": "",
     "category": "Solid",
@@ -137,7 +137,7 @@
   {
     "id": 10,
     "productCode": "SD 1015 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1015",
     "designName": "",
     "category": "Solid",
@@ -152,7 +152,7 @@
   {
     "id": 11,
     "productCode": "SD 1016 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1016",
     "designName": "",
     "category": "Solid",
@@ -167,7 +167,7 @@
   {
     "id": 12,
     "productCode": "SD 1019 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1019",
     "designName": "",
     "category": "Solid",
@@ -182,7 +182,7 @@
   {
     "id": 13,
     "productCode": "SD 1020 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1020",
     "designName": "",
     "category": "Solid",
@@ -197,7 +197,7 @@
   {
     "id": 14,
     "productCode": "SD 1021 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1021",
     "designName": "",
     "category": "Solid",
@@ -212,7 +212,7 @@
   {
     "id": 15,
     "productCode": "SD 1022 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1022",
     "designName": "",
     "category": "Solid",
@@ -227,7 +227,7 @@
   {
     "id": 16,
     "productCode": "SD 1023 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1023",
     "designName": "",
     "category": "Solid",
@@ -242,7 +242,7 @@
   {
     "id": 17,
     "productCode": "SD 1024 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1024",
     "designName": "",
     "category": "Solid",
@@ -257,7 +257,7 @@
   {
     "id": 18,
     "productCode": "SD 1027 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1027",
     "designName": "",
     "category": "Solid",
@@ -272,7 +272,7 @@
   {
     "id": 19,
     "productCode": "SD 1028 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1028",
     "designName": "",
     "category": "Solid",
@@ -287,7 +287,7 @@
   {
     "id": 20,
     "productCode": "SD 1029 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1029",
     "designName": "",
     "category": "Solid",
@@ -302,7 +302,7 @@
   {
     "id": 21,
     "productCode": "SD 1030 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1030",
     "designName": "",
     "category": "Solid",
@@ -317,7 +317,7 @@
   {
     "id": 22,
     "productCode": "SD 1031 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1031",
     "designName": "",
     "category": "Solid",
@@ -332,7 +332,7 @@
   {
     "id": 23,
     "productCode": "SD 1032 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1032",
     "designName": "",
     "category": "Solid",
@@ -347,7 +347,7 @@
   {
     "id": 24,
     "productCode": "SD 1033 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1033",
     "designName": "",
     "category": "Solid",
@@ -362,7 +362,7 @@
   {
     "id": 25,
     "productCode": "SD 1034 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1034",
     "designName": "",
     "category": "Solid",
@@ -377,7 +377,7 @@
   {
     "id": 26,
     "productCode": "SD 1035 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1035",
     "designName": "",
     "category": "Solid",
@@ -392,7 +392,7 @@
   {
     "id": 27,
     "productCode": "SD 1036 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1036",
     "designName": "",
     "category": "Solid",
@@ -407,7 +407,7 @@
   {
     "id": 28,
     "productCode": "SD 1037 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1037",
     "designName": "",
     "category": "Solid",
@@ -422,7 +422,7 @@
   {
     "id": 29,
     "productCode": "SD 1038 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1038",
     "designName": "",
     "category": "Solid",
@@ -437,7 +437,7 @@
   {
     "id": 30,
     "productCode": "SD 1039 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1039",
     "designName": "",
     "category": "Solid",
@@ -452,7 +452,7 @@
   {
     "id": 31,
     "productCode": "SD 1040 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1040",
     "designName": "",
     "category": "Solid",
@@ -467,7 +467,7 @@
   {
     "id": 32,
     "productCode": "SD 1041 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1041",
     "designName": "",
     "category": "Solid",
@@ -482,7 +482,7 @@
   {
     "id": 33,
     "productCode": "SD 1042 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1042",
     "designName": "",
     "category": "Solid",
@@ -497,7 +497,7 @@
   {
     "id": 34,
     "productCode": "SD 1043 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1043",
     "designName": "",
     "category": "Solid",
@@ -512,7 +512,7 @@
   {
     "id": 35,
     "productCode": "SD 1044 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1044",
     "designName": "",
     "category": "Solid",
@@ -527,7 +527,7 @@
   {
     "id": 36,
     "productCode": "SD 1046 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1046",
     "designName": "",
     "category": "Solid",
@@ -542,7 +542,7 @@
   {
     "id": 37,
     "productCode": "SD 1047 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1047",
     "designName": "",
     "category": "Solid",
@@ -557,7 +557,7 @@
   {
     "id": 38,
     "productCode": "SD 1048 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1048",
     "designName": "",
     "category": "Solid",
@@ -572,7 +572,7 @@
   {
     "id": 39,
     "productCode": "SD 1049 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1049",
     "designName": "",
     "category": "Solid",
@@ -587,7 +587,7 @@
   {
     "id": 40,
     "productCode": "SD 1050 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1050",
     "designName": "",
     "category": "Solid",
@@ -602,7 +602,7 @@
   {
     "id": 41,
     "productCode": "SD 1051 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1051",
     "designName": "",
     "category": "Solid",
@@ -617,7 +617,7 @@
   {
     "id": 42,
     "productCode": "SD 1052 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1052",
     "designName": "",
     "category": "Solid",
@@ -632,7 +632,7 @@
   {
     "id": 43,
     "productCode": "SD 1053 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1053",
     "designName": "",
     "category": "Solid",
@@ -647,7 +647,7 @@
   {
     "id": 44,
     "productCode": "SD 1054 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1054",
     "designName": "",
     "category": "Solid",
@@ -662,7 +662,7 @@
   {
     "id": 45,
     "productCode": "SD 1055 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1055",
     "designName": "",
     "category": "Solid",
@@ -677,7 +677,7 @@
   {
     "id": 46,
     "productCode": "SD 1056 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1056",
     "designName": "",
     "category": "Solid",
@@ -692,7 +692,7 @@
   {
     "id": 47,
     "productCode": "SD 1057 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1057",
     "designName": "",
     "category": "Solid",
@@ -707,7 +707,7 @@
   {
     "id": 48,
     "productCode": "SD 1058 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1058",
     "designName": "",
     "category": "Solid",
@@ -722,7 +722,7 @@
   {
     "id": 49,
     "productCode": "SD 1059 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1059",
     "designName": "",
     "category": "Solid",
@@ -737,7 +737,7 @@
   {
     "id": 50,
     "productCode": "SD 1060 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1060",
     "designName": "",
     "category": "Solid",
@@ -752,7 +752,7 @@
   {
     "id": 51,
     "productCode": "SD 1061 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1061",
     "designName": "",
     "category": "Solid",
@@ -767,7 +767,7 @@
   {
     "id": 52,
     "productCode": "SD 1062 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1062",
     "designName": "",
     "category": "Solid",
@@ -782,7 +782,7 @@
   {
     "id": 53,
     "productCode": "SD 1063 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1063",
     "designName": "",
     "category": "Solid",
@@ -797,7 +797,7 @@
   {
     "id": 54,
     "productCode": "SD 1064 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1064",
     "designName": "",
     "category": "Solid",
@@ -812,7 +812,7 @@
   {
     "id": 55,
     "productCode": "SD 1065 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1065",
     "designName": "",
     "category": "Solid",
@@ -827,7 +827,7 @@
   {
     "id": 56,
     "productCode": "SD 1066 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1066",
     "designName": "",
     "category": "Solid",
@@ -842,7 +842,7 @@
   {
     "id": 57,
     "productCode": "SD 1067 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1067",
     "designName": "",
     "category": "Solid",
@@ -857,7 +857,7 @@
   {
     "id": 58,
     "productCode": "SD 1068 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1068",
     "designName": "",
     "category": "Solid",
@@ -872,7 +872,7 @@
   {
     "id": 59,
     "productCode": "SD 1069 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1069",
     "designName": "",
     "category": "Solid",
@@ -887,7 +887,7 @@
   {
     "id": 60,
     "productCode": "SD 1070 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1070",
     "designName": "",
     "category": "Solid",
@@ -902,7 +902,7 @@
   {
     "id": 61,
     "productCode": "SD 1071 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1071",
     "designName": "",
     "category": "Solid",
@@ -917,7 +917,7 @@
   {
     "id": 62,
     "productCode": "SD 1072 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1072",
     "designName": "",
     "category": "Solid",
@@ -932,7 +932,7 @@
   {
     "id": 63,
     "productCode": "SD 1073 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1073",
     "designName": "",
     "category": "Solid",
@@ -947,7 +947,7 @@
   {
     "id": 64,
     "productCode": "SD 1074 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1074",
     "designName": "",
     "category": "Solid",
@@ -962,7 +962,7 @@
   {
     "id": 65,
     "productCode": "SD 1075 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1075",
     "designName": "",
     "category": "Solid",
@@ -977,7 +977,7 @@
   {
     "id": 66,
     "productCode": "SD 1076 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1076",
     "designName": "",
     "category": "Solid",
@@ -992,7 +992,7 @@
   {
     "id": 67,
     "productCode": "SD 1501 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1501",
     "designName": "",
     "category": "Solid",
@@ -1007,7 +1007,7 @@
   {
     "id": 68,
     "productCode": "SD 1505 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1505",
     "designName": "",
     "category": "Solid",
@@ -1022,7 +1022,7 @@
   {
     "id": 69,
     "productCode": "SD 1506 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1506",
     "designName": "",
     "category": "Solid",
@@ -1037,7 +1037,7 @@
   {
     "id": 70,
     "productCode": "SD 1507 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1507",
     "designName": "",
     "category": "Solid",
@@ -1052,7 +1052,7 @@
   {
     "id": 71,
     "productCode": "SD 1510 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1510",
     "designName": "",
     "category": "Solid",
@@ -1067,7 +1067,7 @@
   {
     "id": 72,
     "productCode": "SD 1511 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1511",
     "designName": "",
     "category": "Solid",
@@ -1082,7 +1082,7 @@
   {
     "id": 73,
     "productCode": "SD 1515 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1515",
     "designName": "",
     "category": "Solid",
@@ -1097,7 +1097,7 @@
   {
     "id": 74,
     "productCode": "SD 1516 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1516",
     "designName": "",
     "category": "Solid",
@@ -1112,7 +1112,7 @@
   {
     "id": 75,
     "productCode": "SD 1517 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1517",
     "designName": "",
     "category": "Solid",
@@ -1127,7 +1127,7 @@
   {
     "id": 76,
     "productCode": "SD 1518 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1518",
     "designName": "",
     "category": "Solid",
@@ -1142,7 +1142,7 @@
   {
     "id": 77,
     "productCode": "SD 1519 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1519",
     "designName": "",
     "category": "Solid",
@@ -1157,7 +1157,7 @@
   {
     "id": 78,
     "productCode": "SD 1520 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1520",
     "designName": "",
     "category": "Solid",
@@ -1172,7 +1172,7 @@
   {
     "id": 79,
     "productCode": "SD 1521 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1521",
     "designName": "",
     "category": "Solid",
@@ -1187,7 +1187,7 @@
   {
     "id": 80,
     "productCode": "SD 1522 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 1522",
     "designName": "",
     "category": "Solid",
@@ -1202,7 +1202,7 @@
   {
     "id": 81,
     "productCode": "SD 2010 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 2010",
     "designName": "",
     "category": "Abstract",
@@ -1217,7 +1217,7 @@
   {
     "id": 82,
     "productCode": "SD 2015 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 2015",
     "designName": "",
     "category": "Abstract",
@@ -1232,7 +1232,7 @@
   {
     "id": 83,
     "productCode": "SD 2019 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 2019",
     "designName": "",
     "category": "Abstract",
@@ -1247,7 +1247,7 @@
   {
     "id": 84,
     "productCode": "SD 2021 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 2021",
     "designName": "",
     "category": "Abstract",
@@ -1262,7 +1262,7 @@
   {
     "id": 85,
     "productCode": "SD 2022 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 2022",
     "designName": "",
     "category": "Abstract",
@@ -1277,7 +1277,7 @@
   {
     "id": 86,
     "productCode": "SD 4008 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4008",
     "designName": "",
     "category": "Abstract",
@@ -1293,7 +1293,7 @@
   {
     "id": 88,
     "productCode": "SD 4012 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4012",
     "designName": "",
     "category": "Stone",
@@ -1308,7 +1308,7 @@
   {
     "id": 89,
     "productCode": "SD 4013 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4013",
     "designName": "",
     "category": "Stone",
@@ -1323,7 +1323,7 @@
   {
     "id": 90,
     "productCode": "SD 4016 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4016",
     "designName": "",
     "category": "Stone",
@@ -1338,7 +1338,7 @@
   {
     "id": 91,
     "productCode": "SD 4017 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4017",
     "designName": "",
     "category": "Stone",
@@ -1353,7 +1353,7 @@
   {
     "id": 92,
     "productCode": "SD 4018 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4018",
     "designName": "",
     "category": "Stone",
@@ -1368,7 +1368,7 @@
   {
     "id": 93,
     "productCode": "SD 4019 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4019",
     "designName": "",
     "category": "Stone",
@@ -1383,7 +1383,7 @@
   {
     "id": 94,
     "productCode": "SD 4020 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4020",
     "designName": "",
     "category": "Stone",
@@ -1398,7 +1398,7 @@
   {
     "id": 95,
     "productCode": "SD 4021 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4021",
     "designName": "",
     "category": "Stone",
@@ -1413,7 +1413,7 @@
   {
     "id": 96,
     "productCode": "SD 4022 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4022",
     "designName": "",
     "category": "Stone",
@@ -1428,7 +1428,7 @@
   {
     "id": 97,
     "productCode": "SD 4023 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4023",
     "designName": "",
     "category": "Stone",
@@ -1443,7 +1443,7 @@
   {
     "id": 98,
     "productCode": "SD 4031 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4031",
     "designName": "",
     "category": "Stone",
@@ -1458,7 +1458,7 @@
   {
     "id": 99,
     "productCode": "SD 4032 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4032",
     "designName": "",
     "category": "Stone",
@@ -1473,7 +1473,7 @@
   {
     "id": 100,
     "productCode": "SD 4033 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4033",
     "designName": "",
     "category": "Stone",
@@ -1488,7 +1488,7 @@
   {
     "id": 101,
     "productCode": "SD 4034 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4034",
     "designName": "",
     "category": "Stone",
@@ -1503,7 +1503,7 @@
   {
     "id": 103,
     "productCode": "SD 4036 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4036",
     "designName": "",
     "category": "Stone",
@@ -1518,7 +1518,7 @@
   {
     "id": 105,
     "productCode": "SD 4038 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4038",
     "designName": "",
     "category": "Stone",
@@ -1533,7 +1533,7 @@
   {
     "id": 106,
     "productCode": "SD 4039 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4039",
     "designName": "",
     "category": "Stone",
@@ -1548,7 +1548,7 @@
   {
     "id": 108,
     "productCode": "SD 4041 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4041",
     "designName": "",
     "category": "Stone",
@@ -1563,7 +1563,7 @@
   {
     "id": 109,
     "productCode": "SD 4050 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4050",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1578,7 +1578,7 @@
   {
     "id": 110,
     "productCode": "SD 4051 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4051",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1593,7 +1593,7 @@
   {
     "id": 111,
     "productCode": "SD 4052 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4052",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1608,7 +1608,7 @@
   {
     "id": 112,
     "productCode": "SD 4053 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4053",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1623,7 +1623,7 @@
   {
     "id": 113,
     "productCode": "SD 4054 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4054",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1638,7 +1638,7 @@
   {
     "id": 114,
     "productCode": "SD 4055 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4055",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1653,7 +1653,7 @@
   {
     "id": 115,
     "productCode": "SD 4056 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4056",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1668,7 +1668,7 @@
   {
     "id": 116,
     "productCode": "SD 4057 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4057",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1683,7 +1683,7 @@
   {
     "id": 117,
     "productCode": "SD 4058 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4058",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1698,7 +1698,7 @@
   {
     "id": 118,
     "productCode": "SD 4059 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4059",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1713,7 +1713,7 @@
   {
     "id": 119,
     "productCode": "SD 4062 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4062",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1728,7 +1728,7 @@
   {
     "id": 120,
     "productCode": "SD 4063 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4063",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1743,7 +1743,7 @@
   {
     "id": 121,
     "productCode": "SD 4065 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4065",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1758,7 +1758,7 @@
   {
     "id": 122,
     "productCode": "SD 4067 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4067",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1773,7 +1773,7 @@
   {
     "id": 123,
     "productCode": "SD 4068 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4068",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1788,7 +1788,7 @@
   {
     "id": 124,
     "productCode": "SD 4069 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4069",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1803,7 +1803,7 @@
   {
     "id": 125,
     "productCode": "SD 4070 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4070",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1818,7 +1818,7 @@
   {
     "id": 126,
     "productCode": "SD 4071 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4071",
     "designName": "",
     "category": "Metallics High Gloss",
@@ -1833,7 +1833,7 @@
   {
     "id": 129,
     "productCode": "SD 6003 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6003",
     "designName": "",
     "category": "Woods",
@@ -1848,7 +1848,7 @@
   {
     "id": 130,
     "productCode": "SD 6004 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6004",
     "designName": "",
     "category": "Woods",
@@ -1863,7 +1863,7 @@
   {
     "id": 131,
     "productCode": "SD 6007 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6007",
     "designName": "",
     "category": "Woods",
@@ -1878,7 +1878,7 @@
   {
     "id": 132,
     "productCode": "SD 6009 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6009",
     "designName": "",
     "category": "Woods",
@@ -1893,7 +1893,7 @@
   {
     "id": 133,
     "productCode": "SD 6010 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6010",
     "designName": "",
     "category": "Woods",
@@ -1908,7 +1908,7 @@
   {
     "id": 134,
     "productCode": "SD 6011 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6011",
     "designName": "",
     "category": "Woods",
@@ -1923,7 +1923,7 @@
   {
     "id": 135,
     "productCode": "SD 6012 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6012",
     "designName": "",
     "category": "Woods",
@@ -1938,7 +1938,7 @@
   {
     "id": 136,
     "productCode": "SD 6013 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6013",
     "designName": "",
     "category": "Abstract",
@@ -1953,7 +1953,7 @@
   {
     "id": 137,
     "productCode": "SD 6014 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6014",
     "designName": "",
     "category": "Woods",
@@ -1968,7 +1968,7 @@
   {
     "id": 138,
     "productCode": "SD 6015 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6015",
     "designName": "",
     "category": "Woods",
@@ -1983,7 +1983,7 @@
   {
     "id": 139,
     "productCode": "SD 6022 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6022",
     "designName": "",
     "category": "Woods",
@@ -1998,7 +1998,7 @@
   {
     "id": 140,
     "productCode": "SD 6024 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6024",
     "designName": "",
     "category": "Woods",
@@ -2013,7 +2013,7 @@
   {
     "id": 141,
     "productCode": "SD 6026 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6026",
     "designName": "",
     "category": "Woods",
@@ -2028,7 +2028,7 @@
   {
     "id": 142,
     "productCode": "SD 6037 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6037",
     "designName": "",
     "category": "Woods",
@@ -2043,7 +2043,7 @@
   {
     "id": 143,
     "productCode": "SD 6038 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6038",
     "designName": "",
     "category": "Abstract",
@@ -2058,7 +2058,7 @@
   {
     "id": 144,
     "productCode": "SD 6039 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6039",
     "designName": "",
     "category": "Abstract",
@@ -2073,7 +2073,7 @@
   {
     "id": 145,
     "productCode": "SD 6040 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6040",
     "designName": "",
     "category": "Abstract",
@@ -2088,7 +2088,7 @@
   {
     "id": 146,
     "productCode": "SD 6045 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6045",
     "designName": "",
     "category": "Woods",
@@ -2103,7 +2103,7 @@
   {
     "id": 147,
     "productCode": "SD 6046 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6046",
     "designName": "",
     "category": "Woods",
@@ -2118,7 +2118,7 @@
   {
     "id": 148,
     "productCode": "SD 6047 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6047",
     "designName": "",
     "category": "Woods",
@@ -2133,7 +2133,7 @@
   {
     "id": 149,
     "productCode": "SD 6048 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6048",
     "designName": "",
     "category": "Woods",
@@ -2148,7 +2148,7 @@
   {
     "id": 150,
     "productCode": "SD 6051 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6051",
     "designName": "",
     "category": "Woods",
@@ -2163,7 +2163,7 @@
   {
     "id": 151,
     "productCode": "SD 6054 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6054",
     "designName": "",
     "category": "Abstract",
@@ -2178,7 +2178,7 @@
   {
     "id": 152,
     "productCode": "SD 6055 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6055",
     "designName": "",
     "category": "Woods",
@@ -2193,7 +2193,7 @@
   {
     "id": 153,
     "productCode": "SD 6056 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6056",
     "designName": "",
     "category": "Woods",
@@ -2208,7 +2208,7 @@
   {
     "id": 154,
     "productCode": "SD 6057 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6057",
     "designName": "",
     "category": "Woods",
@@ -2223,7 +2223,7 @@
   {
     "id": 155,
     "productCode": "SD 6058 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6058",
     "designName": "",
     "category": "Woods",
@@ -2238,7 +2238,7 @@
   {
     "id": 156,
     "productCode": "SD 6059 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6059",
     "designName": "",
     "category": "Woods",
@@ -2253,7 +2253,7 @@
   {
     "id": 157,
     "productCode": "SD 6060 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6060",
     "designName": "",
     "category": "Woods",
@@ -2268,7 +2268,7 @@
   {
     "id": 158,
     "productCode": "SD 6061 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6061",
     "designName": "",
     "category": "Woods",
@@ -2283,7 +2283,7 @@
   {
     "id": 159,
     "productCode": "SD 6062 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6062",
     "designName": "",
     "category": "Woods",
@@ -2298,7 +2298,7 @@
   {
     "id": 160,
     "productCode": "SD 6063 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6063",
     "designName": "",
     "category": "Woods",
@@ -2313,7 +2313,7 @@
   {
     "id": 161,
     "productCode": "SD 6064 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6064",
     "designName": "",
     "category": "Woods",
@@ -2328,7 +2328,7 @@
   {
     "id": 162,
     "productCode": "SD 6066 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6066",
     "designName": "",
     "category": "Abstract",
@@ -2343,7 +2343,7 @@
   {
     "id": 163,
     "productCode": "SD 6067 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6067",
     "designName": "",
     "category": "Woods",
@@ -2358,7 +2358,7 @@
   {
     "id": 164,
     "productCode": "SD 6068 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6068",
     "designName": "",
     "category": "Woods",
@@ -2373,7 +2373,7 @@
   {
     "id": 165,
     "productCode": "SD 6069 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6069",
     "designName": "",
     "category": "Woods",
@@ -2388,7 +2388,7 @@
   {
     "id": 166,
     "productCode": "SD 6070 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6070",
     "designName": "",
     "category": "Woods",
@@ -2403,7 +2403,7 @@
   {
     "id": 167,
     "productCode": "SD 6071 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6071",
     "designName": "",
     "category": "Woods",
@@ -2418,7 +2418,7 @@
   {
     "id": 168,
     "productCode": "SD 6072 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6072",
     "designName": "",
     "category": "Woods",
@@ -2433,7 +2433,7 @@
   {
     "id": 169,
     "productCode": "SD 6073 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6073",
     "designName": "",
     "category": "Woods",
@@ -2448,7 +2448,7 @@
   {
     "id": 170,
     "productCode": "SD 6074 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6074",
     "designName": "",
     "category": "Woods",
@@ -2463,7 +2463,7 @@
   {
     "id": 171,
     "productCode": "SD 6075 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6075",
     "designName": "",
     "category": "Woods",
@@ -2478,7 +2478,7 @@
   {
     "id": 172,
     "productCode": "SD 6076 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6076",
     "designName": "",
     "category": "Woods",
@@ -2493,7 +2493,7 @@
   {
     "id": 173,
     "productCode": "SD 6077 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6077",
     "designName": "",
     "category": "Woods",
@@ -2508,7 +2508,7 @@
   {
     "id": 174,
     "productCode": "SD 6081 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6081",
     "designName": "",
     "category": "Woods",
@@ -2523,7 +2523,7 @@
   {
     "id": 175,
     "productCode": "SD 6083 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6083",
     "designName": "",
     "category": "Woods",
@@ -2538,7 +2538,7 @@
   {
     "id": 176,
     "productCode": "SD 6084 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6084",
     "designName": "",
     "category": "Woods",
@@ -2553,7 +2553,7 @@
   {
     "id": 177,
     "productCode": "SD 6085 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6085",
     "designName": "",
     "category": "Woods",
@@ -2568,7 +2568,7 @@
   {
     "id": 178,
     "productCode": "SD 6086 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6086",
     "designName": "",
     "category": "Woods",
@@ -2583,7 +2583,7 @@
   {
     "id": 179,
     "productCode": "SD 6087 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6087",
     "designName": "",
     "category": "Woods",
@@ -2598,7 +2598,7 @@
   {
     "id": 180,
     "productCode": "SD 6088 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6088",
     "designName": "",
     "category": "Woods",
@@ -2613,7 +2613,7 @@
   {
     "id": 181,
     "productCode": "SD 6089 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6089",
     "designName": "",
     "category": "Woods",
@@ -2628,7 +2628,7 @@
   {
     "id": 182,
     "productCode": "SD 6090 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6090",
     "designName": "",
     "category": "Woods",
@@ -2643,7 +2643,7 @@
   {
     "id": 183,
     "productCode": "SD 6091 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6091",
     "designName": "",
     "category": "Woods",
@@ -2658,7 +2658,7 @@
   {
     "id": 184,
     "productCode": "SD 6093 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6093",
     "designName": "",
     "category": "Woods",
@@ -2673,7 +2673,7 @@
   {
     "id": 185,
     "productCode": "SD 6094 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6094",
     "designName": "",
     "category": "Woods",
@@ -2688,7 +2688,7 @@
   {
     "id": 186,
     "productCode": "SD 6095 SMT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 6095",
     "designName": "",
     "category": "Woods",
@@ -2703,7 +2703,7 @@
   {
     "id": 187,
     "productCode": "SD 7001 CFL",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7001",
     "designName": "",
     "category": "Abstract",
@@ -2718,7 +2718,7 @@
   {
     "id": 188,
     "productCode": "SD 7004 STL",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7004",
     "designName": "",
     "category": "Leather",
@@ -2733,7 +2733,7 @@
   {
     "id": 189,
     "productCode": "SD 7005 FRL",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7005",
     "designName": "",
     "category": "Abstract",
@@ -2748,7 +2748,7 @@
   {
     "id": 190,
     "productCode": "SD 7006 FRL",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7006",
     "designName": "",
     "category": "Abstract",
@@ -2763,7 +2763,7 @@
   {
     "id": 191,
     "productCode": "SD 7008 TWL",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7008",
     "designName": "",
     "category": "Abstract",
@@ -2778,7 +2778,7 @@
   {
     "id": 192,
     "productCode": "SD 7009 FRL",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7009",
     "designName": "",
     "category": "Abstract",
@@ -2793,7 +2793,7 @@
   {
     "id": 193,
     "productCode": "SD 7010 FRL",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7010",
     "designName": "",
     "category": "Abstract",
@@ -2808,7 +2808,7 @@
   {
     "id": 194,
     "productCode": "SD 7011 MTS",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7011",
     "designName": "",
     "category": "Metallic",
@@ -2823,7 +2823,7 @@
   {
     "id": 195,
     "productCode": "SD 7013 MTV",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7013",
     "designName": "",
     "category": "Metallic",
@@ -2838,7 +2838,7 @@
   {
     "id": 196,
     "productCode": "SD 7017 WRC",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7017",
     "designName": "",
     "category": "Abstract",
@@ -2853,7 +2853,7 @@
   {
     "id": 197,
     "productCode": "SD 7018 WRC",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7018",
     "designName": "",
     "category": "Abstract",
@@ -2868,7 +2868,7 @@
   {
     "id": 198,
     "productCode": "SD 7021 WDE",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7021",
     "designName": "",
     "category": "Metallic",
@@ -2883,7 +2883,7 @@
   {
     "id": 199,
     "productCode": "SD 7023 CLT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7023",
     "designName": "",
     "category": "Leather",
@@ -2898,7 +2898,7 @@
   {
     "id": 200,
     "productCode": "SD 7024 CLT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7024",
     "designName": "",
     "category": "Leather",
@@ -2913,7 +2913,7 @@
   {
     "id": 201,
     "productCode": "SD 7025 CLT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7025",
     "designName": "",
     "category": "Leather",
@@ -2928,7 +2928,7 @@
   {
     "id": 202,
     "productCode": "SD 7028 CLT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7028",
     "designName": "",
     "category": "Leather",
@@ -2943,7 +2943,7 @@
   {
     "id": 203,
     "productCode": "SD 7029 WVM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7029",
     "designName": "",
     "category": "Leather",
@@ -2958,7 +2958,7 @@
   {
     "id": 204,
     "productCode": "SD 7030 WVM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7030",
     "designName": "",
     "category": "Leather",
@@ -2973,7 +2973,7 @@
   {
     "id": 205,
     "productCode": "SD 7031 WVM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7031",
     "designName": "",
     "category": "Leather",
@@ -2988,7 +2988,7 @@
   {
     "id": 206,
     "productCode": "SD 7032 TRN",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7032",
     "designName": "",
     "category": "Metallic",
@@ -3003,7 +3003,7 @@
   {
     "id": 207,
     "productCode": "SD 7033 EMB",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7033",
     "designName": "",
     "category": "Abstract",
@@ -3018,7 +3018,7 @@
   {
     "id": 210,
     "productCode": "SD 7502 GLC",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7502",
     "designName": "",
     "category": "Metallic",
@@ -3033,7 +3033,7 @@
   {
     "id": 211,
     "productCode": "SD 7503 GLC",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7503",
     "designName": "",
     "category": "Metallic",
@@ -3048,7 +3048,7 @@
   {
     "id": 212,
     "productCode": "SD 7505 GLM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7505",
     "designName": "",
     "category": "Metallic",
@@ -3063,7 +3063,7 @@
   {
     "id": 213,
     "productCode": "SD 7506 GFT",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7506",
     "designName": "",
     "category": "Metallic",
@@ -3078,7 +3078,7 @@
   {
     "id": 214,
     "productCode": "SD 7507 SMO",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7507",
     "designName": "",
     "category": "Metallic",
@@ -3093,7 +3093,7 @@
   {
     "id": 215,
     "productCode": "SD 7510 SHM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7510",
     "designName": "",
     "category": "Stone",
@@ -3108,7 +3108,7 @@
   {
     "id": 216,
     "productCode": "SD 7511 SHM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7511",
     "designName": "",
     "category": "Stone",
@@ -3123,7 +3123,7 @@
   {
     "id": 217,
     "productCode": "SD 7512 SHM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7512",
     "designName": "",
     "category": "Stone",
@@ -3138,7 +3138,7 @@
   {
     "id": 218,
     "productCode": "SD 7513 SHM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7513",
     "designName": "",
     "category": "Stone",
@@ -3153,7 +3153,7 @@
   {
     "id": 219,
     "productCode": "SD 7514 SHM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7514",
     "designName": "",
     "category": "Stone",
@@ -3168,7 +3168,7 @@
   {
     "id": 221,
     "productCode": "SD 7516 SHM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7516",
     "designName": "",
     "category": "Stone",
@@ -3183,7 +3183,7 @@
   {
     "id": 222,
     "productCode": "SD 7517 SHM",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 7517",
     "designName": "",
     "category": "Stone",
@@ -3198,7 +3198,7 @@
   {
     "id": 227,
     "productCode": "SD 8006 CFL",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 8006",
     "designName": "",
     "category": "Abstract",
@@ -3213,7 +3213,7 @@
   {
     "id": 228,
     "productCode": "SD 8008 CFL",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 8008",
     "designName": "",
     "category": "Abstract",
@@ -3228,7 +3228,7 @@
   {
     "id": 229,
     "productCode": "SD 8017 HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 8017",
     "designName": "",
     "category": "Abstract",
@@ -3243,7 +3243,7 @@
   {
     "id": 230,
     "productCode": "SD 4025A HG",
-    "productType": "FR Flexi Laminates",
+    "productType": "PVC",
     "productName": "SD 4025 A",
     "designName": "",
     "category": "Stone",
@@ -3258,7 +3258,7 @@
   {
     "id": 231,
     "productCode": "SDL 20203 IMP",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20203",
     "designName": "FAWN BEIGE METALLIC",
     "category": "Abstract",
@@ -3273,7 +3273,7 @@
   {
     "id": 232,
     "productCode": "SDL 20205 IMP",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20205",
     "designName": "ROSE PINK METALLIC",
     "category": "Abstract",
@@ -3288,7 +3288,7 @@
   {
     "id": 233,
     "productCode": "SDL 20208 IMP",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20208",
     "designName": "GUNMETAL GREY METALLIC",
     "category": "Abstract",
@@ -3303,7 +3303,7 @@
   {
     "id": 234,
     "productCode": "SDL 20201 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20201",
     "designName": "PEARL WHITE METALLIC",
     "category": "Abstract",
@@ -3318,7 +3318,7 @@
   {
     "id": 235,
     "productCode": "SDL 20202 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20202",
     "designName": "GOTHIC GREY METALLIC",
     "category": "Abstract",
@@ -3333,7 +3333,7 @@
   {
     "id": 236,
     "productCode": "SDL 20203 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20203",
     "designName": "FAWN BEIGE METALLIC",
     "category": "Abstract",
@@ -3348,7 +3348,7 @@
   {
     "id": 237,
     "productCode": "SDL 20204 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20204",
     "designName": "SAND METALLIC",
     "category": "Abstract",
@@ -3363,7 +3363,7 @@
   {
     "id": 238,
     "productCode": "SDL 20205 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20205",
     "designName": "ROSE PINK METALLIC",
     "category": "Abstract",
@@ -3378,7 +3378,7 @@
   {
     "id": 239,
     "productCode": "SDL 20206 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20206",
     "designName": "GRAPHITE GREY METALLIC",
     "category": "Abstract",
@@ -3393,7 +3393,7 @@
   {
     "id": 240,
     "productCode": "SDL 20207 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20207",
     "designName": "BLUISH GREY METALLIC",
     "category": "Abstract",
@@ -3408,7 +3408,7 @@
   {
     "id": 241,
     "productCode": "SDL 20208 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20208",
     "designName": "GUNMETAL GREY METALLIC",
     "category": "Abstract",
@@ -3423,7 +3423,7 @@
   {
     "id": 242,
     "productCode": "SDL 20209 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 20209",
     "designName": "IVORY METALLIC",
     "category": "Abstract",
@@ -3438,7 +3438,7 @@
   {
     "id": 243,
     "productCode": "SDL 10102 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10102",
     "designName": "FROSTY WHITE",
     "category": "Solid",
@@ -3453,7 +3453,7 @@
   {
     "id": 244,
     "productCode": "SDL 10106 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10106",
     "designName": "ASH GREY",
     "category": "Solid",
@@ -3468,7 +3468,7 @@
   {
     "id": 245,
     "productCode": "SDL 10110 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10110",
     "designName": "TOBACCO BROWN",
     "category": "Solid",
@@ -3483,7 +3483,7 @@
   {
     "id": 246,
     "productCode": "SDL 10111 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10111",
     "designName": "BEIGE",
     "category": "Solid",
@@ -3498,7 +3498,7 @@
   {
     "id": 247,
     "productCode": "SDL 10112 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10112",
     "designName": "CHOCO BROWN",
     "category": "Solid",
@@ -3513,7 +3513,7 @@
   {
     "id": 248,
     "productCode": "SDL 10114 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10114",
     "designName": "IVORY",
     "category": "Solid",
@@ -3528,7 +3528,7 @@
   {
     "id": 249,
     "productCode": "SDL 10115 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10115",
     "designName": "WARM BLACK",
     "category": "Solid",
@@ -3543,7 +3543,7 @@
   {
     "id": 250,
     "productCode": "SDL 10116 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10116",
     "designName": "SILVER GREY",
     "category": "Solid",
@@ -3558,7 +3558,7 @@
   {
     "id": 251,
     "productCode": "SDL 10119 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10119",
     "designName": "SAFFRON",
     "category": "Solid",
@@ -3573,7 +3573,7 @@
   {
     "id": 252,
     "productCode": "SDL 10120 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10120",
     "designName": "CAPPUCCIANO",
     "category": "Solid",
@@ -3588,7 +3588,7 @@
   {
     "id": 253,
     "productCode": "SDL 10121 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10121",
     "designName": "OAT CLAY",
     "category": "Solid",
@@ -3603,7 +3603,7 @@
   {
     "id": 254,
     "productCode": "SDL 10122 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10122",
     "designName": "GRIEGE CLAY",
     "category": "Solid",
@@ -3618,7 +3618,7 @@
   {
     "id": 255,
     "productCode": "SDL 10123 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10123",
     "designName": "BURNT SUGAR",
     "category": "Solid",
@@ -3633,7 +3633,7 @@
   {
     "id": 256,
     "productCode": "SDL 10124 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10124",
     "designName": "MOSS BEIGE",
     "category": "Solid",
@@ -3648,7 +3648,7 @@
   {
     "id": 257,
     "productCode": "SDL 10125 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10125",
     "designName": "BOTTLESHIP GREY",
     "category": "Solid",
@@ -3663,7 +3663,7 @@
   {
     "id": 258,
     "productCode": "SDL 10126 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10126",
     "designName": "BRICK RED",
     "category": "Solid",
@@ -3678,7 +3678,7 @@
   {
     "id": 259,
     "productCode": "SDL 10127 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10127",
     "designName": "BLOSSOM GREEN",
     "category": "Solid",
@@ -3693,7 +3693,7 @@
   {
     "id": 260,
     "productCode": "SDL 10128 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10128",
     "designName": "BONDI BLUE",
     "category": "Solid",
@@ -3708,7 +3708,7 @@
   {
     "id": 261,
     "productCode": "SDL 10129 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10129",
     "designName": "DARK CLAY",
     "category": "Solid",
@@ -3723,7 +3723,7 @@
   {
     "id": 262,
     "productCode": "SDL 10130 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10130",
     "designName": "BONE DARK",
     "category": "Solid",
@@ -3738,7 +3738,7 @@
   {
     "id": 263,
     "productCode": "SDL 10131 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10131",
     "designName": "BONE LIGHT",
     "category": "Solid",
@@ -3753,7 +3753,7 @@
   {
     "id": 264,
     "productCode": "SDL 10133 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10133",
     "designName": "PEWTER GREY",
     "category": "Solid",
@@ -3768,7 +3768,7 @@
   {
     "id": 265,
     "productCode": "SDL 10134 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10134",
     "designName": "PASTEL GREY",
     "category": "Solid",
@@ -3783,7 +3783,7 @@
   {
     "id": 266,
     "productCode": "SDL 10135 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10135",
     "designName": "CHARCOAL GREY",
     "category": "Solid",
@@ -3798,7 +3798,7 @@
   {
     "id": 267,
     "productCode": "SDL 10136 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10136",
     "designName": "STEEL GREY",
     "category": "Solid",
@@ -3813,7 +3813,7 @@
   {
     "id": 268,
     "productCode": "SDL 10137 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10137",
     "designName": "CRUISE GREEN",
     "category": "Solid",
@@ -3828,7 +3828,7 @@
   {
     "id": 269,
     "productCode": "SDL 10138 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10138",
     "designName": "SOFT CYAN",
     "category": "Solid",
@@ -3843,7 +3843,7 @@
   {
     "id": 270,
     "productCode": "SDL 10139 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10139",
     "designName": "CANDY FLOSS PINK",
     "category": "Solid",
@@ -3858,7 +3858,7 @@
   {
     "id": 271,
     "productCode": "SDL 10140 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10140",
     "designName": "SEAFORM GREEN",
     "category": "Solid",
@@ -3873,7 +3873,7 @@
   {
     "id": 272,
     "productCode": "SDL 10141 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10141",
     "designName": "BLUE JADE",
     "category": "Solid",
@@ -3888,7 +3888,7 @@
   {
     "id": 273,
     "productCode": "SDL 10142 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10142",
     "designName": "GAINSBORO GREY",
     "category": "Solid",
@@ -3903,7 +3903,7 @@
   {
     "id": 274,
     "productCode": "SDL 10201 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10201",
     "designName": "GHOST WHITE",
     "category": "Solid",
@@ -3918,7 +3918,7 @@
   {
     "id": 275,
     "productCode": "SDL 10202 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10202",
     "designName": "ROSE WHITE",
     "category": "Solid",
@@ -3933,7 +3933,7 @@
   {
     "id": 276,
     "productCode": "SDL 10203 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10203",
     "designName": "MYSORE INVORY",
     "category": "Solid",
@@ -3948,7 +3948,7 @@
   {
     "id": 277,
     "productCode": "SDL 10204 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10204",
     "designName": "CREAMY WHITE",
     "category": "Solid",
@@ -3963,7 +3963,7 @@
   {
     "id": 278,
     "productCode": "SDL 10205 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10205",
     "designName": "ANTI FLASH WHITE",
     "category": "Solid",
@@ -3978,7 +3978,7 @@
   {
     "id": 279,
     "productCode": "SDL 10206 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10206",
     "designName": "COTTON WHITE",
     "category": "Solid",
@@ -3993,7 +3993,7 @@
   {
     "id": 280,
     "productCode": "SDL 10102 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10102",
     "designName": "FROSTY WHITE",
     "category": "Solid",
@@ -4008,7 +4008,7 @@
   {
     "id": 281,
     "productCode": "SDL 10102 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10102",
     "designName": "FROSTY WHITE",
     "category": "Solid",
@@ -4023,7 +4023,7 @@
   {
     "id": 282,
     "productCode": "SDL 10102 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10102",
     "designName": "FROSTY WHITE",
     "category": "Solid",
@@ -4038,7 +4038,7 @@
   {
     "id": 283,
     "productCode": "SDL 10106 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10106",
     "designName": "ASH GREY",
     "category": "Solid",
@@ -4053,7 +4053,7 @@
   {
     "id": 284,
     "productCode": "SDL 10106 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10106",
     "designName": "ASH GREY",
     "category": "Solid",
@@ -4068,7 +4068,7 @@
   {
     "id": 285,
     "productCode": "SDL 10106 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10106",
     "designName": "ASH GREY",
     "category": "Solid",
@@ -4083,7 +4083,7 @@
   {
     "id": 286,
     "productCode": "SDL 10110 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10110",
     "designName": "TOBACCO BROWN",
     "category": "Solid",
@@ -4098,7 +4098,7 @@
   {
     "id": 287,
     "productCode": "SDL 10110 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10110",
     "designName": "TOBACCO BROWN",
     "category": "Solid",
@@ -4113,7 +4113,7 @@
   {
     "id": 288,
     "productCode": "SDL 10111 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10111",
     "designName": "BEIGE",
     "category": "Solid",
@@ -4128,7 +4128,7 @@
   {
     "id": 289,
     "productCode": "SDL 10111 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10111",
     "designName": "BEIGE",
     "category": "Solid",
@@ -4143,7 +4143,7 @@
   {
     "id": 290,
     "productCode": "SDL 10112 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10112",
     "designName": "CHOCO BROWN",
     "category": "Solid",
@@ -4158,7 +4158,7 @@
   {
     "id": 291,
     "productCode": "SDL 10112 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10112",
     "designName": "CHOCO BROWN",
     "category": "Solid",
@@ -4173,7 +4173,7 @@
   {
     "id": 292,
     "productCode": "SDL 10114 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10114",
     "designName": "IVORY",
     "category": "Solid",
@@ -4188,7 +4188,7 @@
   {
     "id": 293,
     "productCode": "SDL 10114 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10114",
     "designName": "IVORY",
     "category": "Solid",
@@ -4203,7 +4203,7 @@
   {
     "id": 294,
     "productCode": "SDL 10115 FKG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10115",
     "designName": "WARM BLACK",
     "category": "Solid",
@@ -4218,7 +4218,7 @@
   {
     "id": 295,
     "productCode": "SDL 10115 FKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10115",
     "designName": "WARM BLACK",
     "category": "Solid",
@@ -4233,7 +4233,7 @@
   {
     "id": 296,
     "productCode": "SDL 10115 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10115",
     "designName": "WARM BLACK",
     "category": "Solid",
@@ -4248,7 +4248,7 @@
   {
     "id": 297,
     "productCode": "SDL 10115 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10115",
     "designName": "WARM BLACK",
     "category": "Solid",
@@ -4263,7 +4263,7 @@
   {
     "id": 298,
     "productCode": "SDL 10116 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10116",
     "designName": "SILVER GREY",
     "category": "Solid",
@@ -4278,7 +4278,7 @@
   {
     "id": 299,
     "productCode": "SDL 10116 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10116",
     "designName": "SILVER GREY",
     "category": "Solid",
@@ -4293,7 +4293,7 @@
   {
     "id": 300,
     "productCode": "SDL 10116 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10116",
     "designName": "SILVER GREY",
     "category": "Solid",
@@ -4308,7 +4308,7 @@
   {
     "id": 301,
     "productCode": "SDL 10119 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10119",
     "designName": "SAFFRON",
     "category": "Solid",
@@ -4323,7 +4323,7 @@
   {
     "id": 302,
     "productCode": "SDL 10119 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10119",
     "designName": "SAFFRON",
     "category": "Solid",
@@ -4338,7 +4338,7 @@
   {
     "id": 303,
     "productCode": "SDL 10120 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10120",
     "designName": "CAPPUCCIANO",
     "category": "Solid",
@@ -4353,7 +4353,7 @@
   {
     "id": 304,
     "productCode": "SDL 10120 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10120",
     "designName": "CAPPUCCIANO",
     "category": "Solid",
@@ -4368,7 +4368,7 @@
   {
     "id": 305,
     "productCode": "SDL 10121 FKG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10121",
     "designName": "OAT CLAY",
     "category": "Solid",
@@ -4383,7 +4383,7 @@
   {
     "id": 306,
     "productCode": "SDL 10121 FKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10121",
     "designName": "OAT CLAY",
     "category": "Solid",
@@ -4398,7 +4398,7 @@
   {
     "id": 307,
     "productCode": "SDL 10121 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10121",
     "designName": "OAT CLAY",
     "category": "Solid",
@@ -4413,7 +4413,7 @@
   {
     "id": 308,
     "productCode": "SDL 10121 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10121",
     "designName": "OAT CLAY",
     "category": "Solid",
@@ -4428,7 +4428,7 @@
   {
     "id": 309,
     "productCode": "SDL 10121 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10121",
     "designName": "OAT CLAY",
     "category": "Solid",
@@ -4443,7 +4443,7 @@
   {
     "id": 310,
     "productCode": "SDL 10122 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10122",
     "designName": "GRIEGE CLAY",
     "category": "Solid",
@@ -4458,7 +4458,7 @@
   {
     "id": 311,
     "productCode": "SDL 10122 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10122",
     "designName": "GRIEGE CLAY",
     "category": "Solid",
@@ -4473,7 +4473,7 @@
   {
     "id": 312,
     "productCode": "SDL 10122 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10122",
     "designName": "GRIEGE CLAY",
     "category": "Solid",
@@ -4488,7 +4488,7 @@
   {
     "id": 313,
     "productCode": "SDL 10123 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10123",
     "designName": "BURNT SUGAR",
     "category": "Solid",
@@ -4503,7 +4503,7 @@
   {
     "id": 314,
     "productCode": "SDL 10123 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10123",
     "designName": "BURNT SUGAR",
     "category": "Solid",
@@ -4518,7 +4518,7 @@
   {
     "id": 315,
     "productCode": "SDL 10124 FBT",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10124",
     "designName": "MOSS BEIGE",
     "category": "Solid",
@@ -4533,7 +4533,7 @@
   {
     "id": 316,
     "productCode": "SDL 10124 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10124",
     "designName": "MOSS BEIGE",
     "category": "Solid",
@@ -4548,7 +4548,7 @@
   {
     "id": 317,
     "productCode": "SDL 10124 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10124",
     "designName": "MOSS BEIGE",
     "category": "Solid",
@@ -4563,7 +4563,7 @@
   {
     "id": 318,
     "productCode": "SDL 10124 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10124",
     "designName": "MOSS BEIGE",
     "category": "Solid",
@@ -4578,7 +4578,7 @@
   {
     "id": 319,
     "productCode": "SDL 10125 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10125",
     "designName": "BOTTLESHIP GREY",
     "category": "Solid",
@@ -4593,7 +4593,7 @@
   {
     "id": 320,
     "productCode": "SDL 10125 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10125",
     "designName": "BOTTLESHIP GREY",
     "category": "Solid",
@@ -4608,7 +4608,7 @@
   {
     "id": 321,
     "productCode": "SDL 10125 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10125",
     "designName": "BOTTLESHIP GREY",
     "category": "Solid",
@@ -4623,7 +4623,7 @@
   {
     "id": 322,
     "productCode": "SDL 10126 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10126",
     "designName": "BRICK RED",
     "category": "Solid",
@@ -4638,7 +4638,7 @@
   {
     "id": 323,
     "productCode": "SDL 10126 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10126",
     "designName": "BRICK RED",
     "category": "Solid",
@@ -4653,7 +4653,7 @@
   {
     "id": 324,
     "productCode": "SDL 10127 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10127",
     "designName": "BLOSSOM GREEN",
     "category": "Solid",
@@ -4668,7 +4668,7 @@
   {
     "id": 325,
     "productCode": "SDL 10127 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10127",
     "designName": "BLOSSOM GREEN",
     "category": "Solid",
@@ -4683,7 +4683,7 @@
   {
     "id": 326,
     "productCode": "SDL 10128 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10128",
     "designName": "BONDI BLUE",
     "category": "Solid",
@@ -4698,7 +4698,7 @@
   {
     "id": 327,
     "productCode": "SDL 10128 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10128",
     "designName": "BONDI BLUE",
     "category": "Solid",
@@ -4713,7 +4713,7 @@
   {
     "id": 328,
     "productCode": "SDL 10129 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10129",
     "designName": "DARK CLAY",
     "category": "Solid",
@@ -4728,7 +4728,7 @@
   {
     "id": 329,
     "productCode": "SDL 10129 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10129",
     "designName": "DARK CLAY",
     "category": "Solid",
@@ -4743,7 +4743,7 @@
   {
     "id": 330,
     "productCode": "SDL 10130 FBT",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10130",
     "designName": "BONE DARK",
     "category": "Solid",
@@ -4758,7 +4758,7 @@
   {
     "id": 331,
     "productCode": "SDL 10130 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10130",
     "designName": "BONE DARK",
     "category": "Solid",
@@ -4773,7 +4773,7 @@
   {
     "id": 332,
     "productCode": "SDL 10130 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10130",
     "designName": "BONE DARK",
     "category": "Solid",
@@ -4788,7 +4788,7 @@
   {
     "id": 333,
     "productCode": "SDL 10131 EQR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10131",
     "designName": "BONE LIGHT",
     "category": "Solid",
@@ -4803,7 +4803,7 @@
   {
     "id": 334,
     "productCode": "SDL 10131 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10131",
     "designName": "BONE LIGHT",
     "category": "Solid",
@@ -4818,7 +4818,7 @@
   {
     "id": 335,
     "productCode": "SDL 10131 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10131",
     "designName": "BONE LIGHT",
     "category": "Solid",
@@ -4833,7 +4833,7 @@
   {
     "id": 336,
     "productCode": "SDL 10132 EQR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10132",
     "designName": "DARK TRUFFLE",
     "category": "Solid",
@@ -4848,7 +4848,7 @@
   {
     "id": 337,
     "productCode": "SDL 10132 FKG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10132",
     "designName": "DARK TRUFFLE",
     "category": "Solid",
@@ -4863,7 +4863,7 @@
   {
     "id": 338,
     "productCode": "SDL 10132 FKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10132",
     "designName": "DARK TRUFFLE",
     "category": "Solid",
@@ -4878,7 +4878,7 @@
   {
     "id": 339,
     "productCode": "SDL 10132 IMP",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10132",
     "designName": "DARK TRUFFLE",
     "category": "Solid",
@@ -4893,7 +4893,7 @@
   {
     "id": 340,
     "productCode": "SDL 10132 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10132",
     "designName": "DARK TRUFFLE",
     "category": "Solid",
@@ -4908,7 +4908,7 @@
   {
     "id": 341,
     "productCode": "SDL 10132 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10132",
     "designName": "DARK TRUFFLE",
     "category": "Solid",
@@ -4923,7 +4923,7 @@
   {
     "id": 342,
     "productCode": "SDL 10133 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10133",
     "designName": "PEWTER GREY",
     "category": "Solid",
@@ -4938,7 +4938,7 @@
   {
     "id": 343,
     "productCode": "SDL 10133 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10133",
     "designName": "PEWTER GREY",
     "category": "Solid",
@@ -4953,7 +4953,7 @@
   {
     "id": 344,
     "productCode": "SDL 10134 EQR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10134",
     "designName": "PASTEL GREY",
     "category": "Solid",
@@ -4968,7 +4968,7 @@
   {
     "id": 345,
     "productCode": "SDL 10134 FBT",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10134",
     "designName": "PASTEL GREY",
     "category": "Solid",
@@ -4983,7 +4983,7 @@
   {
     "id": 346,
     "productCode": "SDL 10134 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10134",
     "designName": "PASTEL GREY",
     "category": "Solid",
@@ -4998,7 +4998,7 @@
   {
     "id": 347,
     "productCode": "SDL 10134 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10134",
     "designName": "PASTEL GREY",
     "category": "Solid",
@@ -5013,7 +5013,7 @@
   {
     "id": 348,
     "productCode": "SDL 10135 EQR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10135",
     "designName": "CHARCOAL GREY",
     "category": "Solid",
@@ -5028,7 +5028,7 @@
   {
     "id": 349,
     "productCode": "SDL 10135 FKG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10135",
     "designName": "CHARCOAL GREY",
     "category": "Solid",
@@ -5043,7 +5043,7 @@
   {
     "id": 350,
     "productCode": "SDL 10135 FKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10135",
     "designName": "CHARCOAL GREY",
     "category": "Solid",
@@ -5058,7 +5058,7 @@
   {
     "id": 351,
     "productCode": "SDL 10135 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10135",
     "designName": "CHARCOAL GREY",
     "category": "Solid",
@@ -5073,7 +5073,7 @@
   {
     "id": 352,
     "productCode": "SDL 10135 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10135",
     "designName": "CHARCOAL GREY",
     "category": "Solid",
@@ -5088,7 +5088,7 @@
   {
     "id": 353,
     "productCode": "SDL 10136 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10136",
     "designName": "STEEL GREY",
     "category": "Solid",
@@ -5103,7 +5103,7 @@
   {
     "id": 354,
     "productCode": "SDL 10136 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10136",
     "designName": "STEEL GREY",
     "category": "Solid",
@@ -5118,7 +5118,7 @@
   {
     "id": 355,
     "productCode": "SDL 10137 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10137",
     "designName": "CRUISE GREEN",
     "category": "Solid",
@@ -5133,7 +5133,7 @@
   {
     "id": 356,
     "productCode": "SDL 10137 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10137",
     "designName": "CRUISE GREEN",
     "category": "Solid",
@@ -5148,7 +5148,7 @@
   {
     "id": 357,
     "productCode": "SDL 10137 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10137",
     "designName": "CRUISE GREEN",
     "category": "Solid",
@@ -5163,7 +5163,7 @@
   {
     "id": 358,
     "productCode": "SDL 10138 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10138",
     "designName": "SOFT CYAN",
     "category": "Solid",
@@ -5178,7 +5178,7 @@
   {
     "id": 359,
     "productCode": "SDL 10138 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10138",
     "designName": "SOFT CYAN",
     "category": "Solid",
@@ -5193,7 +5193,7 @@
   {
     "id": 360,
     "productCode": "SDL 10138 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10138",
     "designName": "SOFT CYAN",
     "category": "Solid",
@@ -5208,7 +5208,7 @@
   {
     "id": 361,
     "productCode": "SDL 10139 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10139",
     "designName": "CANDY FLOSS PINK",
     "category": "Solid",
@@ -5223,7 +5223,7 @@
   {
     "id": 362,
     "productCode": "SDL 10139 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10139",
     "designName": "CANDY FLOSS PINK",
     "category": "Solid",
@@ -5238,7 +5238,7 @@
   {
     "id": 363,
     "productCode": "SDL 10140 FBT",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10140",
     "designName": "SEAFORM GREEN",
     "category": "Solid",
@@ -5253,7 +5253,7 @@
   {
     "id": 364,
     "productCode": "SDL 10140 FSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10140",
     "designName": "SEAFORM GREEN",
     "category": "Solid",
@@ -5268,7 +5268,7 @@
   {
     "id": 365,
     "productCode": "SDL 10140 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10140",
     "designName": "SEAFORM GREEN",
     "category": "Solid",
@@ -5283,7 +5283,7 @@
   {
     "id": 366,
     "productCode": "SDL 10140 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10140",
     "designName": "SEAFORM GREEN",
     "category": "Solid",
@@ -5298,7 +5298,7 @@
   {
     "id": 367,
     "productCode": "SDL 10141 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10141",
     "designName": "BLUE JADE",
     "category": "Solid",
@@ -5313,7 +5313,7 @@
   {
     "id": 368,
     "productCode": "SDL 10141 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10141",
     "designName": "BLUE JADE",
     "category": "Solid",
@@ -5328,7 +5328,7 @@
   {
     "id": 369,
     "productCode": "SDL 10142 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10142",
     "designName": "GAINSBORO GREY",
     "category": "Solid",
@@ -5343,7 +5343,7 @@
   {
     "id": 370,
     "productCode": "SDL 10142 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10142",
     "designName": "GAINSBORO GREY",
     "category": "Solid",
@@ -5358,7 +5358,7 @@
   {
     "id": 371,
     "productCode": "SDL 10201 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10201",
     "designName": "GHOST WHITE",
     "category": "Solid",
@@ -5373,7 +5373,7 @@
   {
     "id": 372,
     "productCode": "SDL 10201 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10201",
     "designName": "GHOST WHITE",
     "category": "Solid",
@@ -5388,7 +5388,7 @@
   {
     "id": 373,
     "productCode": "SDL 10202 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10202",
     "designName": "ROSE WHITE",
     "category": "Solid",
@@ -5403,7 +5403,7 @@
   {
     "id": 374,
     "productCode": "SDL 10202 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10202",
     "designName": "ROSE WHITE",
     "category": "Solid",
@@ -5418,7 +5418,7 @@
   {
     "id": 375,
     "productCode": "SDL 10203 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10203",
     "designName": "MYSORE INVORY",
     "category": "Solid",
@@ -5433,7 +5433,7 @@
   {
     "id": 376,
     "productCode": "SDL 10203 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10203",
     "designName": "MYSORE INVORY",
     "category": "Solid",
@@ -5448,7 +5448,7 @@
   {
     "id": 377,
     "productCode": "SDL 10204 ELR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10204",
     "designName": "CREAMY WHITE",
     "category": "Solid",
@@ -5463,7 +5463,7 @@
   {
     "id": 378,
     "productCode": "SDL 10204 EQR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10204",
     "designName": "CREAMY WHITE",
     "category": "Solid",
@@ -5478,7 +5478,7 @@
   {
     "id": 379,
     "productCode": "SDL 10204 FBT",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10204",
     "designName": "CREAMY WHITE",
     "category": "Solid",
@@ -5493,7 +5493,7 @@
   {
     "id": 380,
     "productCode": "SDL 10204 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10204",
     "designName": "CREAMY WHITE",
     "category": "Solid",
@@ -5508,7 +5508,7 @@
   {
     "id": 381,
     "productCode": "SDL 10204 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10204",
     "designName": "CREAMY WHITE",
     "category": "Solid",
@@ -5523,7 +5523,7 @@
   {
     "id": 382,
     "productCode": "SDL 10205 FKG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10205",
     "designName": "ANTI FLASH WHITE",
     "category": "Solid",
@@ -5538,7 +5538,7 @@
   {
     "id": 383,
     "productCode": "SDL 10205 FKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10205",
     "designName": "ANTI FLASH WHITE",
     "category": "Solid",
@@ -5553,7 +5553,7 @@
   {
     "id": 384,
     "productCode": "SDL 10205 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10205",
     "designName": "ANTI FLASH WHITE",
     "category": "Solid",
@@ -5568,7 +5568,7 @@
   {
     "id": 385,
     "productCode": "SDL 10205 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10205",
     "designName": "ANTI FLASH WHITE",
     "category": "Solid",
@@ -5583,7 +5583,7 @@
   {
     "id": 386,
     "productCode": "SDL 10206 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10206",
     "designName": "COTTON WHITE",
     "category": "Solid",
@@ -5598,7 +5598,7 @@
   {
     "id": 387,
     "productCode": "SDL 10206 SSR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 10206",
     "designName": "COTTON WHITE",
     "category": "Solid",
@@ -5613,7 +5613,7 @@
   {
     "id": 388,
     "productCode": "SDL 40412 FHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40412",
     "designName": "ARABESCATO MARBLE",
     "category": "Stone",
@@ -5628,7 +5628,7 @@
   {
     "id": 389,
     "productCode": "SDL 40401 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40401",
     "designName": "PIETRA BROWN",
     "category": "Stone",
@@ -5643,7 +5643,7 @@
   {
     "id": 390,
     "productCode": "SDL 40402 FTC",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40402",
     "designName": "CAVE GREY MARBLE",
     "category": "Stone",
@@ -5658,7 +5658,7 @@
   {
     "id": 391,
     "productCode": "SDL 40402 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40402",
     "designName": "CAVE GREY MARBLE",
     "category": "Stone",
@@ -5673,7 +5673,7 @@
   {
     "id": 392,
     "productCode": "SDL 40402 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40402",
     "designName": "CAVE GREY MARBLE",
     "category": "Stone",
@@ -5688,7 +5688,7 @@
   {
     "id": 393,
     "productCode": "SDL 40403 FTC",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40403",
     "designName": "SANDSTONE BROWN",
     "category": "Stone",
@@ -5703,7 +5703,7 @@
   {
     "id": 394,
     "productCode": "SDL 40403 MBL",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40403",
     "designName": "SANDSTONE BROWN",
     "category": "Stone",
@@ -5718,7 +5718,7 @@
   {
     "id": 395,
     "productCode": "SDL 40403 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40403",
     "designName": "SANDSTONE BROWN",
     "category": "Stone",
@@ -5733,7 +5733,7 @@
   {
     "id": 396,
     "productCode": "SDL 40403 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40403",
     "designName": "SANDSTONE BROWN",
     "category": "Stone",
@@ -5748,7 +5748,7 @@
   {
     "id": 397,
     "productCode": "SDL 40403 VN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40403",
     "designName": "SANDSTONE BROWN",
     "category": "Stone",
@@ -5763,7 +5763,7 @@
   {
     "id": 398,
     "productCode": "SDL 40404 FTC",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40404",
     "designName": "SANDSTONE DARK",
     "category": "Stone",
@@ -5778,7 +5778,7 @@
   {
     "id": 399,
     "productCode": "SDL 40404 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40404",
     "designName": "SANDSTONE DARK",
     "category": "Stone",
@@ -5793,7 +5793,7 @@
   {
     "id": 400,
     "productCode": "SDL 40404 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40404",
     "designName": "SANDSTONE DARK",
     "category": "Stone",
@@ -5808,7 +5808,7 @@
   {
     "id": 401,
     "productCode": "SDL 40404 VN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40404",
     "designName": "SANDSTONE DARK",
     "category": "Stone",
@@ -5823,7 +5823,7 @@
   {
     "id": 402,
     "productCode": "SDL 40405 FTC",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40405",
     "designName": "DARK TRAVERTINE",
     "category": "Stone",
@@ -5838,7 +5838,7 @@
   {
     "id": 403,
     "productCode": "SDL 40405 MBL",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40405",
     "designName": "DARK TRAVERTINE",
     "category": "Stone",
@@ -5853,7 +5853,7 @@
   {
     "id": 404,
     "productCode": "SDL 40405 RK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40405",
     "designName": "DARK TRAVERTINE",
     "category": "Stone",
@@ -5868,7 +5868,7 @@
   {
     "id": 405,
     "productCode": "SDL 40405 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40405",
     "designName": "DARK TRAVERTINE",
     "category": "Stone",
@@ -5883,7 +5883,7 @@
   {
     "id": 406,
     "productCode": "SDL 40405 VN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40405",
     "designName": "DARK TRAVERTINE",
     "category": "Stone",
@@ -5898,7 +5898,7 @@
   {
     "id": 407,
     "productCode": "SDL 40406 MBL",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40406",
     "designName": "TRAVERTINE BEIGE",
     "category": "Stone",
@@ -5913,7 +5913,7 @@
   {
     "id": 408,
     "productCode": "SDL 40406 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40406",
     "designName": "TRAVERTINE BEIGE",
     "category": "Stone",
@@ -5928,7 +5928,7 @@
   {
     "id": 409,
     "productCode": "SDL 40406 VN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40406",
     "designName": "TRAVERTINE BEIGE",
     "category": "Stone",
@@ -5943,7 +5943,7 @@
   {
     "id": 410,
     "productCode": "SDL 40407 RK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40407",
     "designName": "LAVA STONE LIGHT",
     "category": "Stone",
@@ -5958,7 +5958,7 @@
   {
     "id": 411,
     "productCode": "SDL 40407 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40407",
     "designName": "LAVA STONE LIGHT",
     "category": "Stone",
@@ -5973,7 +5973,7 @@
   {
     "id": 412,
     "productCode": "SDL 40407 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40407",
     "designName": "LAVA STONE LIGHT",
     "category": "Stone",
@@ -5988,7 +5988,7 @@
   {
     "id": 413,
     "productCode": "SDL 40408 MBL",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40408",
     "designName": "ICELAND GRANITE STONE",
     "category": "Stone",
@@ -6003,7 +6003,7 @@
   {
     "id": 414,
     "productCode": "SDL 40408 RK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40408",
     "designName": "ICELAND GRANITE STONE",
     "category": "Stone",
@@ -6018,7 +6018,7 @@
   {
     "id": 415,
     "productCode": "SDL 40408 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40408",
     "designName": "ICELAND GRANITE STONE",
     "category": "Stone",
@@ -6033,7 +6033,7 @@
   {
     "id": 416,
     "productCode": "SDL 40409 MBL",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40409",
     "designName": "LAVA STONE DARK",
     "category": "Stone",
@@ -6048,7 +6048,7 @@
   {
     "id": 417,
     "productCode": "SDL 40409 RK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40409",
     "designName": "LAVA STONE DARK",
     "category": "Stone",
@@ -6063,7 +6063,7 @@
   {
     "id": 418,
     "productCode": "SDL 40410 RK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40410",
     "designName": "MOSCATO BEIGE",
     "category": "Stone",
@@ -6078,7 +6078,7 @@
   {
     "id": 419,
     "productCode": "SDL 40410 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40410",
     "designName": "MOSCATO BEIGE",
     "category": "Stone",
@@ -6093,7 +6093,7 @@
   {
     "id": 420,
     "productCode": "SDL 40410 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40410",
     "designName": "MOSCATO BEIGE",
     "category": "Stone",
@@ -6108,7 +6108,7 @@
   {
     "id": 421,
     "productCode": "SDL 40411 MBL",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40411",
     "designName": "SATVARIO MARBLE",
     "category": "Stone",
@@ -6123,7 +6123,7 @@
   {
     "id": 422,
     "productCode": "SDL 40411 RK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40411",
     "designName": "SATVARIO MARBLE",
     "category": "Stone",
@@ -6138,7 +6138,7 @@
   {
     "id": 423,
     "productCode": "SDL 40411 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40411",
     "designName": "SATVARIO MARBLE",
     "category": "Stone",
@@ -6153,7 +6153,7 @@
   {
     "id": 424,
     "productCode": "SDL 40411 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40411",
     "designName": "SATVARIO MARBLE",
     "category": "Stone",
@@ -6168,7 +6168,7 @@
   {
     "id": 425,
     "productCode": "SDL 40412 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40412",
     "designName": "ARABESCATO MARBLE",
     "category": "Stone",
@@ -6183,7 +6183,7 @@
   {
     "id": 426,
     "productCode": "SDL 40413 FTC",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40413",
     "designName": "RUSTIC FERROUS",
     "category": "Stone",
@@ -6198,7 +6198,7 @@
   {
     "id": 427,
     "productCode": "SDL 40413 MBL",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40413",
     "designName": "RUSTIC FERROUS",
     "category": "Stone",
@@ -6213,7 +6213,7 @@
   {
     "id": 428,
     "productCode": "SDL 40413 RK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40413",
     "designName": "RUSTIC FERROUS",
     "category": "Stone",
@@ -6228,7 +6228,7 @@
   {
     "id": 429,
     "productCode": "SDL 40414 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40414",
     "designName": "MOLTEN GRANITE",
     "category": "Stone",
@@ -6243,7 +6243,7 @@
   {
     "id": 430,
     "productCode": "SDL 40414 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 40414",
     "designName": "MOLTEN GRANITE",
     "category": "Stone",
@@ -6258,7 +6258,7 @@
   {
     "id": 431,
     "productCode": "SDL 30301 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30301",
     "designName": "DARK CLIFTON OAK",
     "category": "Woodgrain",
@@ -6273,7 +6273,7 @@
   {
     "id": 432,
     "productCode": "SDL 30303 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30303",
     "designName": "ESPRESSO OAK",
     "category": "Woodgrain",
@@ -6288,7 +6288,7 @@
   {
     "id": 433,
     "productCode": "SDL 30304 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30304",
     "designName": "KITAMI ELM DARK",
     "category": "Woodgrain",
@@ -6303,7 +6303,7 @@
   {
     "id": 434,
     "productCode": "SDL 30305 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30305",
     "designName": "KITAMI ELM LIGHT",
     "category": "Woodgrain",
@@ -6318,7 +6318,7 @@
   {
     "id": 435,
     "productCode": "SDL 30306 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30306",
     "designName": "RAYA OAK DARK",
     "category": "Woodgrain",
@@ -6333,7 +6333,7 @@
   {
     "id": 436,
     "productCode": "SDL 30308 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30308",
     "designName": "VINTAGE TEAK",
     "category": "Woodgrain",
@@ -6348,7 +6348,7 @@
   {
     "id": 437,
     "productCode": "SDL 30309 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30309",
     "designName": "WHEAT WALNUT",
     "category": "Woodgrain",
@@ -6363,7 +6363,7 @@
   {
     "id": 438,
     "productCode": "SDL 30310 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30310",
     "designName": "DARK BROWN OAK",
     "category": "Woodgrain",
@@ -6378,7 +6378,7 @@
   {
     "id": 439,
     "productCode": "SDL 30311 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30311",
     "designName": "DARK RUFFLE WALNUT",
     "category": "Woodgrain",
@@ -6393,7 +6393,7 @@
   {
     "id": 440,
     "productCode": "SDL 30312 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30312",
     "designName": "CALIFORNIA ELM",
     "category": "Woodgrain",
@@ -6408,7 +6408,7 @@
   {
     "id": 441,
     "productCode": "SDL 30313 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30313",
     "designName": "TOLEDO ASH",
     "category": "Woodgrain",
@@ -6423,7 +6423,7 @@
   {
     "id": 442,
     "productCode": "SDL 30314 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30314",
     "designName": "NOVOCENO PINE",
     "category": "Woodgrain",
@@ -6438,7 +6438,7 @@
   {
     "id": 443,
     "productCode": "SDL 30317 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30317",
     "designName": "VERACIOUS WALNUT",
     "category": "Woodgrain",
@@ -6453,7 +6453,7 @@
   {
     "id": 444,
     "productCode": "SDL 30318 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30318",
     "designName": "ANDEAN WALNUT",
     "category": "Woodgrain",
@@ -6468,7 +6468,7 @@
   {
     "id": 445,
     "productCode": "SDL 30320 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30320",
     "designName": "BORNEO BROWN",
     "category": "Woodgrain",
@@ -6483,7 +6483,7 @@
   {
     "id": 446,
     "productCode": "SDL 30321 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30321",
     "designName": "AUSTRA MONDO",
     "category": "Woodgrain",
@@ -6498,7 +6498,7 @@
   {
     "id": 447,
     "productCode": "SDL 30322 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30322",
     "designName": "ORLANDO WALNUT",
     "category": "Woodgrain",
@@ -6513,7 +6513,7 @@
   {
     "id": 448,
     "productCode": "SDL 30323 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30323",
     "designName": "WALNUT DARK BROWN",
     "category": "Woodgrain",
@@ -6528,7 +6528,7 @@
   {
     "id": 449,
     "productCode": "SDL 30324 SUD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30324",
     "designName": "RECLAIMED WALNUT",
     "category": "Woodgrain",
@@ -6543,7 +6543,7 @@
   {
     "id": 450,
     "productCode": "SDL 30301 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30301",
     "designName": "DARK CLIFTON OAK",
     "category": "Woodgrain",
@@ -6558,7 +6558,7 @@
   {
     "id": 451,
     "productCode": "SDL 30302 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30302",
     "designName": "LIGHT CLIFTON OAK",
     "category": "Woodgrain",
@@ -6573,7 +6573,7 @@
   {
     "id": 452,
     "productCode": "SDL 30303 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30303",
     "designName": "ESPRESSO OAK",
     "category": "Woodgrain",
@@ -6588,7 +6588,7 @@
   {
     "id": 453,
     "productCode": "SDL 30304 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30304",
     "designName": "KITAMI ELM DARK",
     "category": "Woodgrain",
@@ -6603,7 +6603,7 @@
   {
     "id": 454,
     "productCode": "SDL 30305 GRN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30305",
     "designName": "KITAMI ELM LIGHT",
     "category": "Woodgrain",
@@ -6618,7 +6618,7 @@
   {
     "id": 455,
     "productCode": "SDL 30305 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30305",
     "designName": "KITAMI ELM LIGHT",
     "category": "Woodgrain",
@@ -6633,7 +6633,7 @@
   {
     "id": 456,
     "productCode": "SDL 30306 GRN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30306",
     "designName": "RAYA OAK DARK",
     "category": "Woodgrain",
@@ -6648,7 +6648,7 @@
   {
     "id": 457,
     "productCode": "SDL 30306 RWD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30306",
     "designName": "RAYA OAK DARK",
     "category": "Woodgrain",
@@ -6663,7 +6663,7 @@
   {
     "id": 458,
     "productCode": "SDL 30306 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30306",
     "designName": "RAYA OAK DARK",
     "category": "Woodgrain",
@@ -6678,7 +6678,7 @@
   {
     "id": 459,
     "productCode": "SDL 30306 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30306",
     "designName": "RAYA OAK DARK",
     "category": "Woodgrain",
@@ -6693,7 +6693,7 @@
   {
     "id": 460,
     "productCode": "SDL 30307 GRN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30307",
     "designName": "RAYA OAK LIGHT",
     "category": "Woodgrain",
@@ -6708,7 +6708,7 @@
   {
     "id": 461,
     "productCode": "SDL 30307 RWD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30307",
     "designName": "RAYA OAK LIGHT",
     "category": "Woodgrain",
@@ -6723,7 +6723,7 @@
   {
     "id": 462,
     "productCode": "SDL 30307 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30307",
     "designName": "RAYA OAK LIGHT",
     "category": "Woodgrain",
@@ -6738,7 +6738,7 @@
   {
     "id": 463,
     "productCode": "SDL 30307 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30307",
     "designName": "RAYA OAK LIGHT",
     "category": "Woodgrain",
@@ -6753,7 +6753,7 @@
   {
     "id": 464,
     "productCode": "SDL 30308 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30308",
     "designName": "VINTAGE TEAK",
     "category": "Woodgrain",
@@ -6768,7 +6768,7 @@
   {
     "id": 465,
     "productCode": "SDL 30308 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30308",
     "designName": "VINTAGE TEAK",
     "category": "Woodgrain",
@@ -6783,7 +6783,7 @@
   {
     "id": 466,
     "productCode": "SDL 30309 BRK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30309",
     "designName": "WHEAT WALNUT",
     "category": "Woodgrain",
@@ -6798,7 +6798,7 @@
   {
     "id": 467,
     "productCode": "SDL 30309 GRN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30309",
     "designName": "WHEAT WALNUT",
     "category": "Woodgrain",
@@ -6813,7 +6813,7 @@
   {
     "id": 468,
     "productCode": "SDL 30309 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30309",
     "designName": "WHEAT WALNUT",
     "category": "Woodgrain",
@@ -6828,7 +6828,7 @@
   {
     "id": 469,
     "productCode": "SDL 30310 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30310",
     "designName": "DARK BROWN OAK",
     "category": "Woodgrain",
@@ -6843,7 +6843,7 @@
   {
     "id": 470,
     "productCode": "SDL 30310 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30310",
     "designName": "DARK BROWN OAK",
     "category": "Woodgrain",
@@ -6858,7 +6858,7 @@
   {
     "id": 471,
     "productCode": "SDL 30310 VNZ",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30310",
     "designName": "DARK BROWN OAK",
     "category": "Woodgrain",
@@ -6873,7 +6873,7 @@
   {
     "id": 472,
     "productCode": "SDL 30310 ZN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30310",
     "designName": "DARK BROWN OAK",
     "category": "Woodgrain",
@@ -6888,7 +6888,7 @@
   {
     "id": 473,
     "productCode": "SDL 30311 BRK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30311",
     "designName": "DARK RUFFLE WALNUT",
     "category": "Woodgrain",
@@ -6903,7 +6903,7 @@
   {
     "id": 474,
     "productCode": "SDL 30311 GRN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30311",
     "designName": "DARK RUFFLE WALNUT",
     "category": "Woodgrain",
@@ -6918,7 +6918,7 @@
   {
     "id": 475,
     "productCode": "SDL 30312 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30312",
     "designName": "CALIFORNIA ELM",
     "category": "Woodgrain",
@@ -6933,7 +6933,7 @@
   {
     "id": 476,
     "productCode": "SDL 30312 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30312",
     "designName": "CALIFORNIA ELM",
     "category": "Woodgrain",
@@ -6948,7 +6948,7 @@
   {
     "id": 477,
     "productCode": "SDL 30312 VNZ",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30312",
     "designName": "CALIFORNIA ELM",
     "category": "Woodgrain",
@@ -6963,7 +6963,7 @@
   {
     "id": 478,
     "productCode": "SDL 30313 IMP",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30313",
     "designName": "TOLEDO ASH",
     "category": "Woodgrain",
@@ -6978,7 +6978,7 @@
   {
     "id": 479,
     "productCode": "SDL 30313 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30313",
     "designName": "TOLEDO ASH",
     "category": "Woodgrain",
@@ -6993,7 +6993,7 @@
   {
     "id": 480,
     "productCode": "SDL 30313 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30313",
     "designName": "TOLEDO ASH",
     "category": "Woodgrain",
@@ -7008,7 +7008,7 @@
   {
     "id": 481,
     "productCode": "SDL 30314 GRN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30314",
     "designName": "NOVOCENO PINE",
     "category": "Woodgrain",
@@ -7023,7 +7023,7 @@
   {
     "id": 482,
     "productCode": "SDL 30314 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30314",
     "designName": "NOVOCENO PINE",
     "category": "Woodgrain",
@@ -7038,7 +7038,7 @@
   {
     "id": 483,
     "productCode": "SDL 30315 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30315",
     "designName": "BEIGE LINE ILLUSION",
     "category": "Woodgrain",
@@ -7053,7 +7053,7 @@
   {
     "id": 484,
     "productCode": "SDL 30315 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30315",
     "designName": "BEIGE LINE ILLUSION",
     "category": "Woodgrain",
@@ -7068,7 +7068,7 @@
   {
     "id": 485,
     "productCode": "SDL 30316 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30316",
     "designName": "GREY LINE ILLUSION",
     "category": "Woodgrain",
@@ -7083,7 +7083,7 @@
   {
     "id": 486,
     "productCode": "SDL 30317 RWD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30317",
     "designName": "VERACIOUS WALNUT",
     "category": "Woodgrain",
@@ -7098,7 +7098,7 @@
   {
     "id": 487,
     "productCode": "SDL 30317 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30317",
     "designName": "VERACIOUS WALNUT",
     "category": "Woodgrain",
@@ -7113,7 +7113,7 @@
   {
     "id": 488,
     "productCode": "SDL 30318 BRK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30318",
     "designName": "ANDEAN WALNUT",
     "category": "Woodgrain",
@@ -7128,7 +7128,7 @@
   {
     "id": 489,
     "productCode": "SDL 30318 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30318",
     "designName": "ANDEAN WALNUT",
     "category": "Woodgrain",
@@ -7143,7 +7143,7 @@
   {
     "id": 490,
     "productCode": "SDL 30318 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30318",
     "designName": "ANDEAN WALNUT",
     "category": "Woodgrain",
@@ -7158,7 +7158,7 @@
   {
     "id": 491,
     "productCode": "SDL 30319 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30319",
     "designName": "DARK GREY WALNUT",
     "category": "Woodgrain",
@@ -7173,7 +7173,7 @@
   {
     "id": 492,
     "productCode": "SDL 30319 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30319",
     "designName": "DARK GREY WALNUT",
     "category": "Woodgrain",
@@ -7188,7 +7188,7 @@
   {
     "id": 493,
     "productCode": "SDL 30320 BRK",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30320",
     "designName": "BORNEO BROWN",
     "category": "Woodgrain",
@@ -7203,7 +7203,7 @@
   {
     "id": 494,
     "productCode": "SDL 30320 RWD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30320",
     "designName": "BORNEO BROWN",
     "category": "Woodgrain",
@@ -7218,7 +7218,7 @@
   {
     "id": 495,
     "productCode": "SDL 30320 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30320",
     "designName": "BORNEO BROWN",
     "category": "Woodgrain",
@@ -7233,7 +7233,7 @@
   {
     "id": 496,
     "productCode": "SDL 30320 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30320",
     "designName": "BORNEO BROWN",
     "category": "Woodgrain",
@@ -7248,7 +7248,7 @@
   {
     "id": 497,
     "productCode": "SDL 30321 RWD",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30321",
     "designName": "AUSTRA MONDO",
     "category": "Woodgrain",
@@ -7263,7 +7263,7 @@
   {
     "id": 498,
     "productCode": "SDL 30321 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30321",
     "designName": "AUSTRA MONDO",
     "category": "Woodgrain",
@@ -7278,7 +7278,7 @@
   {
     "id": 499,
     "productCode": "SDL 30321 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30321",
     "designName": "AUSTRA MONDO",
     "category": "Woodgrain",
@@ -7293,7 +7293,7 @@
   {
     "id": 500,
     "productCode": "SDL 30321 ZN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30321",
     "designName": "AUSTRA MONDO",
     "category": "Woodgrain",
@@ -7308,7 +7308,7 @@
   {
     "id": 501,
     "productCode": "SDL 30322 ZN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30322",
     "designName": "ORLANDO WALNUT",
     "category": "Woodgrain",
@@ -7323,7 +7323,7 @@
   {
     "id": 502,
     "productCode": "SDL 30323 SKR",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30323",
     "designName": "WALNUT DARK BROWN",
     "category": "Woodgrain",
@@ -7338,7 +7338,7 @@
   {
     "id": 503,
     "productCode": "SDL 30323 VNZ",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30323",
     "designName": "WALNUT DARK BROWN",
     "category": "Woodgrain",
@@ -7353,7 +7353,7 @@
   {
     "id": 504,
     "productCode": "SDL 30323 ZN",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30323",
     "designName": "WALNUT DARK BROWN",
     "category": "Woodgrain",
@@ -7368,7 +7368,7 @@
   {
     "id": 505,
     "productCode": "SDL 30324 SHG",
-    "productType": "1 MM + Laminates ",
+    "productType": "1mm",
     "productName": "SDL 30324",
     "designName": "RECLAIMED WALNUT",
     "category": "Woodgrain",
@@ -7382,7 +7382,7 @@
   },
   {
     "id": 530,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1001 SF",
     "productName": "SDL 1001",
     "designName": "Super White",
@@ -7397,7 +7397,7 @@
   },
   {
     "id": 531,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1001 SFT",
     "productName": "SDL 1001",
     "designName": "Super White",
@@ -7412,7 +7412,7 @@
   },
   {
     "id": 532,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1001 SHG",
     "productName": "SDL 1001",
     "designName": "Super White",
@@ -7427,7 +7427,7 @@
   },
   {
     "id": 533,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1002 LL",
     "productName": "SDL 1002",
     "designName": "Frosty White",
@@ -7442,7 +7442,7 @@
   },
   {
     "id": 534,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1002 MB",
     "productName": "SDL 1002",
     "designName": "Frosty White",
@@ -7457,7 +7457,7 @@
   },
   {
     "id": 535,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1005 SF",
     "productName": "SDL 1005",
     "designName": "Polar Blue",
@@ -7472,7 +7472,7 @@
   },
   {
     "id": 536,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1005 SHG",
     "productName": "SDL 1005",
     "designName": "Polar Blue",
@@ -7487,7 +7487,7 @@
   },
   {
     "id": 537,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1006 SF",
     "productName": "SDL 1006",
     "designName": "Slate Grey",
@@ -7502,7 +7502,7 @@
   },
   {
     "id": 538,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1006 SFT",
     "productName": "SDL 1006",
     "designName": "Slate Grey",
@@ -7517,7 +7517,7 @@
   },
   {
     "id": 539,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1006 SHG",
     "productName": "SDL 1006",
     "designName": "Slate Grey",
@@ -7532,7 +7532,7 @@
   },
   {
     "id": 541,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1014 SF",
     "productName": "SDL 1014",
     "designName": "Ivory",
@@ -7547,7 +7547,7 @@
   },
   {
     "id": 542,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1014 SFT",
     "productName": "SDL 1014",
     "designName": "Ivory",
@@ -7562,7 +7562,7 @@
   },
   {
     "id": 543,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1014 SHG",
     "productName": "SDL 1014",
     "designName": "Ivory",
@@ -7577,7 +7577,7 @@
   },
   {
     "id": 544,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1015 LL",
     "productName": "SDL 1015",
     "designName": "Black",
@@ -7592,7 +7592,7 @@
   },
   {
     "id": 546,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1016 SF",
     "productName": "SDL 1016",
     "designName": "Ash Grey",
@@ -7607,7 +7607,7 @@
   },
   {
     "id": 547,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1016 SFT",
     "productName": "SDL 1016",
     "designName": "Ash Grey",
@@ -7622,7 +7622,7 @@
   },
   {
     "id": 548,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1016 SHG",
     "productName": "SDL 1016",
     "designName": "Ash Grey",
@@ -7637,7 +7637,7 @@
   },
   {
     "id": 549,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1019 SF",
     "productName": "SDL 1019",
     "designName": "yellow",
@@ -7652,7 +7652,7 @@
   },
   {
     "id": 550,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1019 SHG",
     "productName": "SDL 1019",
     "designName": "yellow",
@@ -7667,7 +7667,7 @@
   },
   {
     "id": 551,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1024 SFT",
     "productName": "SDL 1024",
     "designName": "Brazillan Sand",
@@ -7682,7 +7682,7 @@
   },
   {
     "id": 552,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1024 SHG",
     "productName": "SDL 1024",
     "designName": "Brazilian Sand",
@@ -7697,7 +7697,7 @@
   },
   {
     "id": 553,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1025 SFT",
     "productName": "SDL 1025",
     "designName": "Dark Beige",
@@ -7712,7 +7712,7 @@
   },
   {
     "id": 554,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 1025 SHG",
     "productName": "SDL 1025",
     "designName": "Dark Beige",
@@ -7727,7 +7727,7 @@
   },
   {
     "id": 555,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2001 MTL-HG",
     "productName": "SDL 2001",
     "designName": "Metallic Wine",
@@ -7742,7 +7742,7 @@
   },
   {
     "id": 556,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2002 MTL-HG",
     "productName": "SDL 2002",
     "designName": "Metallic Steel Grey",
@@ -7757,7 +7757,7 @@
   },
   {
     "id": 557,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2002 SMM",
     "productName": "SDL 2002",
     "designName": "Metallic Steel Grey",
@@ -7772,7 +7772,7 @@
   },
   {
     "id": 558,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2004 MTL-HG",
     "productName": "SDL 2004",
     "designName": "Metallic White",
@@ -7787,7 +7787,7 @@
   },
   {
     "id": 559,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2004 SMM",
     "productName": "SDL 2004",
     "designName": "Metallic White",
@@ -7802,7 +7802,7 @@
   },
   {
     "id": 560,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2005 MTL-HG",
     "productName": "SDL 2005",
     "designName": "Metallic Copper",
@@ -7817,7 +7817,7 @@
   },
   {
     "id": 561,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2006 MB",
     "productName": "SDL 2006",
     "designName": "Metallic Dark Grey",
@@ -7832,7 +7832,7 @@
   },
   {
     "id": 562,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2006 MTL-HG",
     "productName": "SDL 2006",
     "designName": "Metallic Dark Grey",
@@ -7847,7 +7847,7 @@
   },
   {
     "id": 563,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2007 MTL-HG",
     "productName": "SDL 2007",
     "designName": "Metallic Regai purple",
@@ -7862,7 +7862,7 @@
   },
   {
     "id": 564,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 2008 MTL-HG",
     "productName": "SDL 2008",
     "designName": "Metallic Blue",
@@ -7877,7 +7877,7 @@
   },
   {
     "id": 565,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3001 SF",
     "productName": "SDL 3001",
     "designName": "Wheat Brown",
@@ -7892,7 +7892,7 @@
   },
   {
     "id": 566,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3001 SHG",
     "productName": "SDL 3001",
     "designName": "Wheat Brown",
@@ -7907,7 +7907,7 @@
   },
   {
     "id": 567,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3002 SF",
     "productName": "SDL 3002",
     "designName": "Wheat Gelato",
@@ -7922,7 +7922,7 @@
   },
   {
     "id": 568,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3002 SHG",
     "productName": "SDL 3002",
     "designName": "Wheat Gelato",
@@ -7937,7 +7937,7 @@
   },
   {
     "id": 569,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3002 TP",
     "productName": "SDL 3002",
     "designName": "Wheat Gelato",
@@ -7952,7 +7952,7 @@
   },
   {
     "id": 570,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3003 LW",
     "productName": "SDL 3003",
     "designName": "Dark Walnut",
@@ -7967,7 +7967,7 @@
   },
   {
     "id": 571,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3003 SHG",
     "productName": "SDL 3003",
     "designName": "Dark Walnut",
@@ -7982,7 +7982,7 @@
   },
   {
     "id": 572,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3004 SF",
     "productName": "SDL 3004",
     "designName": "Dark Grey Pine",
@@ -7997,7 +7997,7 @@
   },
   {
     "id": 573,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3004 SHG",
     "productName": "SDL 3004",
     "designName": "Dark Grey Pine",
@@ -8012,7 +8012,7 @@
   },
   {
     "id": 574,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3005 SHG",
     "productName": "SDL 3005",
     "designName": "Glaced Walnut Bark",
@@ -8027,7 +8027,7 @@
   },
   {
     "id": 575,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3005 TP",
     "productName": "SDL 3005",
     "designName": "Glaced Walnut Bark",
@@ -8042,7 +8042,7 @@
   },
   {
     "id": 576,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3006 ASH-VZ",
     "productName": "SDL 3006",
     "designName": "Rich Walnut",
@@ -8057,7 +8057,7 @@
   },
   {
     "id": 577,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3006 SF",
     "productName": "SDL 3006",
     "designName": "Rich Walnut",
@@ -8072,7 +8072,7 @@
   },
   {
     "id": 578,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3006 SHG",
     "productName": "SDL 3006",
     "designName": "Rich Walnut",
@@ -8087,7 +8087,7 @@
   },
   {
     "id": 579,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3006 TP",
     "productName": "SDL 3006",
     "designName": "Rich Walnut",
@@ -8102,7 +8102,7 @@
   },
   {
     "id": 580,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3007 SF",
     "productName": "SDL 3007",
     "designName": "Light Grey Pine",
@@ -8117,7 +8117,7 @@
   },
   {
     "id": 581,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3007 SFT",
     "productName": "SDL 3007",
     "designName": "Light Grey Pine",
@@ -8132,7 +8132,7 @@
   },
   {
     "id": 582,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3007 SHG",
     "productName": "SDL 3007",
     "designName": "Light Grey Pine",
@@ -8147,7 +8147,7 @@
   },
   {
     "id": 583,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3007 VNR",
     "productName": "SDL 3007",
     "designName": "Light Grey Pine",
@@ -8162,7 +8162,7 @@
   },
   {
     "id": 584,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3008 SF",
     "productName": "SDL 3008",
     "designName": "Choco Sawline",
@@ -8177,7 +8177,7 @@
   },
   {
     "id": 585,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3008 SHG",
     "productName": "SDL 3008",
     "designName": "Choco Sawline",
@@ -8192,7 +8192,7 @@
   },
   {
     "id": 586,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3009 SF",
     "productName": "SDL 3009",
     "designName": "Sandalwood",
@@ -8207,7 +8207,7 @@
   },
   {
     "id": 587,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3009 SHG",
     "productName": "SDL 3009",
     "designName": "Sandalwood",
@@ -8222,7 +8222,7 @@
   },
   {
     "id": 588,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3009 VNR",
     "productName": "SDL 3009",
     "designName": "Sandalwood",
@@ -8237,7 +8237,7 @@
   },
   {
     "id": 589,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3009 WB",
     "productName": "SDL 3009",
     "designName": "Sandalwood",
@@ -8252,7 +8252,7 @@
   },
   {
     "id": 590,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3010 SHG",
     "productName": "SDL 3010",
     "designName": "Goldern Oxid",
@@ -8267,7 +8267,7 @@
   },
   {
     "id": 591,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3011 SHG",
     "productName": "SDL 3011",
     "designName": "Caspio Clay",
@@ -8282,7 +8282,7 @@
   },
   {
     "id": 592,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3011 STN",
     "productName": "SDL 3011",
     "designName": "Caspio Clay",
@@ -8297,7 +8297,7 @@
   },
   {
     "id": 593,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3012 MB",
     "productName": "SDL 3012",
     "designName": "Travistio Gold Wood",
@@ -8312,7 +8312,7 @@
   },
   {
     "id": 594,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3012 SF",
     "productName": "SDL 3012",
     "designName": "Travistio Gold Wood",
@@ -8327,7 +8327,7 @@
   },
   {
     "id": 595,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3012 SFT",
     "productName": "SDL 3012",
     "designName": "Travistio Gold Wood",
@@ -8342,7 +8342,7 @@
   },
   {
     "id": 596,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3012 SHG",
     "productName": "SDL 3012",
     "designName": "Travistio Gold Wood",
@@ -8357,7 +8357,7 @@
   },
   {
     "id": 597,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3013 SF",
     "productName": "SDL 3013",
     "designName": "Sandstone Beige",
@@ -8372,7 +8372,7 @@
   },
   {
     "id": 598,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3013 SFT",
     "productName": "SDL 3013",
     "designName": "Sandstone Beige",
@@ -8387,7 +8387,7 @@
   },
   {
     "id": 599,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3013 SHG",
     "productName": "SDL 3013",
     "designName": "Sandstone Beige",
@@ -8402,7 +8402,7 @@
   },
   {
     "id": 600,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3014 MB",
     "productName": "SDL 3014",
     "designName": "Sandstone Brown",
@@ -8417,7 +8417,7 @@
   },
   {
     "id": 601,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3014 SF",
     "productName": "SDL 3014",
     "designName": "Sandstone Brown",
@@ -8432,7 +8432,7 @@
   },
   {
     "id": 602,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3014 SFT",
     "productName": "SDL 3014",
     "designName": "Sandstone Brown",
@@ -8447,7 +8447,7 @@
   },
   {
     "id": 603,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3014 SHG",
     "productName": "SDL 3014",
     "designName": "Sandstone Brown",
@@ -8462,7 +8462,7 @@
   },
   {
     "id": 604,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3015 SF",
     "productName": "SDL 3015",
     "designName": "Dandy Wood",
@@ -8477,7 +8477,7 @@
   },
   {
     "id": 605,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3015 SFT",
     "productName": "SDL 3015",
     "designName": "Dandy Wood",
@@ -8492,7 +8492,7 @@
   },
   {
     "id": 606,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3015 SHG",
     "productName": "SDL 3015",
     "designName": "Dandy Wood",
@@ -8507,7 +8507,7 @@
   },
   {
     "id": 607,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3016 SF",
     "productName": "SDL 3016",
     "designName": "Dandy Wood Brown",
@@ -8522,7 +8522,7 @@
   },
   {
     "id": 608,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3016 SFT",
     "productName": "SDL 3016",
     "designName": "Dandy Wood Brown",
@@ -8537,7 +8537,7 @@
   },
   {
     "id": 609,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3016 SHG",
     "productName": "SDL 3016",
     "designName": "Dandy Wood Brown",
@@ -8552,7 +8552,7 @@
   },
   {
     "id": 610,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3018 ASH-VZ",
     "productName": "SDL 3018",
     "designName": "Brown Walnut",
@@ -8567,7 +8567,7 @@
   },
   {
     "id": 611,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3018 LW",
     "productName": "SDL 3018",
     "designName": "Brown Walnut",
@@ -8582,7 +8582,7 @@
   },
   {
     "id": 612,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3018 SF",
     "productName": "SDL 3018",
     "designName": "Brown Walnut",
@@ -8597,7 +8597,7 @@
   },
   {
     "id": 613,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3018 SFT",
     "productName": "SDL 3018",
     "designName": "Brown Walnut",
@@ -8612,7 +8612,7 @@
   },
   {
     "id": 614,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3018 SHG",
     "productName": "SDL 3018",
     "designName": "Brown Walnut",
@@ -8627,7 +8627,7 @@
   },
   {
     "id": 615,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3018 TP",
     "productName": "SDL 3018",
     "designName": "Brown Walnut",
@@ -8642,7 +8642,7 @@
   },
   {
     "id": 616,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3019 SF",
     "productName": "SDL 3019",
     "designName": "Camphor Brown Oak",
@@ -8657,7 +8657,7 @@
   },
   {
     "id": 617,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3019 SFT",
     "productName": "SDL 3019",
     "designName": "Camphor Brown Oak",
@@ -8672,7 +8672,7 @@
   },
   {
     "id": 618,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3019 SHG",
     "productName": "SDL 3019",
     "designName": "Camphor Brown Oak",
@@ -8687,7 +8687,7 @@
   },
   {
     "id": 619,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3019 VNR",
     "productName": "SDL 3019",
     "designName": "Camphor Brown Oak",
@@ -8702,7 +8702,7 @@
   },
   {
     "id": 621,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3020 SHG",
     "productName": "SDL 3020",
     "designName": "Encanto Cherry",
@@ -8717,7 +8717,7 @@
   },
   {
     "id": 622,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3020 VNR",
     "productName": "SDL 3020",
     "designName": "Encanto Cherry",
@@ -8732,7 +8732,7 @@
   },
   {
     "id": 623,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3021 SF",
     "productName": "SDL 3021",
     "designName": "Rust Mindano",
@@ -8747,7 +8747,7 @@
   },
   {
     "id": 624,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3021 SFT",
     "productName": "SDL 3021",
     "designName": "Rust Mimdano",
@@ -8762,7 +8762,7 @@
   },
   {
     "id": 625,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3021 SHG",
     "productName": "SDL 3021",
     "designName": "Rust Mimdano",
@@ -8777,7 +8777,7 @@
   },
   {
     "id": 626,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3021 WB",
     "productName": "SDL 3021",
     "designName": "Rust Mimdano",
@@ -8792,7 +8792,7 @@
   },
   {
     "id": 627,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3022 LL",
     "productName": "SDL 3022",
     "designName": "Dark Urban Oak",
@@ -8807,7 +8807,7 @@
   },
   {
     "id": 628,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3022 SHG",
     "productName": "SDL 3022",
     "designName": "Dark Urban Oak",
@@ -8822,7 +8822,7 @@
   },
   {
     "id": 629,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3023 LL",
     "productName": "SDL 3023",
     "designName": "Rainer Sapwood",
@@ -8837,7 +8837,7 @@
   },
   {
     "id": 630,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3023 MB",
     "productName": "SDL 3023",
     "designName": "Rainer Sapwood",
@@ -8852,7 +8852,7 @@
   },
   {
     "id": 633,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3025 LW",
     "productName": "SDL 3025",
     "designName": "Golden Current",
@@ -8867,7 +8867,7 @@
   },
   {
     "id": 634,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3025 SHG",
     "productName": "SDL 3025",
     "designName": "Golden Current",
@@ -8882,7 +8882,7 @@
   },
   {
     "id": 635,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3026 ASH-VZ",
     "productName": "SDL 3026",
     "designName": "Dark Cairo Walnut",
@@ -8897,7 +8897,7 @@
   },
   {
     "id": 636,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3026 LL",
     "productName": "SDL 3026",
     "designName": "Dark Cairo Walnut",
@@ -8912,7 +8912,7 @@
   },
   {
     "id": 637,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3026 QB",
     "productName": "SDL 3026",
     "designName": "Dark Cairo Walnut",
@@ -8927,7 +8927,7 @@
   },
   {
     "id": 638,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3026 SF",
     "productName": "SDL 3026",
     "designName": "Dark Cairo Walnut",
@@ -8942,7 +8942,7 @@
   },
   {
     "id": 639,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3026 SHG",
     "productName": "SDL 3026",
     "designName": "Daek Cairo Walnut",
@@ -8957,7 +8957,7 @@
   },
   {
     "id": 640,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3027 SF",
     "productName": "SDL 3027",
     "designName": "Light Sapwood",
@@ -8972,7 +8972,7 @@
   },
   {
     "id": 641,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3027 SHG",
     "productName": "SDL 3027",
     "designName": "Light Sapwood",
@@ -8987,7 +8987,7 @@
   },
   {
     "id": 642,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3029 SF",
     "productName": "SDL 3029",
     "designName": "Amber Light  Brown Wood",
@@ -9002,7 +9002,7 @@
   },
   {
     "id": 643,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3029 SHG",
     "productName": "SDL 3029",
     "designName": "Amber Light  Brown Wood",
@@ -9017,7 +9017,7 @@
   },
   {
     "id": 644,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3029 WB",
     "productName": "SDL 3029",
     "designName": "Amber Light  Brown Wood",
@@ -9032,7 +9032,7 @@
   },
   {
     "id": 645,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3030 SF",
     "productName": "SDL 3030",
     "designName": "Borneo Brown",
@@ -9047,7 +9047,7 @@
   },
   {
     "id": 646,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3030 SHG",
     "productName": "SDL 3030",
     "designName": "Borneo Brown",
@@ -9062,7 +9062,7 @@
   },
   {
     "id": 647,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3031 SF",
     "productName": "SDL 3031",
     "designName": "Dessert oak",
@@ -9077,7 +9077,7 @@
   },
   {
     "id": 648,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3031 SHG",
     "productName": "SDL 3031",
     "designName": "Dessert oak",
@@ -9092,7 +9092,7 @@
   },
   {
     "id": 649,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3032 WB",
     "productName": "SDL 3032",
     "designName": "Austin Walnut",
@@ -9107,7 +9107,7 @@
   },
   {
     "id": 650,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3033 SF",
     "productName": "SDL 3033",
     "designName": "Brink Oak",
@@ -9122,7 +9122,7 @@
   },
   {
     "id": 651,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3033 SHG",
     "productName": "SDL 3033",
     "designName": "Brink Oak",
@@ -9137,7 +9137,7 @@
   },
   {
     "id": 652,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3034 MB",
     "productName": "SDL 3034",
     "designName": "Dark Brink Oak",
@@ -9152,7 +9152,7 @@
   },
   {
     "id": 653,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3034 SF",
     "productName": "SDL 3034",
     "designName": "Dark Brink Oak",
@@ -9167,7 +9167,7 @@
   },
   {
     "id": 654,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3034 SHG",
     "productName": "SDL 3034",
     "designName": "Dark Brink Oak",
@@ -9182,7 +9182,7 @@
   },
   {
     "id": 655,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3035 SF",
     "productName": "SDL 3035",
     "designName": "Cherry Walnut",
@@ -9197,7 +9197,7 @@
   },
   {
     "id": 656,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3035 SHG",
     "productName": "SDL 3035",
     "designName": "Cherry Walnut",
@@ -9212,7 +9212,7 @@
   },
   {
     "id": 657,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3035 TP",
     "productName": "SDL 3035",
     "designName": "Cherry Walnut",
@@ -9227,7 +9227,7 @@
   },
   {
     "id": 658,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3036 SF",
     "productName": "SDL 3036",
     "designName": "Aspen Brown Oak",
@@ -9242,7 +9242,7 @@
   },
   {
     "id": 659,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3036 SHG",
     "productName": "SDL 3036",
     "designName": "Aspen Brown Oak",
@@ -9257,7 +9257,7 @@
   },
   {
     "id": 660,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3037 SF",
     "productName": "SDL 3037",
     "designName": "Grey Dutch Oak",
@@ -9272,7 +9272,7 @@
   },
   {
     "id": 661,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3037 TP",
     "productName": "SDL 3037",
     "designName": "Grey Dutch Oak",
@@ -9287,7 +9287,7 @@
   },
   {
     "id": 662,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3037 WB",
     "productName": "SDL 3037",
     "designName": "Grey Dutch Oak",
@@ -9302,7 +9302,7 @@
   },
   {
     "id": 663,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3038 SHG",
     "productName": "SDL 3038",
     "designName": "Brown Flute",
@@ -9317,7 +9317,7 @@
   },
   {
     "id": 664,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3039 SFT",
     "productName": "SDL 3039",
     "designName": "Classic Flute",
@@ -9332,7 +9332,7 @@
   },
   {
     "id": 665,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3039 SHG",
     "productName": "SDL 3039",
     "designName": "Classic Flute",
@@ -9347,7 +9347,7 @@
   },
   {
     "id": 666,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3041 LL",
     "productName": "SDL 3041",
     "designName": "Lacebark Walnut",
@@ -9362,7 +9362,7 @@
   },
   {
     "id": 667,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3041 SF",
     "productName": "SDL 3041",
     "designName": "Lacebark Walnut",
@@ -9377,7 +9377,7 @@
   },
   {
     "id": 668,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3042 QB",
     "productName": "SDL 3042",
     "designName": "Leping Walnut",
@@ -9392,7 +9392,7 @@
   },
   {
     "id": 669,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3042 SF",
     "productName": "SDL 3042",
     "designName": "Leping Walnut",
@@ -9407,7 +9407,7 @@
   },
   {
     "id": 670,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3042 VNR",
     "productName": "SDL 3042",
     "designName": "Leping Walnut",
@@ -9422,7 +9422,7 @@
   },
   {
     "id": 671,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3043 LL",
     "productName": "SDL 3043",
     "designName": "Light Dutch Oak",
@@ -9437,7 +9437,7 @@
   },
   {
     "id": 672,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3043 SF",
     "productName": "SDL 3043",
     "designName": "Light Dutch Oak",
@@ -9452,7 +9452,7 @@
   },
   {
     "id": 673,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3043 WB",
     "productName": "SDL 3043",
     "designName": "Light Dutch Oak",
@@ -9467,7 +9467,7 @@
   },
   {
     "id": 674,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3044 MB",
     "productName": "SDL 3044",
     "designName": "Dark Dutch Oak",
@@ -9482,7 +9482,7 @@
   },
   {
     "id": 675,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3044 TP",
     "productName": "SDL 3044",
     "designName": "Dark Dutch Oak",
@@ -9497,7 +9497,7 @@
   },
   {
     "id": 676,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3044 WB",
     "productName": "SDL 3044",
     "designName": "Dark Dutch Oak",
@@ -9512,7 +9512,7 @@
   },
   {
     "id": 677,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3045 MB",
     "productName": "SDL 3045",
     "designName": "Dark Duress Wood",
@@ -9527,7 +9527,7 @@
   },
   {
     "id": 678,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3045 SHG",
     "productName": "SDL 3045",
     "designName": "Dark Duress Wood",
@@ -9542,7 +9542,7 @@
   },
   {
     "id": 679,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3046 SHG",
     "productName": "SDL 3046",
     "designName": "Flame Dark Wood",
@@ -9557,7 +9557,7 @@
   },
   {
     "id": 680,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3047 LW",
     "productName": "SDL 3047",
     "designName": "Brescan Walnut",
@@ -9572,7 +9572,7 @@
   },
   {
     "id": 681,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3047 SFT",
     "productName": "SDL 3047",
     "designName": "Brescan Walnut",
@@ -9587,7 +9587,7 @@
   },
   {
     "id": 682,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3048 SFT",
     "productName": "SDL 3048",
     "designName": "Mystique Walnut",
@@ -9602,7 +9602,7 @@
   },
   {
     "id": 683,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3048 VB",
     "productName": "SDL 3048",
     "designName": "Mystique Walnut",
@@ -9617,7 +9617,7 @@
   },
   {
     "id": 684,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 3049 SF",
     "productName": "SDL 3049",
     "designName": "Swarna Gold",
@@ -9632,7 +9632,7 @@
   },
   {
     "id": 685,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4001 STN",
     "productName": "SDL 4001",
     "designName": "Brown Mirage",
@@ -9647,7 +9647,7 @@
   },
   {
     "id": 686,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4002 SHG",
     "productName": "SDL 4002",
     "designName": "Tanned Marble",
@@ -9662,7 +9662,7 @@
   },
   {
     "id": 687,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4003 SFT",
     "productName": "SDL 4003",
     "designName": "Statuario Marble",
@@ -9677,7 +9677,7 @@
   },
   {
     "id": 688,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4003 SHG",
     "productName": "SDL 4003",
     "designName": "Statuario Marble",
@@ -9692,7 +9692,7 @@
   },
   {
     "id": 689,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4003 STN",
     "productName": "SDL 4003",
     "designName": "Statuario Marble",
@@ -9707,7 +9707,7 @@
   },
   {
     "id": 690,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4004 STN",
     "productName": "SDL 4004",
     "designName": "Ecuador Marble",
@@ -9722,7 +9722,7 @@
   },
   {
     "id": 691,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4005 SFT",
     "productName": "SDL 4005",
     "designName": "Pacific Grey",
@@ -9737,7 +9737,7 @@
   },
   {
     "id": 692,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4005 SHG",
     "productName": "SDL 4005",
     "designName": "Pacific Grey",
@@ -9752,7 +9752,7 @@
   },
   {
     "id": 693,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4005 STN",
     "productName": "SDL 4005",
     "designName": "Pacific Grey",
@@ -9767,7 +9767,7 @@
   },
   {
     "id": 694,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4006 SHG",
     "productName": "SDL 4006",
     "designName": "Athiena Marble",
@@ -9782,7 +9782,7 @@
   },
   {
     "id": 695,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4007 SFT",
     "productName": "SDL 4007",
     "designName": "White Pietra",
@@ -9797,7 +9797,7 @@
   },
   {
     "id": 696,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4007 STN",
     "productName": "SDL 4007",
     "designName": "White Pietra",
@@ -9812,7 +9812,7 @@
   },
   {
     "id": 697,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4008 SFT",
     "productName": "SDL 4008",
     "designName": "Black mIrage",
@@ -9827,7 +9827,7 @@
   },
   {
     "id": 698,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4008 SHG",
     "productName": "SDL 4008",
     "designName": "Black mIrage",
@@ -9842,7 +9842,7 @@
   },
   {
     "id": 699,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4008 STN",
     "productName": "SDL 4008",
     "designName": "Black mIrage",
@@ -9857,7 +9857,7 @@
   },
   {
     "id": 700,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4009 SHG",
     "productName": "SDL 4009",
     "designName": "Black Rustic Marble",
@@ -9872,7 +9872,7 @@
   },
   {
     "id": 701,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4010 SFT",
     "productName": "SDL 4010",
     "designName": "Grey Marble Flute",
@@ -9887,7 +9887,7 @@
   },
   {
     "id": 702,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4010 SHG",
     "productName": "SDL 4010",
     "designName": "Grey Marble Flute",
@@ -9902,7 +9902,7 @@
   },
   {
     "id": 703,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4011 SFT",
     "productName": "SDL 4011",
     "designName": "Coco Marble Flute",
@@ -9917,7 +9917,7 @@
   },
   {
     "id": 704,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4011 SHG",
     "productName": "SDL 4011",
     "designName": "Coco Marble Flute",
@@ -9932,7 +9932,7 @@
   },
   {
     "id": 705,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4012 SFT",
     "productName": "SDL 4012",
     "designName": "Black Marble Flute",
@@ -9947,7 +9947,7 @@
   },
   {
     "id": 706,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4012 SHG",
     "productName": "SDL 4012",
     "designName": "Black Marble Flute",
@@ -9962,7 +9962,7 @@
   },
   {
     "id": 708,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4013 SHG",
     "productName": "SDL 4013",
     "designName": "Satvario Marble",
@@ -9977,7 +9977,7 @@
   },
   {
     "id": 709,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4014 SHG",
     "productName": "SDL 4014",
     "designName": "Blanco Marble",
@@ -9992,7 +9992,7 @@
   },
   {
     "id": 710,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4015 SFT",
     "productName": "SDL 4015",
     "designName": "Dim Desk Marble",
@@ -10007,7 +10007,7 @@
   },
   {
     "id": 711,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4015 SHG",
     "productName": "SDL 4015",
     "designName": "Dim Desk Marble",
@@ -10022,7 +10022,7 @@
   },
   {
     "id": 712,
-    "productType": "0.8 MM Laminates",
+    "productType": "0.8mm",
     "productCode": "SDL 4016 SFT",
     "productName": "SDL 4016",
     "designName": "Molten  Marble",
@@ -10037,7 +10037,7 @@
   },
   {
     "id": 713,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 101 GLS",
     "productName": "SDA 101",
     "designName": "",
@@ -10052,7 +10052,7 @@
   },
   {
     "id": 714,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 102 GLS",
     "productName": "SDA 102",
     "designName": "",
@@ -10067,7 +10067,7 @@
   },
   {
     "id": 715,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 103 GLS",
     "productName": "SDA 103",
     "designName": "",
@@ -10082,7 +10082,7 @@
   },
   {
     "id": 716,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 105 GLS",
     "productName": "SDA 105",
     "designName": "",
@@ -10097,7 +10097,7 @@
   },
   {
     "id": 717,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 106 GLS",
     "productName": "SDA 106",
     "designName": "",
@@ -10112,7 +10112,7 @@
   },
   {
     "id": 718,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 107 GLS",
     "productName": "SDA 107",
     "designName": "",
@@ -10127,7 +10127,7 @@
   },
   {
     "id": 719,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 109 GLS",
     "productName": "SDA 109",
     "designName": "",
@@ -10142,7 +10142,7 @@
   },
   {
     "id": 720,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 111 GLS",
     "productName": "SDA 111",
     "designName": "",
@@ -10157,7 +10157,7 @@
   },
   {
     "id": 721,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 112 GLS",
     "productName": "SDA 112",
     "designName": "",
@@ -10172,7 +10172,7 @@
   },
   {
     "id": 722,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 113 GLS",
     "productName": "SDA 113",
     "designName": "",
@@ -10187,7 +10187,7 @@
   },
   {
     "id": 723,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 114 GLS",
     "productName": "SDA 114",
     "designName": "",
@@ -10202,7 +10202,7 @@
   },
   {
     "id": 724,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 115 GLS",
     "productName": "SDA 115",
     "designName": "",
@@ -10217,7 +10217,7 @@
   },
   {
     "id": 725,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 116 GLS",
     "productName": "SDA 116",
     "designName": "",
@@ -10232,7 +10232,7 @@
   },
   {
     "id": 726,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 117 GLS",
     "productName": "SDA 117",
     "designName": "",
@@ -10247,7 +10247,7 @@
   },
   {
     "id": 727,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 118 GLS",
     "productName": "SDA 118",
     "designName": "",
@@ -10262,7 +10262,7 @@
   },
   {
     "id": 728,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 119 GLS",
     "productName": "SDA 119",
     "designName": "",
@@ -10277,7 +10277,7 @@
   },
   {
     "id": 729,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 120 GLS",
     "productName": "SDA 120",
     "designName": "",
@@ -10292,7 +10292,7 @@
   },
   {
     "id": 730,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 121 GLS",
     "productName": "SDA 121",
     "designName": "",
@@ -10307,7 +10307,7 @@
   },
   {
     "id": 731,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 122 GLS",
     "productName": "SDA 122",
     "designName": "",
@@ -10322,7 +10322,7 @@
   },
   {
     "id": 732,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 123 GLS",
     "productName": "SDA 123",
     "designName": "",
@@ -10337,7 +10337,7 @@
   },
   {
     "id": 733,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 125 GLS",
     "productName": "SDA 125",
     "designName": "",
@@ -10352,7 +10352,7 @@
   },
   {
     "id": 734,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 126 GLS",
     "productName": "SDA 126",
     "designName": "",
@@ -10367,7 +10367,7 @@
   },
   {
     "id": 735,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 127 GLS",
     "productName": "SDA 127",
     "designName": "",
@@ -10382,7 +10382,7 @@
   },
   {
     "id": 736,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 128 GLS",
     "productName": "SDA 128",
     "designName": "",
@@ -10397,7 +10397,7 @@
   },
   {
     "id": 737,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 129 GLS",
     "productName": "SDA 129",
     "designName": "",
@@ -10412,7 +10412,7 @@
   },
   {
     "id": 738,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 130 GLS",
     "productName": "SDA 130",
     "designName": "",
@@ -10427,7 +10427,7 @@
   },
   {
     "id": 739,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 131 GLS",
     "productName": "SDA 131",
     "designName": "",
@@ -10442,7 +10442,7 @@
   },
   {
     "id": 740,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 132 GLS",
     "productName": "SDA 132",
     "designName": "",
@@ -10457,7 +10457,7 @@
   },
   {
     "id": 741,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 133 GLS",
     "productName": "SDA 133",
     "designName": "",
@@ -10472,7 +10472,7 @@
   },
   {
     "id": 742,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 134 GLS",
     "productName": "SDA 134",
     "designName": "",
@@ -10487,7 +10487,7 @@
   },
   {
     "id": 743,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 135 GLS",
     "productName": "SDA 135",
     "designName": "",
@@ -10502,7 +10502,7 @@
   },
   {
     "id": 744,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 136 GLS",
     "productName": "SDA 136",
     "designName": "",
@@ -10517,7 +10517,7 @@
   },
   {
     "id": 745,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 137 GLS",
     "productName": "SDA 137",
     "designName": "",
@@ -10532,7 +10532,7 @@
   },
   {
     "id": 746,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 138 GLS",
     "productName": "SDA 138",
     "designName": "",
@@ -10547,7 +10547,7 @@
   },
   {
     "id": 747,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 151 GLS",
     "productName": "SDA 151",
     "designName": "",
@@ -10562,7 +10562,7 @@
   },
   {
     "id": 748,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 152 GLS",
     "productName": "SDA 152",
     "designName": "",
@@ -10577,7 +10577,7 @@
   },
   {
     "id": 749,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 153 GLS",
     "productName": "SDA 153",
     "designName": "",
@@ -10592,7 +10592,7 @@
   },
   {
     "id": 750,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 154 GLS",
     "productName": "SDA 154",
     "designName": "",
@@ -10607,7 +10607,7 @@
   },
   {
     "id": 751,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 155 GLS",
     "productName": "SDA 155",
     "designName": "",
@@ -10622,7 +10622,7 @@
   },
   {
     "id": 752,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 156 GLS",
     "productName": "SDA 156",
     "designName": "",
@@ -10637,7 +10637,7 @@
   },
   {
     "id": 753,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 157 GLS",
     "productName": "SDA 157",
     "designName": "",
@@ -10652,7 +10652,7 @@
   },
   {
     "id": 754,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 158 GLS",
     "productName": "SDA 158",
     "designName": "",
@@ -10667,7 +10667,7 @@
   },
   {
     "id": 755,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 161 GLS",
     "productName": "SDA 161",
     "designName": "",
@@ -10682,7 +10682,7 @@
   },
   {
     "id": 756,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 162 GLS",
     "productName": "SDA 162",
     "designName": "",
@@ -10697,7 +10697,7 @@
   },
   {
     "id": 757,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 201 SRO",
     "productName": "SDA 201",
     "designName": "",
@@ -10712,7 +10712,7 @@
   },
   {
     "id": 758,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 202 SRO",
     "productName": "SDA 202",
     "designName": "",
@@ -10727,7 +10727,7 @@
   },
   {
     "id": 759,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 203 SRO",
     "productName": "SDA 203",
     "designName": "",
@@ -10742,7 +10742,7 @@
   },
   {
     "id": 760,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 204 SRO",
     "productName": "SDA 204",
     "designName": "",
@@ -10757,7 +10757,7 @@
   },
   {
     "id": 761,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 205 SRO",
     "productName": "SDA 205",
     "designName": "",
@@ -10772,7 +10772,7 @@
   },
   {
     "id": 762,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 206 SRO",
     "productName": "SDA 206",
     "designName": "",
@@ -10787,7 +10787,7 @@
   },
   {
     "id": 763,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 207 SRO",
     "productName": "SDA 207",
     "designName": "",
@@ -10802,7 +10802,7 @@
   },
   {
     "id": 764,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 208 SRO",
     "productName": "SDA 208",
     "designName": "",
@@ -10817,7 +10817,7 @@
   },
   {
     "id": 765,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 209 SRO",
     "productName": "SDA 209",
     "designName": "",
@@ -10832,7 +10832,7 @@
   },
   {
     "id": 766,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 301 GLS",
     "productName": "SDA 301",
     "designName": "",
@@ -10847,7 +10847,7 @@
   },
   {
     "id": 767,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 302 GLS",
     "productName": "SDA 302",
     "designName": "",
@@ -10862,7 +10862,7 @@
   },
   {
     "id": 768,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 303 GLS",
     "productName": "SDA 303",
     "designName": "",
@@ -10877,7 +10877,7 @@
   },
   {
     "id": 769,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 304 GLS",
     "productName": "SDA 304",
     "designName": "",
@@ -10892,7 +10892,7 @@
   },
   {
     "id": 770,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 305 GLS",
     "productName": "SDA 305",
     "designName": "",
@@ -10907,7 +10907,7 @@
   },
   {
     "id": 771772,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 306 GLS",
     "productName": "SDA 306",
     "designName": "",
@@ -10922,7 +10922,7 @@
   },
   {
     "id": 773,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 307 GLS",
     "productName": "SDA 307",
     "designName": "",
@@ -10937,7 +10937,7 @@
   },
   {
     "id": 774,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 420 GLS",
     "productName": "SDA 420",
     "designName": "",
@@ -10952,7 +10952,7 @@
   },
   {
     "id": 775,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 421 GLS",
     "productName": "SDA 421",
     "designName": "",
@@ -10967,7 +10967,7 @@
   },
   {
     "id": 776,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 422 GLS",
     "productName": "SDA 422",
     "designName": "",
@@ -10982,7 +10982,7 @@
   },
   {
     "id": 777,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 423 GLS",
     "productName": "SDA 423",
     "designName": "",
@@ -10997,7 +10997,7 @@
   },
   {
     "id": 778,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 424 GLS",
     "productName": "SDA 424",
     "designName": "",
@@ -11012,7 +11012,7 @@
   },
   {
     "id": 779,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 425 GLS",
     "productName": "SDA 425",
     "designName": "",
@@ -11027,7 +11027,7 @@
   },
   {
     "id": 780,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 426 GLS",
     "productName": "SDA 426",
     "designName": "",
@@ -11042,7 +11042,7 @@
   },
   {
     "id": 781,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 427 GLS",
     "productName": "SDA 427",
     "designName": "",
@@ -11057,7 +11057,7 @@
   },
   {
     "id": 782,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 428 GLS",
     "productName": "SDA 428",
     "designName": "",
@@ -11072,7 +11072,7 @@
   },
   {
     "id": 783,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 429 GLS",
     "productName": "SDA 429",
     "designName": "",
@@ -11087,7 +11087,7 @@
   },
   {
     "id": 784,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 430 GLS",
     "productName": "SDA 430",
     "designName": "",
@@ -11102,7 +11102,7 @@
   },
   {
     "id": 785,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 431 GLS",
     "productName": "SDA 431",
     "designName": "",
@@ -11117,7 +11117,7 @@
   },
   {
     "id": 786,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 432 GLS",
     "productName": "SDA 432",
     "designName": "",
@@ -11132,7 +11132,7 @@
   },
   {
     "id": 787,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 451 GLS",
     "productName": "SDA 451",
     "designName": "",
@@ -11147,7 +11147,7 @@
   },
   {
     "id": 788,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 452 GLS",
     "productName": "SDA 452",
     "designName": "",
@@ -11162,7 +11162,7 @@
   },
   {
     "id": 789,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 453 GLS",
     "productName": "SDA 453",
     "designName": "",
@@ -11177,7 +11177,7 @@
   },
   {
     "id": 790,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 454 GLS",
     "productName": "SDA 454",
     "designName": "",
@@ -11192,7 +11192,7 @@
   },
   {
     "id": 791,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 455 GLS",
     "productName": "SDA 455",
     "designName": "",
@@ -11207,7 +11207,7 @@
   },
   {
     "id": 792,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 456 GLS",
     "productName": "SDA 456",
     "designName": "",
@@ -11222,7 +11222,7 @@
   },
   {
     "id": 793,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 459 GLS",
     "productName": "SDA 459",
     "designName": "",
@@ -11237,7 +11237,7 @@
   },
   {
     "id": 794,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 460 GLS",
     "productName": "SDA 460",
     "designName": "",
@@ -11252,7 +11252,7 @@
   },
   {
     "id": 795,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 461 GLS",
     "productName": "SDA 461",
     "designName": "",
@@ -11267,7 +11267,7 @@
   },
   {
     "id": 796,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 462 GLS",
     "productName": "SDA 462",
     "designName": "",
@@ -11282,7 +11282,7 @@
   },
   {
     "id": 797,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 463 GLS",
     "productName": "SDA 463",
     "designName": "",
@@ -11297,7 +11297,7 @@
   },
   {
     "id": 798,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 464 GLS",
     "productName": "SDA 464",
     "designName": "",
@@ -11312,7 +11312,7 @@
   },
   {
     "id": 799,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 465 GLS",
     "productName": "SDA 465",
     "designName": "",
@@ -11327,7 +11327,7 @@
   },
   {
     "id": 800,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 601 GLS",
     "productName": "SDA 601",
     "designName": "",
@@ -11342,7 +11342,7 @@
   },
   {
     "id": 801,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 607 GLS",
     "productName": "SDA 607",
     "designName": "",
@@ -11357,7 +11357,7 @@
   },
   {
     "id": 802,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 608 GLS",
     "productName": "SDA 608",
     "designName": "",
@@ -11372,7 +11372,7 @@
   },
   {
     "id": 803,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 611 GLS",
     "productName": "SDA 611",
     "designName": "",
@@ -11387,7 +11387,7 @@
   },
   {
     "id": 804,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 612 GLS",
     "productName": "SDA 612",
     "designName": "",
@@ -11402,7 +11402,7 @@
   },
   {
     "id": 805,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 701 RFT",
     "productName": "SDA 701",
     "designName": "",
@@ -11417,7 +11417,7 @@
   },
   {
     "id": 806,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 702 RFT",
     "productName": "SDA 702",
     "designName": "",
@@ -11432,7 +11432,7 @@
   },
   {
     "id": 807,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 703 RFT",
     "productName": "SDA 703",
     "designName": "",
@@ -11447,7 +11447,7 @@
   },
   {
     "id": 808,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 704 RFT",
     "productName": "SDA 704",
     "designName": "",
@@ -11462,7 +11462,7 @@
   },
   {
     "id": 809,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1001 FGL",
     "productName": "SDA 1001",
     "designName": "",
@@ -11477,7 +11477,7 @@
   },
   {
     "id": 810,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1002 FGL",
     "productName": "SDA 1002",
     "designName": "",
@@ -11492,7 +11492,7 @@
   },
   {
     "id": 811,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1003 FGL",
     "productName": "SDA 1003",
     "designName": "",
@@ -11507,7 +11507,7 @@
   },
   {
     "id": 812,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1004 FGL",
     "productName": "SDA 1004",
     "designName": "",
@@ -11522,7 +11522,7 @@
   },
   {
     "id": 813,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1005 FGL",
     "productName": "SDA 1005",
     "designName": "",
@@ -11537,7 +11537,7 @@
   },
   {
     "id": 814,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1501 FGL",
     "productName": "SDA 1501",
     "designName": "",
@@ -11552,7 +11552,7 @@
   },
   {
     "id": 815,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1502 FGL",
     "productName": "SDA 1502",
     "designName": "",
@@ -11567,7 +11567,7 @@
   },
   {
     "id": 817,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1504 FGL",
     "productName": "SDA 1504",
     "designName": "",
@@ -11582,7 +11582,7 @@
   },
   {
     "id": 818,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1505 FGL",
     "productName": "SDA 1505",
     "designName": "",
@@ -11597,7 +11597,7 @@
   },
   {
     "id": 819,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1506 FGL",
     "productName": "SDA 1506",
     "designName": "",
@@ -11612,7 +11612,7 @@
   },
   {
     "id": 820,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1507 FGL",
     "productName": "SDA 1507",
     "designName": "",
@@ -11627,7 +11627,7 @@
   },
   {
     "id": 821,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1508 FGL",
     "productName": "SDA 1508",
     "designName": "",
@@ -11642,7 +11642,7 @@
   },
   {
     "id": 822,
-    "productType": "Acrylish Laminates",
+    "productType": "Acrylish",
     "productCode": "SDA 1509 FGL",
     "productName": "SDA 1509",
     "designName": "",
@@ -11958,7 +11958,7 @@
   {
     "id": 900,
     "productCode": "SD 001 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 001",
     "designName": "FABRICANO",
     "category": "Fabric",
@@ -11973,7 +11973,7 @@
   {
     "id": 901,
     "productCode": "SD 003 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 003",
     "designName": "GREY FABRICANO",
     "category": "Fabric",
@@ -11988,7 +11988,7 @@
   {
     "id": 902,
     "productCode": "SD 004 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 004",
     "designName": "DENIM-1",
     "category": "Fabric",
@@ -12003,7 +12003,7 @@
   {
     "id": 903,
     "productCode": "SD 007 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 007",
     "designName": "DENIM-3",
     "category": "Fabric",
@@ -12018,7 +12018,7 @@
   {
     "id": 904,
     "productCode": "SD 008 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 008",
     "designName": "LIGHT MESH",
     "category": "Fabric",
@@ -12033,7 +12033,7 @@
   {
     "id": 905,
     "productCode": "SD 009 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 009",
     "designName": "ETHNIC KHADI",
     "category": "Fabric",
@@ -12048,7 +12048,7 @@
   {
     "id": 906,
     "productCode": "SD 012 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 012",
     "designName": "DARK MESH",
     "category": "Fabric",
@@ -12063,7 +12063,7 @@
   {
     "id": 907,
     "productCode": "SD 013 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 013",
     "designName": "IVORY FABRIC",
     "category": "Fabric",
@@ -12078,7 +12078,7 @@
   {
     "id": 908,
     "productCode": "SD 014 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 014",
     "designName": "NET FABRIC",
     "category": "Fabric",
@@ -12093,7 +12093,7 @@
   {
     "id": 909,
     "productCode": "SD 017 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 017",
     "designName": "BEIGE KHADI",
     "category": "Fabric",
@@ -12108,7 +12108,7 @@
   {
     "id": 910,
     "productCode": "SD 020 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 020",
     "designName": "CREAM KHADI",
     "category": "Fabric",
@@ -12123,7 +12123,7 @@
   {
     "id": 911,
     "productCode": "SD 024 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 024",
     "designName": "LINEAR",
     "category": "Fabric",
@@ -12138,7 +12138,7 @@
   {
     "id": 912,
     "productCode": "SD 026 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 026",
     "designName": "HANDSPUN GREY",
     "category": "Fabric",
@@ -12153,7 +12153,7 @@
   {
     "id": 913,
     "productCode": "SD 028 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 028",
     "designName": "HANDSPUN LIGHT BROWN",
     "category": "Fabric",
@@ -12168,7 +12168,7 @@
   {
     "id": 914,
     "productCode": "SD 035 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 035",
     "designName": "LIGHT CAMBRIC",
     "category": "Fabric",
@@ -12183,7 +12183,7 @@
   {
     "id": 915,
     "productCode": "SD 036 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 036",
     "designName": "DARK CAMBRIC",
     "category": "Fabric",
@@ -12198,7 +12198,7 @@
   {
     "id": 916,
     "productCode": "SD 037 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 037",
     "designName": "COTTON FABRIC",
     "category": "Fabric",
@@ -12213,7 +12213,7 @@
   {
     "id": 917,
     "productCode": "SD 038 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 038",
     "designName": "DARK COTTON FABRIC",
     "category": "Fabric",
@@ -12228,7 +12228,7 @@
   {
     "id": 918,
     "productCode": "SD 039 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 039",
     "designName": "CUSINO",
     "category": "Fabric",
@@ -12243,7 +12243,7 @@
   {
     "id": 919,
     "productCode": "SD 040 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 040",
     "designName": "HERRING FAB",
     "category": "Fabric",
@@ -12258,7 +12258,7 @@
   {
     "id": 920,
     "productCode": "SD 101 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 101",
     "designName": "SAPELI",
     "category": "Woodgrain",
@@ -12273,7 +12273,7 @@
   {
     "id": 921,
     "productCode": "SD 102 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 102",
     "designName": "TROPICAL WALNUT",
     "category": "Woodgrain",
@@ -12288,7 +12288,7 @@
   {
     "id": 922,
     "productCode": "SD 103 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 103",
     "designName": "NOVA TEAK",
     "category": "Woodgrain",
@@ -12303,7 +12303,7 @@
   {
     "id": 923,
     "productCode": "SD 105 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 105",
     "designName": "STEAM BEACH",
     "category": "Woodgrain",
@@ -12318,7 +12318,7 @@
   {
     "id": 924,
     "productCode": "SD 109 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 109",
     "designName": "HICKORY WOOD",
     "category": "Woodgrain",
@@ -12333,7 +12333,7 @@
   {
     "id": 925,
     "productCode": "SD 110 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 110",
     "designName": "WHITE OAK",
     "category": "Woodgrain",
@@ -12348,7 +12348,7 @@
   {
     "id": 926,
     "productCode": "SD 111 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 111",
     "designName": "LAKARI NATURAL",
     "category": "Woodgrain",
@@ -12363,7 +12363,7 @@
   {
     "id": 927,
     "productCode": "SD 112 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 112",
     "designName": "BAVERIAN BEECH",
     "category": "Woodgrain",
@@ -12378,7 +12378,7 @@
   {
     "id": 928,
     "productCode": "SD 114 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 114",
     "designName": "DARK SPANISH OAK",
     "category": "Woodgrain",
@@ -12393,7 +12393,7 @@
   {
     "id": 929,
     "productCode": "SD 115 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 115",
     "designName": "DARK MIGHTY WOOD",
     "category": "Woodgrain",
@@ -12408,7 +12408,7 @@
   {
     "id": 930,
     "productCode": "SD 116 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 116",
     "designName": "MIGHTY WOOD",
     "category": "Woodgrain",
@@ -12423,7 +12423,7 @@
   {
     "id": 931,
     "productCode": "SD 501 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 501",
     "designName": "WHITE",
     "category": "Solid",
@@ -12438,7 +12438,7 @@
   {
     "id": 932,
     "productCode": "SD 502 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 502",
     "designName": "OFF WHITE",
     "category": "Solid",
@@ -12453,7 +12453,7 @@
   {
     "id": 933,
     "productCode": "SD 503 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 503",
     "designName": "GREY",
     "category": "Solid",
@@ -12468,7 +12468,7 @@
   {
     "id": 934,
     "productCode": "SD 504 SF",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 504",
     "designName": "BLACK",
     "category": "Solid",
@@ -12483,7 +12483,7 @@
   {
     "id": 935,
     "productCode": "SD 001 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 001",
     "designName": "FABRICANO",
     "category": "Fabric",
@@ -12498,7 +12498,7 @@
   {
     "id": 936,
     "productCode": "SD 003 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 003",
     "designName": "GREY FABRICANO",
     "category": "Fabric",
@@ -12513,7 +12513,7 @@
   {
     "id": 937,
     "productCode": "SD 004 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 004",
     "designName": "DENIM-1",
     "category": "Fabric",
@@ -12528,7 +12528,7 @@
   {
     "id": 938,
     "productCode": "SD 007 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 007",
     "designName": "DENIM-3",
     "category": "Fabric",
@@ -12543,7 +12543,7 @@
   {
     "id": 939,
     "productCode": "SD 008 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 008",
     "designName": "LIGHT MESH",
     "category": "Fabric",
@@ -12558,7 +12558,7 @@
   {
     "id": 940,
     "productCode": "SD 009 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 009",
     "designName": "ETHNIC KHADI",
     "category": "Fabric",
@@ -12573,7 +12573,7 @@
   {
     "id": 941,
     "productCode": "SD 012 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 012",
     "designName": "DARK MESH",
     "category": "Fabric",
@@ -12588,7 +12588,7 @@
   {
     "id": 942,
     "productCode": "SD 013 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 013",
     "designName": "IVORY FABRIC",
     "category": "Fabric",
@@ -12603,7 +12603,7 @@
   {
     "id": 943,
     "productCode": "SD 014 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 014",
     "designName": "NET FABRIC",
     "category": "Fabric",
@@ -12618,7 +12618,7 @@
   {
     "id": 944,
     "productCode": "SD 017 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 017",
     "designName": "BEIGE KHADI",
     "category": "Fabric",
@@ -12633,7 +12633,7 @@
   {
     "id": 945,
     "productCode": "SD 020 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 020",
     "designName": "CREAM KHADI",
     "category": "Fabric",
@@ -12648,7 +12648,7 @@
   {
     "id": 946,
     "productCode": "SD 024 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 024",
     "designName": "LINEAR",
     "category": "Fabric",
@@ -12663,7 +12663,7 @@
   {
     "id": 947,
     "productCode": "SD 026 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 026",
     "designName": "HANDSPUN GREY",
     "category": "Fabric",
@@ -12678,7 +12678,7 @@
   {
     "id": 948,
     "productCode": "SD 028 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 028",
     "designName": "HANDSPUN LIGHT BROWN",
     "category": "Fabric",
@@ -12693,7 +12693,7 @@
   {
     "id": 949,
     "productCode": "SD 035 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 035",
     "designName": "LIGHT CAMBRIC",
     "category": "Fabric",
@@ -12708,7 +12708,7 @@
   {
     "id": 950,
     "productCode": "SD 036 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 036",
     "designName": "DARK CAMBRIC",
     "category": "Fabric",
@@ -12723,7 +12723,7 @@
   {
     "id": 951,
     "productCode": "SD 037 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 037",
     "designName": "COTTON FABRIC",
     "category": "Fabric",
@@ -12738,7 +12738,7 @@
   {
     "id": 952,
     "productCode": "SD 038 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 038",
     "designName": "DARK COTTON FABRIC",
     "category": "Fabric",
@@ -12753,7 +12753,7 @@
   {
     "id": 953,
     "productCode": "SD 039 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 039",
     "designName": "CUSINO",
     "category": "Fabric",
@@ -12768,7 +12768,7 @@
   {
     "id": 954,
     "productCode": "SD 040 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 040",
     "designName": "HERRING FAB",
     "category": "Fabric",
@@ -12783,7 +12783,7 @@
   {
     "id": 955,
     "productCode": "SD 101 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 101",
     "designName": "SAPELI",
     "category": "Woodgrain",
@@ -12798,7 +12798,7 @@
   {
     "id": 956,
     "productCode": "SD 102 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 102",
     "designName": "TROPICAL WALNUT",
     "category": "Woodgrain",
@@ -12813,7 +12813,7 @@
   {
     "id": 957,
     "productCode": "SD 103 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 103",
     "designName": "NOVA TEAK",
     "category": "Woodgrain",
@@ -12828,7 +12828,7 @@
   {
     "id": 958,
     "productCode": "SD 105 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 105",
     "designName": "STEAM BEACH",
     "category": "Woodgrain",
@@ -12843,7 +12843,7 @@
   {
     "id": 959,
     "productCode": "SD 109 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 109",
     "designName": "HICKORY WOOD",
     "category": "Woodgrain",
@@ -12858,7 +12858,7 @@
   {
     "id": 960,
     "productCode": "SD 110 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 110",
     "designName": "WHITE OAK",
     "category": "Woodgrain",
@@ -12873,7 +12873,7 @@
   {
     "id": 961,
     "productCode": "SD 111 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 111",
     "designName": "LAKARI NATURAL",
     "category": "Woodgrain",
@@ -12888,7 +12888,7 @@
   {
     "id": 962,
     "productCode": "SD 112 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 112",
     "designName": "BAVERIAN BEECH",
     "category": "Woodgrain",
@@ -12903,7 +12903,7 @@
   {
     "id": 963,
     "productCode": "SD 114 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 114",
     "designName": "DARK SPANISH OAK",
     "category": "Woodgrain",
@@ -12918,7 +12918,7 @@
   {
     "id": 964,
     "productCode": "SD 115 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 115",
     "designName": "DARK MIGHTY WOOD",
     "category": "Woodgrain",
@@ -12933,7 +12933,7 @@
   {
     "id": 965,
     "productCode": "SD 116 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 116",
     "designName": "MIGHTY WOOD",
     "category": "Woodgrain",
@@ -12948,7 +12948,7 @@
   {
     "id": 966,
     "productCode": "SD 501 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 501",
     "designName": "WHITE",
     "category": "Solid",
@@ -12963,7 +12963,7 @@
   {
     "id": 967,
     "productCode": "SD 502 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 502",
     "designName": "OFF WHITE",
     "category": "Solid",
@@ -12978,7 +12978,7 @@
   {
     "id": 968,
     "productCode": "SD 503 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 503",
     "designName": "GREY",
     "category": "Solid",
@@ -12993,7 +12993,7 @@
   {
     "id": 969,
     "productCode": "SD 504 MT",
-    "productType": "Liner Laminates",
+    "productType": "liner",
     "productName": "SD 504",
     "designName": "BLACK",
     "category": "Solid",

@@ -12,6 +12,9 @@ const IndexRoute = require("./routes/index.js");
 const productEnquiry = require("./routes/productEnquiry.js");
 const apiKeyRoute = require("./routes/apiKey.js")
 
+const QrCode = require("./models/qrCode.js"); 
+
+
 const app = express();
 
 app.use(
@@ -31,6 +34,34 @@ app.use(express.urlencoded({ extended: true })); // For parsing application/x-ww
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
+
+
+
+app.get("/:productType/:category/:subcategory/:productName", async (req, res) => {
+  try {
+    const { productType, category, subcategory, productName } = req.params;
+
+    // Find record
+    const qrcode = await QrCode.findOne({
+      productType,
+      category,
+      subcategory,
+      productName: productName.toLowerCase(),
+    }).lean();
+
+    if (!qrcode) {
+      return res.status(404).send("PDF not found for this product");
+    }
+
+
+    return res.redirect(qrcode.productPdfPath);
+
+  } catch (error) {
+    console.error("QR Route Error:", error);
+    return res.status(500).send("Internal server error");
+  }
+});
+
 
 app.use("/", IndexRoute);
 app.use("/products", productRoute);
